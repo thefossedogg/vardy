@@ -17,7 +17,7 @@ function renderActive(streaks) {
   if (streaks.length === 0) {
     const row = document.createElement("tr");
     const cell = addCell(row, "empty", "No active scoring streaks in the current data.");
-    cell.colSpan = 6;
+    cell.colSpan = 5;
     body.append(row);
     return;
   }
@@ -56,7 +56,6 @@ function renderActive(streaks) {
     } else {
       next.textContent = "Not in current exports";
     }
-    addCell(row, "to-record", String(Math.max(0, RECORD - streak.matches)));
     body.append(row);
   }
 }
@@ -363,11 +362,8 @@ async function loadData() {
   const leader = active[0];
   document.querySelector("#closest-streak").textContent = leader ? `${leader.matches} / ${RECORD}` : "—";
   document.querySelector("#closest-player").textContent = leader
-    ? `${leader.playerName} · ${leader.clubName}`
+    ? `${leader.playerName} · ${leader.clubName} · ${Math.max(0, RECORD - leader.matches)} matches to record`
     : "No active runs yet";
-  document.querySelector("#matches-to-record").textContent = leader
-    ? String(Math.max(0, RECORD - leader.matches))
-    : "—";
   document.querySelector("#table-note").textContent =
     `Reference: Jamie Vardy’s ${RECORD}-game run in ${data.benchmark.season}. ` +
     `Archived fixtures start ${formatDate(data.archiveStartsAt)}. Player appearances are not present in the source exports.`;
@@ -388,7 +384,7 @@ loadData().catch((error) => {
   document.querySelector("#updated-at").textContent = "DATA UNAVAILABLE";
   const row = document.createElement("tr");
   const cell = addCell(row, "empty", "Could not load streak data.");
-  cell.colSpan = 6;
+  cell.colSpan = 5;
   document.querySelector("#active-streaks").replaceChildren(row);
   const bests = document.querySelector("#season-bests");
   bests.replaceChildren();

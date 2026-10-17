@@ -136,11 +136,6 @@
             <strong id="closest-streak">—</strong>
             <span class="stat-detail" id="closest-player">Waiting for season data</span>
           </article>
-          <article class="stat-card">
-            <span class="stat-label">MATCHES TO 11</span>
-            <strong id="matches-to-record">—</strong>
-            <span class="stat-detail">for the current leader</span>
-          </article>
         </div>
 
         <div class="table-panel">
@@ -163,11 +158,10 @@
                   <th scope="col" class="numeric">STREAK</th>
                   <th scope="col">LAST GOAL</th>
                   <th scope="col">NEXT GAME</th>
-                  <th scope="col">TO RECORD</th>
                 </tr>
               </thead>
               <tbody id="active-streaks">
-                <tr><td class="empty" colspan="6">Loading streaks…</td></tr>
+                <tr><td class="empty" colspan="5">Loading streaks…</td></tr>
               </tbody>
             </table>
           </div>
@@ -178,7 +172,7 @@
           <div class="table-heading">
             <div>
               <h3 id="season-best-title">This Season bests</h3>
-              <p>Longest in-season runs of two or more matches</p>
+              <p>Longest in-season runs of three or more matches</p>
             </div>
           </div>
           <div class="best-list" id="season-bests">
@@ -207,7 +201,7 @@
         <p>The active streaks table shows the current leader and how many more consecutive scoring matches are needed to reach 11. The latest data update appears beside the table heading.</p>
 
         <h3>What data does Vardy Watch use?</h3>
-        <p>The dashboard is generated from monthly Premier League JSON exports. Penalties count as goals, own goals do not, and only completed fixtures count toward a streak. Runs reset when a player changes clubs because the source exports do not include appearance or transfer dates.</p>
+        <p>Penalties count as goals, own goals do not, and only completed fixtures count toward a streak.</p>
       </section>
     </main>
 

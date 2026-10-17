@@ -210,21 +210,24 @@ h2 {
 
 .stats {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   margin-bottom: 25px;
-}
-
-.stat-card {
-  min-height: 134px;
-  padding: 20px 22px;
+  overflow: hidden;
   border: 1px solid var(--line);
   border-radius: 12px;
   background: var(--white);
 }
 
+.stat-card {
+  min-height: 112px;
+  padding: 20px 22px;
+}
+
+.stat-card + .stat-card {
+  border-left: 1px solid var(--line);
+}
+
 .stat-card-highlight {
-  border-color: #d0e9b1;
   background: #eff8e5;
 }
 
@@ -430,11 +433,7 @@ button:focus-visible {
   padding-top: 12px;
 }
 
-.to-record {
-  color: #617066;
-  font-family: var(--mono);
-  font-size: 11px;
-}
+
 
 .next-kickoff,
 .countdown {
@@ -585,12 +584,12 @@ footer {
   }
 
   .stats {
-    grid-template-columns: 1fr;
-    gap: 9px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .stat-card {
-    min-height: 110px;
+    min-height: 100px;
+    padding: 16px 12px;
   }
 
   .section-heading,
@@ -750,14 +749,13 @@ h1 span { display: inline-block; color: var(--red); transform: rotate(-1.5deg); 
 .pyr-row:nth-child(n+2) .pyr-step { margin-inline: auto; }
 .pyramid { padding-bottom: 18px; }
 
-.stat-card, .table-panel, .season-best, .season-history {
+.stats, .table-panel, .season-best, .season-history {
   border: 3px solid var(--ink);
   border-radius: 12px;
   box-shadow: 5px 5px 0 var(--ink);
 }
-.stat-card:nth-child(odd) { transform: rotate(-0.6deg); }
-.stat-card:nth-child(even) { transform: rotate(0.6deg); }
-.stat-card-highlight { background: var(--yellow); border-color: var(--ink); }
+.stat-card + .stat-card { border-color: var(--ink); }
+.stat-card-highlight { background: var(--yellow); }
 .stat-card strong { font-size: 46px; }
 .section-heading h2 { font-size: 40px; text-shadow: 2px 2px 0 #fff; }
 .table-heading h3 { font-size: 24px; }
@@ -787,6 +785,8 @@ footer { border-top: 4px solid var(--ink); color: var(--ink); }
   .pyr-chip { font-size: 10px; padding: 2px 5px; }
   .pyramid-heads { font-size: 13px; }
   .hero { padding-inline: 12px; }
+  .stat-card { padding: 14px 10px; }
+  .stat-card strong { font-size: 34px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

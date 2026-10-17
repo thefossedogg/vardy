@@ -12,7 +12,7 @@ The homepage presents current-season active streaks, the longest runs in the cur
 - Penalties count as goals; own goals do not.
 - Scheduled fixtures do not count as results or streak matches.
 - Streaks reset when a player changes clubs because the source exports do not contain appearance or transfer dates.
-- Active streaks and season bests are shown from two matches.
+- Active streaks are shown from two matches; season bests are shown from three matches.
 - Historical season-leader comparisons use complete archived seasons only.
 
 ## Data
