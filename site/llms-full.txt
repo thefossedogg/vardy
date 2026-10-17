@@ -1,0 +1,20 @@
+# Vardy Watch — Full content
+
+Vardy Watch tracks consecutive Premier League club fixtures in which a player scores at least one credited goal. Each run is compared with Jamie Vardy's record of scoring in 11 consecutive league games for Leicester City in 2015/16.
+
+## Dashboard
+
+The homepage presents current-season active streaks, the longest runs in the current season, and the leaders for each complete archived season. The active table shows each player's streak length, last scoring date, next scheduled fixture when available, and the number of scoring matches needed to reach 11. Its update date comes from the generation time of the published data.
+
+## Definitions and methodology
+
+- A scoring streak counts consecutive completed Premier League club fixtures with at least one credited goal.
+- Penalties count as goals; own goals do not.
+- Scheduled fixtures do not count as results or streak matches.
+- Streaks reset when a player changes clubs because the source exports do not contain appearance or transfer dates.
+- Active streaks and season bests are shown from two matches.
+- Historical season-leader comparisons use complete archived seasons only.
+
+## Data
+
+The dashboard is generated from monthly Premier League JSON exports. Generated public data includes streak summaries and match details, but omits internal IDs.

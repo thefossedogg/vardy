@@ -350,9 +350,12 @@ async function loadData() {
 
   document.querySelector(".section-heading .eyebrow").textContent = `${data.seasonLabel} SEASON`;
   const updatedAt = document.querySelector("#updated-at");
-  updatedAt.textContent = data.generatedAt
-    ? `UPDATED ${formatDate(data.generatedAt)}`
-    : "DATA NOT SYNCED YET";
+  if (data.generatedAt) {
+    updatedAt.dateTime = data.generatedAt;
+    updatedAt.textContent = `UPDATED ${formatDate(data.generatedAt)}`;
+  } else {
+    updatedAt.textContent = "DATA NOT SYNCED YET";
+  }
 
   const active = data.activeInSeason;
   activeRows = active;

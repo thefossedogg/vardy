@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title">
+  <title id="title">Cartoon Jamie Vardy headshot</title>
+  <defs>
+    <clipPath id="portrait">
+      <circle cx="128" cy="128" r="112"/>
+    </clipPath>
+  </defs>
+  <circle cx="128" cy="128" r="124" fill="#111" stroke="#facc15" stroke-width="8"/>
+  <g clip-path="url(#portrait)">
+    <path fill="#1d4ed8" d="M26 256c8-48 41-70 83-76h38c42 6 75 28 83 76z"/>
+    <path fill="#f2bf94" stroke="#111" stroke-linejoin="round" stroke-width="7" d="M99 163v30c17 15 41 15 58 0v-30z"/>
+    <path fill="#f2bf94" stroke="#111" stroke-width="7" d="M69 91c-16-9-28 1-24 20 3 15 13 24 27 22m115-42c16-9 28 1 24 20-3 15-13 24-27 22"/>
+    <path fill="#3d281d" stroke="#111" stroke-linejoin="round" stroke-width="8" d="M58 111c-7-47 6-73 29-87l12 23 10-38 17 30 17-37 12 42 18-23c25 22 33 48 25 93l-17 27H74z"/>
+    <path fill="#f2bf94" stroke="#111" stroke-linejoin="round" stroke-width="5" d="M76 91c0-34 19-53 52-53s52 19 52 53l-5 45c-5 31-23 52-47 64-24-12-42-33-47-64z"/>
+    <path fill="#3d281d" stroke="#111" stroke-linejoin="round" stroke-width="7" d="M67 91c0-41 20-63 61-63s61 22 61 63l-20-21-17 9-24-15-25 16-20-7z"/>
+    <path fill="none" stroke="#111" stroke-linecap="round" stroke-width="8" d="m88 105 22-5m36 0 22 5"/>
+    <ellipse cx="102" cy="119" fill="#fff" rx="14" ry="10"/>
+    <ellipse cx="154" cy="119" fill="#fff" rx="14" ry="10"/>
+    <ellipse cx="104" cy="119" fill="#276f79" rx="6" ry="8"/>
+    <ellipse cx="152" cy="119" fill="#276f79" rx="6" ry="8"/>
+    <circle cx="105" cy="119" r="3" fill="#111"/>
+    <circle cx="153" cy="119" r="3" fill="#111"/>
+    <path fill="none" stroke="#d59670" stroke-linecap="round" stroke-width="5" d="m128 119-8 24 12 3"/>
+    <path fill="#fff" stroke="#111" stroke-linejoin="round" stroke-width="4" d="M102 165c16 8 36 8 52 0-6 15-15 22-26 22s-20-7-26-22z"/>
+    <path fill="none" stroke="#111" stroke-linecap="round" stroke-width="4" d="M104 163c14 7 34 7 48 0"/>
+  </g>
+</svg>

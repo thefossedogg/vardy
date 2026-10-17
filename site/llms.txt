@@ -1,0 +1,11 @@
+# Vardy Watch
+
+> Track Premier League goal-scoring streaks against Jamie Vardy's 11-game record.
+
+## Pages
+
+- [Vardy Watch](https://vardywatch.com/): Current active scoring streaks, season bests, historical season leaders, and scoring-streak methodology.
+
+## Content
+
+- [Full site content](https://vardywatch.com/llms-full.txt): Definitions and data methodology for the dashboard.
