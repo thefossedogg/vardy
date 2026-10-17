@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#11251e">
+    <meta name="description" content="Track Premier League goal-scoring streaks against Jamie Vardy's 11-game record.">
+    <title>Vardy Watch — Premier League scoring streaks</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="masthead">
+      <a class="wordmark" href="./" aria-label="Vardy Watch home">
+        <span class="wordmark-mark" aria-hidden="true">⚽</span>
+        <span>VARDY<span class="wordmark-light">WATCH</span></span>
+      </a>
+      <span class="masthead-label">PREMIER LEAGUE SCORING STREAKS</span>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <p class="eyebrow">THE RUN IS ON!</p>
+        <h1 id="page-title">Climb the <span>Vardy Pyramid</span></h1>
+        <p class="hero-description">11 games in a row. Jamie Vardy got there in 2015/16. Everyone since has fallen off the steps. Who's next?</p>
+
+        <div class="pyramid-wrap">
+          <div class="pyramid-heads" aria-hidden="true">
+            <span class="head-left">💔 So close, lads</span>
+            <span class="head-mid">The GOAT</span>
+            <span class="head-right">🔥 On the climb now</span>
+          </div>
+          <div class="pyramid" id="pyramid" role="group" aria-label="Pyramid of scoring streaks, from 3 games at the bottom to Vardy's 11 at the top">
+            <div class="pyr-row pyr-apex">
+              <div class="pyr-side pyr-left"></div>
+              <button type="button" class="pyr-vardy" id="vardy-button" aria-label="View Jamie Vardy's record 11-game streak">
+                <span class="vardy-bubble">11 IN A ROW!<br>GET BANGED!</span>
+                <svg viewBox="0 0 120 150" role="img" aria-label="Cartoon Jamie Vardy celebrating on top of the pyramid">
+                  <g stroke="#111" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+                    <path d="M38 62 L14 28" fill="none"/>
+                    <path d="M82 62 L106 28" fill="none"/>
+                    <path d="M31 52 L19 34" fill="none" stroke-width="16"/>
+                    <path d="M31 52 L19 34" fill="none" stroke="#0053a0" stroke-width="9"/>
+                    <circle cx="12" cy="24" r="8" fill="#f7c9a0"/>
+                    <circle cx="108" cy="24" r="8" fill="#f7c9a0"/>
+                    <path d="M40 58 Q60 50 80 58 L86 104 L34 104 Z" fill="#1d4ed8"/>
+                    <path d="M50 54 L60 66 L70 54" fill="#fff"/>
+                    <rect x="34" y="102" width="52" height="16" rx="3" fill="#fff"/>
+                    <path d="M42 118 L40 140 M78 118 L80 140" fill="none"/>
+                    <path d="M34 140 H48 M72 140 H86" stroke-width="7" fill="none"/>
+                    <path d="M38 34 L34 30 Q31 36 38 42 Z" fill="#f2bf94" stroke-width="3"/>
+                    <path d="M82 34 L86 30 Q89 36 82 42 Z" fill="#f2bf94" stroke-width="3"/>
+                    <path d="M39 22 Q38 46 48 56 Q60 62 72 56 Q82 46 81 22 Q60 10 39 22 Z" fill="#f2bf94"/>
+                    <path d="M39 26 Q38 46 48 56 Q60 62 72 56 Q82 46 81 26 Q80 42 72 48 Q60 54 48 48 Q40 42 39 26 Z" fill="#c9a37e" stroke-width="2"/>
+                    <path d="M39 24 Q40 14 48 12 L50 22 Q44 22 39 24 Z M81 24 Q80 14 72 12 L70 22 Q76 22 81 24 Z" fill="#d9b86a" stroke-width="2"/>
+                    <path d="M50 20 L47 -2 L55 8 L58 -12 L63 6 L70 -6 L70 20 Q60 14 50 20 Z" fill="#fde047" stroke-width="3"/>
+                    <path d="M46 28 L56 31 M74 28 L64 31" fill="none" stroke-width="4"/>
+                    <circle cx="52" cy="34" r="2" fill="#111" stroke="none"/>
+                    <circle cx="68" cy="34" r="2" fill="#111" stroke="none"/>
+                    <path d="M60 34 L57 44 L62 44" fill="none" stroke-width="2.5"/>
+                    <path d="M47 48 Q60 44 73 48 Q70 60 60 60 Q50 60 47 48 Z" fill="#7f1d1d" stroke-width="3"/>
+                    <path d="M50 48 Q60 46 70 48 L69 51 Q60 49 51 51 Z" fill="#fff" stroke="none"/>
+                  </g>
+                </svg>
+              </button>
+              <div class="pyr-side pyr-right"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="dashboard" aria-labelledby="streaks-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">2026/27 SEASON</p>
+            <h2 id="streaks-title">The streak board</h2>
+          </div>
+          <p class="updated" id="updated-at">Loading latest data…</p>
+        </div>
+
+        <div class="stats" aria-label="Season summary">
+          <article class="stat-card">
+            <span class="stat-label">ACTIVE STREAKS</span>
+            <strong id="active-count">—</strong>
+            <span class="stat-detail">players scoring in consecutive games</span>
+          </article>
+          <article class="stat-card stat-card-highlight">
+            <span class="stat-label">CLOSEST TO THE RECORD</span>
+            <strong id="closest-streak">—</strong>
+            <span class="stat-detail" id="closest-player">Waiting for season data</span>
+          </article>
+          <article class="stat-card">
+            <span class="stat-label">MATCHES TO 11</span>
+            <strong id="matches-to-record">—</strong>
+            <span class="stat-detail">for the current leader</span>
+          </article>
+        </div>
+
+        <div class="table-panel">
+          <div class="table-heading">
+            <div>
+              <h3>Active in-season runs</h3>
+              <p>Consecutive club fixtures with a credited goal. Select a streak to see its games.</p>
+            </div>
+            <label class="search">
+              <span class="visually-hidden">Filter players or clubs</span>
+              <input id="search" type="search" placeholder="Find a player or club">
+            </label>
+          </div>
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">PLAYER</th>
+                  <th scope="col">CLUB</th>
+                  <th scope="col" class="numeric">STREAK</th>
+                  <th scope="col">LAST GOAL</th>
+                  <th scope="col">NEXT GAME</th>
+                  <th scope="col">TO RECORD</th>
+                </tr>
+              </thead>
+              <tbody id="active-streaks">
+                <tr><td class="empty" colspan="6">Loading streaks…</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="table-note" id="table-note"></p>
+        </div>
+
+        <section class="season-best" aria-labelledby="season-best-title">
+          <div class="table-heading">
+            <div>
+              <h3 id="season-best-title">Season bests</h3>
+              <p>Longest in-season runs of two or more matches</p>
+            </div>
+          </div>
+          <div class="best-list" id="season-bests">
+            <p class="empty">Loading season bests…</p>
+          </div>
+        </section>
+
+        <section class="season-history" aria-labelledby="season-history-title">
+          <div class="table-heading">
+            <div>
+              <h3 id="season-history-title">Previous Season bests</h3>
+              <p>Longest scoring run in each complete season in the archive</p>
+            </div>
+          </div>
+          <div class="season-leaders" id="season-leaders">
+            <p class="empty">Loading season leaders…</p>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <dialog id="streak-dialog" aria-labelledby="streak-dialog-title" aria-describedby="streak-dialog-summary">
+      <form method="dialog" class="dialog-header">
+        <h2 id="streak-dialog-title"></h2>
+        <button class="dialog-close" aria-label="Close streak details">Close</button>
+      </form>
+      <p id="streak-dialog-summary"></p>
+      <p id="streak-route-note" hidden></p>
+      <ol id="streak-games" class="game-list" reversed></ol>
+      <div id="streak-repeated-runs"></div>
+    </dialog>
+
+    <footer>
+      <span>VARDY WATCH</span>
+      <span>Data: monthly JSON exports <span aria-hidden="true">·</span> Regenerated locally</span>
+    </footer>
+  </body>
+</html>
