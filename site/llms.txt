@@ -2,14 +2,21 @@
 
 > Track Premier League goal-scoring streaks against Jamie Vardy's 11-game record.
 
+Last updated: 2026-10-23
+
+Index updates do not establish source-data freshness. Early previews may use unverified source data; retain each article's warnings and conditional language.
+
 ## Pages
 
-- [Vardy Watch](https://vardywatch.com/): Current active scoring streaks, season bests, historical season leaders, and scoring-streak methodology.
-- [Weekly previews](https://vardywatch.com/blog/): Latest previews and links to all editions.
-- [Weekly preview archive](https://vardywatch.com/blog/archive.html): Browse previous editions.
-- [Scoring-streak methodology](https://vardywatch.com/blog/methodology.html): Definitions and publication approach.
+- [Vardy Watch](https://vardywatch.com/index.md): Dashboard overview and published data link.
+- [Weekly previews](https://vardywatch.com/blog/index.md): Published editions, newest first.
+- [Preview archive](https://vardywatch.com/blog/archive.md): All published editions.
+- [Scoring-streak methodology](https://vardywatch.com/blog/methodology.md): Definitions and publication approach.
 
-## Content
+## Articles
 
-- [Full site content](https://vardywatch.com/llms-full.txt): Definitions and data methodology for the dashboard.
-- [Eight in sight? Haaland leads the chase, but nobody gets a free pass](https://vardywatch.com/blog/2026-10-29-early-preview.html): Early preview for 29 October-2 November 2026; source freshness is unverified and projected streaks are conditional.
+- [Eight in sight? Haaland leads the chase, but nobody gets a free pass](https://vardywatch.com/blog/2026-10-29-early-preview.md)
+
+## Optional
+
+- [Collected content](https://vardywatch.com/llms-full.txt): Dashboard overview, methodology and complete published previews; not live statistics.
