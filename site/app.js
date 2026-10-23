@@ -215,13 +215,13 @@ function renderPyramid(seasons, active) {
     for (const run of season.runs) {
       if (run.matches < FIRST_STEP) continue;
       const step = Math.min(RECORD, run.matches);
-      slot("pyr-left", step)?.append(pyramidChip(run, season.seasonLabel, "chip-past"));
+      slot("pyr-right", step)?.append(pyramidChip(run, season.seasonLabel, "chip-past"));
     }
   }
   for (const run of active) {
     if (run.matches < FIRST_STEP) continue;
     const step = Math.min(RECORD, run.matches);
-    slot("pyr-right", step)?.append(pyramidChip(run, run.clubName, "chip-now"));
+    slot("pyr-left", step)?.append(pyramidChip(run, run.clubName, "chip-now"));
   }
 }
 
