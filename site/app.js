@@ -96,27 +96,26 @@ function renderWhatChanged(changes) {
     `${formatKickoff(changes.windowStart)} to ${formatKickoff(changes.windowEnd)}. ` +
     `Updated ${formatKickoff(changes.generatedAt)}.`;
 
-  renderChangeList(
-    "#recent-changes",
-    changes.scorers,
-    "No scorers in this seven-day window.",
-    (scorer) => `${scorer.matches} ${scorer.matches === 1 ? "match" : "matches"}`,
+  const streaks = new Map();
+  for (const scorer of changes.scorers) {
+    const key = `${scorer.playerName}\u0000${scorer.clubName}`;
+    streaks.set(key, { ...scorer, ended: false });
+  }
+  for (const ended of changes.endedStreaks) {
+    const key = `${ended.playerName}\u0000${ended.clubName}`;
+    streaks.set(key, { ...ended, ended: true });
+  }
+  const entries = [...streaks.values()].sort((a, b) =>
+    b.matches - a.matches ||
+    a.playerName.localeCompare(b.playerName) ||
+    a.clubName.localeCompare(b.clubName),
   );
-  renderChangeList(
-    "#ended-streaks",
-    changes.endedStreaks,
-    "No scoring streaks ended in this seven-day window.",
-    (streak) => `${streak.matches}-match streak`,
-  );
-}
-
-function renderChangeList(selector, entries, emptyText, countText) {
-  const list = document.querySelector(selector);
+  const list = document.querySelector("#recent-changes");
   list.replaceChildren();
-  if (entries.length === 0) {
+  if (streaks.size === 0) {
     const empty = document.createElement("p");
     empty.className = "empty";
-    empty.textContent = emptyText;
+    empty.textContent = "No scoring streaks of two or more in this seven-day window.";
     list.append(empty);
     return;
   }
@@ -124,12 +123,15 @@ function renderChangeList(selector, entries, emptyText, countText) {
   for (const entry of entries) {
     const item = document.createElement("div");
     item.className = "change-item";
-    const name = document.createElement("span");
-    name.className = "change-name";
+    const name = document.createElement("button");
+    name.type = "button";
+    name.className = "change-name change-name-button";
     name.textContent = `${entry.playerName} (${entry.clubName})`;
+    name.setAttribute("aria-label", `View ${entry.playerName}'s ${entry.matches}-game scoring streak`);
+    name.addEventListener("click", () => showStreak(entry));
     const count = document.createElement("span");
     count.className = "change-count";
-    count.textContent = countText(entry);
+    count.textContent = `${entry.ended ? "Ended · " : ""}${entry.matches}-match streak`;
     item.append(name, count);
     list.append(item);
   }
@@ -263,6 +265,7 @@ function renderGames(streak, list = document.querySelector("#streak-games")) {
   list.replaceChildren();
   const games = [
     ...streak.games.map((game) => ({ ...game, completed: true })),
+    ...(streak.failedGame ? [{ ...streak.failedGame, failed: true }] : []),
     ...(streak.upcomingGames || []).map((game) => ({ ...game, completed: false })),
   ];
   list.start = games.length;
@@ -270,13 +273,15 @@ function renderGames(streak, list = document.querySelector("#streak-games")) {
     const game = games[index];
     const item = document.createElement("li");
     item.value = index + 1;
-    item.className = item.value === 12
-      ? "game-target"
-      : game.completed ? "game-completed" : "game-scheduled";
+    item.className = game.failed
+      ? "game-failed"
+      : item.value === 12 ? "game-target" : game.completed ? "game-completed" : "game-scheduled";
     item.setAttribute("aria-label",
-      `Game ${item.value}, ${game.completed ? "completed scoring game" : "scheduled"}${item.value === 12 ? ", record-breaking target" : ""}`);
+      game.failed
+        ? "Failed to score in this club fixture"
+        : `Game ${item.value}, ${game.completed ? "completed scoring game" : "scheduled"}${item.value === 12 ? ", record-breaking target" : ""}`);
     const opponent = document.createElement("span");
-    opponent.textContent = `${game.opponent.name} (${game.venue === "home" ? "H" : "A"})` +
+    opponent.textContent = `${game.failed ? "Failed to score · " : ""}${game.opponent.name} (${game.venue === "home" ? "H" : "A"})` +
       (game.score ? ` · Leicester ${game.score}, Vardy ${game.goals}` : "");
     const kickoff = document.createElement("time");
     kickoff.dateTime = game.fixtureDate;
@@ -448,9 +453,8 @@ loadData().catch((error) => {
   document.querySelector("#changes-window").textContent = "";
   const changes = document.createElement("p");
   changes.className = "empty";
-  changes.textContent = "Could not load scorers.";
+  changes.textContent = "Could not load streaks.";
   document.querySelector("#recent-changes").replaceChildren(changes);
-  document.querySelector("#ended-streaks").replaceChildren();
   console.error(error);
 });
 

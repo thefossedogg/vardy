@@ -468,15 +468,11 @@ button:focus-visible {
 
 .what-changed-lists {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 1fr;
 }
 
 .change-list {
   min-width: 0;
-}
-
-.change-list + .change-list {
-  border-left: 1px solid var(--line);
 }
 
 .change-list h4 {
@@ -500,21 +496,29 @@ button:focus-visible {
   min-width: 0;
 }
 
+.change-name-button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  text-decoration: underline;
+  text-decoration-color: var(--muted);
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+
+.change-name-button:hover,
+.change-name-button:focus-visible {
+  color: var(--blue);
+}
+
 .change-count {
   flex: 0 0 auto;
   color: var(--muted);
   font-family: var(--mono);
   font-size: 10px;
-}
-
-@media (max-width: 640px) {
-  .what-changed-lists {
-    grid-template-columns: 1fr;
-  }
-
-  .change-list + .change-list {
-    border-left: 0;
-  }
 }
 
 .season-history {
@@ -828,6 +832,7 @@ th { color: var(--ink); font-weight: 500; background: var(--yellow); }
 .dialog-close { border: 3px solid var(--ink); background: var(--yellow); font-family: var(--display); font-size: 16px; }
 .game-list li { border-bottom: 2px solid var(--ink); }
 .game-completed { background: #bbf7d0; }
+.game-failed { background: #fecaca; list-style: none; }
 .game-target { background: var(--yellow); }
 footer { border-top: 4px solid var(--ink); color: var(--ink); }
 
