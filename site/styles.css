@@ -369,6 +369,21 @@ button:focus-visible {
   border: 1px solid var(--line);
   border-radius: 13px;
   color: var(--ink);
+  overflow: hidden;
+}
+
+#streak-dialog[open] {
+  display: flex;
+  flex-direction: column;
+}
+
+.dialog-details {
+  flex-shrink: 0;
+}
+
+.dialog-games {
+  min-height: 0;
+  overflow-y: auto;
 }
 
 #streak-dialog::backdrop {
