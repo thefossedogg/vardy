@@ -2,7 +2,7 @@
   "competition": "Premier League",
   "season": 2026,
   "seasonLabel": "2026/27",
-  "generatedAt": "2026-10-23T00:58:24.569243Z",
+  "generatedAt": "2026-10-23T01:35:07.549193Z",
   "source": "Local monthly Premier League JSON exports",
   "benchmark": {
     "playerName": "Jamie Vardy",
@@ -450,36 +450,763 @@
   ],
   "seasonBestRuns": [
     {
-      "playerName": "E. Haaland",
-      "clubName": "Manchester City",
-      "matches": 6,
-      "startDate": "2026-08-28T19:00:00Z",
-      "lastScoringDate": "2026-10-17T14:00:00Z",
+      "playerName": "A. Elanga",
+      "clubName": "Newcastle United",
+      "matches": 2,
+      "startDate": "2026-08-23T15:30:00Z",
+      "lastScoringDate": "2026-08-29T16:30:00Z",
       "startSeason": 2026,
       "season": 2026,
-      "isActive": true,
+      "isActive": false,
       "games": [
         {
-          "fixtureDate": "2026-08-28T19:00:00Z",
+          "fixtureDate": "2026-08-23T15:30:00Z",
           "opponent": {
-            "name": "Crystal Palace"
+            "name": "Liverpool"
           },
-          "venue": "away"
+          "venue": "home"
         },
         {
-          "fixtureDate": "2026-09-05T14:00:00Z",
+          "fixtureDate": "2026-08-29T16:30:00Z",
+          "opponent": {
+            "name": "Tottenham Hotspur"
+          },
+          "venue": "away"
+        }
+      ],
+      "failedGame": {
+        "fixtureDate": "2026-09-05T11:30:00Z",
+        "opponent": {
+          "name": "Bournemouth"
+        },
+        "venue": "home"
+      },
+      "bestRuns": [
+        {
+          "playerName": "A. Elanga",
+          "clubName": "Newcastle United",
+          "matches": 2,
+          "startDate": "2026-08-23T15:30:00Z",
+          "lastScoringDate": "2026-08-29T16:30:00Z",
+          "startSeason": 2026,
+          "season": 2026,
+          "isActive": false,
+          "games": [
+            {
+              "fixtureDate": "2026-08-23T15:30:00Z",
+              "opponent": {
+                "name": "Liverpool"
+              },
+              "venue": "home"
+            },
+            {
+              "fixtureDate": "2026-08-29T16:30:00Z",
+              "opponent": {
+                "name": "Tottenham Hotspur"
+              },
+              "venue": "away"
+            }
+          ],
+          "failedGame": {
+            "fixtureDate": "2026-09-05T11:30:00Z",
+            "opponent": {
+              "name": "Bournemouth"
+            },
+            "venue": "home"
+          }
+        }
+      ]
+    },
+    {
+      "playerName": "A. Isak",
+      "clubName": "Liverpool",
+      "matches": 2,
+      "startDate": "2026-08-29T11:30:00Z",
+      "lastScoringDate": "2026-09-04T19:00:00Z",
+      "startSeason": 2026,
+      "season": 2026,
+      "isActive": false,
+      "games": [
+        {
+          "fixtureDate": "2026-08-29T11:30:00Z",
+          "opponent": {
+            "name": "Nottingham Forest"
+          },
+          "venue": "home"
+        },
+        {
+          "fixtureDate": "2026-09-04T19:00:00Z",
+          "opponent": {
+            "name": "Ipswich Town"
+          },
+          "venue": "away"
+        }
+      ],
+      "failedGame": {
+        "fixtureDate": "2026-09-12T14:00:00Z",
+        "opponent": {
+          "name": "Fulham"
+        },
+        "venue": "home"
+      },
+      "bestRuns": [
+        {
+          "playerName": "A. Isak",
+          "clubName": "Liverpool",
+          "matches": 2,
+          "startDate": "2026-08-29T11:30:00Z",
+          "lastScoringDate": "2026-09-04T19:00:00Z",
+          "startSeason": 2026,
+          "season": 2026,
+          "isActive": false,
+          "games": [
+            {
+              "fixtureDate": "2026-08-29T11:30:00Z",
+              "opponent": {
+                "name": "Nottingham Forest"
+              },
+              "venue": "home"
+            },
+            {
+              "fixtureDate": "2026-09-04T19:00:00Z",
+              "opponent": {
+                "name": "Ipswich Town"
+              },
+              "venue": "away"
+            }
+          ],
+          "failedGame": {
+            "fixtureDate": "2026-09-12T14:00:00Z",
+            "opponent": {
+              "name": "Fulham"
+            },
+            "venue": "home"
+          }
+        }
+      ]
+    },
+    {
+      "playerName": "B. Mbeumo",
+      "clubName": "Manchester United",
+      "matches": 2,
+      "startDate": "2026-08-30T15:30:00Z",
+      "lastScoringDate": "2026-09-06T13:00:00Z",
+      "startSeason": 2026,
+      "season": 2026,
+      "isActive": false,
+      "games": [
+        {
+          "fixtureDate": "2026-08-30T15:30:00Z",
+          "opponent": {
+            "name": "Ipswich Town"
+          },
+          "venue": "home"
+        },
+        {
+          "fixtureDate": "2026-09-06T13:00:00Z",
+          "opponent": {
+            "name": "Everton"
+          },
+          "venue": "away"
+        }
+      ],
+      "failedGame": {
+        "fixtureDate": "2026-09-13T15:30:00Z",
+        "opponent": {
+          "name": "Manchester City"
+        },
+        "venue": "home"
+      },
+      "bestRuns": [
+        {
+          "playerName": "B. Mbeumo",
+          "clubName": "Manchester United",
+          "matches": 2,
+          "startDate": "2026-08-30T15:30:00Z",
+          "lastScoringDate": "2026-09-06T13:00:00Z",
+          "startSeason": 2026,
+          "season": 2026,
+          "isActive": false,
+          "games": [
+            {
+              "fixtureDate": "2026-08-30T15:30:00Z",
+              "opponent": {
+                "name": "Ipswich Town"
+              },
+              "venue": "home"
+            },
+            {
+              "fixtureDate": "2026-09-06T13:00:00Z",
+              "opponent": {
+                "name": "Everton"
+              },
+              "venue": "away"
+            }
+          ],
+          "failedGame": {
+            "fixtureDate": "2026-09-13T15:30:00Z",
+            "opponent": {
+              "name": "Manchester City"
+            },
+            "venue": "home"
+          }
+        }
+      ]
+    },
+    {
+      "playerName": "B. Saka",
+      "clubName": "Arsenal",
+      "matches": 2,
+      "startDate": "2026-08-21T19:00:00Z",
+      "lastScoringDate": "2026-08-31T19:00:00Z",
+      "startSeason": 2026,
+      "season": 2026,
+      "isActive": false,
+      "games": [
+        {
+          "fixtureDate": "2026-08-21T19:00:00Z",
           "opponent": {
             "name": "Coventry City"
           },
           "venue": "home"
         },
         {
-          "fixtureDate": "2026-09-13T15:30:00Z",
+          "fixtureDate": "2026-08-31T19:00:00Z",
           "opponent": {
-            "name": "Manchester United"
+            "name": "Aston Villa"
+          },
+          "venue": "away"
+        }
+      ],
+      "failedGame": {
+        "fixtureDate": "2026-09-06T15:30:00Z",
+        "opponent": {
+          "name": "Chelsea"
+        },
+        "venue": "home"
+      },
+      "bestRuns": [
+        {
+          "playerName": "B. Saka",
+          "clubName": "Arsenal",
+          "matches": 2,
+          "startDate": "2026-08-21T19:00:00Z",
+          "lastScoringDate": "2026-08-31T19:00:00Z",
+          "startSeason": 2026,
+          "season": 2026,
+          "isActive": false,
+          "games": [
+            {
+              "fixtureDate": "2026-08-21T19:00:00Z",
+              "opponent": {
+                "name": "Coventry City"
+              },
+              "venue": "home"
+            },
+            {
+              "fixtureDate": "2026-08-31T19:00:00Z",
+              "opponent": {
+                "name": "Aston Villa"
+              },
+              "venue": "away"
+            }
+          ],
+          "failedGame": {
+            "fixtureDate": "2026-09-06T15:30:00Z",
+            "opponent": {
+              "name": "Chelsea"
+            },
+            "venue": "home"
+          }
+        }
+      ]
+    },
+    {
+      "playerName": "C. Kostoulas",
+      "clubName": "Brighton & Hove Albion",
+      "matches": 2,
+      "startDate": "2026-09-13T13:00:00Z",
+      "lastScoringDate": "2026-09-19T14:00:00Z",
+      "startSeason": 2026,
+      "season": 2026,
+      "isActive": false,
+      "games": [
+        {
+          "fixtureDate": "2026-09-13T13:00:00Z",
+          "opponent": {
+            "name": "Coventry City"
           },
           "venue": "away"
         },
+        {
+          "fixtureDate": "2026-09-19T14:00:00Z",
+          "opponent": {
+            "name": "Arsenal"
+          },
+          "venue": "home"
+        }
+      ],
+      "failedGame": {
+        "fixtureDate": "2026-10-10T14:00:00Z",
+        "opponent": {
+          "name": "Sunderland"
+        },
+        "venue": "away"
+      },
+      "bestRuns": [
+        {
+          "playerName": "C. Kostoulas",
+          "clubName": "Brighton & Hove Albion",
+          "matches": 2,
+          "startDate": "2026-09-13T13:00:00Z",
+          "lastScoringDate": "2026-09-19T14:00:00Z",
+          "startSeason": 2026,
+          "season": 2026,
+          "isActive": false,
+          "games": [
+            {
+              "fixtureDate": "2026-09-13T13:00:00Z",
+              "opponent": {
+                "name": "Coventry City"
+              },
+              "venue": "away"
+            },
+            {
+              "fixtureDate": "2026-09-19T14:00:00Z",
+              "opponent": {
+                "name": "Arsenal"
+              },
+              "venue": "home"
+            }
+          ],
+          "failedGame": {
+            "fixtureDate": "2026-10-10T14:00:00Z",
+            "opponent": {
+              "name": "Sunderland"
+            },
+            "venue": "away"
+          }
+        }
+      ]
+    },
+    {
+      "playerName": "C. Palmer",
+      "clubName": "Chelsea",
+      "matches": 2,
+      "startDate": "2026-08-24T19:00:00Z",
+      "lastScoringDate": "2026-08-30T13:00:00Z",
+      "startSeason": 2026,
+      "season": 2026,
+      "isActive": false,
+      "games": [
+        {
+          "fixtureDate": "2026-08-24T19:00:00Z",
+          "opponent": {
+            "name": "Fulham"
+          },
+          "venue": "away"
+        },
+        {
+          "fixtureDate": "2026-08-30T13:00:00Z",
+          "opponent": {
+            "name": "Brighton & Hove Albion"
+          },
+          "venue": "home"
+        }
+      ],
+      "failedGame": {
+        "fixtureDate": "2026-09-06T15:30:00Z",
+        "opponent": {
+          "name": "Arsenal"
+        },
+        "venue": "away"
+      },
+      "bestRuns": [
+        {
+          "playerName": "C. Palmer",
+          "clubName": "Chelsea",
+          "matches": 2,
+          "startDate": "2026-08-24T19:00:00Z",
+          "lastScoringDate": "2026-08-30T13:00:00Z",
+          "startSeason": 2026,
+          "season": 2026,
+          "isActive": false,
+          "games": [
+            {
+              "fixtureDate": "2026-08-24T19:00:00Z",
+              "opponent": {
+                "name": "Fulham"
+              },
+              "venue": "away"
+            },
+            {
+              "fixtureDate": "2026-08-30T13:00:00Z",
+              "opponent": {
+                "name": "Brighton & Hove Albion"
+              },
+              "venue": "home"
+            }
+          ],
+          "failedGame": {
+            "fixtureDate": "2026-09-06T15:30:00Z",
+            "opponent": {
+              "name": "Arsenal"
+            },
+            "venue": "away"
+          }
+        }
+      ]
+    },
+    {
+      "playerName": "JoÃ£o Pedro",
+      "clubName": "Chelsea",
+      "matches": 2,
+      "startDate": "2026-08-24T19:00:00Z",
+      "lastScoringDate": "2026-08-30T13:00:00Z",
+      "startSeason": 2026,
+      "season": 2026,
+      "isActive": false,
+      "games": [
+        {
+          "fixtureDate": "2026-08-24T19:00:00Z",
+          "opponent": {
+            "name": "Fulham"
+          },
+          "venue": "away"
+        },
+        {
+          "fixtureDate": "2026-08-30T13:00:00Z",
+          "opponent": {
+            "name": "Brighton & Hove Albion"
+          },
+          "venue": "home"
+        }
+      ],
+      "failedGame": {
+        "fixtureDate": "2026-09-06T15:30:00Z",
+        "opponent": {
+          "name": "Arsenal"
+        },
+        "venue": "away"
+      },
+      "bestRuns": [
+        {
+          "playerName": "JoÃ£o Pedro",
+          "clubName": "Chelsea",
+          "matches": 2,
+          "startDate": "2026-08-24T19:00:00Z",
+          "lastScoringDate": "2026-08-30T13:00:00Z",
+          "startSeason": 2026,
+          "season": 2026,
+          "isActive": false,
+          "games": [
+            {
+              "fixtureDate": "2026-08-24T19:00:00Z",
+              "opponent": {
+                "name": "Fulham"
+              },
+              "venue": "away"
+            },
+            {
+              "fixtureDate": "2026-08-30T13:00:00Z",
+              "opponent": {
+                "name": "Brighton & Hove Albion"
+              },
+              "venue": "home"
+            }
+          ],
+          "failedGame": {
+            "fixtureDate": "2026-09-06T15:30:00Z",
+            "opponent": {
+              "name": "Arsenal"
+            },
+            "venue": "away"
+          }
+        }
+      ]
+    },
+    {
+      "playerName": "M. Rogers",
+      "clubName": "Chelsea",
+      "matches": 2,
+      "startDate": "2026-09-06T15:30:00Z",
+      "lastScoringDate": "2026-09-12T14:00:00Z",
+      "startSeason": 2026,
+      "season": 2026,
+      "isActive": false,
+      "games": [
+        {
+          "fixtureDate": "2026-09-06T15:30:00Z",
+          "opponent": {
+            "name": "Arsenal"
+          },
+          "venue": "away"
+        },
+        {
+          "fixtureDate": "2026-09-12T14:00:00Z",
+          "opponent": {
+            "name": "Hull City"
+          },
+          "venue": "home"
+        }
+      ],
+      "failedGame": {
+        "fixtureDate": "2026-09-18T19:00:00Z",
+        "opponent": {
+          "name": "Brentford"
+        },
+        "venue": "away"
+      },
+      "bestRuns": [
+        {
+          "playerName": "M. Rogers",
+          "clubName": "Chelsea",
+          "matches": 2,
+          "startDate": "2026-09-06T15:30:00Z",
+          "lastScoringDate": "2026-09-12T14:00:00Z",
+          "startSeason": 2026,
+          "season": 2026,
+          "isActive": false,
+          "games": [
+            {
+              "fixtureDate": "2026-09-06T15:30:00Z",
+              "opponent": {
+                "name": "Arsenal"
+              },
+              "venue": "away"
+            },
+            {
+              "fixtureDate": "2026-09-12T14:00:00Z",
+              "opponent": {
+                "name": "Hull City"
+              },
+              "venue": "home"
+            }
+          ],
+          "failedGame": {
+            "fixtureDate": "2026-09-18T19:00:00Z",
+            "opponent": {
+              "name": "Brentford"
+            },
+            "venue": "away"
+          }
+        }
+      ]
+    },
+    {
+      "playerName": "M. Tavernier",
+      "clubName": "Bournemouth",
+      "matches": 2,
+      "startDate": "2026-09-05T11:30:00Z",
+      "lastScoringDate": "2026-09-12T14:00:00Z",
+      "startSeason": 2026,
+      "season": 2026,
+      "isActive": false,
+      "games": [
+        {
+          "fixtureDate": "2026-09-05T11:30:00Z",
+          "opponent": {
+            "name": "Newcastle United"
+          },
+          "venue": "away"
+        },
+        {
+          "fixtureDate": "2026-09-12T14:00:00Z",
+          "opponent": {
+            "name": "Brentford"
+          },
+          "venue": "home"
+        }
+      ],
+      "failedGame": {
+        "fixtureDate": "2026-09-20T13:00:00Z",
+        "opponent": {
+          "name": "Liverpool"
+        },
+        "venue": "home"
+      },
+      "bestRuns": [
+        {
+          "playerName": "M. Tavernier",
+          "clubName": "Bournemouth",
+          "matches": 2,
+          "startDate": "2026-09-05T11:30:00Z",
+          "lastScoringDate": "2026-09-12T14:00:00Z",
+          "startSeason": 2026,
+          "season": 2026,
+          "isActive": false,
+          "games": [
+            {
+              "fixtureDate": "2026-09-05T11:30:00Z",
+              "opponent": {
+                "name": "Newcastle United"
+              },
+              "venue": "away"
+            },
+            {
+              "fixtureDate": "2026-09-12T14:00:00Z",
+              "opponent": {
+                "name": "Brentford"
+              },
+              "venue": "home"
+            }
+          ],
+          "failedGame": {
+            "fixtureDate": "2026-09-20T13:00:00Z",
+            "opponent": {
+              "name": "Liverpool"
+            },
+            "venue": "home"
+          }
+        }
+      ]
+    },
+    {
+      "playerName": "N. Jackson",
+      "clubName": "Aston Villa",
+      "matches": 2,
+      "startDate": "2026-09-19T11:30:00Z",
+      "lastScoringDate": "2026-10-10T14:00:00Z",
+      "startSeason": 2026,
+      "season": 2026,
+      "isActive": false,
+      "games": [
+        {
+          "fixtureDate": "2026-09-19T11:30:00Z",
+          "opponent": {
+            "name": "Tottenham Hotspur"
+          },
+          "venue": "away"
+        },
+        {
+          "fixtureDate": "2026-10-10T14:00:00Z",
+          "opponent": {
+            "name": "Brentford"
+          },
+          "venue": "home"
+        }
+      ],
+      "failedGame": {
+        "fixtureDate": "2026-10-17T16:30:00Z",
+        "opponent": {
+          "name": "Newcastle United"
+        },
+        "venue": "away"
+      },
+      "bestRuns": [
+        {
+          "playerName": "N. Jackson",
+          "clubName": "Aston Villa",
+          "matches": 2,
+          "startDate": "2026-09-19T11:30:00Z",
+          "lastScoringDate": "2026-10-10T14:00:00Z",
+          "startSeason": 2026,
+          "season": 2026,
+          "isActive": false,
+          "games": [
+            {
+              "fixtureDate": "2026-09-19T11:30:00Z",
+              "opponent": {
+                "name": "Tottenham Hotspur"
+              },
+              "venue": "away"
+            },
+            {
+              "fixtureDate": "2026-10-10T14:00:00Z",
+              "opponent": {
+                "name": "Brentford"
+              },
+              "venue": "home"
+            }
+          ],
+          "failedGame": {
+            "fixtureDate": "2026-10-17T16:30:00Z",
+            "opponent": {
+              "name": "Newcastle United"
+            },
+            "venue": "away"
+          }
+        }
+      ]
+    },
+    {
+      "playerName": "P. GroÃ",
+      "clubName": "Brighton & Hove Albion",
+      "matches": 2,
+      "startDate": "2026-09-13T13:00:00Z",
+      "lastScoringDate": "2026-09-19T14:00:00Z",
+      "startSeason": 2026,
+      "season": 2026,
+      "isActive": false,
+      "games": [
+        {
+          "fixtureDate": "2026-09-13T13:00:00Z",
+          "opponent": {
+            "name": "Coventry City"
+          },
+          "venue": "away"
+        },
+        {
+          "fixtureDate": "2026-09-19T14:00:00Z",
+          "opponent": {
+            "name": "Arsenal"
+          },
+          "venue": "home"
+        }
+      ],
+      "failedGame": {
+        "fixtureDate": "2026-10-10T14:00:00Z",
+        "opponent": {
+          "name": "Sunderland"
+        },
+        "venue": "away"
+      },
+      "bestRuns": [
+        {
+          "playerName": "P. GroÃ",
+          "clubName": "Brighton & Hove Albion",
+          "matches": 2,
+          "startDate": "2026-09-13T13:00:00Z",
+          "lastScoringDate": "2026-09-19T14:00:00Z",
+          "startSeason": 2026,
+          "season": 2026,
+          "isActive": false,
+          "games": [
+            {
+              "fixtureDate": "2026-09-13T13:00:00Z",
+              "opponent": {
+                "name": "Coventry City"
+              },
+              "venue": "away"
+            },
+            {
+              "fixtureDate": "2026-09-19T14:00:00Z",
+              "opponent": {
+                "name": "Arsenal"
+              },
+              "venue": "home"
+            }
+          ],
+          "failedGame": {
+            "fixtureDate": "2026-10-10T14:00:00Z",
+            "opponent": {
+              "name": "Sunderland"
+            },
+            "venue": "away"
+          }
+        }
+      ]
+    },
+    {
+      "playerName": "R. Cherki",
+      "clubName": "Manchester City",
+      "matches": 2,
+      "startDate": "2026-09-20T13:00:00Z",
+      "lastScoringDate": "2026-10-11T15:30:00Z",
+      "startSeason": 2026,
+      "season": 2026,
+      "isActive": false,
+      "games": [
         {
           "fixtureDate": "2026-09-20T13:00:00Z",
           "opponent": {
@@ -493,99 +1220,26 @@
             "name": "Liverpool"
           },
           "venue": "away"
-        },
-        {
-          "fixtureDate": "2026-10-17T14:00:00Z",
-          "opponent": {
-            "name": "Ipswich Town"
-          },
-          "venue": "home"
         }
       ],
-      "nextGame": {
-        "fixtureDate": "2026-10-24T11:30:00Z",
+      "failedGame": {
+        "fixtureDate": "2026-10-17T14:00:00Z",
         "opponent": {
-          "name": "Aston Villa"
+          "name": "Ipswich Town"
         },
-        "venue": "away"
+        "venue": "home"
       },
-      "targetMatches": 12,
-      "upcomingGames": [
-        {
-          "fixtureDate": "2026-10-24T11:30:00Z",
-          "opponent": {
-            "name": "Aston Villa"
-          },
-          "venue": "away"
-        },
-        {
-          "fixtureDate": "2026-10-31T15:00:00Z",
-          "opponent": {
-            "name": "Brighton & Hove Albion"
-          },
-          "venue": "home"
-        },
-        {
-          "fixtureDate": "2026-11-07T17:30:00Z",
-          "opponent": {
-            "name": "Nottingham Forest"
-          },
-          "venue": "away"
-        },
-        {
-          "fixtureDate": "2026-11-21T12:30:00Z",
-          "opponent": {
-            "name": "Fulham"
-          },
-          "venue": "home"
-        },
-        {
-          "fixtureDate": "2026-11-29T16:30:00Z",
-          "opponent": {
-            "name": "Arsenal"
-          },
-          "venue": "away"
-        },
-        {
-          "fixtureDate": "2026-12-02T19:30:00Z",
-          "opponent": {
-            "name": "Leeds United"
-          },
-          "venue": "home"
-        }
-      ],
       "bestRuns": [
         {
-          "playerName": "E. Haaland",
+          "playerName": "R. Cherki",
           "clubName": "Manchester City",
-          "matches": 6,
-          "startDate": "2026-08-28T19:00:00Z",
-          "lastScoringDate": "2026-10-17T14:00:00Z",
+          "matches": 2,
+          "startDate": "2026-09-20T13:00:00Z",
+          "lastScoringDate": "2026-10-11T15:30:00Z",
           "startSeason": 2026,
           "season": 2026,
-          "isActive": true,
+          "isActive": false,
           "games": [
-            {
-              "fixtureDate": "2026-08-28T19:00:00Z",
-              "opponent": {
-                "name": "Crystal Palace"
-              },
-              "venue": "away"
-            },
-            {
-              "fixtureDate": "2026-09-05T14:00:00Z",
-              "opponent": {
-                "name": "Coventry City"
-              },
-              "venue": "home"
-            },
-            {
-              "fixtureDate": "2026-09-13T15:30:00Z",
-              "opponent": {
-                "name": "Manchester United"
-              },
-              "venue": "away"
-            },
             {
               "fixtureDate": "2026-09-20T13:00:00Z",
               "opponent": {
@@ -599,67 +1253,83 @@
                 "name": "Liverpool"
               },
               "venue": "away"
+            }
+          ],
+          "failedGame": {
+            "fixtureDate": "2026-10-17T14:00:00Z",
+            "opponent": {
+              "name": "Ipswich Town"
             },
+            "venue": "home"
+          }
+        }
+      ]
+    },
+    {
+      "playerName": "T. Barry",
+      "clubName": "Everton",
+      "matches": 2,
+      "startDate": "2026-09-19T14:00:00Z",
+      "lastScoringDate": "2026-10-11T13:00:00Z",
+      "startSeason": 2026,
+      "season": 2026,
+      "isActive": false,
+      "games": [
+        {
+          "fixtureDate": "2026-09-19T14:00:00Z",
+          "opponent": {
+            "name": "Ipswich Town"
+          },
+          "venue": "home"
+        },
+        {
+          "fixtureDate": "2026-10-11T13:00:00Z",
+          "opponent": {
+            "name": "Hull City"
+          },
+          "venue": "away"
+        }
+      ],
+      "failedGame": {
+        "fixtureDate": "2026-10-17T11:30:00Z",
+        "opponent": {
+          "name": "Chelsea"
+        },
+        "venue": "home"
+      },
+      "bestRuns": [
+        {
+          "playerName": "T. Barry",
+          "clubName": "Everton",
+          "matches": 2,
+          "startDate": "2026-09-19T14:00:00Z",
+          "lastScoringDate": "2026-10-11T13:00:00Z",
+          "startSeason": 2026,
+          "season": 2026,
+          "isActive": false,
+          "games": [
             {
-              "fixtureDate": "2026-10-17T14:00:00Z",
+              "fixtureDate": "2026-09-19T14:00:00Z",
               "opponent": {
                 "name": "Ipswich Town"
               },
               "venue": "home"
+            },
+            {
+              "fixtureDate": "2026-10-11T13:00:00Z",
+              "opponent": {
+                "name": "Hull City"
+              },
+              "venue": "away"
             }
           ],
-          "nextGame": {
-            "fixtureDate": "2026-10-24T11:30:00Z",
+          "failedGame": {
+            "fixtureDate": "2026-10-17T11:30:00Z",
             "opponent": {
-              "name": "Aston Villa"
+              "name": "Chelsea"
             },
-            "venue": "away"
-          },
-          "targetMatches": 12,
-          "upcomingGames": [
-            {
-              "fixtureDate": "2026-10-24T11:30:00Z",
-              "opponent": {
-                "name": "Aston Villa"
-              },
-              "venue": "away"
-            },
-            {
-              "fixtureDate": "2026-10-31T15:00:00Z",
-              "opponent": {
-                "name": "Brighton & Hove Albion"
-              },
-              "venue": "home"
-            },
-            {
-              "fixtureDate": "2026-11-07T17:30:00Z",
-              "opponent": {
-                "name": "Nottingham Forest"
-              },
-              "venue": "away"
-            },
-            {
-              "fixtureDate": "2026-11-21T12:30:00Z",
-              "opponent": {
-                "name": "Fulham"
-              },
-              "venue": "home"
-            },
-            {
-              "fixtureDate": "2026-11-29T16:30:00Z",
-              "opponent": {
-                "name": "Arsenal"
-              },
-              "venue": "away"
-            },
-            {
-              "fixtureDate": "2026-12-02T19:30:00Z",
-              "opponent": {
-                "name": "Leeds United"
-              },
-              "venue": "home"
-            }
-          ]
+            "venue": "home"
+          }
         }
       ]
     }
@@ -716,6 +1386,13 @@
               "venue": "home"
             }
           ],
+          "failedGame": {
+            "fixtureDate": "2020-10-25T14:00:00Z",
+            "opponent": {
+              "name": "Southampton"
+            },
+            "venue": "away"
+          },
           "bestRuns": [
             {
               "playerName": "D. Calvert-Lewin",
@@ -762,7 +1439,14 @@
                   },
                   "venue": "home"
                 }
-              ]
+              ],
+              "failedGame": {
+                "fixtureDate": "2020-10-25T14:00:00Z",
+                "opponent": {
+                  "name": "Southampton"
+                },
+                "venue": "away"
+              }
             }
           ]
         }
@@ -832,6 +1516,13 @@
               "venue": "away"
             }
           ],
+          "failedGame": {
+            "fixtureDate": "2021-10-30T14:00:00Z",
+            "opponent": {
+              "name": "Brighton & Hove Albion"
+            },
+            "venue": "home"
+          },
           "bestRuns": [
             {
               "playerName": "Mohamed Salah",
@@ -892,7 +1583,14 @@
                   },
                   "venue": "away"
                 }
-              ]
+              ],
+              "failedGame": {
+                "fixtureDate": "2021-10-30T14:00:00Z",
+                "opponent": {
+                  "name": "Brighton & Hove Albion"
+                },
+                "venue": "home"
+              }
             }
           ]
         }
@@ -962,6 +1660,13 @@
               "venue": "home"
             }
           ],
+          "failedGame": {
+            "fixtureDate": "2022-10-16T15:30:00Z",
+            "opponent": {
+              "name": "Liverpool"
+            },
+            "venue": "away"
+          },
           "bestRuns": [
             {
               "playerName": "E. Haaland",
@@ -1022,7 +1727,14 @@
                   },
                   "venue": "home"
                 }
-              ]
+              ],
+              "failedGame": {
+                "fixtureDate": "2022-10-16T15:30:00Z",
+                "opponent": {
+                  "name": "Liverpool"
+                },
+                "venue": "away"
+              }
             }
           ]
         }
@@ -1078,6 +1790,13 @@
               "venue": "home"
             }
           ],
+          "failedGame": {
+            "fixtureDate": "2024-03-04T20:00:00Z",
+            "opponent": {
+              "name": "Sheffield United"
+            },
+            "venue": "away"
+          },
           "bestRuns": [
             {
               "playerName": "B. Saka",
@@ -1124,7 +1843,14 @@
                   },
                   "venue": "home"
                 }
-              ]
+              ],
+              "failedGame": {
+                "fixtureDate": "2024-03-04T20:00:00Z",
+                "opponent": {
+                  "name": "Sheffield United"
+                },
+                "venue": "away"
+              }
             }
           ]
         },
@@ -1174,6 +1900,13 @@
               "venue": "away"
             }
           ],
+          "failedGame": {
+            "fixtureDate": "2024-02-24T15:00:00Z",
+            "opponent": {
+              "name": "Fulham"
+            },
+            "venue": "home"
+          },
           "bestRuns": [
             {
               "playerName": "R. HÃ¸jlund",
@@ -1220,7 +1953,14 @@
                   },
                   "venue": "away"
                 }
-              ]
+              ],
+              "failedGame": {
+                "fixtureDate": "2024-02-24T15:00:00Z",
+                "opponent": {
+                  "name": "Fulham"
+                },
+                "venue": "home"
+              }
             }
           ]
         }
@@ -1297,6 +2037,13 @@
               "venue": "home"
             }
           ],
+          "failedGame": {
+            "fixtureDate": "2025-01-18T12:30:00Z",
+            "opponent": {
+              "name": "Bournemouth"
+            },
+            "venue": "home"
+          },
           "bestRuns": [
             {
               "playerName": "A. Isak",
@@ -1364,7 +2111,14 @@
                   },
                   "venue": "home"
                 }
-              ]
+              ],
+              "failedGame": {
+                "fixtureDate": "2025-01-18T12:30:00Z",
+                "opponent": {
+                  "name": "Bournemouth"
+                },
+                "venue": "home"
+              }
             }
           ]
         }
@@ -1427,6 +2181,13 @@
               "venue": "away"
             }
           ],
+          "failedGame": {
+            "fixtureDate": "2026-01-01T17:30:00Z",
+            "opponent": {
+              "name": "Liverpool"
+            },
+            "venue": "away"
+          },
           "bestRuns": [
             {
               "playerName": "D. Calvert-Lewin",
@@ -1480,7 +2241,14 @@
                   },
                   "venue": "away"
                 }
-              ]
+              ],
+              "failedGame": {
+                "fixtureDate": "2026-01-01T17:30:00Z",
+                "opponent": {
+                  "name": "Liverpool"
+                },
+                "venue": "away"
+              }
             }
           ]
         },
@@ -1537,6 +2305,13 @@
               "venue": "home"
             }
           ],
+          "failedGame": {
+            "fixtureDate": "2025-10-26T14:00:00Z",
+            "opponent": {
+              "name": "Aston Villa"
+            },
+            "venue": "away"
+          },
           "bestRuns": [
             {
               "playerName": "E. Haaland",
@@ -1590,7 +2365,14 @@
                   },
                   "venue": "home"
                 }
-              ]
+              ],
+              "failedGame": {
+                "fixtureDate": "2025-10-26T14:00:00Z",
+                "opponent": {
+                  "name": "Aston Villa"
+                },
+                "venue": "away"
+              }
             }
           ]
         }
@@ -1598,9 +2380,9 @@
     }
   ],
   "whatChanged": {
-    "generatedAt": "2026-10-23T00:58:24.569243Z",
-    "windowStart": "2026-10-16T00:58:24.569243Z",
-    "windowEnd": "2026-10-23T00:58:24.569243Z",
+    "generatedAt": "2026-10-23T01:35:07.549193Z",
+    "windowStart": "2026-10-16T01:35:07.549193Z",
+    "windowEnd": "2026-10-23T01:35:07.549193Z",
     "endedStreaks": [
       {
         "playerName": "N. Jackson",
