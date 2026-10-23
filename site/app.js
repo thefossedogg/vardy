@@ -115,10 +115,15 @@ function renderWhatChanged(changes) {
     addCell(row, "", "").append(name);
     addCell(row, "", entry.clubName);
     const streak = addCell(row, "numeric", "");
-    const pill = document.createElement("span");
+    const pill = document.createElement("button");
+    pill.type = "button";
     pill.className = "streak-pill";
     pill.textContent = `Ended · ${entry.matches}`;
-    pill.setAttribute("aria-label", `Ended ${entry.matches}-match streak`);
+    pill.setAttribute("aria-label", `View ${entry.playerName}'s ended ${entry.matches}-match streak`);
+    pill.addEventListener("click", () => showStreak(entry));
+    row.addEventListener("click", (event) => {
+      if (!name.contains(event.target) && !pill.contains(event.target)) showStreak(entry);
+    });
     streak.append(pill);
     list.append(row);
   }
@@ -260,13 +265,14 @@ function renderGames(streak, list = document.querySelector("#streak-games")) {
     const game = games[index];
     const item = document.createElement("li");
     item.value = index + 1;
+    const isTarget = item.value === 12 && !streak.failedGame;
     item.className = game.failed
       ? "game-failed"
-      : item.value === 12 ? "game-target" : game.completed ? "game-completed" : "game-scheduled";
+      : isTarget ? "game-target" : game.completed ? "game-completed" : "game-scheduled";
     item.setAttribute("aria-label",
       game.failed
         ? "Failed to score in this club fixture"
-        : `Game ${item.value}, ${game.completed ? "completed scoring game" : "scheduled"}${item.value === 12 ? ", record-breaking target" : ""}`);
+        : `Game ${item.value}, ${game.completed ? "completed scoring game" : "scheduled"}${isTarget ? ", record-breaking target" : ""}`);
     const opponent = document.createElement("span");
     opponent.textContent = `${game.failed ? "Failed to score · " : ""}${game.opponent.name} (${game.venue === "home" ? "H" : "A"})` +
       (game.score ? ` · Leicester ${game.score}, Vardy ${game.goals}` : "");
