@@ -9,7 +9,8 @@ Index updates do not establish source-data freshness. Early previews may use unv
 ## Pages
 
 - [Vardy Watch](https://vardywatch.com/index.md): Dashboard overview and published data link.
-- [Weekly previews](https://vardywatch.com/blog/index.md): Published editions, newest first.
+- [Club scorers and streaks](https://vardywatch.com/clubs/index.md): Current-season leaderboard rules, active runs and full-season fixture views.
+- [Weekly previews](https://vardywatch.com/blog/index.md): Latest published edition, or an empty state before publication.
 - [Preview archive](https://vardywatch.com/blog/archive.md): All published editions.
 - [Scoring-streak methodology](https://vardywatch.com/blog/methodology.md): Definitions and publication approach.
 
@@ -19,4 +20,4 @@ Index updates do not establish source-data freshness. Early previews may use unv
 
 ## Optional
 
-- [Collected content](https://vardywatch.com/llms-full.txt): Dashboard overview, methodology and complete published previews; not live statistics.
+- [Collected content](https://vardywatch.com/llms-full.txt): Dashboard and club overviews, methodology and complete published previews; not live statistics.

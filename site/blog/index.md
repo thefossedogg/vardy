@@ -6,7 +6,7 @@ Published 23 October 2026. Coverage: Thursday 29 October, 09:00, through Monday 
 
 Source freshness unverified. This early preview uses existing local Premier League exports, published with editorial approval under a one-off exception to the normal Thursday schedule and verified-freshness requirement.
 
-Every player below has an intervening fixture before the coverage window begins. All projected streak lengths depend on scoring in that fixture; this is not a confirmed Thursday leaderboard.
+Every player below has an intervening fixture before the game week begins. All projected streak lengths depend on scoring in that fixture; this is not a confirmed Thursday leaderboard.
 
 ## Six on the board. Two more steps to take?
 
@@ -42,6 +42,6 @@ The Sunderland fixture, listed for 15:00 on Saturday 31 October, offers a route 
 
 ## Earn Thursday's billing first
 
-All four players have one listed fixture inside the coverage window, each on Saturday 31 October. None has a second in-window opportunity to add another step before Monday ends.
+All four players have one listed fixture inside the game week, each on Saturday 31 October. None has a second in-window opportunity to add another step before Monday ends.
 
 This is an early watchlist, not a settled Thursday leaderboard: intervening results can remove these runs, change their lengths or bring different players into contention. The final edition needs fresh evidence before any of those conditional routes can become its starting point.
