@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://vardywatch.com/</loc>
-  </url>
+  <url><loc>https://vardywatch.com/</loc></url>
+  <url><loc>https://vardywatch.com/blog/</loc></url>
+  <url><loc>https://vardywatch.com/blog/methodology.html</loc></url>
+  <url><loc>https://vardywatch.com/blog/2026-10-29-early-preview.html</loc></url>
 </urlset>

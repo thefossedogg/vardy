@@ -17,6 +17,26 @@
   box-sizing: border-box;
 }
 
+.blog-page {
+  max-width: 760px;
+  padding-block: 24px 60px;
+  line-height: 1.7;
+}
+
+.blog-page h1 {
+  font-size: clamp(30px, 5vw, 48px);
+}
+
+.blog-page h2 {
+  margin-top: 32px;
+}
+
+.blog-page footer {
+  width: 100%;
+  margin-top: 40px;
+  overflow-wrap: anywhere;
+}
+
 body {
   margin: 0;
   background: var(--paper);
