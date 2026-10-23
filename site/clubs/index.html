@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.google-analytics.com; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com; object-src 'none'; base-uri 'self'; form-action 'self'">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#11251e">
+    <meta name="description" content="Explore current-season Premier League club scorers and active scoring streaks.">
+    <title>Your club | Vardy Watch</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../app.js" defer></script>
+  </head>
+  <body data-page="clubs">
+    <header class="masthead" aria-label="Vardy Watch">
+      <a class="wordmark" href="../">Vardy Watch</a>
+    </header>
+    <main>
+      <nav class="primary-nav" aria-label="Primary">
+        <a href="../">Homepage</a>
+        <a href="./">Club directory</a>
+      </nav>
+      <section class="dashboard" aria-labelledby="clubs-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">PREMIER LEAGUE</p>
+            <h1 id="clubs-title">Your club</h1>
+          </div>
+          <time class="updated" id="updated-at">Loading latest data...</time>
+        </div>
+        <p id="clubs-status" role="status">Loading clubs...</p>
+        <noscript>Enable JavaScript to view club statistics.</noscript>
+        <div id="club-directory" hidden>
+          <ul id="club-list" class="club-list"></ul>
+        </div>
+        <div id="club-detail" hidden>
+          <section class="table-panel" aria-labelledby="club-scorers-title">
+            <div class="table-heading">
+              <h2 id="club-scorers-title">Season scorers</h2>
+            </div>
+            <div class="table-scroll">
+              <table>
+                <thead>
+                  <tr>
+                    <th scope="col" class="numeric">RANK</th>
+                    <th scope="col">PLAYER</th>
+                    <th scope="col" class="numeric">GOALS</th>
+                  </tr>
+                </thead>
+                <tbody id="club-scorers"></tbody>
+              </table>
+            </div>
+            <p class="table-note">Penalties count; own goals do not. Goals stay with the club represented in each fixture, including goals by players who have since left. Tied totals share a rank and skip subsequent places.</p>
+          </section>
+          <section class="table-panel" aria-labelledby="club-streaks-title">
+            <div class="table-heading">
+              <h2 id="club-streaks-title">Active in-season runs</h2>
+            </div>
+            <div class="table-scroll">
+              <table>
+                <thead>
+                  <tr>
+                    <th scope="col">PLAYER</th>
+                    <th scope="col">CLUB</th>
+                    <th scope="col" class="numeric">STREAK</th>
+                    <th scope="col">LAST GOAL</th>
+                    <th scope="col">NEXT GAME</th>
+                  </tr>
+                </thead>
+                <tbody id="active-streaks"></tbody>
+              </table>
+            </div>
+            <p class="table-note">At least two consecutive completed club fixtures with a credited goal, within this season. A fixture without a credited goal breaks the run, even if the player did not appear. Active means through the club's latest completed fixture, not current squad membership. Select a streak to view its fixtures; future games are not predicted goals.</p>
+          </section>
+        </div>
+      </section>
+    </main>
+    <dialog id="streak-dialog" aria-labelledby="streak-dialog-title" aria-describedby="streak-dialog-summary">
+      <div class="dialog-details">
+        <form method="dialog" class="dialog-header">
+          <h2 id="streak-dialog-title"></h2>
+          <button class="dialog-close" aria-label="Close streak details">Close</button>
+        </form>
+        <p id="streak-dialog-summary"></p>
+        <p id="streak-route-note" hidden></p>
+      </div>
+      <div class="dialog-games" tabindex="0" role="region" aria-label="Streak games">
+        <ol id="streak-games" class="game-list" reversed></ol>
+        <div id="streak-repeated-runs"></div>
+      </div>
+    </dialog>
+    <footer><span>VARDY WATCH</span></footer>
+  </body>
+</html>

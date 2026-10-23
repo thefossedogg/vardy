@@ -1,5 +1,9 @@
 const RECORD = 11;
-const dataUrl = new URL("data/current-season.json", document.baseURI);
+const isClubPage = document.body?.dataset.page === "clubs";
+const dataUrl = new URL(
+  isClubPage ? "../data/current-season.json" : "data/current-season.json",
+  document.baseURI,
+);
 let activeRows = [];
 
 function addCell(row, className, content) {
@@ -10,13 +14,13 @@ function addCell(row, className, content) {
   return cell;
 }
 
-function renderActive(streaks) {
+function renderActive(streaks, emptyMessage = "No active scoring streaks in the current data.") {
   const body = document.querySelector("#active-streaks");
   body.replaceChildren();
 
   if (streaks.length === 0) {
     const row = document.createElement("tr");
-    const cell = addCell(row, "empty", "No active scoring streaks in the current data.");
+    const cell = addCell(row, "empty", emptyMessage);
     cell.colSpan = 5;
     body.append(row);
     return;
@@ -377,10 +381,97 @@ function filterRows(query) {
   renderActive(visible);
 }
 
-async function loadData() {
+async function fetchSeasonData() {
   const response = await fetch(dataUrl, { cache: "no-store" });
   if (!response.ok) throw new Error(`Data request failed (${response.status}).`);
-  const data = await response.json();
+  return response.json();
+}
+
+function renderClubPage(data, slug = new URL(document.baseURI).searchParams.get("club")) {
+  const directory = document.querySelector("#club-directory");
+  const detail = document.querySelector("#club-detail");
+  const status = document.querySelector("#clubs-status");
+  const title = document.querySelector("#clubs-title");
+  document.querySelector(".section-heading .eyebrow").textContent = `${data.seasonLabel} PREMIER LEAGUE`;
+  const updated = document.querySelector("#updated-at");
+  updated.textContent = data.generatedAt ? `UPDATED ${formatDate(data.generatedAt)}` : "DATA NOT SYNCED YET";
+  if (data.generatedAt) updated.dateTime = data.generatedAt;
+  directory.hidden = slug !== null;
+  detail.hidden = true;
+
+  if (slug === null) {
+    title.textContent = "Your club";
+    document.title = "Your club | Vardy Watch";
+    status.textContent = "Choose a club to see its scorers and active scoring streaks.";
+    const list = document.querySelector("#club-list");
+    list.replaceChildren();
+    for (const club of data.clubs) {
+      const item = document.createElement("li");
+      const link = document.createElement("a");
+      link.href = `?club=${encodeURIComponent(club.slug)}`;
+      link.textContent = club.clubName;
+      item.append(link);
+      list.append(item);
+    }
+    if (data.clubs.length === 0) status.textContent = "No clubs in the current season fixtures.";
+    return;
+  }
+
+  const club = data.clubs.find((entry) => entry.slug === slug);
+  if (!club) {
+    title.textContent = "Club not found";
+    document.title = "Club not found | Vardy Watch";
+    status.textContent = "This club is not in the current season. Use the club directory to choose a club.";
+    return;
+  }
+
+  detail.hidden = false;
+  title.textContent = club.clubName;
+  document.title = `${club.clubName} | ${data.seasonLabel} scorers | Vardy Watch`;
+  status.textContent = club.completedFixtures === 0
+    ? "No completed league fixtures yet."
+    : `${club.completedFixtures} completed league fixtures this season.`;
+  const scorers = document.querySelector("#club-scorers");
+  scorers.replaceChildren();
+  for (const scorer of club.scorers) {
+    const row = document.createElement("tr");
+    addCell(row, "numeric", String(scorer.rank));
+    addCell(row, "", scorer.playerName);
+    addCell(row, "numeric", String(scorer.goals));
+    scorers.append(row);
+  }
+  if (club.scorers.length === 0) {
+    const row = document.createElement("tr");
+    const cell = addCell(row, "empty", club.completedFixtures === 0
+      ? "No completed league fixtures yet."
+      : "No credited goals this season.");
+    cell.colSpan = 3;
+    scorers.append(row);
+  }
+  renderActive(club.activeInSeason, club.completedFixtures === 0
+    ? "No completed league fixtures yet."
+    : "No active scoring streaks of two or more matches.");
+}
+
+async function loadClubData() {
+  const data = await fetchSeasonData();
+  if (
+    !Array.isArray(data.clubs) ||
+    data.clubs.some((club) =>
+      typeof club.slug !== "string" ||
+      typeof club.clubName !== "string" ||
+      !Number.isInteger(club.completedFixtures) ||
+      !Array.isArray(club.scorers) ||
+      !Array.isArray(club.activeInSeason),
+    )
+  ) {
+    throw new Error("The season data file is missing valid club statistics.");
+  }
+  renderClubPage(data);
+}
+
+async function loadData() {
+  const data = await fetchSeasonData();
   if (
     !Array.isArray(data.activeInSeason) ||
     !Array.isArray(data.seasonBestRuns) ||
@@ -422,31 +513,41 @@ async function loadData() {
   renderPyramid(data.seasonLeaders, active);
 }
 
-document.querySelector("#search").addEventListener("input", (event) => {
-  filterRows(event.currentTarget.value);
-});
+if (isClubPage) {
+  loadClubData().catch((error) => {
+    document.querySelector("#updated-at").textContent = "DATA UNAVAILABLE";
+    document.querySelector("#clubs-status").textContent = "Could not load club data. Please try again later.";
+    document.querySelector("#club-directory").hidden = true;
+    document.querySelector("#club-detail").hidden = true;
+    console.error(error);
+  });
+} else {
+  document.querySelector("#search").addEventListener("input", (event) => {
+    filterRows(event.currentTarget.value);
+  });
 
-buildPyramid();
-document.querySelector("#vardy-button").addEventListener("click", () => showStreak(VARDY_STREAK));
+  buildPyramid();
+  document.querySelector("#vardy-button").addEventListener("click", () => showStreak(VARDY_STREAK));
 
-loadData().catch((error) => {
-  document.querySelector("#updated-at").textContent = "DATA UNAVAILABLE";
-  const row = document.createElement("tr");
-  const cell = addCell(row, "empty", "Could not load streak data.");
-  cell.colSpan = 5;
-  document.querySelector("#active-streaks").replaceChildren(row);
-  const bests = document.querySelector("#season-bests");
-  bests.replaceChildren();
-  const message = document.createElement("p");
-  message.className = "empty";
-  message.textContent = "Could not load season bests.";
-  bests.append(message);
-  document.querySelector("#season-leaders").replaceChildren();
-  const changes = document.createElement("p");
-  changes.className = "empty";
-  changes.textContent = "Could not load streaks.";
-  document.querySelector("#recent-changes").replaceChildren(changes);
-  console.error(error);
-});
+  loadData().catch((error) => {
+    document.querySelector("#updated-at").textContent = "DATA UNAVAILABLE";
+    const row = document.createElement("tr");
+    const cell = addCell(row, "empty", "Could not load streak data.");
+    cell.colSpan = 5;
+    document.querySelector("#active-streaks").replaceChildren(row);
+    const bests = document.querySelector("#season-bests");
+    bests.replaceChildren();
+    const message = document.createElement("p");
+    message.className = "empty";
+    message.textContent = "Could not load season bests.";
+    bests.append(message);
+    document.querySelector("#season-leaders").replaceChildren();
+    const changes = document.createElement("p");
+    changes.className = "empty";
+    changes.textContent = "Could not load streaks.";
+    document.querySelector("#recent-changes").replaceChildren(changes);
+    console.error(error);
+  });
+}
 
 setInterval(updateCountdowns, 1000);

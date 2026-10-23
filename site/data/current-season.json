@@ -2,7 +2,7 @@
   "competition": "Premier League",
   "season": 2026,
   "seasonLabel": "2026/27",
-  "generatedAt": "2026-10-23T21:17:33.756027Z",
+  "generatedAt": "2026-10-23T22:23:22.506853Z",
   "source": "Local monthly Premier League JSON exports",
   "benchmark": {
     "playerName": "Jamie Vardy",
@@ -2380,9 +2380,9 @@
     }
   ],
   "whatChanged": {
-    "generatedAt": "2026-10-23T21:17:33.756027Z",
-    "windowStart": "2026-10-16T21:17:33.756027Z",
-    "windowEnd": "2026-10-23T21:17:33.756027Z",
+    "generatedAt": "2026-10-23T22:23:22.506853Z",
+    "windowStart": "2026-10-16T22:23:22.506853Z",
+    "windowEnd": "2026-10-23T22:23:22.506853Z",
     "endedStreaks": [
       {
         "playerName": "N. Jackson",
@@ -2469,5 +2469,1205 @@
         }
       }
     ]
-  }
+  },
+  "clubs": [
+    {
+      "clubName": "Arsenal",
+      "completedFixtures": 7,
+      "scorers": [
+        {
+          "playerName": "B. Saka",
+          "goals": 3,
+          "rank": 1
+        },
+        {
+          "playerName": "Bruno GuimarÃ£es",
+          "goals": 2,
+          "rank": 2
+        },
+        {
+          "playerName": "K. Havertz",
+          "goals": 2,
+          "rank": 2
+        },
+        {
+          "playerName": "M. Ãdegaard",
+          "goals": 2,
+          "rank": 2
+        },
+        {
+          "playerName": "N. Madueke",
+          "goals": 1,
+          "rank": 5
+        },
+        {
+          "playerName": "R. Calafiori",
+          "goals": 1,
+          "rank": 5
+        }
+      ],
+      "activeInSeason": [],
+      "slug": "arsenal"
+    },
+    {
+      "clubName": "Aston Villa",
+      "completedFixtures": 7,
+      "scorers": [
+        {
+          "playerName": "J. Manzambi",
+          "goals": 2,
+          "rank": 1
+        },
+        {
+          "playerName": "N. Jackson",
+          "goals": 2,
+          "rank": 1
+        },
+        {
+          "playerName": "Alysson",
+          "goals": 1,
+          "rank": 3
+        },
+        {
+          "playerName": "E. BuendÃ­a",
+          "goals": 1,
+          "rank": 3
+        },
+        {
+          "playerName": "J. McGinn",
+          "goals": 1,
+          "rank": 3
+        }
+      ],
+      "activeInSeason": [],
+      "slug": "aston-villa"
+    },
+    {
+      "clubName": "Bournemouth",
+      "completedFixtures": 7,
+      "scorers": [
+        {
+          "playerName": "M. Tavernier",
+          "goals": 4,
+          "rank": 1
+        },
+        {
+          "playerName": "Evanilson",
+          "goals": 2,
+          "rank": 2
+        },
+        {
+          "playerName": "A. Scott",
+          "goals": 1,
+          "rank": 3
+        },
+        {
+          "playerName": "J. Kluivert",
+          "goals": 1,
+          "rank": 3
+        }
+      ],
+      "activeInSeason": [
+        {
+          "playerName": "Evanilson",
+          "clubName": "Bournemouth",
+          "matches": 2,
+          "startDate": "2026-10-10T14:00:00Z",
+          "lastScoringDate": "2026-10-18T13:00:00Z",
+          "startSeason": 2026,
+          "season": 2026,
+          "isActive": true,
+          "games": [
+            {
+              "fixtureDate": "2026-10-10T14:00:00Z",
+              "opponent": {
+                "name": "Chelsea"
+              },
+              "venue": "away"
+            },
+            {
+              "fixtureDate": "2026-10-18T13:00:00Z",
+              "opponent": {
+                "name": "Sunderland"
+              },
+              "venue": "home"
+            }
+          ],
+          "nextGame": {
+            "fixtureDate": "2026-10-25T14:00:00Z",
+            "opponent": {
+              "name": "Manchester United"
+            },
+            "venue": "away"
+          },
+          "targetMatches": 12,
+          "upcomingGames": [
+            {
+              "fixtureDate": "2026-10-25T14:00:00Z",
+              "opponent": {
+                "name": "Manchester United"
+              },
+              "venue": "away"
+            },
+            {
+              "fixtureDate": "2026-10-31T15:00:00Z",
+              "opponent": {
+                "name": "Leeds United"
+              },
+              "venue": "home"
+            },
+            {
+              "fixtureDate": "2026-11-08T14:00:00Z",
+              "opponent": {
+                "name": "Ipswich Town"
+              },
+              "venue": "away"
+            },
+            {
+              "fixtureDate": "2026-11-21T15:00:00Z",
+              "opponent": {
+                "name": "Nottingham Forest"
+              },
+              "venue": "home"
+            },
+            {
+              "fixtureDate": "2026-11-29T14:05:00Z",
+              "opponent": {
+                "name": "Fulham"
+              },
+              "venue": "away"
+            },
+            {
+              "fixtureDate": "2026-12-02T20:15:00Z",
+              "opponent": {
+                "name": "Brighton & Hove Albion"
+              },
+              "venue": "home"
+            },
+            {
+              "fixtureDate": "2026-12-05T15:00:00Z",
+              "opponent": {
+                "name": "Hull City"
+              },
+              "venue": "home"
+            },
+            {
+              "fixtureDate": "2026-12-13T14:00:00Z",
+              "opponent": {
+                "name": "Arsenal"
+              },
+              "venue": "away"
+            },
+            {
+              "fixtureDate": "2026-12-19T15:00:00Z",
+              "opponent": {
+                "name": "Coventry City"
+              },
+              "venue": "home"
+            },
+            {
+              "fixtureDate": "2026-12-26T15:00:00Z",
+              "opponent": {
+                "name": "Tottenham Hotspur"
+              },
+              "venue": "away"
+            }
+          ]
+        }
+      ],
+      "slug": "bournemouth"
+    },
+    {
+      "clubName": "Brentford",
+      "completedFixtures": 7,
+      "scorers": [
+        {
+          "playerName": "K. Schade",
+          "goals": 3,
+          "rank": 1
+        },
+        {
+          "playerName": "K. Lewis-Potter",
+          "goals": 2,
+          "rank": 2
+        },
+        {
+          "playerName": "V. Janelt",
+          "goals": 2,
+          "rank": 2
+        },
+        {
+          "playerName": "FÃ¡bio Carvalho",
+          "goals": 1,
+          "rank": 4
+        },
+        {
+          "playerName": "Igor Thiago",
+          "goals": 1,
+          "rank": 4
+        },
+        {
+          "playerName": "J. Anthony",
+          "goals": 1,
+          "rank": 4
+        },
+        {
+          "playerName": "K. Ajer",
+          "goals": 1,
+          "rank": 4
+        },
+        {
+          "playerName": "M. Kayode",
+          "goals": 1,
+          "rank": 4
+        },
+        {
+          "playerName": "Y. Yarmoliuk",
+          "goals": 1,
+          "rank": 4
+        }
+      ],
+      "activeInSeason": [],
+      "slug": "brentford"
+    },
+    {
+      "clubName": "Brighton & Hove Albion",
+      "completedFixtures": 7,
+      "scorers": [
+        {
+          "playerName": "C. Kostoulas",
+          "goals": 3,
+          "rank": 1
+        },
+        {
+          "playerName": "J. Hinshelwood",
+          "goals": 3,
+          "rank": 1
+        },
+        {
+          "playerName": "P. GroÃ",
+          "goals": 3,
+          "rank": 1
+        },
+        {
+          "playerName": "M. De Cuyper",
+          "goals": 2,
+          "rank": 4
+        },
+        {
+          "playerName": "M. YalcouyÃ©",
+          "goals": 2,
+          "rank": 4
+        },
+        {
+          "playerName": "Y. Ayari",
+          "goals": 2,
+          "rank": 4
+        },
+        {
+          "playerName": "Chema AndrÃ©s",
+          "goals": 1,
+          "rank": 7
+        },
+        {
+          "playerName": "D. GÃ³mez",
+          "goals": 1,
+          "rank": 7
+        },
+        {
+          "playerName": "J. Hadjam",
+          "goals": 1,
+          "rank": 7
+        },
+        {
+          "playerName": "L. Dunk",
+          "goals": 1,
+          "rank": 7
+        },
+        {
+          "playerName": "L. VuÅ¡koviÄ",
+          "goals": 1,
+          "rank": 7
+        }
+      ],
+      "activeInSeason": [],
+      "slug": "brighton-hove-albion"
+    },
+    {
+      "clubName": "Chelsea",
+      "completedFixtures": 7,
+      "scorers": [
+        {
+          "playerName": "JoÃ£o Pedro",
+          "goals": 5,
+          "rank": 1
+        },
+        {
+          "playerName": "M. Rogers",
+          "goals": 4,
+          "rank": 2
+        },
+        {
+          "playerName": "Pedro Neto",
+          "goals": 3,
+          "rank": 3
+        },
+        {
+          "playerName": "C. Palmer",
+          "goals": 2,
+          "rank": 4
+        },
+        {
+          "playerName": "J. Henderson",
+          "goals": 2,
+          "rank": 4
+        },
+        {
+          "playerName": "R. Lavia",
+          "goals": 1,
+          "rank": 6
+        }
+      ],
+      "activeInSeason": [],
+      "slug": "chelsea"
+    },
+    {
+      "clubName": "Coventry City",
+      "completedFixtures": 7,
+      "scorers": [
+        {
+          "playerName": "J. Rudoni",
+          "goals": 2,
+          "rank": 1
+        },
+        {
+          "playerName": "E. Simms",
+          "goals": 1,
+          "rank": 2
+        },
+        {
+          "playerName": "J. Dasilva",
+          "goals": 1,
+          "rank": 2
+        },
+        {
+          "playerName": "S. Cherif",
+          "goals": 1,
+          "rank": 2
+        },
+        {
+          "playerName": "S. Mfuni",
+          "goals": 1,
+          "rank": 2
+        }
+      ],
+      "activeInSeason": [
+        {
+          "playerName": "J. Rudoni",
+          "clubName": "Coventry City",
+          "matches": 2,
+          "startDate": "2026-10-12T19:00:00Z",
+          "lastScoringDate": "2026-10-19T19:00:00Z",
+          "startSeason": 2026,
+          "season": 2026,
+          "isActive": true,
+          "games": [
+            {
+              "fixtureDate": "2026-10-12T19:00:00Z",
+              "opponent": {
+                "name": "Newcastle United"
+              },
+              "venue": "home"
+            },
+            {
+              "fixtureDate": "2026-10-19T19:00:00Z",
+              "opponent": {
+                "name": "Tottenham Hotspur"
+              },
+              "venue": "away"
+            }
+          ],
+          "nextGame": {
+            "fixtureDate": "2026-10-24T14:00:00Z",
+            "opponent": {
+              "name": "Fulham"
+            },
+            "venue": "home"
+          },
+          "targetMatches": 12,
+          "upcomingGames": [
+            {
+              "fixtureDate": "2026-10-24T14:00:00Z",
+              "opponent": {
+                "name": "Fulham"
+              },
+              "venue": "home"
+            },
+            {
+              "fixtureDate": "2026-10-31T15:00:00Z",
+              "opponent": {
+                "name": "Sunderland"
+              },
+              "venue": "home"
+            },
+            {
+              "fixtureDate": "2026-11-06T20:00:00Z",
+              "opponent": {
+                "name": "Everton"
+              },
+              "venue": "away"
+            },
+            {
+              "fixtureDate": "2026-11-21T15:00:00Z",
+              "opponent": {
+                "name": "Crystal Palace"
+              },
+              "venue": "home"
+            },
+            {
+              "fixtureDate": "2026-11-28T15:00:00Z",
+              "opponent": {
+                "name": "Leeds United"
+              },
+              "venue": "away"
+            },
+            {
+              "fixtureDate": "2026-12-01T20:00:00Z",
+              "opponent": {
+                "name": "Ipswich Town"
+              },
+              "venue": "home"
+            },
+            {
+              "fixtureDate": "2026-12-05T15:00:00Z",
+              "opponent": {
+                "name": "Manchester United"
+              },
+              "venue": "away"
+            },
+            {
+              "fixtureDate": "2026-12-13T16:30:00Z",
+              "opponent": {
+                "name": "Aston Villa"
+              },
+              "venue": "home"
+            },
+            {
+              "fixtureDate": "2026-12-19T15:00:00Z",
+              "opponent": {
+                "name": "Bournemouth"
+              },
+              "venue": "away"
+            },
+            {
+              "fixtureDate": "2026-12-27T14:00:00Z",
+              "opponent": {
+                "name": "Chelsea"
+              },
+              "venue": "home"
+            }
+          ]
+        }
+      ],
+      "slug": "coventry-city"
+    },
+    {
+      "clubName": "Crystal Palace",
+      "completedFixtures": 7,
+      "scorers": [
+        {
+          "playerName": "T. Mitchell",
+          "goals": 2,
+          "rank": 1
+        },
+        {
+          "playerName": "A. Khalaili",
+          "goals": 1,
+          "rank": 2
+        },
+        {
+          "playerName": "B. Chilwell",
+          "goals": 1,
+          "rank": 2
+        },
+        {
+          "playerName": "D. Kamada",
+          "goals": 1,
+          "rank": 2
+        },
+        {
+          "playerName": "J. Lerma",
+          "goals": 1,
+          "rank": 2
+        },
+        {
+          "playerName": "J. Strand Larsen",
+          "goals": 1,
+          "rank": 2
+        },
+        {
+          "playerName": "YÃ©remy Pino",
+          "goals": 1,
+          "rank": 2
+        }
+      ],
+      "activeInSeason": [],
+      "slug": "crystal-palace"
+    },
+    {
+      "clubName": "Everton",
+      "completedFixtures": 7,
+      "scorers": [
+        {
+          "playerName": "T. Barry",
+          "goals": 3,
+          "rank": 1
+        },
+        {
+          "playerName": "K. Dewsbury-Hall",
+          "goals": 2,
+          "rank": 2
+        },
+        {
+          "playerName": "A. Maitland-Niles",
+          "goals": 1,
+          "rank": 3
+        },
+        {
+          "playerName": "J. Tarkowski",
+          "goals": 1,
+          "rank": 3
+        },
+        {
+          "playerName": "T. George",
+          "goals": 1,
+          "rank": 3
+        }
+      ],
+      "activeInSeason": [],
+      "slug": "everton"
+    },
+    {
+      "clubName": "Fulham",
+      "completedFixtures": 7,
+      "scorers": [
+        {
+          "playerName": "J. King",
+          "goals": 2,
+          "rank": 1
+        },
+        {
+          "playerName": "A. Iwobi",
+          "goals": 1,
+          "rank": 2
+        },
+        {
+          "playerName": "CÃ©sar Palacios",
+          "goals": 1,
+          "rank": 2
+        },
+        {
+          "playerName": "Gonzalo GarcÃ­a",
+          "goals": 1,
+          "rank": 2
+        },
+        {
+          "playerName": "R. Sessegnon",
+          "goals": 1,
+          "rank": 2
+        }
+      ],
+      "activeInSeason": [],
+      "slug": "fulham"
+    },
+    {
+      "clubName": "Hull City",
+      "completedFixtures": 7,
+      "scorers": [
+        {
+          "playerName": "M. Belloumi",
+          "goals": 3,
+          "rank": 1
+        },
+        {
+          "playerName": "J. Gelhardt",
+          "goals": 1,
+          "rank": 2
+        },
+        {
+          "playerName": "L. Millar",
+          "goals": 1,
+          "rank": 2
+        },
+        {
+          "playerName": "M. Cho",
+          "goals": 1,
+          "rank": 2
+        },
+        {
+          "playerName": "N. Mendy",
+          "goals": 1,
+          "rank": 2
+        },
+        {
+          "playerName": "S. Ajayi",
+          "goals": 1,
+          "rank": 2
+        }
+      ],
+      "activeInSeason": [],
+      "slug": "hull-city"
+    },
+    {
+      "clubName": "Ipswich Town",
+      "completedFixtures": 8,
+      "scorers": [
+        {
+          "playerName": "Emersonn",
+          "goals": 2,
+          "rank": 1
+        },
+        {
+          "playerName": "L. Davis",
+          "goals": 2,
+          "rank": 1
+        },
+        {
+          "playerName": "Z. Flemming",
+          "goals": 2,
+          "rank": 1
+        },
+        {
+          "playerName": "A. Ouattara",
+          "goals": 1,
+          "rank": 4
+        },
+        {
+          "playerName": "C. Akpom",
+          "goals": 1,
+          "rank": 4
+        },
+        {
+          "playerName": "D. Maeda",
+          "goals": 1,
+          "rank": 4
+        },
+        {
+          "playerName": "D. O'Shea",
+          "goals": 1,
+          "rank": 4
+        },
+        {
+          "playerName": "J. Clarke",
+          "goals": 1,
+          "rank": 4
+        },
+        {
+          "playerName": "J. Enciso",
+          "goals": 1,
+          "rank": 4
+        }
+      ],
+      "activeInSeason": [],
+      "slug": "ipswich-town"
+    },
+    {
+      "clubName": "Leeds United",
+      "completedFixtures": 7,
+      "scorers": [
+        {
+          "playerName": "D. Calvert-Lewin",
+          "goals": 4,
+          "rank": 1
+        },
+        {
+          "playerName": "A. Stach",
+          "goals": 1,
+          "rank": 2
+        },
+        {
+          "playerName": "J. Bogle",
+          "goals": 1,
+          "rank": 2
+        },
+        {
+          "playerName": "J. Justin",
+          "goals": 1,
+          "rank": 2
+        },
+        {
+          "playerName": "N. Okafor",
+          "goals": 1,
+          "rank": 2
+        }
+      ],
+      "activeInSeason": [],
+      "slug": "leeds-united"
+    },
+    {
+      "clubName": "Liverpool",
+      "completedFixtures": 7,
+      "scorers": [
+        {
+          "playerName": "A. Isak",
+          "goals": 5,
+          "rank": 1
+        },
+        {
+          "playerName": "VÃ­ctor MuÃ±oz",
+          "goals": 2,
+          "rank": 2
+        },
+        {
+          "playerName": "C. Gakpo",
+          "goals": 1,
+          "rank": 3
+        },
+        {
+          "playerName": "D. Szoboszlai",
+          "goals": 1,
+          "rank": 3
+        }
+      ],
+      "activeInSeason": [],
+      "slug": "liverpool"
+    },
+    {
+      "clubName": "Manchester City",
+      "completedFixtures": 7,
+      "scorers": [
+        {
+          "playerName": "E. Haaland",
+          "goals": 8,
+          "rank": 1
+        },
+        {
+          "playerName": "R. Cherki",
+          "goals": 4,
+          "rank": 2
+        },
+        {
+          "playerName": "A. Semenyo",
+          "goals": 2,
+          "rank": 3
+        },
+        {
+          "playerName": "E. FernÃ¡ndez",
+          "goals": 1,
+          "rank": 4
+        },
+        {
+          "playerName": "J. Doku",
+          "goals": 1,
+          "rank": 4
+        },
+        {
+          "playerName": "J. Gvardiol",
+          "goals": 1,
+          "rank": 4
+        },
+        {
+          "playerName": "M. GuÃ©hi",
+          "goals": 1,
+          "rank": 4
+        },
+        {
+          "playerName": "P. Foden",
+          "goals": 1,
+          "rank": 4
+        }
+      ],
+      "activeInSeason": [
+        {
+          "playerName": "E. Haaland",
+          "clubName": "Manchester City",
+          "matches": 6,
+          "startDate": "2026-08-28T19:00:00Z",
+          "lastScoringDate": "2026-10-17T14:00:00Z",
+          "startSeason": 2026,
+          "season": 2026,
+          "isActive": true,
+          "games": [
+            {
+              "fixtureDate": "2026-08-28T19:00:00Z",
+              "opponent": {
+                "name": "Crystal Palace"
+              },
+              "venue": "away"
+            },
+            {
+              "fixtureDate": "2026-09-05T14:00:00Z",
+              "opponent": {
+                "name": "Coventry City"
+              },
+              "venue": "home"
+            },
+            {
+              "fixtureDate": "2026-09-13T15:30:00Z",
+              "opponent": {
+                "name": "Manchester United"
+              },
+              "venue": "away"
+            },
+            {
+              "fixtureDate": "2026-09-20T13:00:00Z",
+              "opponent": {
+                "name": "Sunderland"
+              },
+              "venue": "home"
+            },
+            {
+              "fixtureDate": "2026-10-11T15:30:00Z",
+              "opponent": {
+                "name": "Liverpool"
+              },
+              "venue": "away"
+            },
+            {
+              "fixtureDate": "2026-10-17T14:00:00Z",
+              "opponent": {
+                "name": "Ipswich Town"
+              },
+              "venue": "home"
+            }
+          ],
+          "nextGame": {
+            "fixtureDate": "2026-10-24T11:30:00Z",
+            "opponent": {
+              "name": "Aston Villa"
+            },
+            "venue": "away"
+          },
+          "targetMatches": 12,
+          "upcomingGames": [
+            {
+              "fixtureDate": "2026-10-24T11:30:00Z",
+              "opponent": {
+                "name": "Aston Villa"
+              },
+              "venue": "away"
+            },
+            {
+              "fixtureDate": "2026-10-31T15:00:00Z",
+              "opponent": {
+                "name": "Brighton & Hove Albion"
+              },
+              "venue": "home"
+            },
+            {
+              "fixtureDate": "2026-11-07T17:30:00Z",
+              "opponent": {
+                "name": "Nottingham Forest"
+              },
+              "venue": "away"
+            },
+            {
+              "fixtureDate": "2026-11-21T12:30:00Z",
+              "opponent": {
+                "name": "Fulham"
+              },
+              "venue": "home"
+            },
+            {
+              "fixtureDate": "2026-11-29T16:30:00Z",
+              "opponent": {
+                "name": "Arsenal"
+              },
+              "venue": "away"
+            },
+            {
+              "fixtureDate": "2026-12-02T19:30:00Z",
+              "opponent": {
+                "name": "Leeds United"
+              },
+              "venue": "home"
+            }
+          ]
+        }
+      ],
+      "slug": "manchester-city"
+    },
+    {
+      "clubName": "Manchester United",
+      "completedFixtures": 7,
+      "scorers": [
+        {
+          "playerName": "B. Mbeumo",
+          "goals": 4,
+          "rank": 1
+        },
+        {
+          "playerName": "Bruno Fernandes",
+          "goals": 3,
+          "rank": 2
+        },
+        {
+          "playerName": "B. Å eÅ¡ko",
+          "goals": 1,
+          "rank": 3
+        },
+        {
+          "playerName": "Matheus Cunha",
+          "goals": 1,
+          "rank": 3
+        }
+      ],
+      "activeInSeason": [
+        {
+          "playerName": "B. Mbeumo",
+          "clubName": "Manchester United",
+          "matches": 2,
+          "startDate": "2026-10-10T16:30:00Z",
+          "lastScoringDate": "2026-10-18T13:00:00Z",
+          "startSeason": 2026,
+          "season": 2026,
+          "isActive": true,
+          "games": [
+            {
+              "fixtureDate": "2026-10-10T16:30:00Z",
+              "opponent": {
+                "name": "Tottenham Hotspur"
+              },
+              "venue": "home"
+            },
+            {
+              "fixtureDate": "2026-10-18T13:00:00Z",
+              "opponent": {
+                "name": "Leeds United"
+              },
+              "venue": "away"
+            }
+          ],
+          "nextGame": {
+            "fixtureDate": "2026-10-25T14:00:00Z",
+            "opponent": {
+              "name": "Bournemouth"
+            },
+            "venue": "home"
+          },
+          "targetMatches": 12,
+          "upcomingGames": [
+            {
+              "fixtureDate": "2026-10-25T14:00:00Z",
+              "opponent": {
+                "name": "Bournemouth"
+              },
+              "venue": "home"
+            },
+            {
+              "fixtureDate": "2026-10-31T12:30:00Z",
+              "opponent": {
+                "name": "Chelsea"
+              },
+              "venue": "away"
+            },
+            {
+              "fixtureDate": "2026-11-08T16:30:00Z",
+              "opponent": {
+                "name": "Aston Villa"
+              },
+              "venue": "home"
+            },
+            {
+              "fixtureDate": "2026-11-22T16:30:00Z",
+              "opponent": {
+                "name": "Liverpool"
+              },
+              "venue": "away"
+            },
+            {
+              "fixtureDate": "2026-11-28T15:00:00Z",
+              "opponent": {
+                "name": "Brentford"
+              },
+              "venue": "home"
+            },
+            {
+              "fixtureDate": "2026-12-02T20:15:00Z",
+              "opponent": {
+                "name": "Newcastle United"
+              },
+              "venue": "away"
+            },
+            {
+              "fixtureDate": "2026-12-05T15:00:00Z",
+              "opponent": {
+                "name": "Coventry City"
+              },
+              "venue": "home"
+            },
+            {
+              "fixtureDate": "2026-12-13T19:00:00Z",
+              "opponent": {
+                "name": "Crystal Palace"
+              },
+              "venue": "away"
+            },
+            {
+              "fixtureDate": "2026-12-20T16:30:00Z",
+              "opponent": {
+                "name": "Arsenal"
+              },
+              "venue": "away"
+            },
+            {
+              "fixtureDate": "2026-12-27T16:30:00Z",
+              "opponent": {
+                "name": "Nottingham Forest"
+              },
+              "venue": "home"
+            }
+          ]
+        }
+      ],
+      "slug": "manchester-united"
+    },
+    {
+      "clubName": "Newcastle United",
+      "completedFixtures": 7,
+      "scorers": [
+        {
+          "playerName": "A. Elanga",
+          "goals": 2,
+          "rank": 1
+        },
+        {
+          "playerName": "J. Willock",
+          "goals": 2,
+          "rank": 1
+        },
+        {
+          "playerName": "B. TourÃ©",
+          "goals": 1,
+          "rank": 3
+        },
+        {
+          "playerName": "H. Barnes",
+          "goals": 1,
+          "rank": 3
+        },
+        {
+          "playerName": "J. Ramsey",
+          "goals": 1,
+          "rank": 3
+        },
+        {
+          "playerName": "L. Hall",
+          "goals": 1,
+          "rank": 3
+        },
+        {
+          "playerName": "S. Botman",
+          "goals": 1,
+          "rank": 3
+        },
+        {
+          "playerName": "Y. Wissa",
+          "goals": 1,
+          "rank": 3
+        }
+      ],
+      "activeInSeason": [],
+      "slug": "newcastle-united"
+    },
+    {
+      "clubName": "Nottingham Forest",
+      "completedFixtures": 8,
+      "scorers": [
+        {
+          "playerName": "D. Ndoye",
+          "goals": 2,
+          "rank": 1
+        },
+        {
+          "playerName": "Igor Jesus",
+          "goals": 1,
+          "rank": 2
+        },
+        {
+          "playerName": "L. Delap",
+          "goals": 1,
+          "rank": 2
+        },
+        {
+          "playerName": "M. Gibbs-White",
+          "goals": 1,
+          "rank": 2
+        },
+        {
+          "playerName": "N. Williams",
+          "goals": 1,
+          "rank": 2
+        }
+      ],
+      "activeInSeason": [],
+      "slug": "nottingham-forest"
+    },
+    {
+      "clubName": "Sunderland",
+      "completedFixtures": 7,
+      "scorers": [
+        {
+          "playerName": "B. Brobbey",
+          "goals": 3,
+          "rank": 1
+        },
+        {
+          "playerName": "E. Le FÃ©e",
+          "goals": 1,
+          "rank": 2
+        },
+        {
+          "playerName": "N. Angulo",
+          "goals": 1,
+          "rank": 2
+        },
+        {
+          "playerName": "W. Isidor",
+          "goals": 1,
+          "rank": 2
+        }
+      ],
+      "activeInSeason": [],
+      "slug": "sunderland"
+    },
+    {
+      "clubName": "Tottenham Hotspur",
+      "completedFixtures": 7,
+      "scorers": [
+        {
+          "playerName": "B. Davies",
+          "goals": 1,
+          "rank": 1
+        },
+        {
+          "playerName": "C. Gallagher",
+          "goals": 1,
+          "rank": 1
+        },
+        {
+          "playerName": "D. Solanke",
+          "goals": 1,
+          "rank": 1
+        },
+        {
+          "playerName": "J. Maddison",
+          "goals": 1,
+          "rank": 1
+        },
+        {
+          "playerName": "J. van Hecke",
+          "goals": 1,
+          "rank": 1
+        },
+        {
+          "playerName": "Omar Marmoush",
+          "goals": 1,
+          "rank": 1
+        }
+      ],
+      "activeInSeason": [],
+      "slug": "tottenham-hotspur"
+    }
+  ]
 }
