@@ -142,7 +142,6 @@
           <div class="table-heading">
             <div>
               <h3>Active in-season runs</h3>
-              <p>Consecutive club fixtures with a credited goal. Select a streak to see its games.</p>
             </div>
             <label class="search">
               <span class="visually-hidden">Filter players or clubs</span>
@@ -177,13 +176,19 @@
               <p>Streaks count consecutive club fixtures, not player appearances. Penalties count; own goals do not.</p>
             </div>
           </div>
-          <div class="what-changed-lists">
-            <section class="change-list" aria-labelledby="recent-streaks-title">
-              <h4 id="recent-streaks-title">Ended streaks</h4>
-              <div id="recent-changes">
-                <p class="empty">Loading ended streaks…</p>
-              </div>
-            </section>
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">PLAYER</th>
+                  <th scope="col">CLUB</th>
+                  <th scope="col" class="numeric">STREAK</th>
+                </tr>
+              </thead>
+              <tbody id="recent-changes">
+                <tr><td class="empty" colspan="3">Loading ended streaks…</td></tr>
+              </tbody>
+            </table>
           </div>
         </section>
 

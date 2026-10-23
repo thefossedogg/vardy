@@ -100,27 +100,31 @@ function renderWhatChanged(changes) {
   const list = document.querySelector("#recent-changes");
   list.replaceChildren();
   if (entries.length === 0) {
-    const empty = document.createElement("p");
-    empty.className = "empty";
-    empty.textContent = "No scoring streaks ended in this seven-day window.";
-    list.append(empty);
+    const row = document.createElement("tr");
+    const cell = addCell(row, "empty", "No scoring streaks ended in this seven-day window.");
+    cell.colSpan = 3;
+    list.append(row);
     return;
   }
 
   for (const entry of entries) {
-    const item = document.createElement("div");
-    item.className = "change-item";
+    const row = document.createElement("tr");
+    row.className = "streak-row";
     const name = document.createElement("button");
     name.type = "button";
-    name.className = "change-name change-name-button";
-    name.textContent = `${entry.playerName} (${entry.clubName})`;
+    name.className = "change-name-button";
+    name.textContent = entry.playerName;
     name.setAttribute("aria-label", `View ${entry.playerName}'s ${entry.matches}-game scoring streak`);
     name.addEventListener("click", () => showStreak(entry));
-    const count = document.createElement("span");
-    count.className = "change-count";
-    count.textContent = `Ended · ${entry.matches}-match streak`;
-    item.append(name, count);
-    list.append(item);
+    addCell(row, "", "").append(name);
+    addCell(row, "", entry.clubName);
+    const streak = addCell(row, "numeric", "");
+    const pill = document.createElement("span");
+    pill.className = "streak-pill";
+    pill.textContent = `Ended · ${entry.matches}`;
+    pill.setAttribute("aria-label", `Ended ${entry.matches}-match streak`);
+    streak.append(pill);
+    list.append(row);
   }
 }
 

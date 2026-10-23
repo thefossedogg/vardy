@@ -466,36 +466,6 @@ button:focus-visible {
   margin-top: 18px;
 }
 
-.what-changed-lists {
-  display: grid;
-  grid-template-columns: 1fr;
-}
-
-.change-list {
-  min-width: 0;
-}
-
-.change-list h4 {
-  margin: 0;
-  padding: 13px 23px;
-  border-top: 2px solid var(--ink);
-  font-size: 12px;
-}
-
-.change-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 15px;
-  padding: 12px 23px;
-  border-top: 1px solid var(--line);
-  overflow-wrap: anywhere;
-}
-
-.change-name {
-  min-width: 0;
-}
-
 .change-name-button {
   padding: 0;
   border: 0;
@@ -503,22 +473,13 @@ button:focus-visible {
   color: inherit;
   font: inherit;
   text-align: left;
-  text-decoration: underline;
-  text-decoration-color: var(--muted);
-  text-underline-offset: 2px;
   cursor: pointer;
 }
 
 .change-name-button:hover,
 .change-name-button:focus-visible {
-  color: var(--blue);
-}
-
-.change-count {
-  flex: 0 0 auto;
-  color: var(--muted);
-  font-family: var(--mono);
-  font-size: 10px;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .season-history {
