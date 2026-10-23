@@ -441,7 +441,7 @@ function showSeasonFixtures(player) {
       const scheduled = game.status === "scheduled";
       item.className = scheduled ? "fixture-scheduled" : game.goals > 0 ? "fixture-scored" : "fixture-goalless";
       const state = document.createElement("span");
-      state.textContent = `${scheduled ? "Scheduled" : game.goals > 0 ? "Scored" : "No credited goal"} · ${game.goals} goals` +
+      state.textContent = (scheduled ? "Scheduled" : `${game.goals > 0 ? "Scored" : "No credited goal"} · ${game.goals} goals`) +
         ` · ${game.opponent.name} (${game.venue === "home" ? "H" : "A"})` +
         (game.result ? ` · ${game.result}` : "");
       const kickoff = document.createElement("time");
