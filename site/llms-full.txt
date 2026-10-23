@@ -40,7 +40,7 @@ Published 23 October 2026. Coverage: Thursday 29 October, 09:00, through Monday 
 
 Source freshness unverified. This early preview uses existing local Premier League exports, published with editorial approval under a one-off exception to the normal Thursday schedule and verified-freshness requirement.
 
-Every player below has an intervening fixture before the coverage window begins. All projected streak lengths depend on scoring in that fixture; this is not a confirmed Thursday leaderboard.
+Every player below has an intervening fixture before the game week begins. All projected streak lengths depend on scoring in that fixture; this is not a confirmed Thursday leaderboard.
 
 ## Six on the board. Two more steps to take?
 

@@ -911,8 +911,63 @@ button.pyr-vardy { padding: 0; border: 0; background: none; color: inherit; font
 .club-list a:focus-visible {
   background: var(--green);
 }
-#club-detail .table-panel + .table-panel {
-  margin-top: 28px;
+.club-active-row,
+.club-active-row:hover {
+  background: #e5f4e9;
+}
+.club-active-row:focus-within {
+  background: #d1ebd9;
+}
+.season-modal #streak-dialog-summary {
+  max-height: 20vh;
+  overflow-y: auto;
+}
+.season-fixtures-group h3 {
+  margin: 10px 0;
+  font-size: 20px;
+}
+.season-fixtures {
+  position: relative;
+  max-height: 42vh;
+  overflow-y: auto;
+  border: 2px solid var(--ink);
+  background: #fff;
+}
+.season-game-list {
+  margin: 0;
+  padding-left: 30px;
+}
+.season-game-list li {
+  padding: 10px 8px;
+  overflow-wrap: anywhere;
+}
+.fixture-scored {
+  background: #d8f3df;
+  color: #14532d;
+}
+.fixture-goalless {
+  background: #e5e7eb;
+  color: #374151;
+}
+.fixture-scheduled {
+  background: #fff;
+  color: var(--ink);
+}
+.season-fixtures:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 2px;
+}
+@media (max-width: 480px) {
+  #streak-dialog.season-modal {
+    padding: 14px;
+    width: calc(100% - 20px);
+  }
+  .season-modal #streak-dialog-title {
+    font-size: 26px;
+  }
+  .season-game-list time {
+    font-size: 13px;
+  }
 }
 .methodology {
   margin-bottom: 48px;

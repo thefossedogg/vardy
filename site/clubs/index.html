@@ -8,6 +8,7 @@
     <meta name="description" content="Explore current-season Premier League club scorers and active scoring streaks.">
     <title>Your club | Vardy Watch</title>
     <link rel="stylesheet" href="../styles.css">
+    <script src="/analytics.js" defer></script>
     <script src="../app.js" defer></script>
   </head>
   <body data-page="clubs">
@@ -35,7 +36,7 @@
         <div id="club-detail" hidden>
           <section class="table-panel" aria-labelledby="club-scorers-title">
             <div class="table-heading">
-              <h2 id="club-scorers-title">Season scorers</h2>
+              <h2 id="club-scorers-title">Season scorers &amp; streaks</h2>
             </div>
             <div class="table-scroll">
               <table>
@@ -44,6 +45,7 @@
                     <th scope="col" class="numeric">RANK</th>
                     <th scope="col">PLAYER</th>
                     <th scope="col" class="numeric">GOALS</th>
+                    <th scope="col" class="numeric">STREAK</th>
                   </tr>
                 </thead>
                 <tbody id="club-scorers"></tbody>
@@ -51,26 +53,7 @@
             </div>
             <p class="table-note">Penalties count; own goals do not. Goals stay with the club represented in each fixture, including goals by players who have since left. Tied totals share a rank and skip subsequent places.</p>
           </section>
-          <section class="table-panel" aria-labelledby="club-streaks-title">
-            <div class="table-heading">
-              <h2 id="club-streaks-title">Active in-season runs</h2>
-            </div>
-            <div class="table-scroll">
-              <table>
-                <thead>
-                  <tr>
-                    <th scope="col">PLAYER</th>
-                    <th scope="col">CLUB</th>
-                    <th scope="col" class="numeric">STREAK</th>
-                    <th scope="col">LAST GOAL</th>
-                    <th scope="col">NEXT GAME</th>
-                  </tr>
-                </thead>
-                <tbody id="active-streaks"></tbody>
-              </table>
-            </div>
-            <p class="table-note">At least two consecutive completed club fixtures with a credited goal, within this season. A fixture without a credited goal breaks the run, even if the player did not appear. Active means through the club's latest completed fixture, not current squad membership. Select a streak to view its fixtures; future games are not predicted goals.</p>
-          </section>
+          <p class="table-note">Active streaks (green rows) require at least two consecutive completed club fixtures with a credited goal within this season. A fixture without a credited goal breaks the run, even if the player did not appear. Active means through the club's latest completed fixture, not current squad membership. Select any player for all season fixtures, last goal and next game; future games are not predicted goals.</p>
         </div>
       </section>
     </main>
