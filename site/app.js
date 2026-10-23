@@ -95,44 +95,43 @@ function renderWhatChanged(changes) {
   document.querySelector("#changes-window").textContent =
     `${formatKickoff(changes.windowStart)} to ${formatKickoff(changes.windowEnd)}. ` +
     `Updated ${formatKickoff(changes.generatedAt)}.`;
-  const list = document.querySelector("#recent-changes");
+
+  renderChangeList(
+    "#recent-changes",
+    changes.scorers,
+    "No scorers in this seven-day window.",
+    (scorer) => `${scorer.matches} ${scorer.matches === 1 ? "match" : "matches"}`,
+  );
+  renderChangeList(
+    "#ended-streaks",
+    changes.endedStreaks,
+    "No scoring streaks ended in this seven-day window.",
+    (streak) => `${streak.matches}-match streak`,
+  );
+}
+
+function renderChangeList(selector, entries, emptyText, countText) {
+  const list = document.querySelector(selector);
   list.replaceChildren();
-  if (changes.matches.length === 0) {
+  if (entries.length === 0) {
     const empty = document.createElement("p");
     empty.className = "empty";
-    empty.textContent = "No completed Premier League matches in this seven-day window.";
+    empty.textContent = emptyText;
     list.append(empty);
     return;
   }
 
-  for (const match of changes.matches) {
-    const card = document.createElement("article");
-    card.className = "change-match";
-    const heading = document.createElement("h4");
-    heading.textContent = `${match.teams[0].name} v ${match.teams[1].name}`;
-    const kickoff = document.createElement("time");
-    kickoff.dateTime = match.fixtureDate;
-    kickoff.textContent = formatKickoff(match.fixtureDate);
-    const scorers = document.createElement("p");
-    scorers.textContent = "Goalscorers: " + (match.scorers.map((scorer) =>
-      `${scorer.playerName} (${scorer.clubName}) x${scorer.goals}`,
-    ).join(", ") || "No credited goals (own goals excluded).");
-    card.append(heading, kickoff, scorers);
-    if (match.streakChanges.length > 0) {
-      const events = document.createElement("ul");
-      for (const change of match.streakChanges) {
-        const item = document.createElement("li");
-        const event = change.type === "ended"
-          ? `Streak ended after ${change.matches} consecutive scoring games`
-          : change.type === "started"
-            ? `New streak: ${change.matches} consecutive scoring games`
-            : `Streak extended to ${change.matches} consecutive scoring games`;
-        item.textContent = `${change.playerName} (${change.clubName}): ${event}.`;
-        events.append(item);
-      }
-      card.append(events);
-    }
-    list.append(card);
+  for (const entry of entries) {
+    const item = document.createElement("div");
+    item.className = "change-item";
+    const name = document.createElement("span");
+    name.className = "change-name";
+    name.textContent = `${entry.playerName} (${entry.clubName})`;
+    const count = document.createElement("span");
+    count.className = "change-count";
+    count.textContent = countText(entry);
+    item.append(name, count);
+    list.append(item);
   }
 }
 
@@ -391,7 +390,11 @@ async function loadData() {
   ) {
     throw new Error("The season data file is missing one or more streak lists.");
   }
-  if (!data.whatChanged || !Array.isArray(data.whatChanged.matches)) {
+  if (
+    !data.whatChanged ||
+    !Array.isArray(data.whatChanged.scorers) ||
+    !Array.isArray(data.whatChanged.endedStreaks)
+  ) {
     throw new Error("The season data file is missing recent changes.");
   }
 
@@ -445,8 +448,9 @@ loadData().catch((error) => {
   document.querySelector("#changes-window").textContent = "";
   const changes = document.createElement("p");
   changes.className = "empty";
-  changes.textContent = "Could not load recent changes.";
+  changes.textContent = "Could not load scorers.";
   document.querySelector("#recent-changes").replaceChildren(changes);
+  document.querySelector("#ended-streaks").replaceChildren();
   console.error(error);
 });
 

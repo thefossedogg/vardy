@@ -2,7 +2,7 @@
   "competition": "Premier League",
   "season": 2026,
   "seasonLabel": "2026/27",
-  "generatedAt": "2026-10-23T00:36:26.901821Z",
+  "generatedAt": "2026-10-23T00:45:49.385315Z",
   "source": "Local monthly Premier League JSON exports",
   "benchmark": {
     "playerName": "Jamie Vardy",
@@ -1598,312 +1598,141 @@
     }
   ],
   "whatChanged": {
-    "generatedAt": "2026-10-23T00:36:26.901821Z",
-    "windowStart": "2026-10-16T00:36:26.901821Z",
-    "windowEnd": "2026-10-23T00:36:26.901821Z",
-    "matches": [
+    "generatedAt": "2026-10-23T00:45:49.385315Z",
+    "windowStart": "2026-10-16T00:45:49.385315Z",
+    "windowEnd": "2026-10-23T00:45:49.385315Z",
+    "scorers": [
       {
-        "fixtureDate": "2026-10-19T19:00:00Z",
-        "teams": [
-          {
-            "name": "Tottenham Hotspur"
-          },
-          {
-            "name": "Coventry City"
-          }
-        ],
-        "scorers": [
-          {
-            "playerName": "J. Rudoni",
-            "clubName": "Coventry City",
-            "goals": 1
-          },
-          {
-            "playerName": "B. Davies",
-            "clubName": "Tottenham Hotspur",
-            "goals": 1
-          },
-          {
-            "playerName": "J. Maddison",
-            "clubName": "Tottenham Hotspur",
-            "goals": 1
-          },
-          {
-            "playerName": "Omar Marmoush",
-            "clubName": "Tottenham Hotspur",
-            "goals": 1
-          }
-        ],
-        "streakChanges": [
-          {
-            "playerName": "J. Rudoni",
-            "clubName": "Coventry City",
-            "type": "started",
-            "matches": 2
-          }
-        ]
+        "playerName": "E. Haaland",
+        "clubName": "Manchester City",
+        "matches": 6
       },
       {
-        "fixtureDate": "2026-10-18T15:30:00Z",
-        "teams": [
-          {
-            "name": "Nottingham Forest"
-          },
-          {
-            "name": "Arsenal"
-          }
-        ],
-        "scorers": [
-          {
-            "playerName": "N. Madueke",
-            "clubName": "Arsenal",
-            "goals": 1
-          }
-        ],
-        "streakChanges": []
+        "playerName": "B. Mbeumo",
+        "clubName": "Manchester United",
+        "matches": 2
       },
       {
-        "fixtureDate": "2026-10-18T13:00:00Z",
-        "teams": [
-          {
-            "name": "Leeds United"
-          },
-          {
-            "name": "Manchester United"
-          }
-        ],
-        "scorers": [
-          {
-            "playerName": "D. Calvert-Lewin",
-            "clubName": "Leeds United",
-            "goals": 1
-          },
-          {
-            "playerName": "B. Mbeumo",
-            "clubName": "Manchester United",
-            "goals": 1
-          }
-        ],
-        "streakChanges": [
-          {
-            "playerName": "B. Mbeumo",
-            "clubName": "Manchester United",
-            "type": "started",
-            "matches": 2
-          }
-        ]
+        "playerName": "Evanilson",
+        "clubName": "Bournemouth",
+        "matches": 2
       },
       {
-        "fixtureDate": "2026-10-18T13:00:00Z",
-        "teams": [
-          {
-            "name": "Brighton & Hove Albion"
-          },
-          {
-            "name": "Crystal Palace"
-          }
-        ],
-        "scorers": [
-          {
-            "playerName": "C. Kostoulas",
-            "clubName": "Brighton & Hove Albion",
-            "goals": 1
-          },
-          {
-            "playerName": "D. GÃ³mez",
-            "clubName": "Brighton & Hove Albion",
-            "goals": 1
-          },
-          {
-            "playerName": "J. Hinshelwood",
-            "clubName": "Brighton & Hove Albion",
-            "goals": 1
-          },
-          {
-            "playerName": "Y. Ayari",
-            "clubName": "Brighton & Hove Albion",
-            "goals": 1
-          }
-        ],
-        "streakChanges": []
+        "playerName": "J. Rudoni",
+        "clubName": "Coventry City",
+        "matches": 2
       },
       {
-        "fixtureDate": "2026-10-18T13:00:00Z",
-        "teams": [
-          {
-            "name": "Bournemouth"
-          },
-          {
-            "name": "Sunderland"
-          }
-        ],
-        "scorers": [
-          {
-            "playerName": "Evanilson",
-            "clubName": "Bournemouth",
-            "goals": 1
-          },
-          {
-            "playerName": "M. Tavernier",
-            "clubName": "Bournemouth",
-            "goals": 1
-          }
-        ],
-        "streakChanges": [
-          {
-            "playerName": "Evanilson",
-            "clubName": "Bournemouth",
-            "type": "started",
-            "matches": 2
-          }
-        ]
+        "playerName": "A. Isak",
+        "clubName": "Liverpool",
+        "matches": 1
       },
       {
-        "fixtureDate": "2026-10-17T16:30:00Z",
-        "teams": [
-          {
-            "name": "Newcastle United"
-          },
-          {
-            "name": "Aston Villa"
-          }
-        ],
-        "scorers": [
-          {
-            "playerName": "J. Manzambi",
-            "clubName": "Aston Villa",
-            "goals": 1
-          }
-        ],
-        "streakChanges": [
-          {
-            "playerName": "N. Jackson",
-            "clubName": "Aston Villa",
-            "type": "ended",
-            "matches": 2
-          }
-        ]
+        "playerName": "A. Iwobi",
+        "clubName": "Fulham",
+        "matches": 1
       },
       {
-        "fixtureDate": "2026-10-17T14:00:00Z",
-        "teams": [
-          {
-            "name": "Manchester City"
-          },
-          {
-            "name": "Ipswich Town"
-          }
-        ],
-        "scorers": [
-          {
-            "playerName": "D. Maeda",
-            "clubName": "Ipswich Town",
-            "goals": 1
-          },
-          {
-            "playerName": "Z. Flemming",
-            "clubName": "Ipswich Town",
-            "goals": 1
-          },
-          {
-            "playerName": "E. Haaland",
-            "clubName": "Manchester City",
-            "goals": 2
-          },
-          {
-            "playerName": "P. Foden",
-            "clubName": "Manchester City",
-            "goals": 1
-          }
-        ],
-        "streakChanges": [
-          {
-            "playerName": "E. Haaland",
-            "clubName": "Manchester City",
-            "type": "extended",
-            "matches": 6
-          },
-          {
-            "playerName": "R. Cherki",
-            "clubName": "Manchester City",
-            "type": "ended",
-            "matches": 2
-          }
-        ]
+        "playerName": "B. Davies",
+        "clubName": "Tottenham Hotspur",
+        "matches": 1
       },
       {
-        "fixtureDate": "2026-10-17T14:00:00Z",
-        "teams": [
-          {
-            "name": "Fulham"
-          },
-          {
-            "name": "Hull City"
-          }
-        ],
-        "scorers": [
-          {
-            "playerName": "A. Iwobi",
-            "clubName": "Fulham",
-            "goals": 1
-          }
-        ],
-        "streakChanges": []
+        "playerName": "C. Kostoulas",
+        "clubName": "Brighton & Hove Albion",
+        "matches": 1
       },
       {
-        "fixtureDate": "2026-10-17T14:00:00Z",
-        "teams": [
-          {
-            "name": "Brentford"
-          },
-          {
-            "name": "Liverpool"
-          }
-        ],
-        "scorers": [
-          {
-            "playerName": "K. Lewis-Potter",
-            "clubName": "Brentford",
-            "goals": 1
-          },
-          {
-            "playerName": "A. Isak",
-            "clubName": "Liverpool",
-            "goals": 1
-          },
-          {
-            "playerName": "VÃ­ctor MuÃ±oz",
-            "clubName": "Liverpool",
-            "goals": 1
-          }
-        ],
-        "streakChanges": []
+        "playerName": "D. Calvert-Lewin",
+        "clubName": "Leeds United",
+        "matches": 1
       },
       {
-        "fixtureDate": "2026-10-17T11:30:00Z",
-        "teams": [
-          {
-            "name": "Everton"
-          },
-          {
-            "name": "Chelsea"
-          }
-        ],
-        "scorers": [
-          {
-            "playerName": "Pedro Neto",
-            "clubName": "Chelsea",
-            "goals": 2
-          }
-        ],
-        "streakChanges": [
-          {
-            "playerName": "T. Barry",
-            "clubName": "Everton",
-            "type": "ended",
-            "matches": 2
-          }
-        ]
+        "playerName": "D. GÃ³mez",
+        "clubName": "Brighton & Hove Albion",
+        "matches": 1
+      },
+      {
+        "playerName": "D. Maeda",
+        "clubName": "Ipswich Town",
+        "matches": 1
+      },
+      {
+        "playerName": "J. Hinshelwood",
+        "clubName": "Brighton & Hove Albion",
+        "matches": 1
+      },
+      {
+        "playerName": "J. Maddison",
+        "clubName": "Tottenham Hotspur",
+        "matches": 1
+      },
+      {
+        "playerName": "J. Manzambi",
+        "clubName": "Aston Villa",
+        "matches": 1
+      },
+      {
+        "playerName": "K. Lewis-Potter",
+        "clubName": "Brentford",
+        "matches": 1
+      },
+      {
+        "playerName": "M. Tavernier",
+        "clubName": "Bournemouth",
+        "matches": 1
+      },
+      {
+        "playerName": "N. Madueke",
+        "clubName": "Arsenal",
+        "matches": 1
+      },
+      {
+        "playerName": "Omar Marmoush",
+        "clubName": "Tottenham Hotspur",
+        "matches": 1
+      },
+      {
+        "playerName": "P. Foden",
+        "clubName": "Manchester City",
+        "matches": 1
+      },
+      {
+        "playerName": "Pedro Neto",
+        "clubName": "Chelsea",
+        "matches": 1
+      },
+      {
+        "playerName": "VÃ­ctor MuÃ±oz",
+        "clubName": "Liverpool",
+        "matches": 1
+      },
+      {
+        "playerName": "Y. Ayari",
+        "clubName": "Brighton & Hove Albion",
+        "matches": 1
+      },
+      {
+        "playerName": "Z. Flemming",
+        "clubName": "Ipswich Town",
+        "matches": 1
+      }
+    ],
+    "endedStreaks": [
+      {
+        "playerName": "N. Jackson",
+        "clubName": "Aston Villa",
+        "matches": 2
+      },
+      {
+        "playerName": "R. Cherki",
+        "clubName": "Manchester City",
+        "matches": 2
+      },
+      {
+        "playerName": "T. Barry",
+        "clubName": "Everton",
+        "matches": 2
       }
     ]
   }

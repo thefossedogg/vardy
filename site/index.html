@@ -171,14 +171,25 @@
         <section class="what-changed" aria-labelledby="what-changed-title">
           <div class="table-heading">
             <div>
-              <h3 id="what-changed-title">What changed</h3>
-              <p>Goalscorers and scoring streak changes in the last seven days at the latest update.</p>
+              <h3 id="what-changed-title">Last 7 days</h3>
+              <p>Rolling seven-day window ending at the latest data update.</p>
               <p id="changes-window"></p>
               <p>Streaks count consecutive club fixtures, not player appearances. Penalties count; own goals do not.</p>
             </div>
           </div>
-          <div id="recent-changes">
-            <p class="empty">Loading recent changes…</p>
+          <div class="what-changed-lists">
+            <section class="change-list" aria-labelledby="recent-scorers-title">
+              <h4 id="recent-scorers-title">Scorers</h4>
+              <div id="recent-changes">
+                <p class="empty">Loading scorers…</p>
+              </div>
+            </section>
+            <section class="change-list" aria-labelledby="ended-streaks-title">
+              <h4 id="ended-streaks-title">Ended streaks</h4>
+              <div id="ended-streaks">
+                <p class="empty">Loading ended streaks…</p>
+              </div>
+            </section>
           </div>
         </section>
 
