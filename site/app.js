@@ -96,26 +96,13 @@ function renderWhatChanged(changes) {
     `${formatKickoff(changes.windowStart)} to ${formatKickoff(changes.windowEnd)}. ` +
     `Updated ${formatKickoff(changes.generatedAt)}.`;
 
-  const streaks = new Map();
-  for (const scorer of changes.scorers) {
-    const key = `${scorer.playerName}\u0000${scorer.clubName}`;
-    streaks.set(key, { ...scorer, ended: false });
-  }
-  for (const ended of changes.endedStreaks) {
-    const key = `${ended.playerName}\u0000${ended.clubName}`;
-    streaks.set(key, { ...ended, ended: true });
-  }
-  const entries = [...streaks.values()].sort((a, b) =>
-    b.matches - a.matches ||
-    a.playerName.localeCompare(b.playerName) ||
-    a.clubName.localeCompare(b.clubName),
-  );
+  const entries = changes.endedStreaks;
   const list = document.querySelector("#recent-changes");
   list.replaceChildren();
-  if (streaks.size === 0) {
+  if (entries.length === 0) {
     const empty = document.createElement("p");
     empty.className = "empty";
-    empty.textContent = "No scoring streaks of two or more in this seven-day window.";
+    empty.textContent = "No scoring streaks ended in this seven-day window.";
     list.append(empty);
     return;
   }
@@ -131,7 +118,7 @@ function renderWhatChanged(changes) {
     name.addEventListener("click", () => showStreak(entry));
     const count = document.createElement("span");
     count.className = "change-count";
-    count.textContent = `${entry.ended ? "Ended · " : ""}${entry.matches}-match streak`;
+    count.textContent = `Ended · ${entry.matches}-match streak`;
     item.append(name, count);
     list.append(item);
   }
@@ -397,7 +384,6 @@ async function loadData() {
   }
   if (
     !data.whatChanged ||
-    !Array.isArray(data.whatChanged.scorers) ||
     !Array.isArray(data.whatChanged.endedStreaks)
   ) {
     throw new Error("The season data file is missing recent changes.");

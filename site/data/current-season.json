@@ -2,7 +2,7 @@
   "competition": "Premier League",
   "season": 2026,
   "seasonLabel": "2026/27",
-  "generatedAt": "2026-10-23T00:55:56.304566Z",
+  "generatedAt": "2026-10-23T00:58:24.569243Z",
   "source": "Local monthly Premier League JSON exports",
   "benchmark": {
     "playerName": "Jamie Vardy",
@@ -1598,123 +1598,9 @@
     }
   ],
   "whatChanged": {
-    "generatedAt": "2026-10-23T00:55:56.304566Z",
-    "windowStart": "2026-10-16T00:55:56.304566Z",
-    "windowEnd": "2026-10-23T00:55:56.304566Z",
-    "scorers": [
-      {
-        "playerName": "E. Haaland",
-        "clubName": "Manchester City",
-        "matches": 6,
-        "games": [
-          {
-            "fixtureDate": "2026-08-28T19:00:00Z",
-            "opponent": {
-              "name": "Crystal Palace"
-            },
-            "venue": "away"
-          },
-          {
-            "fixtureDate": "2026-09-05T14:00:00Z",
-            "opponent": {
-              "name": "Coventry City"
-            },
-            "venue": "home"
-          },
-          {
-            "fixtureDate": "2026-09-13T15:30:00Z",
-            "opponent": {
-              "name": "Manchester United"
-            },
-            "venue": "away"
-          },
-          {
-            "fixtureDate": "2026-09-20T13:00:00Z",
-            "opponent": {
-              "name": "Sunderland"
-            },
-            "venue": "home"
-          },
-          {
-            "fixtureDate": "2026-10-11T15:30:00Z",
-            "opponent": {
-              "name": "Liverpool"
-            },
-            "venue": "away"
-          },
-          {
-            "fixtureDate": "2026-10-17T14:00:00Z",
-            "opponent": {
-              "name": "Ipswich Town"
-            },
-            "venue": "home"
-          }
-        ]
-      },
-      {
-        "playerName": "B. Mbeumo",
-        "clubName": "Manchester United",
-        "matches": 2,
-        "games": [
-          {
-            "fixtureDate": "2026-10-10T16:30:00Z",
-            "opponent": {
-              "name": "Tottenham Hotspur"
-            },
-            "venue": "home"
-          },
-          {
-            "fixtureDate": "2026-10-18T13:00:00Z",
-            "opponent": {
-              "name": "Leeds United"
-            },
-            "venue": "away"
-          }
-        ]
-      },
-      {
-        "playerName": "Evanilson",
-        "clubName": "Bournemouth",
-        "matches": 2,
-        "games": [
-          {
-            "fixtureDate": "2026-10-10T14:00:00Z",
-            "opponent": {
-              "name": "Chelsea"
-            },
-            "venue": "away"
-          },
-          {
-            "fixtureDate": "2026-10-18T13:00:00Z",
-            "opponent": {
-              "name": "Sunderland"
-            },
-            "venue": "home"
-          }
-        ]
-      },
-      {
-        "playerName": "J. Rudoni",
-        "clubName": "Coventry City",
-        "matches": 2,
-        "games": [
-          {
-            "fixtureDate": "2026-10-12T19:00:00Z",
-            "opponent": {
-              "name": "Newcastle United"
-            },
-            "venue": "home"
-          },
-          {
-            "fixtureDate": "2026-10-19T19:00:00Z",
-            "opponent": {
-              "name": "Tottenham Hotspur"
-            },
-            "venue": "away"
-          }
-        ]
-      }
-    ],
+    "generatedAt": "2026-10-23T00:58:24.569243Z",
+    "windowStart": "2026-10-16T00:58:24.569243Z",
+    "windowEnd": "2026-10-23T00:58:24.569243Z",
     "endedStreaks": [
       {
         "playerName": "N. Jackson",
