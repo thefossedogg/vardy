@@ -18,3 +18,8 @@ The homepage presents current-season active streaks, the longest runs in the cur
 ## Data
 
 The dashboard is generated from monthly Premier League JSON exports. Generated public data includes streak summaries and match details, but omits internal IDs.
+
+## Weekly previews
+
+- [Weekly preview archive](https://vardywatch.com/blog/archive.html) links to all published editions.
+- [Eight in sight? Haaland leads the chase, but nobody gets a free pass](https://vardywatch.com/blog/2026-10-29-early-preview.html) is an early preview for 29 October-2 November 2026. Its source freshness is unverified, and the projected streak lengths depend on goals in intervening fixtures; it is not a confirmed leaderboard.
