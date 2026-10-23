@@ -1,13 +1,3 @@
-2026/27 EARLY PREVIEW
-
-# Eight in sight? Haaland leads the chase, but nobody gets a free pass
-
-Published 23 October 2026. Coverage: Thursday 29 October, 09:00, through Monday 2 November 2026, end of day; Europe/London.
-
-Source freshness unverified. This early preview uses existing local Premier League exports, published with editorial approval under a one-off exception to the normal Thursday schedule and verified-freshness requirement.
-
-Every player below has an intervening fixture before the game week begins. All projected streak lengths depend on scoring in that fixture; this is not a confirmed Thursday leaderboard.
-
 ## Six on the board. Two more steps to take?
 
 E. Haaland leads the recorded chase with goals in six consecutive Manchester City club fixtures, but Brighton & Hove Albion cannot yet be billed as his next step towards eight. First comes the trip to Aston Villa on Saturday 24 October.
