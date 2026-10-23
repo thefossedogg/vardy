@@ -61,14 +61,20 @@
         <a href="#streaks-title">Current Streaks</a>
         <a href="#season-best-title">This season bests</a>
         <a href="#season-history-title">Previous Seasons</a>
-        <a href="clubs/">Your club</a>
+        <details class="club-picker">
+          <summary>Your club</summary>
+          <div class="club-picker-panel">
+            <p id="club-picker-status" role="status">Loading clubs...</p>
+            <ul id="club-picker-list" class="club-picker-list" aria-label="Choose your club"></ul>
+            <noscript><a href="clubs/">Browse the club directory</a></noscript>
+          </div>
+        </details>
         <a href="blog/">Weekly previews</a>
       </nav>
 
       <section class="hero" aria-labelledby="page-title">
         <p class="eyebrow">THE RUN IS ON!</p>
         <h1 id="page-title">Climb the <span>Vardy Pyramid</span></h1>
-        <p class="hero-description">Vardy Watch tracks consecutive Premier League club fixtures in which a player scores at least one credited goal, comparing each run with Jamie Vardy's 11-game record. He set that mark in 2015/16. Who's next?</p>
         <p>Explore <a href="clubs/">club scoring leaderboards</a>, active and recently ended runs, and full-season club fixtures for each player. <a href="blog/methodology.html">How scoring streaks are counted</a>.</p>
 
         <div class="pyramid-wrap">
@@ -229,7 +235,7 @@
     </dialog>
 
     <footer>
-      <span>VARDY WATCH</span>
+      <time class="updated" id="updated-at">Loading latest data…</time>
     </footer>
   </body>
 </html>

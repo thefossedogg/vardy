@@ -543,6 +543,50 @@ async function fetchSeasonData() {
   return response.json();
 }
 
+function renderClubPicker(data) {
+  if (!Array.isArray(data.clubs) || data.clubs.some((club) =>
+    typeof club.slug !== "string" || typeof club.clubName !== "string",
+  )) {
+    throw new Error("The season data file is missing valid clubs.");
+  }
+  const list = document.querySelector("#club-picker-list");
+  const currentSlug = isClubPage ? new URL(document.baseURI).searchParams.get("club") : null;
+  const clubsUrl = new URL(isClubPage ? "./" : "clubs/", document.baseURI);
+  list.replaceChildren();
+  for (const club of [...data.clubs].sort((a, b) => a.clubName.localeCompare(b.clubName, "en"))) {
+    const item = document.createElement("li");
+    const link = document.createElement("a");
+    const url = new URL(clubsUrl);
+    url.searchParams.set("club", club.slug);
+    link.href = url.href;
+    link.dataset.clubSlug = club.slug;
+    link.textContent = club.clubName;
+    if (club.slug === currentSlug) link.setAttribute("aria-current", "page");
+    item.append(link);
+    list.append(item);
+  }
+  const status = document.querySelector("#club-picker-status");
+  status.textContent = data.clubs.length ? "Choose your club" : "No clubs in the current season fixtures.";
+}
+
+function setupClubPicker(picker) {
+  picker.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && picker.open) {
+      picker.open = false;
+      picker.querySelector("summary").focus();
+      event.preventDefault();
+    }
+  });
+  document.addEventListener("click", (event) => {
+    if (!picker.contains(event.target)) picker.open = false;
+  });
+  document.addEventListener("focusin", (event) => {
+    if (!picker.contains(event.target)) picker.open = false;
+  });
+}
+
+for (const picker of document.querySelectorAll(".club-picker")) setupClubPicker(picker);
+
 function renderClubPage(data, slug = new URL(document.baseURI).searchParams.get("club")) {
   seasonData = data;
   const directory = document.querySelector("#club-directory");
@@ -636,6 +680,7 @@ async function loadClubData() {
   ) {
     throw new Error("The season data file is missing valid club statistics.");
   }
+  renderClubPicker(data);
   renderClubPage(data);
   globalThis.vardyAnalytics?.pageView();
   const slug = new URL(document.baseURI).searchParams.get("club");
@@ -654,6 +699,7 @@ async function loadClubData() {
 async function loadData() {
   const data = await fetchSeasonData();
   seasonData = data;
+  renderClubPicker(data);
   if (
     !Array.isArray(data.fixtures) ||
     !Array.isArray(data.activeInSeason) ||
@@ -698,6 +744,7 @@ async function loadData() {
 
 if (isClubPage) {
   loadClubData().catch((error) => {
+    document.querySelector("#club-picker-status").textContent = "Could not load clubs. Please try again later.";
     document.querySelector("#updated-at").textContent = "DATA UNAVAILABLE";
     document.querySelector("#clubs-status").textContent = "Could not load club data. Please try again later.";
     document.querySelector("#club-directory").hidden = true;
@@ -723,6 +770,7 @@ if (isClubPage) {
   document.querySelector("#vardy-button").addEventListener("click", () => showStreak(VARDY_STREAK, "vardy_record"));
 
   loadData().catch((error) => {
+    document.querySelector("#club-picker-status").textContent = "Could not load clubs. Please try again later.";
     document.querySelector("#updated-at").textContent = "DATA UNAVAILABLE";
     const row = document.createElement("tr");
     const cell = addCell(row, "empty", "Could not load streak data.");

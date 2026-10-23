@@ -869,12 +869,17 @@ button.pyr-vardy { padding: 0; border: 0; background: none; color: inherit; font
 .pyr-vardy:hover svg { transform: scale(1.06) rotate(-2deg); }
 
 .primary-nav {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   margin: 20px 0 24px;
 }
-.primary-nav a {
+.primary-nav a,
+.club-picker summary {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   padding: 7px 12px;
   border: 2px solid var(--ink);
   background: #fff;
@@ -886,8 +891,71 @@ button.pyr-vardy { padding: 0; border: 0; background: none; color: inherit; font
   box-shadow: 2px 2px 0 var(--ink);
 }
 .primary-nav a:hover,
-.primary-nav a:focus-visible {
+.primary-nav a:focus-visible,
+.club-picker summary:hover,
+.club-picker summary:focus-visible,
+.club-picker[open] summary {
   background: var(--yellow);
+}
+.club-picker {
+  position: relative;
+  min-width: 0;
+}
+.club-picker summary {
+  gap: 10px;
+  cursor: pointer;
+  list-style: none;
+}
+.club-picker summary::-webkit-details-marker {
+  display: none;
+}
+.club-picker summary::after {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: translateY(-2px) rotate(45deg);
+}
+.club-picker[open] summary::after {
+  transform: translateY(2px) rotate(225deg);
+}
+.club-picker-panel {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  z-index: 10;
+  width: 300px;
+  max-width: calc(100vw - 48px);
+  max-height: min(480px, 60vh);
+  max-height: min(480px, 60dvh);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 8px;
+  border: 2px solid var(--ink);
+  background: var(--white);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+.club-picker-panel p {
+  margin: 4px 8px 8px;
+  font-family: var(--mono);
+  font-size: 11px;
+}
+.club-picker-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.primary-nav .club-picker-list a {
+  display: flex;
+  min-height: 44px;
+  padding: 12px;
+  border: 0;
+  box-shadow: none;
+  overflow-wrap: anywhere;
+}
+.club-picker-list a[aria-current="page"] {
+  background: var(--green);
 }
 .club-list {
   display: grid;
@@ -993,9 +1061,17 @@ button.pyr-vardy { padding: 0; border: 0; background: none; color: inherit; font
   .primary-nav {
     margin-top: 16px;
   }
-  .primary-nav a {
+  .primary-nav a,
+  .club-picker summary {
     padding: 6px 8px;
     font-size: 10px;
+  }
+  .club-picker {
+    position: static;
+  }
+  .club-picker-panel {
+    width: 100%;
+    max-width: 100%;
   }
   .methodology {
     padding: 18px;

@@ -31,7 +31,14 @@
     <main>
       <nav class="primary-nav" aria-label="Primary">
         <a href="../">Homepage</a>
-        <a href="./">Club directory</a>
+        <details class="club-picker">
+          <summary>Club directory</summary>
+          <div class="club-picker-panel">
+            <p id="club-picker-status" role="status">Loading clubs...</p>
+            <ul id="club-picker-list" class="club-picker-list" aria-label="Choose your club"></ul>
+            <noscript><a href="./">Browse the club directory</a></noscript>
+          </div>
+        </details>
       </nav>
       <section class="dashboard" aria-labelledby="clubs-title">
         <div class="section-heading">
