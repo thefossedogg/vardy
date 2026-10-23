@@ -91,6 +91,51 @@ function renderBest(runs, selector = "#season-bests") {
   }
 }
 
+function renderWhatChanged(changes) {
+  document.querySelector("#changes-window").textContent =
+    `${formatKickoff(changes.windowStart)} to ${formatKickoff(changes.windowEnd)}. ` +
+    `Updated ${formatKickoff(changes.generatedAt)}.`;
+  const list = document.querySelector("#recent-changes");
+  list.replaceChildren();
+  if (changes.matches.length === 0) {
+    const empty = document.createElement("p");
+    empty.className = "empty";
+    empty.textContent = "No completed Premier League matches in this seven-day window.";
+    list.append(empty);
+    return;
+  }
+
+  for (const match of changes.matches) {
+    const card = document.createElement("article");
+    card.className = "change-match";
+    const heading = document.createElement("h4");
+    heading.textContent = `${match.teams[0].name} v ${match.teams[1].name}`;
+    const kickoff = document.createElement("time");
+    kickoff.dateTime = match.fixtureDate;
+    kickoff.textContent = formatKickoff(match.fixtureDate);
+    const scorers = document.createElement("p");
+    scorers.textContent = "Goalscorers: " + (match.scorers.map((scorer) =>
+      `${scorer.playerName} (${scorer.clubName}) x${scorer.goals}`,
+    ).join(", ") || "No credited goals (own goals excluded).");
+    card.append(heading, kickoff, scorers);
+    if (match.streakChanges.length > 0) {
+      const events = document.createElement("ul");
+      for (const change of match.streakChanges) {
+        const item = document.createElement("li");
+        const event = change.type === "ended"
+          ? `Streak ended after ${change.matches} consecutive scoring games`
+          : change.type === "started"
+            ? `New streak: ${change.matches} consecutive scoring games`
+            : `Streak extended to ${change.matches} consecutive scoring games`;
+        item.textContent = `${change.playerName} (${change.clubName}): ${event}.`;
+        events.append(item);
+      }
+      card.append(events);
+    }
+    list.append(card);
+  }
+}
+
 function renderSeasonLeaders(seasons) {
   const list = document.querySelector("#season-leaders");
   list.replaceChildren();
@@ -346,6 +391,9 @@ async function loadData() {
   ) {
     throw new Error("The season data file is missing one or more streak lists.");
   }
+  if (!data.whatChanged || !Array.isArray(data.whatChanged.matches)) {
+    throw new Error("The season data file is missing recent changes.");
+  }
 
   document.querySelector(".section-heading .eyebrow").textContent = `${data.seasonLabel} SEASON`;
   const updatedAt = document.querySelector("#updated-at");
@@ -368,6 +416,7 @@ async function loadData() {
     `Reference: Jamie Vardy’s ${RECORD}-game run in ${data.benchmark.season}. ` +
     `Archived fixtures start ${formatDate(data.archiveStartsAt)}. Player appearances are not present in the source exports.`;
   renderActive(active);
+  renderWhatChanged(data.whatChanged);
   renderBest(data.seasonBestRuns);
   renderSeasonLeaders(data.seasonLeaders);
   renderPyramid(data.seasonLeaders, active);
@@ -393,6 +442,11 @@ loadData().catch((error) => {
   message.textContent = "Could not load season bests.";
   bests.append(message);
   document.querySelector("#season-leaders").replaceChildren();
+  document.querySelector("#changes-window").textContent = "";
+  const changes = document.createElement("p");
+  changes.className = "empty";
+  changes.textContent = "Could not load recent changes.";
+  document.querySelector("#recent-changes").replaceChildren(changes);
   console.error(error);
 });
 

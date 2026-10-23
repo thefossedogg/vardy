@@ -251,6 +251,7 @@ h2 {
 }
 
 .table-panel,
+.what-changed,
 .season-best,
 .season-history {
   border: 1px solid var(--line);
@@ -460,8 +461,29 @@ button:focus-visible {
   font-size: 10px;
 }
 
+.what-changed,
 .season-best {
   margin-top: 18px;
+}
+
+.change-match {
+  padding: 16px 23px;
+  border-top: 2px solid var(--ink);
+  overflow-wrap: anywhere;
+}
+
+.change-match h4 {
+  margin: 0 0 6px;
+}
+
+.change-match time {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.change-match p,
+.change-match ul {
+  margin: 10px 0 0;
 }
 
 .season-history {
@@ -749,7 +771,7 @@ h1 span { display: inline-block; color: var(--red); transform: rotate(-1.5deg); 
 .pyr-row:nth-child(n+2) .pyr-step { margin-inline: auto; }
 .pyramid { padding-bottom: 18px; }
 
-.stats, .table-panel, .season-best, .season-history {
+.stats, .table-panel, .what-changed, .season-best, .season-history {
   border: 3px solid var(--ink);
   border-radius: 12px;
   box-shadow: 5px 5px 0 var(--ink);
