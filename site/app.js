@@ -92,10 +92,6 @@ function renderBest(runs, selector = "#season-bests") {
 }
 
 function renderWhatChanged(changes) {
-  document.querySelector("#changes-window").textContent =
-    `${formatKickoff(changes.windowStart)} to ${formatKickoff(changes.windowEnd)}. ` +
-    `Updated ${formatKickoff(changes.generatedAt)}.`;
-
   const entries = changes.endedStreaks;
   const list = document.querySelector("#recent-changes");
   list.replaceChildren();
@@ -440,7 +436,6 @@ loadData().catch((error) => {
   message.textContent = "Could not load season bests.";
   bests.append(message);
   document.querySelector("#season-leaders").replaceChildren();
-  document.querySelector("#changes-window").textContent = "";
   const changes = document.createElement("p");
   changes.className = "empty";
   changes.textContent = "Could not load streaks.";
