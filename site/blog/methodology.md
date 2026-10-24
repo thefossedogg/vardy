@@ -2,6 +2,8 @@
 
 A run counts consecutive completed Premier League club fixtures in which a player scores at least one credited goal. Penalties count; own goals do not.
 
+When an in-progress match is present in the latest exports, dashboard and club goal totals and streaks include it provisionally. Live goals can extend or provisionally end a run before full time, and overturned goals or final results can change those statistics on the next refresh. Live fixtures are labelled LIVE (provisional) and are not counted as completed fixtures. Recently ended streaks and weekly preview evidence use completed matches only. Refreshes are twice daily, not continuous live updates.
+
 A club fixture without a credited goal for that player ends the run, even if the player did not appear. The exports do not provide appearance or lineup information. In-season runs reset between seasons and on club changes.
 
 Active in-season streaks require at least two consecutive completed club fixtures and include the club's latest completed fixture. Active describes the club's results, not current squad membership. Cross-season runs may continue across season boundaries for the same club; a club change or completed fixture without a credited goal ends them.

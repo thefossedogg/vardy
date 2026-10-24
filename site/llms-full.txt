@@ -2,7 +2,7 @@
 
 Dashboard and club overviews, methodology and complete published previews. Live statistics are available through the dashboard data link, not embedded here. Article publication dates and source-data freshness are separate.
 
-Last updated: 2026-10-23
+Last updated: 2026-10-24
 
 # Vardy Watch
 
@@ -13,6 +13,8 @@ Explore active in-season runs, each player's longest ended runs, recently ended 
 [Club scorers and streaks](https://vardywatch.com/clubs/index.md) covers current-season club leaderboards, including goals by departed players.
 
 The interactive dashboard loads current statistics with JavaScript. [Current dashboard data](https://vardywatch.com/data/current-season.json) contains the published statistics; its generation time is not proof of upstream source freshness.
+
+In-progress matches in the latest exports contribute provisional scores, goal totals and streaks, which can change before full time. Live fixtures are labelled separately from completed results; updates are not continuous.
 
 [Scoring-streak methodology](https://vardywatch.com/blog/methodology.md)
 
@@ -30,6 +32,8 @@ Active streaks require at least two consecutive completed club fixtures with a c
 
 Statistics load with JavaScript from [published dashboard data](https://vardywatch.com/data/current-season.json); this overview does not embed live statistics. The data's generatedAt timestamp is calculation time, not proof of upstream source freshness.
 
+Live matches in the latest exports contribute provisional goals and streaks. They can extend or provisionally end a run before full time, and are not counted as completed fixtures. Corrections take effect on the next refresh.
+
 [Scoring-streak methodology](https://vardywatch.com/blog/methodology.md)
 
 ---
@@ -39,6 +43,8 @@ Source: https://vardywatch.com/blog/methodology.md
 # How scoring streaks are counted
 
 A run counts consecutive completed Premier League club fixtures in which a player scores at least one credited goal. Penalties count; own goals do not.
+
+When an in-progress match is present in the latest exports, dashboard and club goal totals and streaks include it provisionally. Live goals can extend or provisionally end a run before full time, and overturned goals or final results can change those statistics on the next refresh. Live fixtures are labelled LIVE (provisional) and are not counted as completed fixtures. Recently ended streaks and weekly preview evidence use completed matches only. Refreshes are twice daily, not continuous live updates.
 
 A club fixture without a credited goal for that player ends the run, even if the player did not appear. The exports do not provide appearance or lineup information. In-season runs reset between seasons and on club changes.
 

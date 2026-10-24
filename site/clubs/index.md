@@ -8,4 +8,6 @@ Active streaks require at least two consecutive completed club fixtures with a c
 
 Statistics load with JavaScript from [published dashboard data](https://vardywatch.com/data/current-season.json); this overview does not embed live statistics. The data's generatedAt timestamp is calculation time, not proof of upstream source freshness.
 
+Live matches in the latest exports contribute provisional goals and streaks. They can extend or provisionally end a run before full time, and are not counted as completed fixtures. Corrections take effect on the next refresh.
+
 [Scoring-streak methodology](https://vardywatch.com/blog/methodology.md)

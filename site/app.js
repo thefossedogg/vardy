@@ -420,7 +420,8 @@ function showSeasonFixtures(player) {
     const totals = document.createElement("p");
     const scored = games.filter((game) => game.status !== "scheduled" && game.goals > 0);
     totals.textContent = `${scored.reduce((total, game) => total + game.goals, 0)} goals · ` +
-      `Scored in ${scored.length} of ${games.filter((game) => game.status !== "scheduled").length} completed club fixtures.`;
+      `Scored in ${scored.filter((game) => game.status === "completed").length} of ${games.filter((game) => game.status === "completed").length} completed club fixtures.` +
+      (games.some((game) => game.status === "live") ? " Includes live goals (provisional)." : "");
     const details = document.createElement("p");
     const last = scored.at(-1);
     const latestCompleted = games.filter((game) => game.status !== "scheduled").at(-1);
@@ -442,6 +443,7 @@ function showSeasonFixtures(player) {
       item.className = scheduled ? "fixture-scheduled" : game.goals > 0 ? "fixture-scored" : "fixture-goalless";
       const state = document.createElement("span");
       state.textContent = (scheduled ? "Scheduled" : `${game.goals > 0 ? "Scored" : "No credited goal"} · ${game.goals} goals`) +
+        (game.status === "live" ? " · LIVE (provisional)" : "") +
         ` · ${game.opponent.name} (${game.venue === "home" ? "H" : "A"})` +
         (game.result ? ` · ${game.result}` : "");
       const kickoff = document.createElement("time");
@@ -633,6 +635,9 @@ function renderClubPage(data, slug = new URL(document.baseURI).searchParams.get(
   status.textContent = club.completedFixtures === 0
     ? "No completed league fixtures yet."
     : `${club.completedFixtures} completed league fixtures this season.`;
+  if (club.liveFixtures) {
+    status.textContent += " Live scores, goal totals and streaks are provisional and may change.";
+  }
   const scorers = document.querySelector("#club-scorers");
   scorers.replaceChildren();
   for (const scorer of club.scorers) {
@@ -734,7 +739,8 @@ async function loadData() {
     : "No active runs yet";
   document.querySelector("#table-note").textContent =
     `Reference: Jamie Vardy’s ${RECORD}-game run in ${data.benchmark.season}. ` +
-    `Archived fixtures start ${formatDate(data.archiveStartsAt)}. Player appearances are not present in the source exports.`;
+    `Archived fixtures start ${formatDate(data.archiveStartsAt)}. Player appearances are not present in the source exports.` +
+    (data.liveFixtures ? " Live scores, goal totals and streaks are provisional and may change." : "");
   renderActive(active);
   renderWhatChanged(data.whatChanged);
   renderBest(data.seasonBestRuns);
