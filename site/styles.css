@@ -1029,14 +1029,10 @@ button.pyr-vardy { padding: 0; border: 0; background: none; color: inherit; font
   min-height: 44px;
   padding: 4px 8px;
   border: 0;
-  background: var(--white);
+  background: transparent;
   color: var(--ink);
   font-size: 24px;
   cursor: pointer;
-}
-.favourite-star[aria-pressed="true"],
-.favourite-star:hover {
-  background: var(--yellow);
 }
 .favourite-target,
 .primary-nav .favourites-list a {
