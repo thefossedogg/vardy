@@ -715,9 +715,6 @@ function showSeasonFixtures(player) {
     empty.textContent = "Season fixtures are not available in these exports.";
     groups.append(empty);
   }
-  const note = document.createElement("p");
-  note.textContent = "All club fixtures, oldest first. No credited goal includes nonappearance; appearances are not recorded. Scheduled games are not predicted goals. Dates may change.";
-  groups.append(note);
   dialog.showModal();
   document.querySelector(".dialog-games").scrollTop = 0;
   requestAnimationFrame(() => {
