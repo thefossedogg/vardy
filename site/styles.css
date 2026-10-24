@@ -502,6 +502,23 @@ button:focus-visible {
   color: #9a7100;
 }
 
+.record-milestone {
+  display: inline-block;
+  margin-left: 8px;
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+.record-equal {
+  color: #9a7100;
+}
+
+.record-break {
+  color: #168a16;
+}
+
 .repeated-run + .repeated-run {
   border-top: 3px solid var(--line);
   padding-top: 12px;

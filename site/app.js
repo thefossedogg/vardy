@@ -412,9 +412,17 @@ function showSeasonFixtures(player) {
     }
   }
   const scrollTargets = [];
+  const activeRun = runs.find((run) => Array.isArray(run.upcomingGames));
   for (const club of [...contexts.values()].sort((a, b) =>
     b.season - a.season || a.clubName.localeCompare(b.clubName),
   )) {
+    const upcomingStreakCounts = new Map(
+      activeRun?.clubKey === club.clubKey
+        ? activeRun.upcomingGames.map((game, index) => [
+          game.fixtureDate, activeRun.matches + index + 1,
+        ])
+        : [],
+    );
     const fixtures = seasonData.fixtures.filter((fixture) =>
       fixture.teams.some((team) => team.clubKey === club.clubKey),
     ).sort((a, b) => a.fixtureDate.localeCompare(b.fixtureDate));
@@ -474,6 +482,20 @@ function showSeasonFixtures(player) {
       kickoff.dateTime = game.fixtureDate;
       kickoff.textContent = formatKickoff(game.fixtureDate);
       item.append(state, kickoff);
+      const streakCount = scheduled
+        ? upcomingStreakCounts.get(game.fixtureDate)
+        : game.streakCount;
+      if (streakCount === RECORD || streakCount === RECORD + 1) {
+        const milestone = document.createElement("span");
+        const breaksRecord = streakCount === RECORD + 1;
+        milestone.className = `record-milestone ${breaksRecord ? "record-break" : "record-equal"}`;
+        milestone.setAttribute("role", "img");
+        milestone.setAttribute("aria-label", breaksRecord
+          ? `Breaks the ${RECORD}-game record`
+          : `Equals the ${RECORD}-game record`);
+        milestone.textContent = breaksRecord ? "\u{1F3C6}" : "=";
+        state.append(milestone);
+      }
       if (!scheduled) item.append(fixtureStreakBadge(game.streakCount));
       list.append(item);
     }
