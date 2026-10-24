@@ -2,7 +2,7 @@
   "competition": "Premier League",
   "season": 2026,
   "seasonLabel": "2026/27",
-  "generatedAt": "2026-10-24T07:00:16.890293Z",
+  "generatedAt": "2026-10-24T13:17:42.282081Z",
   "source": "Local monthly Premier League JSON exports",
   "benchmark": {
     "playerName": "Jamie Vardy",
@@ -13,7 +13,7 @@
   "archiveEndsAt": "2027-10-31",
   "sourceFiles": 94,
   "completedFixtures": 2532,
-  "scheduledFixtures": 309,
+  "scheduledFixtures": 308,
   "completeSeasons": [
     2020,
     2021,
@@ -79,21 +79,14 @@
         }
       ],
       "nextGame": {
-        "fixtureDate": "2026-10-24T11:30:00Z",
+        "fixtureDate": "2026-10-31T15:00:00Z",
         "opponent": {
-          "name": "Aston Villa"
+          "name": "Brighton & Hove Albion"
         },
-        "venue": "away"
+        "venue": "home"
       },
       "targetMatches": 12,
       "upcomingGames": [
-        {
-          "fixtureDate": "2026-10-24T11:30:00Z",
-          "opponent": {
-            "name": "Aston Villa"
-          },
-          "venue": "away"
-        },
         {
           "fixtureDate": "2026-10-31T15:00:00Z",
           "opponent": {
@@ -128,6 +121,13 @@
             "name": "Leeds United"
           },
           "venue": "home"
+        },
+        {
+          "fixtureDate": "2026-12-05T20:00:00Z",
+          "opponent": {
+            "name": "Brentford"
+          },
+          "venue": "away"
         }
       ]
     },
@@ -2472,9 +2472,9 @@
     }
   ],
   "whatChanged": {
-    "generatedAt": "2026-10-24T07:00:16.890293Z",
-    "windowStart": "2026-10-17T07:00:16.890293Z",
-    "windowEnd": "2026-10-24T07:00:16.890293Z",
+    "generatedAt": "2026-10-24T13:17:42.282081Z",
+    "windowStart": "2026-10-17T13:17:42.282081Z",
+    "windowEnd": "2026-10-24T13:17:42.282081Z",
     "endedStreaks": [
       {
         "playerName": "N. Jackson",
@@ -2540,40 +2540,6 @@
           "fixtureDate": "2026-10-17T14:00:00Z",
           "opponent": {
             "name": "Ipswich Town"
-          },
-          "venue": "home"
-        }
-      },
-      {
-        "playerName": "T. Barry",
-        "playerKey": "f8542664f1640801",
-        "clubKey": "5f6166bfca6f58ed",
-        "clubName": "Everton",
-        "season": 2026,
-        "startSeason": 2026,
-        "startDate": "2026-09-19T14:00:00Z",
-        "lastScoringDate": "2026-10-11T13:00:00Z",
-        "matches": 2,
-        "games": [
-          {
-            "fixtureDate": "2026-09-19T14:00:00Z",
-            "opponent": {
-              "name": "Ipswich Town"
-            },
-            "venue": "home"
-          },
-          {
-            "fixtureDate": "2026-10-11T13:00:00Z",
-            "opponent": {
-              "name": "Hull City"
-            },
-            "venue": "away"
-          }
-        ],
-        "failedGame": {
-          "fixtureDate": "2026-10-17T11:30:00Z",
-          "opponent": {
-            "name": "Chelsea"
           },
           "venue": "home"
         }
@@ -3558,21 +3524,14 @@
             }
           ],
           "nextGame": {
-            "fixtureDate": "2026-10-24T11:30:00Z",
+            "fixtureDate": "2026-10-31T15:00:00Z",
             "opponent": {
-              "name": "Aston Villa"
+              "name": "Brighton & Hove Albion"
             },
-            "venue": "away"
+            "venue": "home"
           },
           "targetMatches": 12,
           "upcomingGames": [
-            {
-              "fixtureDate": "2026-10-24T11:30:00Z",
-              "opponent": {
-                "name": "Aston Villa"
-              },
-              "venue": "away"
-            },
             {
               "fixtureDate": "2026-10-31T15:00:00Z",
               "opponent": {
@@ -3607,6 +3566,13 @@
                 "name": "Leeds United"
               },
               "venue": "home"
+            },
+            {
+              "fixtureDate": "2026-12-05T20:00:00Z",
+              "opponent": {
+                "name": "Brentford"
+              },
+              "venue": "away"
             }
           ]
         }
@@ -88468,23 +88434,6 @@
           "goals": 1
         }
       ]
-    },
-    {
-      "season": 2026,
-      "fixtureDate": "2026-10-24T11:30:00Z",
-      "status": "scheduled",
-      "teams": [
-        {
-          "clubKey": "87aed6ef21cd6d0d",
-          "name": "Aston Villa"
-        },
-        {
-          "clubKey": "697671fe64f74db3",
-          "name": "Manchester City"
-        }
-      ],
-      "score": null,
-      "scorers": []
     },
     {
       "season": 2026,
