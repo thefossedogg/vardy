@@ -304,6 +304,7 @@ function showStreak(streak, source) {
   document.querySelector("#streak-dialog-summary").tabIndex = -1;
   const runs = streak.bestRuns || [streak];
   document.querySelector("#streak-dialog-title").textContent = streak.playerName;
+  setStreakCount(streak.matches);
   document.querySelector("#streak-dialog-summary").textContent =
     `${[...new Set(runs.map((run) => run.clubName))].join(", ")} · ${formatRunCount(streak)}`;
   const gameList = document.querySelector("#streak-games");
@@ -337,6 +338,12 @@ function showStreak(streak, source) {
   });
 }
 
+function setStreakCount(matches) {
+  const badge = document.querySelector("#streak-count-badge");
+  badge.hidden = !matches;
+  document.querySelector("#streak-count-number").textContent = matches || "";
+}
+
 function renderRouteNote(runs) {
   const current = runs.find((run) => Array.isArray(run.upcomingGames));
   const routeNote = document.querySelector("#streak-route-note");
@@ -367,6 +374,7 @@ function showSeasonFixtures(player) {
   const dialog = document.querySelector("#streak-dialog");
   dialog.className = "season-modal";
   document.querySelector("#streak-dialog-title").textContent = player.playerName;
+  setStreakCount(player.matches);
   const summary = document.querySelector("#streak-dialog-summary");
   summary.tabIndex = 0;
   summary.textContent = player.matches
