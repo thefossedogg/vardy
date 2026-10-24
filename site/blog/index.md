@@ -1,4 +1,6 @@
-## Six on the board. Two more steps to take?
+2026/27 EARLY PREVIEW
+
+# Six on the board. Two more steps to take?
 
 E. Haaland leads the recorded chase with goals in six consecutive Manchester City club fixtures, but Brighton & Hove Albion cannot yet be billed as his next step towards eight. First comes the trip to Aston Villa on Saturday 24 October.
 

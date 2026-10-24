@@ -28,4 +28,6 @@ The interactive [dashboard](https://vardywatch.com/index.md) and club pages load
 
 Weekly previews cover Thursday 09:00 through Monday end in Europe/London. Players need an active run of at least two club fixtures and a fixture in that window. No previews are scheduled in June or July.
 
-Articles are AI-assisted and reviewed by a human editor. Their source-data cutoff is the oldest upstream fetch timestamp of the required current-season monthly exports, not the time the article or statistics were generated. Publication requires verified source data no more than twelve hours old.
+Articles are AI-assisted and reviewed by a human editor. Drafts are scheduled for Thursday 09:00 Pacific/Auckland; the fixture coverage window remains in Europe/London. Drafting requires verified fetches no more than twelve hours old for the current Auckland month and any later preview months. Earlier current-season months retain their original fetch timestamps and are checked for integrity, not claimed to be freshly fetched. Historical corrections require a replacement source snapshot.
+
+The editor's merge authorizes publication of the captured Thursday evidence, even if reviewed later. Published previews show the evidence as-of time separately from their publication time; they are not live results updates. The source-data cutoff measures the oldest required live-month fetch, not when the article or statistics were generated. Unresolved past fixtures, modified evidence, or mismatched draft previews block publication.
