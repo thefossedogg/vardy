@@ -503,16 +503,17 @@ button:focus-visible {
 }
 
 .record-milestone {
-  display: inline-block;
-  margin-left: 8px;
-  font-size: 18px;
   font-weight: 900;
-  line-height: 1;
-  vertical-align: middle;
 }
 
 .record-equal {
   color: #9a7100;
+  font-family: var(--display);
+  font-size: 44px;
+  -webkit-text-stroke: 2px #674c00;
+  paint-order: stroke fill;
+  text-shadow: 3px 3px 0 #674c00;
+  transform: translateY(-50%) rotate(-10deg);
 }
 
 .record-break {

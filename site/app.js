@@ -286,9 +286,6 @@ function renderGames(streak, list = document.querySelector("#streak-games")) {
     kickoff.textContent = game.dateOnly ? formatDate(game.fixtureDate) : formatKickoff(game.fixtureDate);
     item.append(opponent, kickoff);
     if (game.failed || game.completed) item.append(fixtureStreakBadge(game.failed ? 0 : item.value));
-    else if (item.value === RECORD || item.value === RECORD + 1) {
-      item.append(fixtureMilestoneBadge(item.value));
-    }
     list.append(item);
   }
 }
@@ -358,17 +355,6 @@ function fixtureStreakBadge(matches) {
   count.setAttribute("aria-hidden", "true");
   count.textContent = String(matches);
   badge.append(ball, count);
-  return badge;
-}
-
-function fixtureMilestoneBadge(matches) {
-  const badge = document.createElement("span");
-  badge.className = "streak-count-badge";
-  badge.setAttribute("role", "img");
-  badge.setAttribute("aria-label", matches === RECORD
-    ? "Could equal Vardy's record if the scoring streak continues"
-    : "Could break Vardy's record if the scoring streak continues");
-  badge.textContent = matches === RECORD ? "\u003d" : "\u{1f3c6}";
   return badge;
 }
 
@@ -483,15 +469,6 @@ function showSeasonFixtures(player) {
     viewport.setAttribute("aria-label", `${label} fixtures, oldest first`);
     const list = document.createElement("ol");
     list.className = "game-list season-game-list";
-    const milestones = new Map();
-    for (const run of runs.filter((run) => run.clubKey === club.clubKey)) {
-      for (const [index, game] of (run.upcomingGames || []).entries()) {
-        const matches = run.matches + index + 1;
-        if (matches === RECORD || matches === RECORD + 1) {
-          milestones.set(game.fixtureDate, matches);
-        }
-      }
-    }
     for (const game of games) {
       const item = document.createElement("li");
       const scheduled = game.status === "scheduled";
@@ -511,17 +488,15 @@ function showSeasonFixtures(player) {
       if (streakCount === RECORD || streakCount === RECORD + 1) {
         const milestone = document.createElement("span");
         const breaksRecord = streakCount === RECORD + 1;
-        milestone.className = `record-milestone ${breaksRecord ? "record-break" : "record-equal"}`;
+        milestone.className = `streak-count-badge record-milestone ${breaksRecord ? "record-break" : "record-equal"}`;
         milestone.setAttribute("role", "img");
         milestone.setAttribute("aria-label", breaksRecord
           ? `Breaks the ${RECORD}-game record`
           : `Equals the ${RECORD}-game record`);
         milestone.textContent = breaksRecord ? "\u{1F3C6}" : "=";
-        state.append(milestone);
-      }
-      if (!scheduled) item.append(fixtureStreakBadge(game.streakCount));
-      else if (milestones.has(game.fixtureDate)) {
-        item.append(fixtureMilestoneBadge(milestones.get(game.fixtureDate)));
+        item.append(milestone);
+      } else if (!scheduled) {
+        item.append(fixtureStreakBadge(game.streakCount));
       }
       list.append(item);
     }
