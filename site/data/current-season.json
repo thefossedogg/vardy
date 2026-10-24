@@ -2,7 +2,7 @@
   "competition": "Premier League",
   "season": 2026,
   "seasonLabel": "2026/27",
-  "generatedAt": "2026-10-24T13:38:01.666745Z",
+  "generatedAt": "2026-10-24T13:48:16.784031Z",
   "source": "Local monthly Premier League JSON exports",
   "benchmark": {
     "playerName": "Jamie Vardy",
@@ -13,6 +13,7 @@
   "archiveEndsAt": "2027-10-31",
   "sourceFiles": 94,
   "completedFixtures": 2533,
+  "liveFixtures": 0,
   "scheduledFixtures": 308,
   "completeSeasons": [
     2020,
@@ -2472,9 +2473,9 @@
     }
   ],
   "whatChanged": {
-    "generatedAt": "2026-10-24T13:38:01.666745Z",
-    "windowStart": "2026-10-17T13:38:01.666745Z",
-    "windowEnd": "2026-10-24T13:38:01.666745Z",
+    "generatedAt": "2026-10-24T13:48:16.784031Z",
+    "windowStart": "2026-10-17T13:48:16.784031Z",
+    "windowEnd": "2026-10-24T13:48:16.784031Z",
     "endedStreaks": [
       {
         "playerName": "N. Jackson",
@@ -2551,6 +2552,7 @@
       "clubName": "Arsenal",
       "clubKey": "0464077581c64f23",
       "completedFixtures": 7,
+      "liveFixtures": 0,
       "scorers": [
         {
           "playerName": "B. Saka",
@@ -2596,6 +2598,7 @@
       "clubName": "Aston Villa",
       "clubKey": "87aed6ef21cd6d0d",
       "completedFixtures": 8,
+      "liveFixtures": 0,
       "scorers": [
         {
           "playerName": "N. Jackson",
@@ -2635,6 +2638,7 @@
       "clubName": "Bournemouth",
       "clubKey": "84472110f075fb38",
       "completedFixtures": 7,
+      "liveFixtures": 0,
       "scorers": [
         {
           "playerName": "M. Tavernier",
@@ -2777,6 +2781,7 @@
       "clubName": "Brentford",
       "clubKey": "b53546bad5bd6bb9",
       "completedFixtures": 7,
+      "liveFixtures": 0,
       "scorers": [
         {
           "playerName": "K. Schade",
@@ -2840,6 +2845,7 @@
       "clubName": "Brighton & Hove Albion",
       "clubKey": "95d1ff5557ab7610",
       "completedFixtures": 7,
+      "liveFixtures": 0,
       "scorers": [
         {
           "playerName": "C. Kostoulas",
@@ -2915,6 +2921,7 @@
       "clubName": "Chelsea",
       "clubKey": "98f3cf6e19df28f0",
       "completedFixtures": 7,
+      "liveFixtures": 0,
       "scorers": [
         {
           "playerName": "João Pedro",
@@ -2960,6 +2967,7 @@
       "clubName": "Coventry City",
       "clubKey": "d7386639e488aa64",
       "completedFixtures": 7,
+      "liveFixtures": 0,
       "scorers": [
         {
           "playerName": "J. Rudoni",
@@ -3108,6 +3116,7 @@
       "clubName": "Crystal Palace",
       "clubKey": "41a32b0ccb25fb05",
       "completedFixtures": 7,
+      "liveFixtures": 0,
       "scorers": [
         {
           "playerName": "T. Mitchell",
@@ -3159,6 +3168,7 @@
       "clubName": "Everton",
       "clubKey": "5f6166bfca6f58ed",
       "completedFixtures": 7,
+      "liveFixtures": 0,
       "scorers": [
         {
           "playerName": "T. Barry",
@@ -3198,6 +3208,7 @@
       "clubName": "Fulham",
       "clubKey": "244456e2211c5156",
       "completedFixtures": 7,
+      "liveFixtures": 0,
       "scorers": [
         {
           "playerName": "J. King",
@@ -3237,6 +3248,7 @@
       "clubName": "Hull City",
       "clubKey": "44174d40933a23bd",
       "completedFixtures": 7,
+      "liveFixtures": 0,
       "scorers": [
         {
           "playerName": "M. Belloumi",
@@ -3282,6 +3294,7 @@
       "clubName": "Ipswich Town",
       "clubKey": "87e337fb055d5c47",
       "completedFixtures": 8,
+      "liveFixtures": 0,
       "scorers": [
         {
           "playerName": "Emersonn",
@@ -3345,6 +3358,7 @@
       "clubName": "Leeds United",
       "clubKey": "5e9487d1f1dedeb7",
       "completedFixtures": 7,
+      "liveFixtures": 0,
       "scorers": [
         {
           "playerName": "D. Calvert-Lewin",
@@ -3384,6 +3398,7 @@
       "clubName": "Liverpool",
       "clubKey": "8e4a74df4af9d043",
       "completedFixtures": 7,
+      "liveFixtures": 0,
       "scorers": [
         {
           "playerName": "A. Isak",
@@ -3417,6 +3432,7 @@
       "clubName": "Manchester City",
       "clubKey": "697671fe64f74db3",
       "completedFixtures": 8,
+      "liveFixtures": 0,
       "scorers": [
         {
           "playerName": "E. Haaland",
@@ -3583,6 +3599,7 @@
       "clubName": "Manchester United",
       "clubKey": "c711c6955bb33643",
       "completedFixtures": 7,
+      "liveFixtures": 0,
       "scorers": [
         {
           "playerName": "B. Mbeumo",
@@ -3725,6 +3742,7 @@
       "clubName": "Newcastle United",
       "clubKey": "7d1f31c0c7afec70",
       "completedFixtures": 7,
+      "liveFixtures": 0,
       "scorers": [
         {
           "playerName": "A. Elanga",
@@ -3782,6 +3800,7 @@
       "clubName": "Nottingham Forest",
       "clubKey": "f80c12296b86623b",
       "completedFixtures": 8,
+      "liveFixtures": 0,
       "scorers": [
         {
           "playerName": "D. Ndoye",
@@ -3821,6 +3840,7 @@
       "clubName": "Sunderland",
       "clubKey": "bb9f0501ff85f961",
       "completedFixtures": 7,
+      "liveFixtures": 0,
       "scorers": [
         {
           "playerName": "B. Brobbey",
@@ -3854,6 +3874,7 @@
       "clubName": "Tottenham Hotspur",
       "clubKey": "14f6c7f55a9d91b9",
       "completedFixtures": 7,
+      "liveFixtures": 0,
       "scorers": [
         {
           "playerName": "B. Davies",
