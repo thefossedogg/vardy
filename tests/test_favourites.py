@@ -132,6 +132,15 @@ class FavouritesTests(unittest.TestCase):
         expect(self.page.locator("#streak-dialog")).to_be_visible()
         self.page.get_by_role("button", name="Close streak details").click()
 
+    def test_player_modals_initially_focus_scrollable_games(self):
+        self.go()
+        self.page.get_by_role("button", name="View Ada Goal's season fixtures").click()
+        expect(self.page.locator(".dialog-games")).to_be_focused()
+        self.page.get_by_role("button", name="Close streak details").click()
+        self.go("/")
+        self.page.locator("#vardy-button").click()
+        expect(self.page.locator(".dialog-games")).to_be_focused()
+
     def test_persistence_mixed_order_and_navigation_from_both_pages(self):
         self.go()
         self.page.locator("#team-favourite").click()

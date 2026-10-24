@@ -664,19 +664,6 @@ function showSeasonFixtures(player) {
     const heading = document.createElement("h3");
     const label = `${club.clubName} · ${club.season}/${String(club.season + 1).slice(-2)} · Premier League`;
     heading.textContent = label;
-    const totals = document.createElement("p");
-    const scored = games.filter((game) => game.status !== "scheduled" && game.goals > 0);
-    totals.textContent = `${scored.reduce((total, game) => total + game.goals, 0)} goals · ` +
-      `Scored in ${scored.filter((game) => game.status === "completed").length} of ${games.filter((game) => game.status === "completed").length} completed club fixtures.` +
-      (games.some((game) => game.status === "live") ? " Includes live goals (provisional)." : "");
-    const details = document.createElement("p");
-    const last = scored.at(-1);
-    const latestCompleted = games.filter((game) => game.status !== "scheduled").at(-1);
-    const next = games.find((game) =>
-      game.status === "scheduled" && (!latestCompleted || game.fixtureDate > latestCompleted.fixtureDate),
-    );
-    details.textContent = `Last goal: ${last ? `${formatDate(last.fixtureDate)} · ${last.opponent.name}` : "—"}. ` +
-      `Next game: ${next ? `${next.opponent.name} (${next.venue === "home" ? "H" : "A"}) · ${formatKickoff(next.fixtureDate)}` : "None in this season's exports"}.`;
     const viewport = document.createElement("div");
     viewport.className = "season-fixtures";
     viewport.tabIndex = 0;
@@ -716,7 +703,7 @@ function showSeasonFixtures(player) {
       list.append(item);
     }
     viewport.append(list);
-    group.append(heading, totals, details, viewport);
+    group.append(heading, viewport);
     groups.append(group);
     scrollTargets.push({
       viewport, list,
