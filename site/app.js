@@ -827,11 +827,18 @@ function renderClubPicker(data) {
     link.dataset.clubSlug = club.slug;
     link.textContent = club.clubName;
     if (club.slug === currentSlug) link.setAttribute("aria-current", "page");
-    item.append(link);
+    const star = document.createElement("button");
+    star.type = "button";
+    star.className = "favourite-star";
+    bindFavouriteButton(star, {
+      type: "team", key: club.clubKey, name: club.clubName,
+    });
+    item.append(link, star);
     list.append(item);
   }
   const status = document.querySelector("#club-picker-status");
   status.textContent = data.clubs.length ? "Choose your club" : "No clubs in the current season fixtures.";
+  updateFavouriteControls();
 }
 
 function setupClubPicker(picker) {

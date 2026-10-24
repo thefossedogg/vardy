@@ -4,7 +4,8 @@ A static Premier League scoring-streak website.
 
 Visit [vardywatch.com](https://vardywatch.com).
 
-Star a team on its club page or a player in their modal to save up to ten
+Star a team in the Your club / Club directory menu or on its club page,
+or a player in their modal, to save up to ten
 favourites in this browser. The Favourites dropdown on the homepage and club
 pages opens teams or player details; its stars remove saved entries.
 Favourites are independent of the club directory and are not synced to an

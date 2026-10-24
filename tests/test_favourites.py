@@ -183,6 +183,26 @@ class FavouritesTests(unittest.TestCase):
         self.page.locator("#clubs-title").click()
         expect(picker).not_to_have_attribute("open", "")
 
+    def test_club_menu_stars_toggle_without_navigation_on_both_pages(self):
+        for path in ["/", "/clubs/?club=alpha"]:
+            with self.subTest(path=path):
+                self.go(path)
+                picker = self.page.locator(".club-picker").first
+                picker.locator("summary").click()
+                star = picker.locator('[data-favourite-key="team-alpha"]')
+                star.click()
+                expect(picker).to_have_attribute("open", "")
+                self.assertEqual(self.base_url + path, self.page.url)
+                expect(star).to_have_attribute("aria-pressed", "true")
+                self.assertEqual("team-alpha", self.saved()[0]["key"])
+                if path != "/":
+                    expect(self.page.locator("#team-favourite")).to_have_attribute("aria-pressed", "true")
+                star.click()
+                expect(picker).to_have_attribute("open", "")
+                self.assertEqual([], self.saved())
+                picker.get_by_role("link", name="Beta City").click()
+                expect(self.page).to_have_url(self.base_url + "/clubs/?club=beta")
+
     def test_ten_combined_entries_count_unavailable_and_never_evict(self):
         entries = [
             {"type": "player", "key": f"missing-{i}", "name": f"Missing {i}"}

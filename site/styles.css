@@ -1013,17 +1013,22 @@ button.pyr-vardy { padding: 0; border: 0; background: none; color: inherit; font
 .club-picker-list a[aria-current="page"] {
   background: var(--green);
 }
-.favourites-list li {
+.favourites-list li,
+#club-picker-list li {
   display: flex;
   align-items: center;
   gap: 4px;
+}
+#club-picker-list a {
+  flex: 1;
+  min-width: 0;
 }
 .favourite-star {
   flex: 0 0 auto;
   min-width: 44px;
   min-height: 44px;
   padding: 4px 8px;
-  border: 2px solid var(--ink);
+  border: 0;
   background: var(--white);
   color: var(--ink);
   font-size: 24px;
