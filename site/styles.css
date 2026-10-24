@@ -418,14 +418,11 @@ button:focus-visible {
   margin-bottom: 15px;
 }
 
-.dialog-player-heading {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
 .streak-count-badge {
-  position: relative;
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  transform: translateY(-50%);
   display: inline-grid;
   place-items: center;
   flex: none;
@@ -433,10 +430,6 @@ button:focus-visible {
   height: 48px;
   font-size: 48px;
   line-height: 1;
-}
-
-.streak-count-badge[hidden] {
-  display: none;
 }
 
 .streak-count-badge strong {
@@ -447,6 +440,12 @@ button:focus-visible {
   font-weight: 900;
   line-height: 1;
   text-shadow: 0 0 3px #fff, 0 0 3px #fff;
+}
+
+.streak-missed-badge {
+  color: #b91c1c;
+  font-size: 36px;
+  font-weight: 900;
 }
 
 .dialog-close {
@@ -471,7 +470,9 @@ button:focus-visible {
 }
 
 .game-list li {
-  padding: 10px 0 10px 5px;
+  position: relative;
+  min-height: 68px;
+  padding: 10px 64px 10px 5px;
   border-bottom: 1px solid var(--line);
   font-size: 12px;
 }
@@ -1038,7 +1039,7 @@ button.pyr-vardy { padding: 0; border: 0; background: none; color: inherit; font
   padding-left: 30px;
 }
 .season-game-list li {
-  padding: 10px 8px;
+  padding: 10px 64px 10px 8px;
   overflow-wrap: anywhere;
 }
 .fixture-scored {

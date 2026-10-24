@@ -285,6 +285,7 @@ function renderGames(streak, list = document.querySelector("#streak-games")) {
     kickoff.dateTime = game.fixtureDate;
     kickoff.textContent = game.dateOnly ? formatDate(game.fixtureDate) : formatKickoff(game.fixtureDate);
     item.append(opponent, kickoff);
+    if (game.failed || game.completed) item.append(fixtureStreakBadge(game.failed ? 0 : item.value));
     list.append(item);
   }
 }
@@ -304,7 +305,6 @@ function showStreak(streak, source) {
   document.querySelector("#streak-dialog-summary").tabIndex = -1;
   const runs = streak.bestRuns || [streak];
   document.querySelector("#streak-dialog-title").textContent = streak.playerName;
-  setStreakCount(streak.matches);
   document.querySelector("#streak-dialog-summary").textContent =
     `${[...new Set(runs.map((run) => run.clubName))].join(", ")} · ${formatRunCount(streak)}`;
   const gameList = document.querySelector("#streak-games");
@@ -338,10 +338,24 @@ function showStreak(streak, source) {
   });
 }
 
-function setStreakCount(matches) {
-  const badge = document.querySelector("#streak-count-badge");
-  badge.hidden = !matches;
-  document.querySelector("#streak-count-number").textContent = matches || "";
+function fixtureStreakBadge(matches) {
+  const badge = document.createElement("span");
+  badge.className = "streak-count-badge";
+  if (matches === 0) {
+    badge.className += " streak-missed-badge";
+    badge.setAttribute("aria-label", "No credited goal");
+    badge.textContent = "\u2715";
+    return badge;
+  }
+  badge.setAttribute("aria-label", `Game ${matches} of scoring streak`);
+  const ball = document.createElement("span");
+  ball.setAttribute("aria-hidden", "true");
+  ball.textContent = "\u26bd";
+  const count = document.createElement("strong");
+  count.setAttribute("aria-hidden", "true");
+  count.textContent = String(matches);
+  badge.append(ball, count);
+  return badge;
 }
 
 function renderRouteNote(runs) {
@@ -374,7 +388,6 @@ function showSeasonFixtures(player) {
   const dialog = document.querySelector("#streak-dialog");
   dialog.className = "season-modal";
   document.querySelector("#streak-dialog-title").textContent = player.playerName;
-  setStreakCount(player.matches);
   const summary = document.querySelector("#streak-dialog-summary");
   summary.tabIndex = 0;
   summary.textContent = player.matches
@@ -403,23 +416,26 @@ function showSeasonFixtures(player) {
     b.season - a.season || a.clubName.localeCompare(b.clubName),
   )) {
     const fixtures = seasonData.fixtures.filter((fixture) =>
-      fixture.season === club.season &&
       fixture.teams.some((team) => team.clubKey === club.clubKey),
     ).sort((a, b) => a.fixtureDate.localeCompare(b.fixtureDate));
+    let streakCount = 0;
     const games = fixtures.map((fixture) => {
       const side = fixture.teams.findIndex((team) => team.clubKey === club.clubKey);
+      const goals = fixture.scorers.filter((scorer) =>
+        scorer.playerKey === player.playerKey && scorer.clubKey === club.clubKey,
+      ).reduce((total, scorer) => total + scorer.goals, 0);
+      streakCount = fixture.status !== "scheduled" && goals > 0 ? streakCount + 1 : 0;
       return {
         ...fixture,
         opponent: fixture.teams[1 - side],
         venue: side === 0 ? "home" : "away",
-        goals: fixture.scorers.filter((scorer) =>
-          scorer.playerKey === player.playerKey && scorer.clubKey === club.clubKey,
-        ).reduce((total, scorer) => total + scorer.goals, 0),
+        goals,
+        streakCount,
         result: fixture.score
           ? `${club.clubName} ${fixture.score[side]}–${fixture.score[1 - side]} ${fixture.teams[1 - side].name}`
           : "",
       };
-    });
+    }).filter((game) => game.season === club.season);
     const group = document.createElement("section");
     group.className = "repeated-run season-fixtures-group";
     const heading = document.createElement("h3");
@@ -458,6 +474,7 @@ function showSeasonFixtures(player) {
       kickoff.dateTime = game.fixtureDate;
       kickoff.textContent = formatKickoff(game.fixtureDate);
       item.append(state, kickoff);
+      if (!scheduled) item.append(fixtureStreakBadge(game.streakCount));
       list.append(item);
     }
     viewport.append(list);
