@@ -6,6 +6,214 @@ const dataUrl = new URL(
 );
 let activeRows = [];
 let seasonData;
+const FAVOURITES_KEY = "vardy-watch:favourites:v1";
+const FAVOURITES_LIMIT = 10;
+let favourites = [];
+let favouriteEntries = new Map();
+let favouritesWarning = "";
+let favouritesNotice = "";
+
+function parseFavourites(value) {
+  const entries = JSON.parse(value ?? "[]");
+  if (!Array.isArray(entries) || entries.length > FAVOURITES_LIMIT ||
+    entries.some((entry) => !entry || !["team", "player"].includes(entry.type) ||
+      typeof entry.key !== "string" || !entry.key ||
+      typeof entry.name !== "string" || !entry.name ||
+      (entry.clubName !== undefined && typeof entry.clubName !== "string")) ||
+    new Set(entries.map((entry) => `${entry.type}:${entry.key}`)).size !== entries.length) {
+    throw new Error("Invalid saved favourites.");
+  }
+  return entries.map(({ type, key, name, clubName }) => ({ type, key, name, clubName }));
+}
+
+function readFavourites() {
+  try {
+    favourites = parseFavourites(localStorage.getItem(FAVOURITES_KEY));
+    favouritesWarning = "";
+  } catch (error) {
+    favouritesWarning = "Saved favourites could not be read. Changes may be lost on navigation or reload.";
+    console.error("Could not read favourites.", error);
+  }
+}
+
+function saveFavourites() {
+  try {
+    localStorage.setItem(FAVOURITES_KEY, JSON.stringify(favourites));
+    favouritesWarning = "";
+  } catch (error) {
+    favouritesWarning = "Favourites could not be saved. Changes may be lost on navigation or reload.";
+    console.error("Could not save favourites.", error);
+  }
+}
+
+function isFavourite(type, key) {
+  return favourites.some((entry) => entry.type === type && entry.key === key);
+}
+
+function updateFavouriteControls() {
+  for (const button of document.querySelectorAll("[data-favourite-key]")) {
+    const selected = isFavourite(button.dataset.favouriteType, button.dataset.favouriteKey);
+    button.setAttribute("aria-pressed", String(selected));
+    button.setAttribute("aria-label",
+      `${selected ? "Unfavourite" : "Favourite"} ${button.dataset.favouriteName}`);
+    button.textContent = selected ? "\u2605" : "\u2606";
+    button.title = button.getAttribute("aria-label");
+  }
+  for (const message of document.querySelectorAll("[data-favourites-message]")) {
+    message.textContent = [favouritesWarning, favouritesNotice].filter(Boolean).join(" ");
+    message.hidden = !message.textContent;
+  }
+}
+
+function toggleFavourite(entry) {
+  favouritesNotice = "";
+  if (isFavourite(entry.type, entry.key)) {
+    favourites = favourites.filter((saved) => saved.type !== entry.type || saved.key !== entry.key);
+  } else if (favourites.length >= FAVOURITES_LIMIT) {
+    favouritesNotice = "You can save up to 10 favourites. Remove one to add another.";
+    updateFavouriteControls();
+    return;
+  } else {
+    entry = favouriteEntries.get(`${entry.type}:${entry.key}`) || entry;
+    favourites.push({
+      type: entry.type, key: entry.key, name: entry.name, clubName: entry.clubName,
+    });
+  }
+  saveFavourites();
+  renderFavourites();
+}
+
+function bindFavouriteButton(button, entry) {
+  button.hidden = false;
+  button.dataset.favouriteType = entry.type;
+  button.dataset.favouriteKey = entry.key;
+  button.dataset.favouriteName = entry.name;
+  button.onclick = () => toggleFavourite(entry);
+}
+
+function clubUrl(slug) {
+  const url = new URL(isClubPage ? "./" : "clubs/", document.baseURI);
+  url.searchParams.set("club", slug);
+  return url.href;
+}
+
+function indexFavouriteEntries(data) {
+  const entries = new Map();
+  const names = new Map();
+  const latest = new Map();
+  const totals = new Map();
+  const runs = [
+    ...data.seasonLeaders.flatMap((season) => season.runs),
+    ...data.seasonBestRuns, ...data.whatChanged.endedStreaks, ...data.activeInSeason,
+  ];
+  for (const player of runs) names.set(player.playerKey, player.playerName);
+  for (const club of data.clubs) {
+    entries.set(`team:${club.clubKey}`, {
+      type: "team", key: club.clubKey, name: club.clubName, slug: club.slug,
+    });
+    for (const player of club.scorers) names.set(player.playerKey, player.playerName);
+  }
+  // Credited goals identify the latest known club context, not current squad membership.
+  for (const fixture of data.fixtures) {
+    for (const scorer of fixture.scorers) {
+      const totalKey = `${scorer.playerKey}:${scorer.clubKey}:${fixture.season}`;
+      totals.set(totalKey, (totals.get(totalKey) || 0) + scorer.goals);
+      if (!latest.has(scorer.playerKey) ||
+        fixture.fixtureDate > latest.get(scorer.playerKey).fixture.fixtureDate) {
+        latest.set(scorer.playerKey, { fixture, scorer });
+      }
+    }
+  }
+  for (const [key, name] of names) {
+    const context = latest.get(key);
+    if (!context) continue;
+    const { fixture, scorer } = context;
+    const club = fixture.teams.find((team) => team.clubKey === scorer.clubKey);
+    const active = data.activeInSeason.find((run) =>
+      run.playerKey === key && run.clubKey === club.clubKey && run.season === fixture.season);
+    const player = active || {
+      playerKey: key, playerName: name, clubKey: club.clubKey, clubName: club.name,
+      season: fixture.season, goals: totals.get(`${key}:${club.clubKey}:${fixture.season}`),
+    };
+    entries.set(`player:${key}`, {
+      type: "player", key, name, clubName: club.name, player,
+    });
+  }
+  entries.set(`player:${VARDY_STREAK.playerKey}`, {
+    type: "player", key: VARDY_STREAK.playerKey, name: VARDY_STREAK.playerName,
+    clubName: VARDY_STREAK.clubName, player: VARDY_STREAK,
+  });
+  favouriteEntries = entries;
+  const refreshed = favourites.map((saved) => {
+    const current = entries.get(`${saved.type}:${saved.key}`);
+    return current ? {
+      type: current.type, key: current.key, name: current.name, clubName: current.clubName,
+    } : saved;
+  });
+  if (JSON.stringify(refreshed) !== JSON.stringify(favourites)) {
+    favourites = refreshed;
+    saveFavourites();
+  }
+  renderFavourites();
+}
+
+function renderFavourites() {
+  const list = document.querySelector("#favourites-list");
+  list.replaceChildren();
+  document.querySelector("#favourites-status").textContent = favourites.length
+    ? `${favourites.length} of ${FAVOURITES_LIMIT} favourites`
+    : "No favourites yet. Star a team or a player to save them here.";
+  const sorted = [...favourites].sort((a, b) => a.name.localeCompare(b.name, "en"));
+  for (const saved of sorted) {
+    const current = favouriteEntries.get(`${saved.type}:${saved.key}`);
+    const entry = current || saved;
+    const row = document.createElement("li");
+    const target = document.createElement(current?.type === "team" ? "a" : "button");
+    target.className = "favourite-target";
+    if (target.tagName === "BUTTON") target.type = "button";
+    const icon = document.createElement("span");
+    icon.setAttribute("role", "img");
+    icon.setAttribute("aria-label", saved.type === "team" ? "Team" : "Player");
+    icon.textContent = saved.type === "team" ? "\u2691" : "\u{1f464}";
+    const label = document.createElement("span");
+    label.textContent = entry.name;
+    if (entry.clubName) {
+      const club = document.createElement("small");
+      club.textContent = entry.clubName;
+      label.append(club);
+    }
+    target.append(icon, label);
+    if (!current) {
+      target.disabled = true;
+      const unavailable = document.createElement("small");
+      unavailable.textContent = seasonData ? "Unavailable" : "Data unavailable";
+      label.append(unavailable);
+    } else if (current.type === "team") {
+      target.href = clubUrl(current.slug);
+    } else {
+      target.addEventListener("click", () => {
+        const picker = document.querySelector("#favourites-picker");
+        picker.open = false;
+        picker.querySelector("summary").focus();
+        showStreak(current.player, "favourites");
+      });
+    }
+    const remove = document.createElement("button");
+    remove.type = "button";
+    remove.className = "favourite-star";
+    bindFavouriteButton(remove, entry);
+    remove.onclick = () => {
+      const index = [...list.children].indexOf(row);
+      toggleFavourite(entry);
+      const remaining = list.querySelectorAll(".favourite-star");
+      (remaining[Math.min(index, remaining.length - 1)] ||
+        document.querySelector("#favourites-picker summary")).focus();
+    };
+    row.append(target, remove);
+    list.append(row);
+  }
+  updateFavouriteControls();
+}
 
 function addCell(row, className, content) {
   const cell = document.createElement("td");
@@ -236,6 +444,8 @@ function formatRunCount(run) {
 }
 
 const VARDY_STREAK = {
+  // The benchmark predates the fixture exports and has no exported player ID.
+  playerKey: "benchmark:jamie-vardy",
   playerName: "Jamie Vardy",
   clubName: "Leicester City · 2015/16",
   matches: 11,
@@ -291,6 +501,11 @@ function renderGames(streak, list = document.querySelector("#streak-games")) {
 }
 
 function showStreak(streak, source) {
+  bindFavouriteButton(document.querySelector("#player-favourite"), {
+    type: "player", key: streak.playerKey, name: streak.playerName, clubName: streak.clubName,
+  });
+  favouritesNotice = "";
+  updateFavouriteControls();
   if (streak !== VARDY_STREAK) {
     showSeasonFixtures(streak);
     globalThis.vardyAnalytics?.track("view_streak", {
@@ -628,13 +843,22 @@ function setupClubPicker(picker) {
     }
   });
   document.addEventListener("click", (event) => {
-    if (!picker.contains(event.target)) picker.open = false;
+    if (!event.composedPath().includes(picker)) picker.open = false;
   });
   document.addEventListener("focusin", (event) => {
     if (!picker.contains(event.target)) picker.open = false;
   });
 }
 
+readFavourites();
+renderFavourites();
+globalThis.addEventListener("storage", (event) => {
+  if (event.key === FAVOURITES_KEY || event.key === null) {
+    readFavourites();
+    favouritesNotice = "";
+    renderFavourites();
+  }
+});
 for (const picker of document.querySelectorAll(".club-picker")) setupClubPicker(picker);
 
 function renderClubPage(data, slug = new URL(document.baseURI).searchParams.get("club")) {
@@ -679,6 +903,10 @@ function renderClubPage(data, slug = new URL(document.baseURI).searchParams.get(
 
   detail.hidden = false;
   title.textContent = club.clubName;
+  bindFavouriteButton(document.querySelector("#team-favourite"), {
+    type: "team", key: club.clubKey, name: club.clubName,
+  });
+  updateFavouriteControls();
   document.title = `${club.clubName} | ${data.seasonLabel} scorers | Vardy Watch`;
   status.textContent = club.completedFixtures === 0
     ? "No completed league fixtures yet."
@@ -735,6 +963,7 @@ async function loadClubData() {
   }
   renderClubPicker(data);
   renderClubPage(data);
+  indexFavouriteEntries(data);
   globalThis.vardyAnalytics?.pageView();
   const slug = new URL(document.baseURI).searchParams.get("club");
   if (slug !== null) {
@@ -794,6 +1023,7 @@ async function loadData() {
   renderBest(data.seasonBestRuns);
   renderSeasonLeaders(data.seasonLeaders);
   renderPyramid(data.seasonLeaders, active);
+  indexFavouriteEntries(data);
 }
 
 if (isClubPage) {

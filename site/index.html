@@ -69,6 +69,14 @@
             <noscript><a href="clubs/">Browse the club directory</a></noscript>
           </div>
         </details>
+        <details class="club-picker" id="favourites-picker">
+          <summary>Favourites</summary>
+          <div class="club-picker-panel">
+            <p id="favourites-status" role="status">No favourites yet. Star a team or a player to save them here.</p>
+            <p data-favourites-message role="status" hidden></p>
+            <ul id="favourites-list" class="club-picker-list favourites-list" aria-label="Favourite teams and players"></ul>
+          </div>
+        </details>
         <a href="blog/">Weekly previews</a>
       </nav>
 
@@ -223,8 +231,10 @@
       <div class="dialog-details">
         <form method="dialog" class="dialog-header">
           <h2 id="streak-dialog-title"></h2>
+          <button type="button" id="player-favourite" class="favourite-star" hidden></button>
           <button class="dialog-close" aria-label="Close streak details">Close</button>
         </form>
+        <p data-favourites-message role="status" hidden></p>
         <p id="streak-dialog-summary"></p>
         <p id="streak-route-note" hidden></p>
       </div>
