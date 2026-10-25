@@ -2,7 +2,7 @@
   "competition": "Premier League",
   "season": 2026,
   "seasonLabel": "2026/27",
-  "generatedAt": "2026-10-25T00:21:56.420421Z",
+  "generatedAt": "2026-10-25T00:23:09.278448Z",
   "source": "Local monthly Premier League JSON exports",
   "benchmark": {
     "playerName": "Jamie Vardy",
@@ -2437,9 +2437,9 @@
     }
   ],
   "whatChanged": {
-    "generatedAt": "2026-10-25T00:21:56.420421Z",
-    "windowStart": "2026-10-18T00:21:56.420421Z",
-    "windowEnd": "2026-10-25T00:21:56.420421Z",
+    "generatedAt": "2026-10-25T00:23:09.278448Z",
+    "windowStart": "2026-10-18T00:23:09.278448Z",
+    "windowEnd": "2026-10-25T00:23:09.278448Z",
     "endedStreaks": [
       {
         "playerName": "J. Rudoni",
