@@ -141,7 +141,7 @@ class FavouritesTests(unittest.TestCase):
         self.page.locator("#vardy-button").click()
         expect(self.page.locator(".dialog-games")).to_be_focused()
 
-    def test_pyramid_available_portraits_on_both_sides_match_vardy_height(self):
+    def test_pyramid_available_portraits_only_on_left_match_vardy_height(self):
         self.go("/")
         self.page.evaluate("""() => {
             const runs = [
@@ -153,11 +153,16 @@ class FavouritesTests(unittest.TestCase):
         expect(self.page.locator(".pyr-left .pyr-player").first).to_have_accessible_name(
             "View E. Haaland's 7-game streak, Manchester City"
         )
-        expect(self.page.locator(".pyr-right .pyr-player").last).to_have_accessible_name(
+        expect(self.page.locator(".pyr-right .pyr-chip").last).to_have_accessible_name(
             "View Evanilson's 3-game streak, 2025/26"
         )
-        chips = self.page.locator(".pyr-chip")
-        expect(chips).to_have_count(4)
+        right = self.page.locator(".pyr-right .pyr-chip")
+        expect(right.locator("strong")).to_have_text(["E. Haaland", "Evanilson"])
+        expect(right.locator("span")).to_have_text(["2025/26", "2025/26"])
+        expect(right.locator("img")).to_have_count(0)
+        expect(self.page.locator(".pyr-right .pyr-player")).to_have_count(0)
+        chips = self.page.locator(".pyr-left .pyr-chip")
+        expect(chips).to_have_count(2)
         expect(chips.locator("strong")).to_have_count(0)
         for width in [1280, 390]:
             with self.subTest(width=width):

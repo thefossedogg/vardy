@@ -418,7 +418,7 @@ function pyramidChip(run, label, className) {
   name.textContent = run.playerName;
   const tag = document.createElement("span");
   tag.textContent = label;
-  const portraitSrc = Object.hasOwn(PLAYER_PORTRAITS, run.playerName)
+  const portraitSrc = className === "chip-now" && Object.hasOwn(PLAYER_PORTRAITS, run.playerName)
     ? PLAYER_PORTRAITS[run.playerName] : null;
   if (portraitSrc) {
     chip.classList.add("pyr-player");
