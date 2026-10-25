@@ -1,6 +1,6 @@
 # Vardy Watch - Collected content
 
-Dashboard and club overviews, methodology and complete published previews. Live statistics are available through the dashboard data link, not embedded here. Article publication dates and source-data freshness are separate.
+Dashboard and club overviews, methodology, complete published previews and quiz overviews. Live statistics are available through the dashboard data link, not embedded here. Article publication dates and source-data freshness are separate.
 
 Last updated: 2026-10-25
 
@@ -11,6 +11,8 @@ Track Premier League scoring streaks against Jamie Vardy's 11-game record.
 Explore active in-season runs, each player's longest ended runs, recently ended streaks and leaders from complete archived seasons. Select a player or streak for all available club fixtures in each represented season, not just appearances or the selected run.
 
 [Club scorers and streaks](https://vardywatch.com/clubs/index.md) covers current-season club leaderboards, including goals by departed players.
+
+[Football quizzes](https://vardywatch.com/quiz/index.md) offer editor-reviewed, multiple-choice questions from verified recent match data.
 
 The interactive dashboard loads current statistics with JavaScript. [Current dashboard data](https://vardywatch.com/data/current-season.json) contains the published statistics; its generation time is not proof of upstream source freshness.
 
@@ -70,11 +72,37 @@ The archive begins in January 2020, so 2019/20 is partial and excluded from hist
 
 The interactive [dashboard](https://vardywatch.com/index.md) and club pages load [published statistics](https://vardywatch.com/data/current-season.json) using JavaScript. The data's generatedAt timestamp records calculation time, not when upstream match data was fetched. Fixture changes require refreshed exports and regenerated statistics. Markdown pages and collected LLM content explain the site; they do not embed live statistics.
 
-Weekly previews cover Thursday 09:00 through Monday end in Europe/London. Players need an active run of at least two club fixtures and a fixture in that window. No previews are scheduled in June or July.
+Blog cover Thursday 09:00 through Monday end in Europe/London. Players need an active run of at least two club fixtures and a fixture in that window. No previews are scheduled in June or July.
 
 Articles are AI-assisted and reviewed by a human editor. Drafts are scheduled for Thursday 09:00 Pacific/Auckland; the fixture coverage window remains in Europe/London. Drafting requires verified fetches no more than twelve hours old for the current Auckland month and any later preview months. Earlier current-season months retain their original fetch timestamps and are checked for integrity, not claimed to be freshly fetched. Historical corrections require a replacement source snapshot.
 
 The editor's merge authorizes publication of the captured Thursday evidence, even if reviewed later. Published previews show the evidence as-of time separately from their publication time; they are not live results updates. The source-data cutoff measures the oldest required live-month fetch, not when the article or statistics were generated. Unresolved past fixtures, modified evidence, or mismatched draft previews block publication.
+
+---
+
+Source: https://vardywatch.com/quiz/index.md
+
+# Premier League football quiz
+
+Play the latest [published quiz](https://vardywatch.com/quiz/) or browse the [quiz archive](https://vardywatch.com/quiz/archive.md).
+
+Each quiz has 5-10 multiple-choice questions with four options, one question at a time, immediate factual feedback and a final score. JavaScript is required to play. There is no timer, account or leaderboard. Completed attempts and best/latest scores are stored only in this browser, separated by quiz revision; the archive offers a clear-history control. Storage is not cross-device sync.
+
+Questions use a five-day window of verified completed Premier League fixtures: the selected UK date and its previous four calendar days. The exact coverage dates appear at the bottom of each published quiz. Credited goals include penalties and exclude own goals. Player alternatives are verified scorers for the relevant clubs within the same window; score alternatives are actual recorded scorelines within that window, not predictions. A non-scorer is not proof of non-appearance.
+
+Code establishes facts and answer options; AI selects questions and approved wording. An editor reviews the exact revision before publication. Unsupported questions are omitted; fewer than five supported questions prevents publication. Opening-scorer and gameweek claims require verified source evidence and are not inferred from unordered goals or calendar dates. Published revisions stay playable; corrections require a newly reviewed revision.
+
+---
+
+Source: https://vardywatch.com/quiz/archive.md
+
+# Football quiz archive
+
+No quizzes have been published yet.
+
+## Scores on this device
+
+Completed attempts stay in this browser only. Corrections have separate revisions. No account or cross-device sync is used.
 
 ---
 
