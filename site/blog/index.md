@@ -1,39 +1,37 @@
-2026/27 EARLY PREVIEW
+2026/27 WEEKLY PREVIEW
 
-# Six on the board. Two more steps to take?
+# Vardy Watch: Haaland seven games in, with Arsenal pencilled in as the record-equalling fixture
 
-E. Haaland leads the recorded chase with goals in six consecutive Manchester City club fixtures, but Brighton & Hove Albion cannot yet be billed as his next step towards eight. First comes the trip to Aston Villa on Saturday 24 October.
+Published 2026-10-25T21:02:29.613652+00:00. Coverage: 2026-10-24T09:00:00+01:00 through 2026-10-28, Europe/London.
 
-Score there and the run reaches seven; score again when City host Brighton on Saturday 31 October at 15:00 and eight comes into view. Fail to score against Villa and the six-game sequence ends before this preview window even opens.
+Evidence as of 2026-10-25T20:43:50.030397Z. This preview preserves the evidence captured for its draft; it is not a live results update.
 
-The existing run has taken in Crystal Palace, Coventry City, Manchester United, Sunderland, Liverpool and Ipswich Town. That is the foundation already recorded, not permission to count the next two fixtures as goals.
+## Haaland keeps on trucking
 
-Jamie Vardy's benchmark remains 11 consecutive scoring games from 2015/16. Even the best-case eight would leave Haaland three scoring fixtures short of drawing level, with a twelfth required to move beyond the record.
+Erling Haaland has scored in seven consecutive Manchester City fixtures and has nine credited goals across the run. He needs four more scoring games to equal it and five to beat it.
 
-## Can Mbeumo carry the spark to Chelsea?
+His latest goal came in City's 2-1 defeat at Aston Villa on 24 October. Before that he scored twice against Ipswich Town and once against Liverpool, while his run began with two goals at Crystal Palace.
 
-B. Mbeumo's recorded run stands at two after scoring against Tottenham Hotspur and Leeds United. Manchester United's home fixture against Bournemouth on Sunday 25 October decides whether that sequence travels to Chelsea intact.
+## Is Arsenal away the game that equals the record?
 
-A goal against Bournemouth would make it three; another away to Chelsea on Saturday 31 October at 12:30 would make it four. Chelsea is the only United fixture listed inside this edition's five-day window.
+Haaland's path begins at home to Brighton & Hove Albion on 31 October, which would be his eighth straight scoring game. Nottingham Forest away on 7 November would make nine, and Fulham at home on 21 November would make ten.
 
-There is a useful distinction between a streak gathering momentum and a record challenge taking shape. Four would be progress worth watching, but Vardy's 11 would remain a distant marker rather than the immediate story.
+Arsenal away on 29 November would be the eleventh, which would equal Vardy, but only if he scores in all four fixtures before it. Leeds United at home on 2 December would then be the twelfth and the record-breaking game, subject to a goal in the Arsenal match too.
 
-## The same gate, a different direction
+## Can Evanilson build on three straight?
 
-Evanilson also has two consecutive scoring club fixtures recorded, against Chelsea and Sunderland. His next hurdle is the other side of that Manchester United-Bournemouth meeting on 25 October.
+Evanilson is next on three Bournemouth fixtures with one goal in each, against Chelsea, Sunderland and Manchester United. His season total is also three, so every goal he has scored this season has come in the current run.
 
-Both Mbeumo and Evanilson can extend their individual runs in the same match; neither player's progression requires his team to win. The measure is a credited goal, not the result.
+He needs nine more fixtures to reach twelve, starting with Leeds United at home on 31 October for a fourth. Coventry City at home on 19 December would be the eleventh, and Tottenham Hotspur away on 26 December the twelfth, provided he scores in every game in between.
 
-If Evanilson scores at United, Bournemouth's home game against Leeds United on Saturday 31 October at 15:00 becomes an opportunity to reach four. Without that intervening goal, the existing two-game run cannot be carried forward into the Leeds preview.
+## How far can Isak stretch a two-game run?
 
-## Can Rudoni keep the climb moving?
+Alexander Isak has scored in two straight Liverpool fixtures, away at Brentford and at home to Brighton & Hove Albion, with one goal in each. He has six goals this season, so four came before the run began.
 
-J. Rudoni completes the current watchlist after scoring in Coventry City's fixtures against Newcastle United and Tottenham Hotspur. Coventry host Fulham on Saturday 24 October before entertaining Sunderland a week later.
+He needs ten more fixtures. Arsenal at home on 1 November would be the third, Hull City away on 26 December the eleventh, and Aston Villa away on 30 December the twelfth, but only with a goal in every game in between.
 
-The Sunderland fixture, listed for 15:00 on Saturday 31 October, offers a route to four only if Rudoni first scores against Fulham. As with the other shorter runs, the next milestone matters more than dressing two games up as an imminent assault on 11.
+## What about Tavernier's run?
 
-## Earn Thursday's billing first
+Matt Tavernier is also on two straight Bournemouth games, with goals against Sunderland and Manchester United. He has five goals this season, and his run began after goalless games against Liverpool and Chelsea.
 
-All four players have one listed fixture inside the game week, each on Saturday 31 October. None has a second in-window opportunity to add another step before Monday ends.
-
-This is an early watchlist, not a settled Thursday leaderboard: intervening results can remove these runs, change their lengths or bring different players into contention. The final edition needs fresh evidence before any of those conditional routes can become its starting point.
+He also needs ten more fixtures, and his path begins with the same Leeds United home game on 31 October. Tottenham Hotspur away on 26 December would be the eleventh, and Crystal Palace away on 30 December the twelfth, again only if he scores in every game before them.

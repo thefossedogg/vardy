@@ -16,8 +16,8 @@ Index updates do not establish source-data freshness. Early previews may use unv
 
 ## Articles
 
-- [Six on the board. Two more steps to take?](https://vardywatch.com/blog/2026-10-29-early-preview.md)
 - [Vardy Watch: Haaland seven games in, with Arsenal pencilled in as the record-equalling fixture](https://vardywatch.com/blog/2026-10-24.md)
+- [Six on the board. Two more steps to take?](https://vardywatch.com/blog/2026-10-29-early-preview.md)
 
 ## Optional
 
