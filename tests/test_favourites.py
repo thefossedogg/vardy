@@ -204,6 +204,50 @@ class FavouritesTests(unittest.TestCase):
             for chip in chips.all():
                 expect(chip).to_have_css("border-top-width", "3px")
 
+    def test_pyramid_is_a_staircase_with_players_standing_on_treads(self):
+        self.page.emulate_media(reduced_motion="reduce")
+        self.go("/")
+        self.page.evaluate("""() => {
+            renderPyramid([], [
+                {playerName: "E. Haaland", clubName: "Manchester City", matches: 7},
+                {playerName: "Evanilson", clubName: "Bournemouth", matches: 3},
+                {playerName: "Ada Goal", clubName: "Alpha United", matches: 5},
+            ]);
+        }""")
+        for width in [1280, 390]:
+            with self.subTest(width=width):
+                self.page.set_viewport_size({"width": width, "height": 900})
+                self.page.evaluate("""() => new Promise(resolve =>
+                    requestAnimationFrame(() => requestAnimationFrame(resolve)))""")
+                steps = [
+                    step.bounding_box()
+                    for step in self.page.locator(".pyr-step").all()
+                ]
+                right_edge = steps[0]["x"] + steps[0]["width"]
+                for upper, lower in zip(steps, steps[1:]):
+                    self.assertAlmostEqual(
+                        right_edge, lower["x"] + lower["width"], delta=1
+                    )
+                    self.assertGreaterEqual(upper["x"] - lower["x"], 60)
+                    self.assertAlmostEqual(
+                        upper["y"] + upper["height"], lower["y"], delta=1
+                    )
+                for chip in self.page.locator(".pyr-left .pyr-chip").all():
+                    row = chip.locator("..").locator("..")
+                    step = row.locator(".pyr-step").bounding_box()
+                    tread = chip.locator("..").bounding_box()
+                    player = chip.bounding_box()
+                    self.assertGreaterEqual(player["x"], step["x"] - 1)
+                    self.assertLessEqual(
+                        player["x"] + player["width"], tread["x"] + tread["width"] + 1
+                    )
+                    self.assertAlmostEqual(
+                        player["y"] + player["height"], step["y"] + 3, delta=1
+                    )
+                self.assertLessEqual(
+                    self.page.evaluate("document.documentElement.scrollWidth"), width
+                )
+
     def test_pyramid_portrait_opens_player_details(self):
         self.page.emulate_media(reduced_motion="reduce")
         self.go("/")

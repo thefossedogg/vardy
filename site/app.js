@@ -393,6 +393,7 @@ function buildPyramid() {
   for (let step = RECORD; step >= FIRST_STEP; step -= 1) {
     const row = document.createElement("div");
     row.className = "pyr-row";
+    row.style.setProperty("--step", String(step - FIRST_STEP));
     const left = document.createElement("div");
     left.className = "pyr-side pyr-left";
     left.dataset.step = String(step);
