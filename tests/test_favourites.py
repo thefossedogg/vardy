@@ -141,39 +141,72 @@ class FavouritesTests(unittest.TestCase):
         self.page.locator("#vardy-button").click()
         expect(self.page.locator(".dialog-games")).to_be_focused()
 
-    def test_pyramid_haaland_portrait_only_on_left_matches_vardy_height(self):
+    def test_pyramid_available_portraits_on_both_sides_match_vardy_height(self):
         self.go("/")
         self.page.evaluate("""() => {
-            const run = {
-                playerName: "E. Haaland", clubName: "Manchester City", matches: 7
-            };
-            renderPyramid([{seasonLabel: "2025/26", runs: [run]}], [run]);
+            const runs = [
+                {playerName: "E. Haaland", clubName: "Manchester City", matches: 7},
+                {playerName: "Evanilson", clubName: "Bournemouth", matches: 3},
+            ];
+            renderPyramid([{seasonLabel: "2025/26", runs}], runs);
         }""")
-        left = self.page.locator(".pyr-left .pyr-player")
-        right = self.page.locator(".pyr-right .pyr-chip")
-        expect(left).to_have_accessible_name(
+        expect(self.page.locator(".pyr-left .pyr-player").first).to_have_accessible_name(
             "View E. Haaland's 7-game streak, Manchester City"
         )
-        expect(left).to_have_text("")
-        expect(right.locator("strong")).to_have_text("E. Haaland")
-        expect(right.locator("img")).to_have_count(0)
+        expect(self.page.locator(".pyr-right .pyr-player").last).to_have_accessible_name(
+            "View Evanilson's 3-game streak, 2025/26"
+        )
+        chips = self.page.locator(".pyr-chip")
+        expect(chips).to_have_count(4)
+        expect(chips.locator("strong")).to_have_count(0)
         for width in [1280, 390]:
             with self.subTest(width=width):
                 self.page.set_viewport_size({"width": width, "height": 900})
-                portrait = left.locator("img")
-                expect(portrait).to_be_visible()
-                self.assertTrue(portrait.evaluate(
-                    "(img) => img.complete && img.naturalHeight > 0"
-                ))
-                self.assertEqual(
-                    self.page.locator(".pyr-vardy img").evaluate(
-                        "(img) => getComputedStyle(img).height"
-                    ),
-                    portrait.evaluate("(img) => getComputedStyle(img).height"),
-                )
-                expect(left).to_have_css("border-top-width", "0px")
-                expect(left).to_have_css("background-color", "rgba(0, 0, 0, 0)")
-                expect(left).to_have_css("box-shadow", "none")
+                for chip in chips.all():
+                    portrait = chip.locator("img")
+                    expect(portrait).to_be_visible()
+                    expect(portrait).to_have_js_property("complete", True)
+                    self.assertGreater(portrait.evaluate("(img) => img.naturalHeight"), 0)
+                    self.assertEqual(
+                        self.page.locator(".pyr-vardy img").evaluate(
+                            "(img) => getComputedStyle(img).height"
+                        ),
+                        portrait.evaluate("(img) => getComputedStyle(img).height"),
+                    )
+                    expect(chip).to_have_css("border-top-width", "0px")
+                    expect(chip).to_have_css("background-color", "rgba(0, 0, 0, 0)")
+                    expect(chip).to_have_css("box-shadow", "none")
+
+    def test_pyramid_missing_or_failed_portraits_fall_back_to_name_boxes(self):
+        self.context.route("**/images/evanilson.png", lambda route: route.abort())
+        self.go("/")
+        self.page.evaluate("""() => {
+            const runs = [
+                {playerName: "Ada Goal", clubName: "Alpha United", matches: 4},
+                {playerName: "Evanilson", clubName: "Bournemouth", matches: 3},
+            ];
+            renderPyramid([{seasonLabel: "2025/26", runs}], runs);
+        }""")
+        for side, labels in [
+            ("left", ["Alpha United", "Bournemouth"]),
+            ("right", ["2025/26", "2025/26"]),
+        ]:
+            chips = self.page.locator(f".pyr-{side} .pyr-chip")
+            expect(chips.locator("strong")).to_have_text(["Ada Goal", "Evanilson"])
+            expect(chips.locator("span")).to_have_text(labels)
+            expect(chips.locator("img")).to_have_count(0)
+            expect(self.page.locator(f".pyr-{side} .pyr-player")).to_have_count(0)
+            for chip in chips.all():
+                expect(chip).to_have_css("border-top-width", "3px")
+
+    def test_pyramid_portrait_opens_player_details(self):
+        self.page.emulate_media(reduced_motion="reduce")
+        self.go("/")
+        self.page.evaluate("""() => {
+            renderPyramid([], [{...VARDY_STREAK, playerName: "Evanilson"}]);
+        }""")
+        self.page.locator(".pyr-left .pyr-player").click()
+        expect(self.page.locator("#streak-dialog-title")).to_have_text("Evanilson")
 
     def test_persistence_mixed_order_and_navigation_from_both_pages(self):
         self.go()

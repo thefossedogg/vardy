@@ -383,6 +383,11 @@ function renderSeasonLeaders(seasons) {
 }
 
 const FIRST_STEP = 3;
+const PLAYER_PORTRAITS = {
+  "E. Haaland": "images/haaland.png",
+  "Evanilson": "images/evanilson.png",
+};
+
 function buildPyramid() {
   const pyramid = document.querySelector("#pyramid");
   for (let step = RECORD; step >= FIRST_STEP; step -= 1) {
@@ -409,21 +414,26 @@ function pyramidChip(run, label, className) {
   chip.setAttribute("aria-label",
     `View ${run.playerName}'s ${run.matches}-game streak, ${label}`);
   chip.addEventListener("click", () => showStreak(run, "pyramid"));
-  if (className === "chip-now" && run.playerName === "E. Haaland") {
+  const name = document.createElement("strong");
+  name.textContent = run.playerName;
+  const tag = document.createElement("span");
+  tag.textContent = label;
+  const portraitSrc = Object.hasOwn(PLAYER_PORTRAITS, run.playerName)
+    ? PLAYER_PORTRAITS[run.playerName] : null;
+  if (portraitSrc) {
     chip.classList.add("pyr-player");
     const portrait = document.createElement("img");
     portrait.className = "pyr-chip-portrait";
-    portrait.src = "images/haaland.png";
+    portrait.addEventListener("error", () => {
+      chip.classList.remove("pyr-player");
+      chip.replaceChildren(name, tag);
+    }, { once: true });
+    portrait.src = portraitSrc;
     portrait.alt = "";
     chip.append(portrait);
-    return chip;
+  } else {
+    chip.append(name, tag);
   }
-  const name = document.createElement("strong");
-  name.textContent = run.playerName;
-  chip.append(name);
-  const tag = document.createElement("span");
-  tag.textContent = label;
-  chip.append(tag);
   return chip;
 }
 
