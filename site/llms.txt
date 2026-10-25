@@ -2,7 +2,7 @@
 
 > Track Premier League goal-scoring streaks against Jamie Vardy's 11-game record.
 
-Last updated: 2026-10-23
+Last updated: 2026-10-25
 
 Index updates do not establish source-data freshness. Early previews may use unverified source data; retain each article's warnings and conditional language.
 
@@ -17,6 +17,7 @@ Index updates do not establish source-data freshness. Early previews may use unv
 ## Articles
 
 - [Six on the board. Two more steps to take?](https://vardywatch.com/blog/2026-10-29-early-preview.md)
+- [Vardy Watch: Haaland seven games in, with Arsenal pencilled in as the record-equalling fixture](https://vardywatch.com/blog/2026-10-24.md)
 
 ## Optional
 
