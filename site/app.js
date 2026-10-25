@@ -409,17 +409,18 @@ function pyramidChip(run, label, className) {
   chip.setAttribute("aria-label",
     `View ${run.playerName}'s ${run.matches}-game streak, ${label}`);
   chip.addEventListener("click", () => showStreak(run, "pyramid"));
-  if (run.playerName === "E. Haaland") {
+  if (className === "chip-now" && run.playerName === "E. Haaland") {
+    chip.classList.add("pyr-player");
     const portrait = document.createElement("img");
     portrait.className = "pyr-chip-portrait";
     portrait.src = "images/haaland.png";
     portrait.alt = "";
     chip.append(portrait);
-  } else {
-    const name = document.createElement("strong");
-    name.textContent = run.playerName;
-    chip.append(name);
+    return chip;
   }
+  const name = document.createElement("strong");
+  name.textContent = run.playerName;
+  chip.append(name);
   const tag = document.createElement("span");
   tag.textContent = label;
   chip.append(tag);
