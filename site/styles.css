@@ -801,7 +801,7 @@ h1 { font-size: clamp(40px, 7vw, 76px); line-height: 1; text-shadow: 3px 3px 0 #
 h1 span { display: inline-block; color: var(--red); transform: rotate(-1.5deg); text-shadow: 3px 3px 0 var(--ink); }
 .hero-description { max-width: 560px; margin: 14px auto 0; color: var(--ink); font-size: 15px; font-weight: 700; }
 
-.pyramid-wrap { --player-height: 150px; margin: 26px auto 0; max-width: 940px; overflow-x: auto; }
+.pyramid-wrap { --player-height: 150px; --tread-width: 8%; --stair-width: 76%; margin: 26px auto 0; max-width: 940px; overflow-x: auto; }
 .pyramid-heads {
   display: grid;
   grid-template-columns: 64% 12% 24%;
@@ -816,9 +816,9 @@ h1 span { display: inline-block; color: var(--red); transform: rotate(-1.5deg); 
 
 .pyramid { display: flex; flex-direction: column; min-width: 760px; margin-top: 24px; }
 .pyr-row {
-  --step-offset: calc(var(--step) * 8%);
+  --step-offset: calc(var(--step) * var(--tread-width));
   position: relative; display: grid;
-  grid-template-columns: var(--step-offset) calc(76% - var(--step-offset)) 24%;
+  grid-template-columns: var(--step-offset) calc(var(--stair-width) - var(--step-offset)) 24%;
   align-items: stretch; min-height: 60px;
 }
 .pyr-apex { --step: 8; min-height: 0; align-items: end; }
@@ -845,7 +845,7 @@ h1 span { display: inline-block; color: var(--red); transform: rotate(-1.5deg); 
 .pyr-side { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
 .pyr-left {
   position: absolute; left: var(--step-offset); bottom: calc(100% - 3px);
-  width: 8%; flex-direction: column; justify-content: flex-end;
+  width: var(--tread-width); flex-direction: column; justify-content: flex-end;
 }
 .pyr-right { grid-column: 3; justify-content: flex-start; padding: 6px 0 6px 12px; }
 .pyr-chip {
@@ -905,9 +905,13 @@ th { color: var(--ink); font-weight: 500; background: var(--yellow); }
 footer { border-top: 4px solid var(--ink); color: var(--ink); }
 
 @media (max-width: 760px) {
-  .pyramid-wrap { --player-height: 112px; }
+  .pyramid-wrap { --player-height: 112px; --tread-width: 10%; --stair-width: 100%; }
+  .pyramid, .pyramid-heads { min-width: 0; }
+  .pyramid-heads { grid-template-columns: 80% 20%; }
+  .pyr-row { grid-template-columns: var(--step-offset) calc(100% - var(--step-offset)); }
+  .pyr-right, .pyramid-heads .head-left { display: none; }
   .pyr-vardy { max-width: 90px; }
-  .vardy-bubble { font-size: 13px; }
+  .vardy-bubble { left: auto; right: 100%; margin-left: 0; margin-right: 4px; font-size: 13px; }
   .pyr-chip { font-size: 10px; padding: 2px 5px; }
   .pyramid-heads { font-size: 13px; }
   .hero { padding-inline: 12px; }

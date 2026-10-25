@@ -208,13 +208,14 @@ class FavouritesTests(unittest.TestCase):
         self.page.emulate_media(reduced_motion="reduce")
         self.go("/")
         self.page.evaluate("""() => {
-            renderPyramid([], [
+            const runs = [
                 {playerName: "E. Haaland", clubName: "Manchester City", matches: 7},
                 {playerName: "Evanilson", clubName: "Bournemouth", matches: 3},
                 {playerName: "Ada Goal", clubName: "Alpha United", matches: 5},
-            ]);
+            ];
+            renderPyramid([{seasonLabel: "2025/26", runs}], runs);
         }""")
-        for width in [1280, 390]:
+        for width in [1280, 760, 390, 320]:
             with self.subTest(width=width):
                 self.page.set_viewport_size({"width": width, "height": 900})
                 self.page.evaluate("""() => new Promise(resolve =>
@@ -228,7 +229,9 @@ class FavouritesTests(unittest.TestCase):
                     self.assertAlmostEqual(
                         right_edge, lower["x"] + lower["width"], delta=1
                     )
-                    self.assertGreaterEqual(upper["x"] - lower["x"], 60)
+                    self.assertGreaterEqual(
+                        upper["x"] - lower["x"], 60 if width > 760 else 24
+                    )
                     self.assertAlmostEqual(
                         upper["y"] + upper["height"], lower["y"], delta=1
                     )
@@ -247,6 +250,22 @@ class FavouritesTests(unittest.TestCase):
                 self.assertLessEqual(
                     self.page.evaluate("document.documentElement.scrollWidth"), width
                 )
+                history = self.page.locator(".pyr-right .pyr-chip").first
+                history_heading = self.page.locator(".pyramid-heads .head-left")
+                if width <= 760:
+                    expect(history).not_to_be_visible()
+                    expect(history_heading).not_to_be_visible()
+                    self.assertTrue(self.page.locator(".pyramid-wrap").evaluate(
+                        "(el) => el.scrollWidth <= el.clientWidth"
+                    ))
+                    for selector in [".pyr-vardy img", ".vardy-bubble", ".pyr-step"]:
+                        for element in self.page.locator(selector).all():
+                            box = element.bounding_box()
+                            self.assertGreaterEqual(box["x"], 0)
+                            self.assertLessEqual(box["x"] + box["width"], width)
+                else:
+                    expect(history).to_be_visible()
+                    expect(history_heading).to_be_visible()
 
     def test_pyramid_portrait_opens_player_details(self):
         self.page.emulate_media(reduced_motion="reduce")
