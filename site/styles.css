@@ -849,6 +849,7 @@ h1 span { display: inline-block; color: var(--red); transform: rotate(-1.5deg); 
 }
 .pyr-chip:hover { transform: translate(-1px, -2px) rotate(-2deg); }
 .pyr-chip span { font-family: var(--mono); font-size: 10px; color: #555; }
+.pyr-chip-portrait { display: block; width: 30px; height: 38px; object-fit: contain; }
 .chip-past { background: #e5e7eb; }
 .chip-past strong { text-decoration: line-through wavy var(--red) 1px; }
 .chip-now { background: var(--green); animation: wobble 1.6s ease-in-out infinite; }
