@@ -18,6 +18,7 @@ Index updates do not establish source-data freshness. Early previews may use unv
 
 ## Articles
 
+- [Haaland eyes Vardy's record as the game week begins](https://vardywatch.com/blog/2026-10-30.md)
 - [Vardy Watch: Haaland seven games in, with Arsenal pencilled in as the record-equalling fixture](https://vardywatch.com/blog/2026-10-24.md)
 - [Six on the board. Two more steps to take?](https://vardywatch.com/blog/2026-10-29-early-preview.md)
 
