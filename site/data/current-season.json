@@ -2,7 +2,7 @@
   "competition": "Premier League",
   "season": 2026,
   "seasonLabel": "2026/27",
-  "generatedAt": "2026-10-30T07:00:17.195715Z",
+  "generatedAt": "2026-10-30T19:00:16.710421Z",
   "source": "Local monthly Premier League JSON exports",
   "benchmark": {
     "playerName": "Jamie Vardy",
@@ -2580,9 +2580,9 @@
     }
   ],
   "whatChanged": {
-    "generatedAt": "2026-10-30T07:00:17.195715Z",
-    "windowStart": "2026-10-23T07:00:17.195715Z",
-    "windowEnd": "2026-10-30T07:00:17.195715Z",
+    "generatedAt": "2026-10-30T19:00:16.710421Z",
+    "windowStart": "2026-10-23T19:00:16.710421Z",
+    "windowEnd": "2026-10-30T19:00:16.710421Z",
     "endedStreaks": [
       {
         "playerName": "B. Mbeumo",
