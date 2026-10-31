@@ -298,3 +298,12 @@ record-chase branch is required or included in this branch.
   This unrelated favourites failure was not fixed. Global publication remains
   paused; no push. Item 4 needs integration, the recovered full-suite gate and
   publication approval before its checkbox can be checked.
+- 2026-10-31 — Item 7 implementation is on a local, unpublished branch. The
+  consistency view uses a minimum of 3 goals and clusters identical
+  goals/scoring-match points instead of overlapping player labels; exact values
+  and player links are available in its table. Scoring matches count distinct
+  completed fixtures with a credited goal, and season totals use stable player
+  identity across transfers. The focused scorer-page Edge tests pass; the full
+  suite still errors in the pre-existing favourites test because `team-alpha`
+  is missing. The completion checkbox remains open pending all delivery gates
+  and integration/publication.

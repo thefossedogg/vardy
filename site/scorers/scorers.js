@@ -2,8 +2,15 @@ const dataUrl = new URL("../data/scoring-seasons.json", document.baseURI);
 const seasonSelect = document.querySelector("#scorer-season");
 const scorerList = document.querySelector("#scorer-list");
 const scorerStatus = document.querySelector("#scorers-status");
+const consistencySeasonSelect = document.querySelector("#consistency-season");
+const consistencyStatus = document.querySelector("#consistency-status");
+const consistencyChart = document.querySelector("#consistency-chart");
+const consistencyTableBody = document.querySelector("#consistency-table-body");
+const consistencySelection = document.querySelector("#consistency-selection");
 let scoringData;
 let maxGoalsAcrossSeasons = 1;
+const minimumConsistencyGoals = 3;
+const svgNamespace = "http://www.w3.org/2000/svg";
 
 function formatUpdated(value) {
   const date = new Date(value);
@@ -158,6 +165,211 @@ function renderSeason() {
   document.title = `Top scorers ${season.seasonLabel} | Vardy Watch`;
 }
 
+function playerDetailsUrl(player, season) {
+  const url = new URL("../players/", document.baseURI);
+  url.searchParams.set("player", player.playerKey);
+  url.searchParams.set("season", String(season.season));
+  return url.href;
+}
+
+function deriveConsistencyRows(season) {
+  const scoredFixtures = new Map();
+  for (const fixture of season.fixtures) {
+    if (fixture.status !== "completed") continue;
+    const playersInFixture = new Set(fixture.scorers
+      .filter((scorer) => scorer.goals > 0)
+      .map((scorer) => scorer.playerKey));
+    for (const playerKey of playersInFixture) {
+      scoredFixtures.set(playerKey, (scoredFixtures.get(playerKey) || 0) + 1);
+    }
+  }
+  return season.scorers
+    .filter((player) => player.goals >= minimumConsistencyGoals)
+    .map((player) => ({
+      ...player,
+      scoringMatches: scoredFixtures.get(player.playerKey) || 0,
+    }))
+    .sort((a, b) =>
+      b.goals - a.goals ||
+      b.scoringMatches - a.scoringMatches ||
+      a.playerName.localeCompare(b.playerName, "en") ||
+      a.playerKey.localeCompare(b.playerKey),
+    );
+}
+
+function svgElement(name, attributes = {}) {
+  const element = document.createElementNS(svgNamespace, name);
+  for (const [attribute, value] of Object.entries(attributes)) {
+    element.setAttribute(attribute, String(value));
+  }
+  return element;
+}
+
+function chartPlayerSelection(player, season) {
+  consistencySelection.replaceChildren();
+  const heading = document.createElement("strong");
+  heading.textContent = player.playerName;
+  const summary = document.createElement("span");
+  summary.textContent =
+    `${player.goals} ${player.goals === 1 ? "goal" : "goals"} · ` +
+    `${player.scoringMatches} scoring ${player.scoringMatches === 1 ? "match" : "matches"} · ` +
+    season.seasonLabel;
+  const link = document.createElement("a");
+  link.href = playerDetailsUrl(player, season);
+  link.textContent = "Open player season details";
+  consistencySelection.append(heading, summary, link);
+}
+
+function selectConsistencyPoint(players, season) {
+  consistencySelection.replaceChildren();
+  if (players.length === 1) {
+    chartPlayerSelection(players[0], season);
+    return;
+  }
+  const prompt = document.createElement("p");
+  prompt.textContent = `${players.length} players share these values. Choose a player:`;
+  const choices = document.createElement("div");
+  choices.className = "consistency-player-choices";
+  for (const player of players) {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.textContent = player.playerName;
+    button.addEventListener("click", () => chartPlayerSelection(player, season));
+    choices.append(button);
+  }
+  consistencySelection.append(prompt, choices);
+}
+
+function appendChartAxis(maximum, axis, formatter = (value) => String(value)) {
+  const start = axis === "x" ? 76 : 24;
+  const end = axis === "x" ? 770 : 410;
+  const count = 5;
+  for (let index = 0; index <= count; index += 1) {
+    const value = Math.round((maximum * index) / count);
+    const position = axis === "x"
+      ? start + ((end - start) * index) / count
+      : end - ((end - start) * index) / count;
+    const line = axis === "x"
+      ? svgElement("line", { x1: position, y1: 24, x2: position, y2: 410 })
+      : svgElement("line", { x1: 76, y1: position, x2: 770, y2: position });
+    line.setAttribute("class", "consistency-gridline");
+    const label = svgElement("text", axis === "x"
+      ? { x: position, y: 435, "text-anchor": "middle" }
+      : { x: 64, y: position + 5, "text-anchor": "end" });
+    label.setAttribute("class", "consistency-tick");
+    label.textContent = formatter(value);
+    consistencyChart.append(line, label);
+  }
+}
+
+function renderConsistency(season) {
+  const rows = deriveConsistencyRows(season);
+  consistencyChart.replaceChildren(
+    svgElement("title", { id: "consistency-chart-title" }),
+    svgElement("desc", { id: "consistency-chart-desc" }),
+  );
+  consistencyChart.querySelector("title").textContent =
+    `Goals versus scoring matches, ${season.seasonLabel}`;
+  consistencyChart.querySelector("desc").textContent =
+    `Players with at least ${minimumConsistencyGoals} goals. Horizontal axis: completed ` +
+    `matches scored in. Vertical axis: total season goals. Select a point; exact data ` +
+    `and player links are in the table below.`;
+  consistencyChart.setAttribute("aria-label",
+    `Goals versus scoring matches, ${season.seasonLabel}`);
+  consistencyTableBody.replaceChildren();
+  const caption = document.querySelector("#consistency-table-caption");
+  caption.textContent = `Goals and scoring matches by player, ${season.seasonLabel}`;
+  for (const player of rows) {
+    const row = document.createElement("tr");
+    const nameCell = document.createElement("th");
+    nameCell.scope = "row";
+    const link = document.createElement("a");
+    link.href = playerDetailsUrl(player, season);
+    link.textContent = player.playerName;
+    nameCell.append(link);
+    const goalsCell = document.createElement("td");
+    goalsCell.textContent = String(player.goals);
+    const matchesCell = document.createElement("td");
+    matchesCell.textContent = String(player.scoringMatches);
+    row.append(nameCell, goalsCell, matchesCell);
+    consistencyTableBody.append(row);
+  }
+
+  if (!rows.length) {
+    consistencyStatus.textContent =
+      `No players reached ${minimumConsistencyGoals} goals in ${season.seasonLabel}.`;
+    consistencySelection.textContent =
+      "There are no qualifying players to select for this season.";
+    return;
+  }
+
+  const maxMatches = Math.max(1, ...rows.map((player) => player.scoringMatches));
+  const maxGoals = Math.max(1, ...rows.map((player) => player.goals));
+  const xMaximum = Math.ceil(maxMatches / 5) * 5;
+  const yMaximum = Math.ceil(maxGoals / 5) * 5;
+  const left = 76;
+  const right = 770;
+  const top = 24;
+  const bottom = 410;
+  appendChartAxis(xMaximum, "x");
+  appendChartAxis(yMaximum, "y");
+  const xLabel = svgElement("text", {
+    x: (left + right) / 2, y: 472, "text-anchor": "middle",
+  });
+  xLabel.setAttribute("class", "consistency-axis-label");
+  xLabel.textContent = "Completed matches scored in";
+  const yLabel = svgElement("text", {
+    x: 17, y: (top + bottom) / 2, "text-anchor": "middle",
+    transform: `rotate(-90 17 ${(top + bottom) / 2})`,
+  });
+  yLabel.setAttribute("class", "consistency-axis-label");
+  yLabel.textContent = "Total goals";
+  consistencyChart.append(xLabel, yLabel);
+
+  const clusters = new Map();
+  for (const player of rows) {
+    const key = `${player.scoringMatches}:${player.goals}`;
+    if (!clusters.has(key)) clusters.set(key, []);
+    clusters.get(key).push(player);
+  }
+  for (const players of clusters.values()) {
+    const { goals, scoringMatches } = players[0];
+    const x = left + (scoringMatches / xMaximum) * (right - left);
+    const y = bottom - (goals / yMaximum) * (bottom - top);
+    const radius = Math.min(20, 8 + Math.sqrt(players.length) * 2);
+    const point = svgElement("g", {
+      class: "consistency-point",
+      role: "button",
+      tabindex: "0",
+      "aria-label": players.length === 1
+        ? `${players[0].playerName}: ${goals} goals in ${scoringMatches} scoring matches. Select for details.`
+        : `${players.length} players: ${goals} goals in ${scoringMatches} scoring matches. Select to choose a player.`,
+    });
+    point.append(svgElement("circle", { cx: x, cy: y, r: radius }));
+    if (players.length > 1) {
+      const count = svgElement("text", {
+        x, y: y + 4, "text-anchor": "middle", "aria-hidden": "true",
+      });
+      count.textContent = String(players.length);
+      point.append(count);
+    }
+    const activate = () => selectConsistencyPoint(players, season);
+    point.addEventListener("click", activate);
+    point.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        activate();
+      }
+    });
+    consistencyChart.append(point);
+  }
+  consistencyStatus.textContent =
+    `${rows.length} players with at least ${minimumConsistencyGoals} goals in ` +
+    `${season.seasonLabel}. Matches count only when a player scored in a completed fixture.`;
+  consistencySelection.textContent =
+    "Select a point or a player in the table to view season details.";
+}
+
 function validateData(data) {
   if (!Number.isInteger(data.season) || !Array.isArray(data.seasons) ||
     !data.seasons.length || !data.clubColors ||
@@ -193,16 +405,38 @@ async function loadScoringData() {
     seasonSelect.append(option);
   }
   seasonSelect.value = String(scoringData.season);
+  for (const season of seasons) {
+    const option = document.createElement("option");
+    option.value = String(season.season);
+    option.textContent = `${season.seasonLabel} · ${
+      season.status === "in_progress" ? "In progress" : "Final"
+    }`;
+    consistencySeasonSelect.append(option);
+  }
+  consistencySeasonSelect.value = String(scoringData.season);
   seasonSelect.disabled = false;
+  consistencySeasonSelect.disabled = false;
   seasonSelect.addEventListener("change", renderSeason);
+  consistencySeasonSelect.addEventListener("change", () => {
+    const season = scoringData.seasons.find((entry) =>
+      entry.season === Number(consistencySeasonSelect.value),
+    );
+    if (!season) throw new Error("The selected consistency season is missing from scorer data.");
+    renderConsistency(season);
+  });
 
   const updated = document.querySelector("#scorers-updated");
   updated.textContent = formatUpdated(scoringData.generatedAt);
   if (scoringData.generatedAt) updated.dateTime = scoringData.generatedAt;
   renderSeason();
+  renderConsistency(scoringData.seasons.find((entry) =>
+    entry.season === Number(consistencySeasonSelect.value),
+  ));
 }
 
 loadScoringData().catch((error) => {
   scorerStatus.textContent = "Could not load scorer data. Please try again later.";
+  consistencyStatus.textContent =
+    "Could not load goals-versus-consistency data. Please try again later.";
   console.error(error);
 });
