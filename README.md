@@ -79,3 +79,8 @@ you can switch to scoring matches and filter by date and the player's scoring
 club being home or away. Meeting counts are fixtures involving clubs the player
 scored for, not appearances. Dates outside the export's fixture coverage are
 unavailable, not confirmed zeroes.
+
+Scorer-chart modals link to the full season page with its fingerprint, Golden
+Boot pace (current season only), and opponent filters. Weekly-mover cards open
+the existing homepage player/streak modal using that export's keys; those keys
+are distinct from season-page BBC URNs and are never guessed by player name.

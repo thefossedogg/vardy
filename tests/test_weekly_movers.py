@@ -1,10 +1,10 @@
 import os
+import json
 from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from threading import Thread
 import unittest
-from urllib.parse import parse_qs, urlparse
 
 from playwright.sync_api import expect, sync_playwright
 
@@ -156,11 +156,10 @@ class WeeklyMoverTests(unittest.TestCase):
         link.focus()
         expect(link).to_be_focused()
         self.page.keyboard.press("Enter")
-        expect(self.page).to_have_url(
-            self.base_url + "/players/?player=player-b&season=2026"
-        )
-        query = parse_qs(urlparse(self.page.url).query)
-        self.assertEqual({"player": ["player-b"], "season": ["2026"]}, query)
+        expect(self.page.locator("#streak-dialog")).to_be_visible()
+        expect(self.page.locator("#streak-dialog-title")).to_have_text("Ben Beta")
+        expect(self.page.locator(".dialog-games")).to_be_focused()
+        expect(self.page.locator(".fingerprint-tile")).not_to_have_count(0)
 
     def test_simultaneous_tie_does_not_claim_a_new_leader(self):
         self.data["fixtures"] = [
@@ -180,6 +179,25 @@ class WeeklyMoverTests(unittest.TestCase):
         )
         expect(self.page.locator("#weekly-movers .weekly-mover")).to_have_count(0)
 
+    def test_real_weekly_mover_opens_matching_player_details(self):
+        site = Path(__file__).resolve().parents[1] / "site"
+        self.data = json.loads(
+            (site / "data" / "current-season.json").read_text(encoding="utf-8")
+        )
+        self.page.set_viewport_size({"width": 320, "height": 740})
+        self.page.goto(self.base_url + "/")
+        links = self.page.locator("#weekly-movers a")
+        expect(links.first).to_be_visible()
+        for link in links.all():
+            name = link.inner_text().split(" extended ")[0]
+            link.focus()
+            self.page.keyboard.press("Enter")
+            expect(self.page.locator("#streak-dialog")).to_be_visible()
+            expect(self.page.locator("#streak-dialog-title")).to_have_text(name)
+            expect(self.page.locator(".dialog-games")).to_be_focused()
+            self.assertLessEqual(self.page.evaluate("document.documentElement.scrollWidth"), 320)
+            self.page.keyboard.press("Escape")
+            expect(self.page.locator("#streak-dialog")).not_to_be_visible()
     def test_breaking_a_tie_creates_one_leader_card_and_future_fixtures_are_ignored(self):
         self.data["fixtures"] = [
             fixture("2026-10-23T12:00:00Z", [

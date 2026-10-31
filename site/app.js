@@ -459,10 +459,13 @@ function renderWeeklyMovers(data) {
       streak: "Streak extended",
     }[event.type];
     const link = document.createElement("a");
-    const url = new URL("players/", document.baseURI);
-    url.searchParams.set("player", event.playerKey);
-    url.searchParams.set("season", String(data.season));
-    link.href = url.href;
+    link.href = "#streak-dialog";
+    link.addEventListener("click", (click) => {
+      click.preventDefault();
+      const player = data.activeInSeason.find((run) => run.playerKey === event.playerKey) ||
+        favouriteEntries.get(`player:${event.playerKey}`)?.player;
+      if (player) showStreak(player, "weekly-movers");
+    });
     link.textContent = event.detail;
     const date = document.createElement("time");
     date.dateTime = event.date;
@@ -1069,11 +1072,14 @@ function clubLeadingScorerShares(data) {
     for (const scorer of fixture.scorers) {
       const total = totals.get(scorer.clubKey);
       if (!total) continue;
+      const name = scorer.playerName ||
+        total.club.scorers.find((player) => player.playerKey === scorer.playerKey)?.playerName ||
+        "Player name unavailable";
       const player = total.scorers.get(scorer.playerKey) || {
-        name: scorer.playerName,
+        name,
         goals: 0,
       };
-      player.name = scorer.playerName;
+      player.name = name;
       player.goals += scorer.goals;
       total.scorers.set(scorer.playerKey, player);
     }
