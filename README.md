@@ -65,7 +65,7 @@ have separate text labels. Open a tile with a click, Enter or Space to focus its
 dated fixture details; the full fixture list is the text alternative.
 
 Each scoring club is shown separately using the player and club identifiers in
-that view's export (BBC URNs on season pages, existing keys in modals; no
+that view's export (public keys on season pages and in modals; no
 name-based cross-export matching). Whole exported club seasons are shown, not
 inferred transfer spells or appearances: a zero only means no credited goal in
 that fixture. Transfer dates, non-scoring spells and squad membership are not
@@ -80,7 +80,30 @@ club being home or away. Meeting counts are fixtures involving clubs the player
 scored for, not appearances. Dates outside the export's fixture coverage are
 unavailable, not confirmed zeroes.
 
+Player season details also show the selected player's club scoring ladders across
+the available 2021/22–2026/27 exports. Credited goals are combined by stable
+player identity and club across completed fixtures, including separate spells;
+each club ladder shows tied ranks, highlights the selected player, and states
+the goals needed to move ahead of the next scorer. The range and latest
+completed-fixture date are explicit, 2026/27 totals are provisional, and
+historical scorers are not necessarily current squad members. These are not
+career or all-time totals.
+
 Scorer-chart modals link to the full season page with its fingerprint, Golden
 Boot pace (current season only), and opponent filters. Weekly-mover cards open
 the existing homepage player/streak modal using that export's keys; those keys
-are distinct from season-page BBC URNs and are never guessed by player name.
+are distinct from season-page public keys and are never guessed by player name.
+
+Public exports must not contain provider player, team or fixture IDs. The scorer
+generator follows the private `update_data` export's SHA-256 public-key pattern
+(16 hexadecimal characters), using a scoring namespace and canonical player
+identity so transfers, name changes and seasons retain one key without merging
+namesakes. Raw inputs and raw-to-public mappings are not published. Clubs in the
+scorer export use names, not provider team IDs. Old provider-ID player links are
+not retained.
+
+Generate scorer data from the private monthly archive with
+`python scripts/generate_scoring_data.py --source-dir <private-export-directory>`,
+then run `python scripts/check_public_data.py`. Pages deployment runs the same
+check before uploading `site`, rejecting provider URNs, provider-shaped bare
+IDs, internal ID fields and unsanitized player/club keys.

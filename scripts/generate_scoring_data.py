@@ -2,6 +2,7 @@
 """Build the compact six-season scorer data file from BBC monthly exports."""
 
 import argparse
+import hashlib
 import json
 from pathlib import Path
 
@@ -55,8 +56,29 @@ def load_json(path):
         return json.load(file)
 
 
+def canonical_player_id(player_urn):
+    if not isinstance(player_urn, str):
+        raise ValueError("A credited scorer did not contain a player URN")
+    parts = player_urn.strip().split(":")
+    if (
+        len(parts) < 3
+        or parts[0].casefold() != "urn"
+        or parts[-2].casefold() != "player"
+        or not parts[-1]
+    ):
+        raise ValueError("A credited scorer contained an invalid player URN")
+    return parts[-1].casefold()
+
+
+def public_key(value):
+    return hashlib.sha256(
+        json.dumps(value, ensure_ascii=False).encode("utf-8")
+    ).hexdigest()[:16]
+
+
 def event_fixtures(source_dir, years):
     fixtures = {}
+    player_identities = {}
     for path in sorted(source_dir.glob("premier-league_*.json")):
         data = load_json(path)
         for group in data.get("eventGroups", []):
@@ -94,13 +116,18 @@ def event_fixtures(source_dir, years):
                         for action in team.get("actions", []):
                             if action.get("actionType") != "goal":
                                 continue
-                            player_key = action.get("playerUrn")
+                            player_urn = action.get("playerUrn")
                             player_name = action.get("playerName")
                             details = action.get("actions")
-                            if not player_key or not player_name or not details:
+                            if not player_urn or not player_name or not details:
                                 raise ValueError(
                                     f"{path.name}: goal action is missing player identity/details"
                                 )
+                            identity = canonical_player_id(player_urn)
+                            player_key = public_key(("scoring-player", identity))
+                            previous = player_identities.setdefault(player_key, identity)
+                            if previous != identity:
+                                raise ValueError("Public scoring player key collision")
                             for detail in details:
                                 goal_type = detail.get("type")
                                 if goal_type not in KNOWN_GOAL_TYPES:

@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../styles.css">
     <script src="/analytics.js" defer></script>
     <script src="../fingerprint.js" defer></script>
+    <script src="club-ladder.js" defer></script>
     <script src="player.js" defer></script>
     <script src="pace.js" defer></script>
   </head>
@@ -32,6 +33,13 @@
         </div>
         <p id="player-status" role="status" aria-live="polite">Loading player details…</p>
         <p id="player-summary" class="player-summary"></p>
+        <section id="club-ladders" class="club-ladders" hidden
+          aria-labelledby="club-ladders-title">
+          <p class="eyebrow">CLUB SCORING LADDER</p>
+          <h2 id="club-ladders-title">Available-season club goals</h2>
+          <p id="club-ladder-coverage" class="club-ladder-note"></p>
+          <div id="club-ladder-groups"></div>
+        </section>
         <p id="player-data-note" class="player-data-note">The archive does not include player appearances. Fixtures with no credited goals do not show whether the player played.</p>
         <section id="pace-panel" hidden aria-labelledby="pace-title">
           <h2 id="pace-title" class="player-fixtures-title">Golden Boot pace</h2>
