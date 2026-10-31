@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../styles.css">
     <script src="/analytics.js" defer></script>
     <script src="player.js" defer></script>
+    <script src="pace.js" defer></script>
   </head>
   <body>
     <header class="masthead" aria-label="Vardy Watch">
@@ -31,6 +32,21 @@
         <p id="player-status" role="status" aria-live="polite">Loading player details…</p>
         <p id="player-summary" class="player-summary"></p>
         <p class="player-data-note">The archive does not include player appearances. Fixtures with no credited goals do not show whether the player played.</p>
+        <section id="pace-panel" hidden aria-labelledby="pace-title">
+          <h2 id="pace-title" class="player-fixtures-title">Golden Boot pace</h2>
+          <p id="pace-status" role="status" aria-live="polite">Loading comparison…</p>
+          <p class="pace-data-note" id="pace-alignment">Horizontal axis: completed team league games, not dates or player appearances. Goals include penalties, not own goals. The current line stops at the latest completed team fixture; it is not a forecast.</p>
+          <p class="pace-data-note" id="pace-transfer" hidden></p>
+          <fieldset id="pace-comparisons" class="pace-comparisons">
+            <legend>Previous five seasons' winners · choose comparison lines</legend>
+          </fieldset>
+          <div id="pace-chart" class="pace-chart"></div>
+          <div id="pace-tables"></div>
+          <p class="pace-data-note">Source: <a href="https://www.bbc.com/sport/football/premier-league/scores-fixtures">BBC Premier League fixture exports</a>,
+            reused from <a href="../data/scoring-seasons.json">the six-season scoring dataset</a>.
+            Winners are derived from completed-fixture totals, including joint winners.
+            The data-updated time above is generation time, not a fresh source fetch.</p>
+        </section>
         <h2 class="player-fixtures-title">Season fixtures</h2>
         <ol id="player-fixtures" class="player-fixtures"></ol>
         <noscript>Enable JavaScript to view player scoring details.</noscript>

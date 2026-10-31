@@ -215,3 +215,26 @@ Add dated implementation notes and any remaining limitations here as items ship.
   pending: the required full test suite repeatedly times out in the unrelated
   `test_club_menu_stars_toggle_without_navigation_on_both_pages` favourite-menu
   test because its `team-alpha` control never appears.
+- 2026-10-31 — Item 1 pending baseline is preserved on local branch
+  `pending-item-1-baseline`, commit `382ede6`; no publication. The global gate
+  remains the unrelated favourite-menu regression where `team-alpha` never
+  appears in `test_club_menu_stars_toggle_without_navigation_on_both_pages`.
+- 2026-10-31 — Item 2 isolated from committed main `c353bdbe`: current player
+  pages compare cumulative completed-fixture goals with all previous-five-season
+  winners, including joint winners. Latest season winner(s) default on; others
+  are opt-in to avoid clutter. Dash samples and named text/table equivalents
+  avoid colour-only interpretation. Transfers use chronological scoring spells,
+  switching at the first credited goal at the next club, not verified transfer
+  dates; unknown pre-first-goal games at that club are omitted and explained.
+  BBC export provenance and coverage are documented in README. Checkbox remains
+  unchecked pending full-suite/global publication gate. Five focused Edge browser
+  tests pass: real-snapshot reconciliation for every scorer/point, joint winners,
+  transfer/return spells, goalless and excluded live/future fixtures, unavailable
+  history, keyboard checkboxes/tables, and 1280/390/320px layouts. The documented
+  full suite ran once (22 tests, 99.083s): the pre-existing favourite-menu
+  `team-alpha` timeout persists. It also exposed an item-2 CSS-class selector
+  collision in the scorer test; fixed by keeping pace notes separate from the
+  existing player-note class. Combined pace/scorer regression validation passes
+  (7 tests, 21.917s); `git diff --check` also passes. No baseline-item dependency:
+  item 2 uses only the dataset/player views already on committed main.
+  No pushes or deployment attempts while the global gate remains unresolved.

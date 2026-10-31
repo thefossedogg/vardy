@@ -1433,7 +1433,8 @@ button.pyr-vardy { padding: 0; border: 0; background: none; color: inherit; font
   font-weight: 800;
 }
 
-.player-data-note {
+.player-data-note,
+.pace-data-note {
   color: #4b5563;
   font-size: 11px;
   line-height: 1.5;
@@ -1651,6 +1652,69 @@ button.pyr-vardy { padding: 0; border: 0; background: none; color: inherit; font
   background: #fff;
   box-shadow: 5px 5px 0 var(--ink);
   line-height: 1.7;
+}
+
+.pace-comparisons {
+  margin: 16px 0;
+  padding: 12px;
+  border: 2px solid var(--ink);
+}
+.pace-comparisons label {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  gap: 8px;
+  font-size: 13px;
+}
+.pace-comparisons input {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+}
+.pace-chart svg {
+  display: block;
+  width: 100%;
+  background: #fff;
+  font: 22px sans-serif;
+}
+.pace-line-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 16px 0 8px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.pace-line-label svg {
+  flex: 0 0 60px;
+  width: 60px;
+  height: 12px;
+}
+#pace-tables summary {
+  padding: 12px 0;
+  cursor: pointer;
+  font-size: 13px;
+}
+#pace-tables table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+#pace-tables th,
+#pace-tables td {
+  padding: 8px 4px;
+  border: 1px solid #cbd5e1;
+  text-align: left;
+}
+#pace-tables th:nth-child(-n+2) {
+  width: 15%;
+}
+#pace-panel :focus-visible {
+  outline: 3px solid #0057b8;
+  outline-offset: 3px;
 }
 .methodology h2 {
   margin-bottom: 12px;
