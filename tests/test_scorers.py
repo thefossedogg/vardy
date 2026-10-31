@@ -128,7 +128,7 @@ class ScorerPageTests(unittest.TestCase):
         self.context.close()
         self.assertEqual([], self.errors)
 
-    def test_scorer_chart_cutoff_ties_scale_and_player_season_details(self):
+    def test_scorer_chart_cutoff_ties_scale_and_player_modal(self):
         self.page.goto(self.base_url + "/scorers/")
         expect(self.page.locator("#scorer-season")).to_have_value("2026")
         expect(self.page.locator("#scorer-season-status")).to_have_text("In progress")
@@ -162,20 +162,35 @@ class ScorerPageTests(unittest.TestCase):
         )
         first.locator(".scorer-player").click()
 
-        expect(self.page).to_have_url(
-            self.base_url + "/players/?player=urn%3Atest%3Atransfer&season=2026"
+        expect(self.page).to_have_url(self.base_url + "/scorers/")
+        expect(self.page.locator("#scorer-player-dialog")).to_be_visible()
+        expect(self.page.locator("#scorer-player-title")).to_have_text("Aaron Transfer")
+        expect(self.page.locator("#scorer-player-season")).to_have_text(
+            "2026/27 · In progress"
         )
-        expect(self.page.locator("#player-title")).to_have_text("Aaron Transfer")
-        expect(self.page.locator("#player-summary")).to_have_text(
+        expect(self.page.locator("#scorer-player-summary")).to_have_text(
             "4 goals · Alpha United · 2 goals; Beta City · 2 goals"
         )
-        expect(self.page.locator(".player-data-note")).to_contain_text(
+        expect(self.page.locator("#scorer-player-dialog .player-data-note")).to_contain_text(
             "does not include player appearances"
         )
-        expect(self.page.locator("#player-fixtures > li")).to_have_count(4)
-        expect(self.page.locator("#player-fixtures")).to_contain_text("Beta City")
+        expect(self.page.locator("#scorer-player-fixtures > li")).to_have_count(4)
+        expect(self.page.locator("#scorer-player-fixtures")).to_contain_text("Beta City")
+        player_button = first.locator(".scorer-player")
+        self.page.keyboard.press("Escape")
+        expect(self.page.locator("#scorer-player-dialog")).not_to_be_visible()
+        expect(player_button).to_be_focused()
+        self.page.keyboard.press("Enter")
+        expect(self.page.locator("#scorer-player-dialog")).to_be_visible()
+        self.page.keyboard.press("Escape")
+        expect(self.page.locator("#scorer-player-dialog")).not_to_be_visible()
+        expect(player_button).to_be_focused()
+        self.page.keyboard.press("Enter")
+        expect(self.page.locator("#scorer-player-dialog")).to_be_visible()
+        self.page.get_by_role("button", name="Close player scoring details").click()
+        expect(self.page.locator("#scorer-player-dialog")).not_to_be_visible()
 
-    def test_generated_scorer_data_opens_a_real_player_season(self):
+    def test_generated_scorer_data_opens_a_real_player_modal(self):
         site = Path(__file__).resolve().parents[1] / "site"
         self.data = json.loads(
             (site / "data" / "scoring-seasons.json").read_text(encoding="utf-8")
@@ -197,13 +212,14 @@ class ScorerPageTests(unittest.TestCase):
             expected_player["playerName"]
         )
         first.locator(".scorer-player").click()
-        expect(self.page.locator("#player-title")).to_have_text(
+        expect(self.page.locator("#scorer-player-dialog")).to_be_visible()
+        expect(self.page.locator("#scorer-player-title")).to_have_text(
             expected_player["playerName"]
         )
-        expect(self.page.locator("#player-summary")).to_contain_text(
+        expect(self.page.locator("#scorer-player-summary")).to_contain_text(
             f'{expected_player["goals"]} '
         )
-        expect(self.page.locator("#player-fixtures > li").first).to_be_visible()
+        expect(self.page.locator("#scorer-player-fixtures > li").first).to_be_visible()
 
 
 if __name__ == "__main__":

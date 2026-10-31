@@ -27,6 +27,62 @@ function topScorers(scorers) {
   return sorted.filter((player, index) => index < 50 || player.goals === cutoff);
 }
 
+function formatFixtureDate(value) {
+  return new Date(value).toLocaleDateString("en-GB", {
+    day: "numeric", month: "short", year: "numeric",
+  });
+}
+
+function renderPlayerDetails(player, season) {
+  const dialog = document.querySelector("#scorer-player-dialog");
+  document.querySelector("#scorer-player-title").textContent = player.playerName;
+  document.querySelector("#scorer-player-season").textContent =
+    `${season.seasonLabel} · ${season.status === "in_progress" ? "In progress" : "Final"}`;
+  document.querySelector("#scorer-player-summary").textContent =
+    `${player.goals} ${player.goals === 1 ? "goal" : "goals"} · ` +
+    player.clubs.map((club) =>
+      `${club.clubName} · ${club.goals} ${club.goals === 1 ? "goal" : "goals"}`,
+    ).join("; ");
+
+  const clubs = new Set(player.clubs.map((club) => club.clubName));
+  const fixtures = season.fixtures.flatMap((fixture) =>
+    fixture.teams
+      .filter((clubName) => clubs.has(clubName))
+      .map((clubName) => ({ fixture, clubName })),
+  ).sort((a, b) =>
+    a.fixture.date.localeCompare(b.fixture.date) ||
+    a.clubName.localeCompare(b.clubName, "en"),
+  );
+  const list = document.querySelector("#scorer-player-fixtures");
+  list.replaceChildren();
+  for (const { fixture, clubName } of fixtures) {
+    const clubIndex = fixture.teams.indexOf(clubName);
+    const goals = fixture.scorers
+      .filter((scorer) => scorer.playerKey === player.playerKey &&
+        scorer.clubName === clubName)
+      .reduce((total, scorer) => total + scorer.goals, 0);
+    const item = document.createElement("li");
+    item.className = `player-fixture player-fixture-${fixture.status}`;
+    const date = document.createElement("time");
+    date.dateTime = fixture.date;
+    date.textContent = formatFixtureDate(fixture.date);
+    const details = document.createElement("span");
+    const status = ({
+      completed: "Full time",
+      live: "Live · provisional",
+      scheduled: "Scheduled",
+      postponed: "Postponed",
+      cancelled: "Cancelled",
+    })[fixture.status] || "Status unavailable";
+    details.textContent = `${clubName} · ${clubIndex === 0 ? "Home" : "Away"} vs ` +
+      `${fixture.teams[1 - clubIndex]} · ` +
+      `${goals ? `${goals} ${goals === 1 ? "goal" : "goals"}` : "No credited goals"} · ${status}`;
+    item.append(date, details);
+    list.append(item);
+  }
+  dialog.showModal();
+}
+
 function addScorerRow(scorer, rank, season) {
   const item = document.createElement("li");
   item.className = "scorer-row";
@@ -38,15 +94,13 @@ function addScorerRow(scorer, rank, season) {
 
   const identity = document.createElement("div");
   identity.className = "scorer-identity";
-  const link = document.createElement("a");
-  const playerUrl = new URL("../players/", document.baseURI);
-  playerUrl.searchParams.set("player", scorer.playerKey);
-  playerUrl.searchParams.set("season", String(season.season));
-  link.href = playerUrl.href;
+  const link = document.createElement("button");
+  link.type = "button";
   link.className = "scorer-player";
   link.textContent = scorer.playerName;
   link.setAttribute("aria-label",
     `View ${scorer.playerName}'s ${season.seasonLabel} scoring details`);
+  link.addEventListener("click", () => renderPlayerDetails(scorer, season));
 
   const clubs = document.createElement("span");
   clubs.className = "scorer-clubs";
