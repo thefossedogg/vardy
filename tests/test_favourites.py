@@ -331,7 +331,9 @@ class FavouritesTests(unittest.TestCase):
         for path in ["/", "/clubs/?club=alpha"]:
             with self.subTest(path=path):
                 self.go(path)
-                picker = self.page.locator(".club-picker").first
+                picker = self.page.locator("details").filter(
+                    has=self.page.locator("#club-picker-list")
+                )
                 picker.locator("summary").click()
                 star = picker.locator('[data-favourite-key="team-alpha"]')
                 star.click()
