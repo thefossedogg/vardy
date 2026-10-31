@@ -103,7 +103,8 @@ player they can overtake and the goals needed.
 2021/22–2026/27 seasons, including separate spells within that coverage.
 Label the date range and provisional current-season status explicitly; these
 are not career or all-time totals. Keep this distinct from the single-season
-record chase. Approved scope change; implementation remains pending.
+record chase. Approved available-season scope; completion awaits validation
+and publication.
 
 **Data dependency:** Reconciled available 2021/22–2026/27 fixture scorer exports.
 

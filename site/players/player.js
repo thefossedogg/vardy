@@ -218,6 +218,7 @@ async function loadPlayerSeason() {
   );
   document.querySelector("#player-summary").textContent =
     `${player.goals} ${player.goals === 1 ? "goal" : "goals"} · ${clubs.join("; ")}`;
+  renderClubScoringLadder(data, player);
   renderFavouriteOpponents(data, player);
 
   const clubNames = new Set(player.clubs.map((club) => club.clubName));
