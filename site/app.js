@@ -879,6 +879,114 @@ globalThis.addEventListener("storage", (event) => {
 });
 for (const picker of document.querySelectorAll(".club-picker")) setupClubPicker(picker);
 
+function clubLeadingScorerShares(data) {
+  const totals = new Map(data.clubs.map((club) => [club.clubKey, {
+    club,
+    goals: 0,
+    scorers: new Map(),
+  }]));
+  for (const fixture of data.fixtures) {
+    if (fixture.season !== data.season || fixture.status !== "completed") continue;
+    for (const [index, team] of fixture.teams.entries()) {
+      const total = totals.get(team.clubKey);
+      if (total) total.goals += fixture.score[index];
+    }
+    for (const scorer of fixture.scorers) {
+      const total = totals.get(scorer.clubKey);
+      if (!total) continue;
+      const player = total.scorers.get(scorer.playerKey) || {
+        name: scorer.playerName,
+        goals: 0,
+      };
+      player.name = scorer.playerName;
+      player.goals += scorer.goals;
+      total.scorers.set(scorer.playerKey, player);
+    }
+  }
+
+  const clubs = [...totals.values()].map(({ club, goals, scorers }) => {
+    const players = [...scorers.values()];
+    const leaderGoals = players.length
+      ? Math.max(...players.map((player) => player.goals))
+      : 0;
+    const goalWord = leaderGoals === 1 ? "goal" : "goals";
+    return {
+      club,
+      goals,
+      leaderGoals,
+      goalWord,
+      leaders: players.filter((player) => player.goals === leaderGoals),
+      share: goals > 0 ? leaderGoals / goals : null,
+    };
+  });
+  clubs.sort((left, right) => {
+    if (left.share === null) return right.share === null ? left.club.clubName.localeCompare(right.club.clubName) : 1;
+    if (right.share === null) return -1;
+    return right.leaderGoals * left.goals - left.leaderGoals * right.goals ||
+      left.club.clubName.localeCompare(right.club.clubName);
+  });
+  let previous;
+  for (const [index, entry] of clubs.entries()) {
+    if (entry.share === null) {
+      entry.rank = null;
+    } else {
+      const tied = previous &&
+        entry.leaderGoals * previous.goals === previous.leaderGoals * entry.goals;
+      entry.rank = tied ? previous.rank : index + 1;
+      previous = entry;
+    }
+  }
+  return clubs;
+}
+
+function renderClubReliance(data) {
+  const list = document.querySelector("#club-reliance-list");
+  list.replaceChildren();
+  for (const entry of clubLeadingScorerShares(data)) {
+    const item = document.createElement("li");
+    item.className = "club-reliance-row";
+
+    const rank = document.createElement("span");
+    rank.className = "club-reliance-rank";
+    rank.textContent = entry.rank === null ? "—" : String(entry.rank);
+
+    const details = document.createElement("div");
+    details.className = "club-reliance-details";
+    const link = document.createElement("a");
+    link.className = "club-reliance-club";
+    link.href = `?club=${encodeURIComponent(entry.club.slug)}`;
+    link.textContent = entry.club.clubName;
+    details.append(link);
+
+    const stats = document.createElement("p");
+    stats.className = "club-reliance-stats";
+    const leaderNames = entry.leaders.map((leader) => leader.name).join(", ");
+    const leaderLabel = entry.leaders.length > 1
+      ? `Joint leaders: ${leaderNames} (${entry.leaderGoals} ${entry.goalWord} each)`
+      : entry.leaders.length === 1
+        ? `${leaderNames} (${entry.leaderGoals} ${entry.goalWord})`
+        : "No credited goal scorer";
+    if (entry.goals === 0) {
+      stats.textContent = `${leaderLabel} · No completed club goals yet`;
+    } else {
+      const share = (entry.share * 100).toFixed(1);
+      stats.textContent = `${leaderLabel} · ${entry.leaderGoals} of ${entry.goals} club goals · ${share}%`;
+    }
+    details.append(stats);
+
+    const track = document.createElement("span");
+    track.className = "club-reliance-track";
+    track.setAttribute("aria-hidden", "true");
+    const bar = document.createElement("span");
+    bar.className = "club-reliance-bar";
+    bar.style.width = `${entry.share === null ? 0 : entry.share * 100}%`;
+    track.append(bar);
+
+    item.append(rank, details, track);
+    list.append(item);
+  }
+}
+
 function renderClubPage(data, slug = new URL(document.baseURI).searchParams.get("club")) {
   seasonData = data;
   const directory = document.querySelector("#club-directory");
@@ -896,6 +1004,7 @@ function renderClubPage(data, slug = new URL(document.baseURI).searchParams.get(
     title.textContent = "Your club";
     document.title = "Your club | Vardy Watch";
     status.textContent = "Choose a club to see its scorers and active scoring streaks.";
+    renderClubReliance(data);
     const list = document.querySelector("#club-list");
     list.replaceChildren();
     for (const club of data.clubs) {

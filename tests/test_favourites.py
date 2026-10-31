@@ -217,6 +217,77 @@ class FavouritesTests(unittest.TestCase):
             "(n) => n.scrollWidth - n.clientWidth"
         ), 1)
 
+    def test_club_reliance_uses_completed_scores_and_individual_joint_share(self):
+        self.data["clubs"].append({
+            "clubKey": "team-gamma",
+            "clubName": "Gamma Rovers",
+            "slug": "gamma",
+            "completedFixtures": 0,
+            "activeInSeason": [],
+            "scorers": [],
+        })
+        fixture = self.data["fixtures"][0]
+        fixture["score"] = [3, 1]
+        fixture["scorers"] = [
+            {"playerKey": "player-ada", "playerName": "Ada Goal",
+             "clubKey": "team-alpha", "goals": 1},
+            {"playerKey": "player-zoe", "playerName": "Zoe Goal",
+             "clubKey": "team-alpha", "goals": 1},
+        ]
+        self.data["fixtures"].append({
+            "season": 2026,
+            "fixtureDate": "2026-10-08T14:00:00Z",
+            "status": "live",
+            "teams": [
+                {"clubKey": "team-gamma", "name": "Gamma Rovers"},
+                {"clubKey": "team-alpha", "name": "Alpha United"},
+            ],
+            "score": [2, 0],
+            "scorers": [
+                {"playerKey": "player-gus", "playerName": "Gus Goal",
+                 "clubKey": "team-gamma", "goals": 2},
+            ],
+        })
+
+        self.page.goto(self.base_url + "/clubs/")
+        rows = self.page.locator("#club-reliance-list > li")
+        expect(rows).to_have_count(3)
+        expect(rows.nth(0)).to_contain_text("Alpha United")
+        expect(rows.nth(0)).to_contain_text(
+            "Joint leaders: Ada Goal, Zoe Goal (1 goal each)"
+        )
+        expect(rows.nth(0)).to_contain_text("1 of 3 club goals · 33.3%")
+        expect(rows.nth(1)).to_contain_text("Beta City")
+        expect(rows.nth(1)).to_contain_text(
+            "No credited goal scorer · 0 of 1 club goals · 0.0%"
+        )
+        expect(rows.nth(2)).to_contain_text("Gamma Rovers")
+        expect(rows.nth(2)).to_contain_text("No completed club goals yet")
+        expect(rows.nth(2)).not_to_contain_text("%")
+        expect(self.page.locator(".club-reliance-note")).to_contain_text(
+            "Club totals include own goals"
+        )
+
+        self.page.set_viewport_size({"width": 390, "height": 844})
+        self.assertLessEqual(
+            self.page.evaluate("document.documentElement.scrollWidth"), 390
+        )
+        for _ in range(20):
+            if self.page.evaluate(
+                "document.activeElement.matches('#club-reliance-list a')"
+            ):
+                break
+            self.page.keyboard.press("Tab")
+        expect(rows.nth(0).locator("a")).to_be_focused()
+        self.assertNotEqual(
+            self.page.evaluate(
+                "getComputedStyle(document.activeElement).outlineStyle"
+            ),
+            "none",
+        )
+        self.page.keyboard.press("Enter")
+        expect(self.page).to_have_url(self.base_url + "/clubs/?club=alpha")
+
     def test_pyramid_available_portraits_only_on_left_match_vardy_height(self):
         self.go("/")
         self.page.evaluate("""() => {
