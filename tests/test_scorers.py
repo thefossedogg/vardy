@@ -1,5 +1,6 @@
 import json
 import os
+import re
 from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -220,6 +221,139 @@ class ScorerPageTests(unittest.TestCase):
             f'{expected_player["goals"]} '
         )
         expect(self.page.locator("#scorer-player-fixtures > li").first).to_be_visible()
+
+    def test_fingerprint_buckets_transfers_statuses_and_mobile_keyboard(self):
+        season = self.data["seasons"][0]
+        key = "urn:test:transfer"
+        season["scorers"][0] = scorer(
+            key, "Aaron Transfer", 12, [("Alpha United", 6), ("Beta City", 6)]
+        )
+        season["fixtures"] = []
+        for index, (club, goals, status) in enumerate([
+            ("Alpha United", 0, "completed"),
+            ("Alpha United", 1, "completed"),
+            ("Alpha United", 2, "completed"),
+            ("Alpha United", 3, "completed"),
+            ("Beta City", 4, "completed"),
+            ("Beta City", 0, "scheduled"),
+            ("Beta City", 0, "postponed"),
+            ("Beta City", 0, "cancelled"),
+            ("Beta City", 2, "live"),
+            ("Beta City", 0, "unknown"),
+        ]):
+            game = fixture(f"2026-08-{index + 1:02}", club, "Other Club", key, club)
+            game["status"] = status
+            game["scorers"][0]["goals"] = goals
+            # A namesake is not the selected player.
+            game["scorers"].append({
+                "playerKey": "urn:test:namesake", "playerName": "Aaron Transfer",
+                "clubName": club, "goals": 2,
+            })
+            season["fixtures"].append(game)
+        self.page.set_viewport_size({"width": 390, "height": 844})
+        self.page.goto(self.base_url + f"/players/?player={key}&season=2026")
+        tiles = self.page.locator(".fingerprint-tile")
+        expect(tiles).to_have_text(["0", "1", "2", "3+", "3+", "–", "P", "C", "L", "?"])
+        expect(self.page.locator(".fingerprint-summary")).to_have_text([
+            "6 credited goals · 4 completed club fixtures · 3 completed fixtures with a goal. "
+            "Not an appearance-adjusted rate; live goals are provisional.",
+            "6 credited goals · 1 completed club fixtures · 1 completed fixtures with a goal. "
+            "Not an appearance-adjusted rate; live goals are provisional.",
+        ])
+        expect(tiles.nth(4)).to_have_attribute("aria-label", re.compile("4 goals"))
+        expect(tiles.nth(8)).to_have_attribute(
+            "aria-label", re.compile(r"Live · 2 goals \(provisional\)")
+        )
+        expect(self.page.locator(".fingerprint-note").first).to_contain_text("before/after any transfer")
+        expect(self.page.locator(".fingerprint-legend").first).to_contain_text("2 Brace")
+        tiles.first.focus()
+        self.page.keyboard.press("Tab")
+        expect(tiles.nth(1)).to_be_focused()
+        self.page.keyboard.press("Enter")
+        expect(self.page.locator("#player-fixtures > li").nth(1)).to_be_focused()
+        tiles.nth(5).focus()
+        self.page.keyboard.press("Space")
+        expect(self.page.locator("#player-fixtures > li").nth(5)).to_be_focused()
+        expect(self.page.locator("#player-fixtures > li").nth(5)).to_contain_text(
+            "Scheduled · not completed"
+        )
+        self.assertLessEqual(self.page.evaluate("document.documentElement.scrollWidth"), 390)
+        self.assertTrue(tiles.evaluate_all(
+            "(nodes) => nodes.every(n => n.getBoundingClientRect().width >= 44 && "
+            "n.getBoundingClientRect().height >= 44)"
+        ))
+        self.page.set_viewport_size({"width": 320, "height": 740})
+        self.assertLessEqual(self.page.evaluate("document.documentElement.scrollWidth"), 320)
+
+    def test_fingerprint_missing_coverage_is_not_zero(self):
+        self.data["seasons"][0]["fixtures"] = []
+        self.page.goto(self.base_url + "/players/?player=urn:test:transfer&season=2026")
+        expect(self.page.locator(".fingerprint-tile")).to_have_count(0)
+        expect(self.page.locator("#player-fingerprints")).to_contain_text(
+            "No fixture coverage available"
+        )
+
+    def test_real_fingerprint_reconciles_transferred_player(self):
+        site = Path(__file__).resolve().parents[1] / "site"
+        self.data = json.loads(
+            (site / "data" / "scoring-seasons.json").read_text(encoding="utf-8")
+        )
+        season = next(s for s in self.data["seasons"] if any(
+            len(p["clubs"]) > 1 for p in s["scorers"]
+        ))
+        player = next(p for p in season["scorers"] if len(p["clubs"]) > 1)
+        self.page.goto(self.base_url +
+                       f'/players/?player={player["playerKey"]}&season={season["season"]}')
+        groups = self.page.locator("#player-fingerprints > section")
+        expect(groups).to_have_count(len(player["clubs"]))
+        for index, club in enumerate(player["clubs"]):
+            tiles = groups.nth(index).locator(".fingerprint-tile")
+            expected = [f for f in season["fixtures"] if club["clubName"] in f["teams"]]
+            expect(tiles).to_have_count(len(expected))
+            goals = tiles.evaluate_all("(nodes) => nodes.map(n => Number(n.dataset.goals))")
+            self.assertEqual(club["goals"], sum(goals))
+            self.assertEqual([
+                sum(s["goals"] for s in f["scorers"]
+                    if s["playerKey"] == player["playerKey"] and
+                    s["clubName"] == club["clubName"])
+                for f in expected
+            ], goals)
+        groups.first.locator(".fingerprint-tile").first.click()
+        expect(self.page.locator("#player-fixtures > li").first).to_be_focused()
+        self.page.set_viewport_size({"width": 320, "height": 740})
+        self.assertLessEqual(self.page.evaluate("document.documentElement.scrollWidth"), 320)
+
+
+class FixtureReconciliationTests(unittest.TestCase):
+    def test_all_six_seasons_player_club_totals_and_canonical_fixture_coverage(self):
+        site = Path(__file__).resolve().parents[1] / "site"
+        data = json.loads((site / "data" / "scoring-seasons.json").read_text(encoding="utf-8"))
+        canonical = json.loads((site / "data" / "current-season.json").read_text(encoding="utf-8"))
+        for season in data["seasons"]:
+            expected = {
+                (f["fixtureDate"], tuple(t["name"] for t in f["teams"])): f
+                for f in canonical["fixtures"] if f["season"] == season["season"]
+            }
+            self.assertEqual(len(expected), len(season["fixtures"]))
+            totals = {}
+            for game in season["fixtures"]:
+                source = expected[(game["date"], tuple(game["teams"]))]
+                self.assertEqual(source["status"], game["status"])
+                for side, name in enumerate(game["teams"]):
+                    self.assertEqual(
+                        sum(s["goals"] for s in source["scorers"]
+                            if s["clubKey"] == source["teams"][side]["clubKey"]),
+                        sum(s["goals"] for s in game["scorers"] if s["clubName"] == name),
+                    )
+                for entry in game["scorers"]:
+                    key = (entry["playerKey"], entry["clubName"])
+                    totals[key] = totals.get(key, 0) + entry["goals"]
+            for player in season["scorers"]:
+                self.assertEqual(player["goals"], sum(c["goals"] for c in player["clubs"]))
+                for club in player["clubs"]:
+                    self.assertEqual(
+                        club["goals"], totals[(player["playerKey"], club["clubName"])]
+                    )
 
 
 if __name__ == "__main__":

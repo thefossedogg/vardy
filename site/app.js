@@ -641,10 +641,16 @@ function showSeasonFixtures(player) {
   for (const run of runs) {
     for (const fixture of seasonData.fixtures) {
       if (fixture.season < (run.startSeason ?? run.season) || fixture.season > run.season) continue;
-      const team = fixture.teams.find((entry) => entry.clubKey === run.clubKey);
-      if (team) contexts.set(`${run.clubKey}:${fixture.season}`, {
-        clubKey: run.clubKey, clubName: team.name, season: fixture.season,
-      });
+      const creditedClubs = new Set(fixture.scorers.filter((scorer) =>
+        scorer.playerKey === player.playerKey,
+      ).map((scorer) => scorer.clubKey));
+      for (const team of fixture.teams) {
+        if (team.clubKey === run.clubKey || creditedClubs.has(team.clubKey)) {
+          contexts.set(`${team.clubKey}:${fixture.season}`, {
+            clubKey: team.clubKey, clubName: team.name, season: fixture.season,
+          });
+        }
+      }
     }
   }
   const scrollTargets = [];
@@ -694,11 +700,11 @@ function showSeasonFixtures(player) {
     list.className = "game-list season-game-list";
     for (const game of games) {
       const item = document.createElement("li");
+      item.tabIndex = -1;
       const scheduled = game.status === "scheduled";
       item.className = scheduled ? "fixture-scheduled" : game.goals > 0 ? "fixture-scored" : "fixture-goalless";
       const state = document.createElement("span");
-      state.textContent = (scheduled ? "Scheduled" : `${game.goals > 0 ? "Scored" : "No credited goal"} · ${game.goals} goals`) +
-        (game.status === "live" ? " · LIVE (provisional)" : "") +
+      state.textContent = scoringFingerprint.outcome(game) +
         ` · ${game.opponent.name} (${game.venue === "home" ? "H" : "A"})` +
         (game.result ? ` · ${game.result}` : "");
       const kickoff = document.createElement("time");
@@ -718,13 +724,13 @@ function showSeasonFixtures(player) {
           : `Equals the ${RECORD}-game record`);
         milestone.textContent = breaksRecord ? "\u{1F3C6}" : "=";
         item.append(milestone);
-      } else if (!scheduled) {
+      } else if (game.status === "completed") {
         item.append(fixtureStreakBadge(game.streakCount));
       }
       list.append(item);
     }
     viewport.append(list);
-    group.append(heading, viewport);
+    group.append(heading, scoringFingerprint.render(games, label, [...list.children]), viewport);
     groups.append(group);
     scrollTargets.push({
       viewport, list,

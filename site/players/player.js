@@ -38,12 +38,13 @@ function renderFixture(fixture, player, clubName) {
 
   const item = document.createElement("li");
   item.className = `player-fixture player-fixture-${fixture.status}`;
+  item.tabIndex = -1;
   const date = document.createElement("time");
   date.dateTime = fixture.date;
   date.textContent = formatFixtureDate(fixture.date);
   const details = document.createElement("span");
   details.textContent = `${clubName} · ${index === 0 ? "Home" : "Away"} vs ${opponent} · ` +
-    `${goals ? `${goals} ${goals === 1 ? "goal" : "goals"}` : "No credited goals"} · ` +
+    `${scoringFingerprint.outcome({ ...fixture, goals })} · ` +
     fixtureStatus(fixture.status);
   item.append(date, details);
   return item;
@@ -92,9 +93,33 @@ async function loadPlayerSeason() {
   );
   const list = document.querySelector("#player-fixtures");
   list.replaceChildren();
+  const fingerprints = document.querySelector("#player-fingerprints");
+  fingerprints.replaceChildren();
+  const contexts = new Map([...clubNames].map((name) => [name, { games: [], targets: [] }]));
   for (const { fixture, clubName } of fixtures) {
     const item = renderFixture(fixture, player, clubName);
-    if (item) list.append(item);
+    if (!item) continue;
+    list.append(item);
+    const side = fixture.teams.indexOf(clubName);
+    const context = contexts.get(clubName);
+    context.targets.push(item);
+    context.games.push({
+      fixtureDate: fixture.date, status: fixture.status,
+      opponent: { name: fixture.teams[1 - side] },
+      venue: side === 0 ? "home" : "away",
+      goals: fixture.scorers.filter((scorer) =>
+        scorer.playerKey === player.playerKey && scorer.clubName === clubName,
+      ).reduce((total, scorer) => total + scorer.goals, 0),
+    });
+  }
+  for (const [clubName, context] of contexts) {
+    const group = document.createElement("section");
+    const heading = document.createElement("h2");
+    heading.textContent = `${clubName} · ${season.seasonLabel} · Premier League`;
+    group.append(heading, scoringFingerprint.render(
+      context.games, heading.textContent, context.targets,
+    ));
+    fingerprints.append(group);
   }
 }
 

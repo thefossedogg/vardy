@@ -1449,6 +1449,58 @@ button.pyr-vardy { padding: 0; border: 0; background: none; color: inherit; font
   font-weight: 800;
 }
 
+.scoring-fingerprint {
+  margin: 16px 0;
+  padding: 12px;
+  border: 2px solid var(--ink);
+  background: #fff;
+  color: var(--ink);
+  min-width: 0;
+}
+
+.fingerprint-note,
+.fingerprint-legend,
+.fingerprint-summary {
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.fingerprint-legend { font-weight: 700; }
+
+.fingerprint-tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(44px, 1fr));
+  gap: 6px;
+  padding: 0;
+  margin: 12px 0 0;
+  list-style: none;
+}
+
+.fingerprint-tile {
+  width: 100%;
+  min-height: 44px;
+  border: 2px solid var(--ink);
+  background: #f3f4f6;
+  color: #111;
+  font: 800 16px var(--mono);
+  cursor: pointer;
+}
+
+.fingerprint-1 { background: #dcfce7; }
+.fingerprint-2 { background: var(--yellow); }
+.fingerprint-3 { background: #11251e; color: #fff; }
+.fingerprint-live { background: #fef3c7; border-style: dashed; }
+.fingerprint-scheduled,
+.fingerprint-postponed,
+.fingerprint-cancelled { border-style: dashed; }
+
+.fingerprint-tile:focus-visible,
+.player-fixture:focus,
+.season-game-list > li:focus {
+  outline: 3px solid #2563eb;
+  outline-offset: 2px;
+}
+
 .player-data-note,
 .pace-data-note {
   color: #4b5563;
