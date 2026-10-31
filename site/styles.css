@@ -1112,6 +1112,65 @@ button.pyr-vardy { padding: 0; border: 0; background: none; color: inherit; font
 .club-list a:focus-visible {
   background: var(--green);
 }
+.club-reliance {
+  margin-bottom: 24px;
+}
+.club-reliance-note {
+  margin: 0 0 18px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.club-reliance-list {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.club-reliance-row {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr);
+  gap: 4px 12px;
+  align-items: start;
+}
+.club-reliance-rank {
+  padding-top: 2px;
+  font-family: var(--mono);
+  font-weight: 800;
+  text-align: right;
+}
+.club-reliance-details {
+  min-width: 0;
+}
+.club-reliance-club {
+  color: var(--ink);
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+.club-reliance-club:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 3px;
+}
+.club-reliance-stats {
+  margin: 3px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+.club-reliance-track {
+  grid-column: 2;
+  display: block;
+  height: 12px;
+  overflow: hidden;
+  border: 1px solid var(--ink);
+  background: var(--white);
+}
+.club-reliance-bar {
+  display: block;
+  height: 100%;
+  background: var(--green);
+}
 .club-active-row,
 .club-active-row:hover {
   background: #e5f4e9;

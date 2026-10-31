@@ -307,3 +307,10 @@ record-chase branch is required or included in this branch.
   suite still errors in the pre-existing favourites test because `team-alpha`
   is missing. The completion checkbox remains open pending all delivery gates
   and integration/publication.
+- 2026-10-31 — Item 8 is implemented on an isolated branch. Leading-scorer
+  share uses each player's credited goals in completed fixtures this season;
+  the denominator is the club's completed-fixture score, so it includes own
+  goals. Joint leaders are listed together but each share uses one leader's
+  individual goal count, not the combined count. Clubs with no completed goals
+  show no percentage. The affected-page Edge test passes; keep the checkbox
+  pending the documented full suite and integration/publication checks.
