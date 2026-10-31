@@ -75,7 +75,19 @@ def make_data():
             f"urn:test:historical-{year}", "Historical Top Scorer", 8,
             [("Alpha United", 8)],
         )],
-        "fixtures": [],
+        "fixtures": [
+            {
+                **fixture(f"{year}-08-{index:02}", "Alpha United", "Other Club",
+                          f"urn:test:historical-{year}", "Alpha United"),
+                "scorers": [{
+                    "playerKey": f"urn:test:historical-{year}",
+                    "playerName": "Historical Top Scorer",
+                    "clubName": "Alpha United",
+                    "goals": 1,
+                }],
+            }
+            for index in range(1, 9)
+        ],
     } for year in range(2025, 2020, -1))
     return {
         "season": 2026,
@@ -354,6 +366,142 @@ class FixtureReconciliationTests(unittest.TestCase):
                     self.assertEqual(
                         club["goals"], totals[(player["playerKey"], club["clubName"])]
                     )
+
+    def test_consistency_chart_clusters_points_and_supports_keyboard_selection(self):
+        season = self.data["seasons"][0]
+        for key, name in (
+            ("urn:test:burst", "Burst Player"),
+            ("urn:test:burst-two", "Burst Player Two"),
+        ):
+            season["scorers"].append(scorer(
+                key, name, 4, [("Alpha United", 4)],
+            ))
+            for current_fixture in season["fixtures"][:2]:
+                current_fixture["scorers"].append({
+                    "playerKey": key,
+                    "playerName": name,
+                    "clubName": "Alpha United",
+                    "goals": 2,
+                })
+        season["fixtures"].append({
+            **fixture("2026-08-29", "Alpha United", "Other Club",
+                      "urn:test:burst", "Alpha United"),
+            "status": "scheduled",
+        })
+        self.data["seasons"][-1]["scorers"][0]["goals"] = 2
+
+        self.page.goto(self.base_url + "/scorers/")
+        expect(self.page.locator("#consistency-season")).to_have_value("2026")
+        expect(self.page.locator("#consistency-status")).to_contain_text(
+            "3 players with at least 3 goals"
+        )
+        table_summary = self.page.locator(".consistency-table summary")
+        table_summary.focus()
+        table_summary.press("Enter")
+        expect(self.page.locator(".consistency-table")).to_have_attribute("open", "")
+        transfer_row = self.page.locator("#consistency-table-body tr").filter(
+            has=self.page.locator("a", has_text="Aaron Transfer")
+        )
+        expect(transfer_row.locator("td")).to_have_text(["4", "4"])
+        cluster = self.page.locator(
+            '.consistency-point[aria-label*="2 players"]'
+        )
+        expect(cluster).to_have_count(1)
+        cluster.focus()
+        cluster.press("Enter")
+        expect(self.page.locator(".consistency-player-choices button")).to_have_text(
+            ["Burst Player", "Burst Player Two"]
+        )
+        self.page.get_by_role("button", name="Burst Player Two").click()
+        expect(self.page.get_by_role("link", name="Open player season details")).to_have_attribute(
+            "href",
+            self.base_url +
+            "/players/?player=urn%3Atest%3Aburst-two&season=2026",
+        )
+
+        self.page.set_viewport_size({"width": 390, "height": 844})
+        self.assertLessEqual(
+            self.page.evaluate("document.documentElement.scrollWidth"), 390
+        )
+        self.page.locator("#consistency-season").select_option("2025")
+        expect(self.page.locator("#consistency-table-body tr")).to_have_count(1)
+        expect(self.page.locator("#consistency-table-body td")).to_have_text(["8", "8"])
+        self.page.locator("#consistency-season").select_option("2021")
+        expect(self.page.locator("#consistency-status")).to_have_text(
+            "No players reached 3 goals in 2021/22."
+        )
+        expect(self.page.locator("#consistency-table-body tr")).to_have_count(0)
+
+    def test_generated_six_season_goal_and_scoring_match_data_reconciles(self):
+        site = Path(__file__).resolve().parents[1] / "site"
+        data = json.loads(
+            (site / "data" / "scoring-seasons.json").read_text(encoding="utf-8")
+        )
+        self.assertEqual(6, len(data["seasons"]))
+        for season in data["seasons"]:
+            goals_by_player = {}
+            matches_by_player = {}
+            for current_fixture in season["fixtures"]:
+                if current_fixture["status"] != "completed":
+                    continue
+                players_in_fixture = set()
+                for credited_scorer in current_fixture["scorers"]:
+                    key = credited_scorer["playerKey"]
+                    goals_by_player[key] = (
+                        goals_by_player.get(key, 0) + credited_scorer["goals"]
+                    )
+                    players_in_fixture.add(key)
+                for key in players_in_fixture:
+                    matches_by_player.setdefault(key, set()).add(
+                        (current_fixture["date"], tuple(current_fixture["teams"]))
+                    )
+            for player in season["scorers"]:
+                self.assertEqual(
+                    player["goals"], goals_by_player.get(player["playerKey"], 0),
+                    f'{season["seasonLabel"]}: {player["playerName"]} goals',
+                )
+                self.assertLessEqual(
+                    len(matches_by_player.get(player["playerKey"], set())),
+                    player["goals"],
+                    f'{season["seasonLabel"]}: {player["playerName"]} scoring matches',
+                )
+
+        self.data = data
+        self.page.goto(self.base_url + "/scorers/")
+        for season in data["seasons"]:
+            self.page.locator("#consistency-season").select_option(
+                str(season["season"])
+            )
+            scoring_matches = {}
+            for current_fixture in season["fixtures"]:
+                if current_fixture["status"] != "completed":
+                    continue
+                for key in {
+                    credited_scorer["playerKey"]
+                    for credited_scorer in current_fixture["scorers"]
+                    if credited_scorer["goals"] > 0
+                }:
+                    scoring_matches.setdefault(key, set()).add(
+                        (current_fixture["date"], tuple(current_fixture["teams"]))
+                    )
+            expected = {
+                player["playerKey"]: [
+                    player["goals"],
+                    len(scoring_matches.get(player["playerKey"], set())),
+                ]
+                for player in season["scorers"]
+                if player["goals"] >= 3
+            }
+            actual = self.page.locator("#consistency-table-body tr").evaluate_all(
+                """rows => Object.fromEntries(rows.map(row => {
+                  const link = row.querySelector("a");
+                  const key = new URL(link.href).searchParams.get("player");
+                  const values = [...row.querySelectorAll("td")]
+                    .map(cell => Number(cell.textContent));
+                  return [key, values];
+                }))"""
+            )
+            self.assertEqual(expected, actual, season["seasonLabel"])
 
 
 if __name__ == "__main__":

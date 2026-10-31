@@ -38,6 +38,63 @@
         <p class="scorer-chart-note">Same scale across every season · bar segments show each club's share</p>
         <p id="scorers-status" role="status" aria-live="polite">Loading scorer data…</p>
         <ol id="scorer-list" class="scorer-list" aria-label="Top scorers by goals"></ol>
+        <section class="consistency-section" aria-labelledby="consistency-title">
+          <div class="consistency-heading">
+            <div>
+              <p class="eyebrow">GOALS × SCORING MATCHES</p>
+              <h2 id="consistency-title">Goals versus consistency</h2>
+            </div>
+            <div class="consistency-controls">
+              <label for="consistency-season">Season</label>
+              <select id="consistency-season" disabled></select>
+            </div>
+          </div>
+          <p class="consistency-method">
+            Each point compares a player's season goal total with the number of
+            completed league fixtures in which they scored. A brace still counts
+            as one scoring match; this is not adjusted for appearances. Players
+            with at least 3 goals are shown, combining clubs under the same player
+            identity after a transfer.
+          </p>
+          <p id="consistency-status" role="status" aria-live="polite">
+            Loading consistency data…
+          </p>
+          <figure class="consistency-figure">
+            <svg id="consistency-chart" viewBox="0 0 800 480"
+              role="group" aria-labelledby="consistency-chart-title consistency-chart-desc">
+              <title id="consistency-chart-title">Goals versus scoring matches</title>
+              <desc id="consistency-chart-desc">
+                Select a point to view a player's season details. The data table
+                below gives exact values and player links.
+              </desc>
+            </svg>
+            <figcaption>
+              Point labels are omitted to avoid collisions. Players with identical
+              values share a selectable cluster; choose a name to open player
+              details. See the table for exact values.
+            </figcaption>
+          </figure>
+          <div id="consistency-selection" class="consistency-selection"
+            role="region" aria-label="Selected player season" aria-live="polite">
+            Select a point or a player in the table to view season details.
+          </div>
+          <details class="consistency-table">
+            <summary>View the accessible data table</summary>
+            <div class="consistency-table-scroll">
+              <table>
+                <caption id="consistency-table-caption">Goals and scoring matches by player</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Player</th>
+                    <th scope="col">Goals</th>
+                    <th scope="col">Scoring matches</th>
+                  </tr>
+                </thead>
+                <tbody id="consistency-table-body"></tbody>
+              </table>
+            </div>
+          </details>
+        </section>
         <noscript>Enable JavaScript to view the scorer chart.</noscript>
       </section>
     </main>

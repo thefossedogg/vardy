@@ -1713,6 +1713,234 @@ button.pyr-vardy { padding: 0; border: 0; background: none; color: inherit; font
     transition: none;
   }
 }
+
+.consistency-section {
+  margin-top: 40px;
+  padding: 28px;
+  border: 4px solid var(--ink);
+  background: #f0f7df;
+  box-shadow: 6px 6px 0 var(--ink);
+}
+
+.consistency-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+  padding-bottom: 16px;
+  border-bottom: 3px solid var(--ink);
+}
+
+.consistency-heading h2 {
+  margin: 0;
+  font-family: var(--display);
+  font-size: clamp(32px, 5vw, 48px);
+  line-height: 0.95;
+}
+
+.consistency-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.consistency-controls select {
+  min-height: 44px;
+  max-width: 100%;
+  padding: 8px 34px 8px 12px;
+  border: 3px solid var(--ink);
+  border-radius: 4px;
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+.consistency-controls select:focus-visible,
+.consistency-player-choices button:focus-visible,
+.consistency-point:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 3px;
+}
+
+.consistency-method,
+.consistency-figure figcaption {
+  color: #333;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.consistency-figure {
+  margin: 16px 0;
+  padding: 12px;
+  border: 3px solid var(--ink);
+  background: #fff;
+}
+
+#consistency-chart {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.consistency-gridline {
+  stroke: #cbd5c0;
+  stroke-width: 1;
+}
+
+.consistency-tick {
+  fill: #343a40;
+  font: 12px var(--mono);
+}
+
+.consistency-axis-label {
+  fill: var(--ink);
+  font: 700 13px var(--mono);
+}
+
+.consistency-point {
+  cursor: pointer;
+  fill: #c8102e;
+  stroke: var(--ink);
+  stroke-width: 2;
+}
+
+.consistency-point:hover,
+.consistency-point:focus {
+  fill: #f4c542;
+}
+
+.consistency-point text {
+  fill: #fff;
+  font: 700 11px var(--mono);
+  pointer-events: none;
+  stroke: none;
+}
+
+.consistency-point:hover text,
+.consistency-point:focus text {
+  fill: var(--ink);
+}
+
+.consistency-selection {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
+  min-height: 42px;
+  margin: 14px 0;
+  padding: 10px 12px;
+  border-left: 5px solid var(--red);
+  background: #fff;
+  font-size: 13px;
+}
+
+.consistency-selection a,
+.consistency-table a {
+  color: var(--ink);
+  font-weight: 800;
+  text-underline-offset: 3px;
+}
+
+.consistency-player-choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.consistency-player-choices button {
+  min-height: 40px;
+  padding: 6px 10px;
+  border: 2px solid var(--ink);
+  background: var(--yellow);
+  color: var(--ink);
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.consistency-table {
+  margin-top: 18px;
+  border: 3px solid var(--ink);
+  background: #fff;
+}
+
+.consistency-table summary {
+  padding: 12px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.consistency-table summary:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: -3px;
+}
+
+.consistency-table-scroll {
+  overflow-x: auto;
+}
+
+.consistency-table table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.consistency-table caption {
+  padding: 8px 12px;
+  font-weight: 700;
+  text-align: left;
+}
+
+.consistency-table th,
+.consistency-table td {
+  padding: 8px 12px;
+  border-top: 1px solid #cbd5c0;
+}
+
+.consistency-table thead th {
+  background: #e5e7eb;
+}
+
+@media (max-width: 620px) {
+  .consistency-section {
+    margin-top: 30px;
+    padding: 18px 12px;
+    border-width: 3px;
+    box-shadow: 5px 5px 0 var(--ink);
+  }
+
+  .consistency-heading {
+    align-items: start;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .consistency-controls {
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .consistency-controls select {
+    flex: 1 1 100%;
+  }
+
+  .consistency-figure {
+    margin-inline: -4px;
+    padding: 4px;
+  }
+
+  .consistency-tick {
+    font-size: 14px;
+  }
+
+  .consistency-axis-label {
+    font-size: 15px;
+  }
+}
 .methodology {
   margin-bottom: 48px;
   padding: 24px;
