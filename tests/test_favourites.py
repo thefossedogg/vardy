@@ -141,6 +141,82 @@ class FavouritesTests(unittest.TestCase):
         self.page.locator("#vardy-button").click()
         expect(self.page.locator(".dialog-games")).to_be_focused()
 
+    def test_fingerprint_club_and_home_modal_transfers_mobile_keyboard(self):
+        transfer = copy.deepcopy(self.data["fixtures"][0])
+        transfer["fixtureDate"] = "2026-10-08T14:00:00Z"
+        transfer["scorers"] = [
+            {"playerKey": "player-ada", "clubKey": "team-beta", "goals": 3},
+            {"playerKey": "namesake", "clubKey": "team-alpha", "goals": 2},
+        ]
+        transfer["score"] = [2, 3]
+        self.data["fixtures"].append(transfer)
+        self.page.set_viewport_size({"width": 390, "height": 844})
+        for path in ("/clubs/?club=alpha", "/"):
+            self.go(path)
+            if path == "/":
+                self.page.evaluate(
+                    "([key, entries]) => localStorage.setItem(key, JSON.stringify(entries))",
+                    [STORAGE_KEY, [{
+                        "type": "player", "key": "player-ada", "name": "Ada Goal",
+                        "clubName": "Alpha United",
+                    }]],
+                )
+                self.page.reload()
+                self.open_favourites().locator(".favourite-target", has_text="Ada Goal").click()
+            else:
+                self.page.get_by_role("button", name="View Ada Goal's season fixtures").click()
+            groups = self.page.locator(".season-fixtures-group")
+            expect(groups).to_have_count(2)
+            expect(groups.nth(0).locator(".fingerprint-tile")).to_have_text(["1", "0"])
+            expect(groups.nth(1).locator(".fingerprint-tile")).to_have_text(["0", "3+"])
+            tile = groups.nth(1).locator(".fingerprint-tile").nth(1)
+            tile.focus()
+            self.page.keyboard.press("Enter")
+            target = groups.nth(1).locator(".season-game-list > li").nth(1)
+            expect(target).to_be_focused()
+            expect(target).to_contain_text("Beta City 3–2 Alpha United")
+            self.assertLessEqual(self.page.evaluate("document.documentElement.scrollWidth"), 390)
+            self.assertLessEqual(self.page.locator("#streak-dialog").evaluate(
+                "(n) => n.scrollWidth - n.clientWidth"
+            ), 1)
+            self.page.set_viewport_size({"width": 320, "height": 740})
+            self.assertLessEqual(self.page.evaluate("document.documentElement.scrollWidth"), 320)
+            self.assertLessEqual(self.page.locator("#streak-dialog").evaluate(
+                "(n) => n.scrollWidth - n.clientWidth"
+            ), 1)
+            self.page.set_viewport_size({"width": 390, "height": 844})
+            self.page.keyboard.press("Escape")
+            expect(self.page.locator("#streak-dialog")).not_to_be_visible()
+
+        site = Path(__file__).resolve().parents[1] / "site"
+        self.data = json.loads(
+            (site / "data" / "current-season.json").read_text(encoding="utf-8")
+        )
+        club = next(c for c in self.data["clubs"] if c["scorers"])
+        player = club["scorers"][0]
+        self.go(f'/clubs/?club={club["slug"]}')
+        self.page.get_by_role(
+            "button", name=f'View {player["playerName"]}\'s season fixtures', exact=True
+        ).click()
+        group = self.page.locator(".season-fixtures-group").filter(
+            has=self.page.get_by_role("heading", name=(
+                f'{club["clubName"]} · {self.data["seasonLabel"]} · Premier League'
+            ), exact=True)
+        )
+        expected = [f for f in self.data["fixtures"]
+                    if f["season"] == self.data["season"] and
+                    any(t["clubKey"] == club["clubKey"] for t in f["teams"])]
+        tiles = group.locator(".fingerprint-tile")
+        expect(tiles).to_have_count(len(expected))
+        self.assertEqual(player["goals"], sum(tiles.evaluate_all(
+            "(nodes) => nodes.map(n => Number(n.dataset.goals))"
+        )))
+        self.page.set_viewport_size({"width": 320, "height": 740})
+        self.assertLessEqual(self.page.evaluate("document.documentElement.scrollWidth"), 320)
+        self.assertLessEqual(self.page.locator("#streak-dialog").evaluate(
+            "(n) => n.scrollWidth - n.clientWidth"
+        ), 1)
+
     def test_pyramid_available_portraits_only_on_left_match_vardy_height(self):
         self.go("/")
         self.page.evaluate("""() => {

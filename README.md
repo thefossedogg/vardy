@@ -51,3 +51,18 @@ these fixtures rather than maintained as a second historical totals source.
 Regeneration must repeat coverage/reconciliation checks; do not infer missing
 history as zero. Run focused pace checks with
 `python -m unittest discover -s tests -p test_pace.py`.
+Player season pages and the homepage/club player modals include a season scoring
+fingerprint alongside fixture/streak details. Tiles show 0, 1, 2 (brace), or 3+
+(hat-trick or more); scheduled, live/provisional, postponed and cancelled games
+have separate text labels. Open a tile with a click, Enter or Space to focus its
+dated fixture details; the full fixture list is the text alternative.
+
+Each scoring club is shown separately using the player and club identifiers in
+that view's export (BBC URNs on season pages, existing keys in modals; no
+name-based cross-export matching). Whole exported club seasons are shown, not
+inferred transfer spells or appearances: a zero only means no credited goal in
+that fixture. Transfer dates, non-scoring spells and squad membership are not
+available. Summaries count completed club fixtures and fixtures with a goal, not
+player appearances; credited totals include live goals provisionally. Missing
+coverage is not represented by zero tiles. The historical Vardy benchmark
+remains a streak-only view because its season predates the fixture archive.

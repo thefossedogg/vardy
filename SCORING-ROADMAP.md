@@ -253,3 +253,48 @@ Add dated implementation notes and any remaining limitations here as items ship.
   completed seasons in the available export only; the season labels and latest
   completed-fixture date are shown. It is not a full Premier League-history
   record. Item 3 remains unchecked until publication and integration.
+### 2026-10-31 — Item 4 locally validated, pending publication
+
+Implemented independently from original `main` (`c353bdb`) on
+`pending-item-4-scoring-fingerprint`; the item 4 checkbox intentionally remains
+unchecked until integration/publication. No item 1 baseline, item 2 pace or item 3
+record-chase branch is required or included in this branch.
+
+- Added one oldest-first tile per exported club league fixture to player season
+  pages and player modals, alongside the existing fixture/streak views. Buttons
+  open/focus the corresponding dated text fixture details without another modal.
+- Completed fixtures show 0/1/2/3+; the exact count remains in accessible labels
+  and fixture details. Scheduled, live/provisional, postponed, cancelled and
+  unknown statuses are distinct; incomplete games are not zero-goal outcomes.
+  Legends, per-tile text labels, visible keyboard focus and 44px targets provide
+  colour-independent and mobile access.
+- Defaults: separate whole-season groups for every credited scoring club (and
+  the modal's selected streak club); no inferred transfer dates or appearances.
+  Each group explicitly includes fixtures before/after any transfer. Totals use
+  credited player goals, including provisional live goals; consistency counts
+  use completed club fixtures only, never appearances. Player/club keys from
+  each export resolve identity locally; no guessing across export key schemes.
+- Coverage: all six scorer seasons have 380 exported fixtures, with current
+  2026/27 showing 80 completed and 300 scheduled at the saved export. Tests
+  reconcile all six seasons against canonical fixture dates, teams, statuses
+  and club scoring totals, and every player's per-club/combined goals. Real
+  transferred-player tiles reconcile fixture-by-fixture and by club.
+  Missing coverage is explicit, not a confirmed zero. The January-2020 archive
+  boundary still applies to older modal seasons; the 2015/16 Vardy benchmark
+  retains its existing streak-only display.
+- Focused Playwright/Microsoft Edge checks cover scorer navigation, real and
+  synthetic transfers, identical names with distinct keys, zero/one/brace/3/4
+  goals, live goals, future/pending statuses, unavailable coverage, mobile
+  layouts (390px and 320px), Enter/Space/Tab, tile-to-details focus, homepage
+  favourites and club-modal navigation, and Escape dismissal. Saved real-data
+  club/player views also pass mobile and total checks. Final focused commands:
+  `python -m unittest discover -s tests -p test_scorers.py` — 6 passed in 11.803s;
+  `python -m unittest discover -s tests -p test_favourites.py -k fingerprint -k modal -k season`
+  — 4 passed in 14.133s. `git diff --check` passed.
+- Required full `python -m unittest discover -s tests` run: 22 tests in 83.215s,
+  21 passed, one pre-existing error in
+  `test_club_menu_stars_toggle_without_navigation_on_both_pages` on `/`:
+  30-second timeout waiting for `[data-favourite-key="team-alpha"]`.
+  This unrelated favourites failure was not fixed. Global publication remains
+  paused; no push. Item 4 needs integration, the recovered full-suite gate and
+  publication approval before its checkbox can be checked.
