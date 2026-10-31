@@ -221,9 +221,10 @@ class ScorerPageTests(unittest.TestCase):
             self.base_url + "/players/?player=urn%3Atest%3Atransfer&season=2026"
         )
         expect(self.page.locator("#opponents-coverage")).to_contain_text(
-            "2026/27 · 6 completed fixtures"
+            "46 completed fixtures"
         )
-        expect(self.page.locator("#opponents-start")).to_have_value("2026-08-01")
+        expect(self.page.locator("#opponents-coverage")).to_contain_text("2021/22")
+        expect(self.page.locator("#opponents-start")).to_have_value("2021-08-01")
         expect(self.page.locator("#opponents-end")).to_have_value("2026-08-30")
         expect(self.page.locator("#opponents-list tr")).to_have_count(2)
         other = self.page.locator("#opponents-list tr").filter(
@@ -424,39 +425,6 @@ class ScorerPageTests(unittest.TestCase):
         expect(self.page.locator("#player-fixtures > li").first).to_be_focused()
         self.page.set_viewport_size({"width": 320, "height": 740})
         self.assertLessEqual(self.page.evaluate("document.documentElement.scrollWidth"), 320)
-
-
-class FixtureReconciliationTests(unittest.TestCase):
-    def test_all_six_seasons_player_club_totals_and_canonical_fixture_coverage(self):
-        site = Path(__file__).resolve().parents[1] / "site"
-        data = json.loads((site / "data" / "scoring-seasons.json").read_text(encoding="utf-8"))
-        canonical = json.loads((site / "data" / "current-season.json").read_text(encoding="utf-8"))
-        for season in data["seasons"]:
-            expected = {
-                (f["fixtureDate"], tuple(t["name"] for t in f["teams"])): f
-                for f in canonical["fixtures"] if f["season"] == season["season"]
-            }
-            self.assertEqual(len(expected), len(season["fixtures"]))
-            totals = {}
-            for game in season["fixtures"]:
-                source = expected[(game["date"], tuple(game["teams"]))]
-                self.assertEqual(source["status"], game["status"])
-                for side, name in enumerate(game["teams"]):
-                    self.assertEqual(
-                        sum(s["goals"] for s in source["scorers"]
-                            if s["clubKey"] == source["teams"][side]["clubKey"]),
-                        sum(s["goals"] for s in game["scorers"] if s["clubName"] == name),
-                    )
-                for entry in game["scorers"]:
-                    key = (entry["playerKey"], entry["clubName"])
-                    totals[key] = totals.get(key, 0) + entry["goals"]
-            for player in season["scorers"]:
-                self.assertEqual(player["goals"], sum(c["goals"] for c in player["clubs"]))
-                for club in player["clubs"]:
-                    self.assertEqual(
-                        club["goals"], totals[(player["playerKey"], club["clubName"])]
-                    )
-
     def test_consistency_chart_clusters_points_and_supports_keyboard_selection(self):
         season = self.data["seasons"][0]
         for key, name in (
@@ -492,7 +460,7 @@ class FixtureReconciliationTests(unittest.TestCase):
         transfer_row = self.page.locator("#consistency-table-body tr").filter(
             has=self.page.locator("a", has_text="Aaron Transfer")
         )
-        expect(transfer_row.locator("td")).to_have_text(["4", "4"])
+        expect(transfer_row.locator("td")).to_have_text(["5", "4"])
         cluster = self.page.locator(
             '.consistency-point[aria-label*="2 players"]'
         )
@@ -502,7 +470,7 @@ class FixtureReconciliationTests(unittest.TestCase):
         expect(self.page.locator(".consistency-player-choices button")).to_have_text(
             ["Burst Player", "Burst Player Two"]
         )
-        self.page.get_by_role("button", name="Burst Player Two").click()
+        self.page.get_by_role("button", name="Burst Player Two", exact=True).click()
         expect(self.page.get_by_role("link", name="Open player season details")).to_have_attribute(
             "href",
             self.base_url +
@@ -521,6 +489,60 @@ class FixtureReconciliationTests(unittest.TestCase):
             "No players reached 3 goals in 2021/22."
         )
         expect(self.page.locator("#consistency-table-body tr")).to_have_count(0)
+
+    def test_combined_selectors_links_pace_fingerprint_and_opponent_filters(self):
+        site = Path(__file__).resolve().parents[1] / "site"
+        archived = json.loads(
+            (site / "data" / "scoring-seasons.json").read_text(encoding="utf-8")
+        )
+        self.data["seasons"][1:] = [
+            season for season in archived["seasons"] if season["status"] == "final"
+        ]
+        self.data["clubColors"].update(archived["clubColors"])
+        self.page.set_viewport_size({"width": 320, "height": 740})
+        self.page.goto(self.base_url + "/scorers/")
+        self.page.locator("#scorer-season").select_option("2025")
+        expect(self.page.locator("#consistency-season")).to_have_value("2026")
+        expect(self.page.locator("#consistency-table-body")).to_contain_text("Aaron Transfer")
+        self.page.locator("#scorer-list .scorer-player").first.click()
+        expect(self.page.locator("#scorer-player-season")).to_have_text("2025/26 · Final")
+        expect(self.page.locator("#scorer-player-link")).to_have_attribute(
+            "href", re.compile(r"season=2025$")
+        )
+        self.page.keyboard.press("Escape")
+        self.page.locator("#scorer-season").select_option("2026")
+        self.page.locator("#scorer-list .scorer-player").first.click()
+        self.page.locator("#scorer-player-link").focus()
+        self.page.keyboard.press("Enter")
+        expect(self.page.locator("#player-title")).to_have_text("Aaron Transfer")
+        expect(self.page.locator("#pace-status")).to_contain_text(
+            "5 goals after 4 completed team games"
+        )
+        expect(self.page.locator("#player-fingerprints .fingerprint-tile")).to_have_count(6)
+        for selected in self.page.locator("#pace-comparisons input").all():
+            if selected.is_checked():
+                selected.focus()
+                self.page.keyboard.press("Space")
+                expect(selected).not_to_be_checked()
+        expect(self.page.locator("#pace-status")).to_contain_text("Choose a winner")
+        checkbox = self.page.locator("#pace-comparisons input").first
+        checkbox.focus()
+        self.page.keyboard.press("Space")
+        expect(checkbox).to_be_checked()
+        tile = self.page.locator("#player-fingerprints .fingerprint-tile").first
+        tile.focus()
+        self.page.keyboard.press("Enter")
+        expect(self.page.locator("#player-fixtures > li").first).to_be_focused()
+        self.page.locator("#opponents-venue").select_option("home")
+        self.page.locator("#opponents-start").fill("2026-08-15")
+        self.page.locator("#opponents-end").fill("2026-08-22")
+        expect(self.page.locator("#opponents-list tr")).to_have_count(1)
+        expect(self.page.locator("#opponents-list td").first).to_contain_text("1 goal")
+        expect(self.page.locator("#opponents-list td").nth(1)).to_have_text("1")
+        expect(self.page.locator("#pace-status")).to_contain_text(
+            "5 goals after 4 completed team games"
+        )
+        self.assertLessEqual(self.page.evaluate("document.documentElement.scrollWidth"), 320)
 
     def test_generated_six_season_goal_and_scoring_match_data_reconciles(self):
         site = Path(__file__).resolve().parents[1] / "site"
@@ -592,6 +614,38 @@ class FixtureReconciliationTests(unittest.TestCase):
                 }))"""
             )
             self.assertEqual(expected, actual, season["seasonLabel"])
+
+
+class FixtureReconciliationTests(unittest.TestCase):
+    def test_all_six_seasons_player_club_totals_and_canonical_fixture_coverage(self):
+        site = Path(__file__).resolve().parents[1] / "site"
+        data = json.loads((site / "data" / "scoring-seasons.json").read_text(encoding="utf-8"))
+        canonical = json.loads((site / "data" / "current-season.json").read_text(encoding="utf-8"))
+        for season in data["seasons"]:
+            expected = {
+                (f["fixtureDate"], tuple(t["name"] for t in f["teams"])): f
+                for f in canonical["fixtures"] if f["season"] == season["season"]
+            }
+            self.assertEqual(len(expected), len(season["fixtures"]))
+            totals = {}
+            for game in season["fixtures"]:
+                source = expected[(game["date"], tuple(game["teams"]))]
+                self.assertEqual(source["status"], game["status"])
+                for side, name in enumerate(game["teams"]):
+                    self.assertEqual(
+                        sum(s["goals"] for s in source["scorers"]
+                            if s["clubKey"] == source["teams"][side]["clubKey"]),
+                        sum(s["goals"] for s in game["scorers"] if s["clubName"] == name),
+                    )
+                for entry in game["scorers"]:
+                    key = (entry["playerKey"], entry["clubName"])
+                    totals[key] = totals.get(key, 0) + entry["goals"]
+            for player in season["scorers"]:
+                self.assertEqual(player["goals"], sum(c["goals"] for c in player["clubs"]))
+                for club in player["clubs"]:
+                    self.assertEqual(
+                        club["goals"], totals[(player["playerKey"], club["clubName"])]
+                    )
 
 
 if __name__ == "__main__":

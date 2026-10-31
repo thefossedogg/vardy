@@ -42,6 +42,7 @@ function formatFixtureDate(value) {
 
 function renderPlayerDetails(player, season) {
   const dialog = document.querySelector("#scorer-player-dialog");
+  document.querySelector("#scorer-player-link").href = playerDetailsUrl(player, season);
   document.querySelector("#scorer-player-title").textContent = player.playerName;
   document.querySelector("#scorer-player-season").textContent =
     `${season.seasonLabel} · ${season.status === "in_progress" ? "In progress" : "Final"}`;
