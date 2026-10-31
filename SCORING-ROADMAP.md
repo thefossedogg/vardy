@@ -10,7 +10,7 @@ feature that is implemented and validated, not just designed.
 
 ### 1. Six-season top-scorer chart
 
-- [ ] Complete
+- [x] Complete
 
 **Goal:** Explore the Golden Boot race this season and the previous five seasons.
 
@@ -28,7 +28,7 @@ are handled, and the chart works on mobile with accessible text equivalents.
 
 ### 2. Golden Boot pace comparison
 
-- [ ] Complete
+- [x] Complete
 
 **Goal:** Answer: "Is this player ahead of previous Golden Boot winners' pace?"
 
@@ -47,7 +47,7 @@ explained, and lines remain readable without relying on colour alone.
 
 ### 3. Club single-season record chase
 
-- [ ] Complete
+- [x] Complete
 
 **Goal:** Show how close a current scorer is to the best individual club season
 observed in the available scorer export.
@@ -69,12 +69,11 @@ the full Premier League era.
 **Done when:** Export coverage and current-season as-of status are explicit,
 joint observed-range holders are supported, and equalling or exceeding the
 observed best produces accurate wording. Mobile, keyboard and readable text
-checks pass. The completion checkbox stays unchecked until the local change is
-published and integrated.
+checks pass, and the local change is published and integrated.
 
 ### 4. Player season scoring fingerprint
 
-- [ ] Complete
+- [x] Complete
 
 **Goal:** Reveal consistency, droughts and explosive performances at a glance.
 
@@ -133,7 +132,7 @@ updates do not double-count goals already included in the available-season basel
 
 ### 7. Goals versus consistency
 
-- [ ] Complete
+- [x] Complete
 
 **Goal:** Distinguish frequent scorers from players whose totals arrive in bursts.
 
@@ -149,7 +148,7 @@ accessible table alternative.
 
 ### 8. Club reliance on its leading scorer
 
-- [ ] Complete
+- [x] Complete
 
 **Goal:** Show which clubs spread their goals and which depend on one player.
 
@@ -165,7 +164,7 @@ no goals have an explicit, non-misleading display.
 
 ### 9. Favourite opponents
 
-- [ ] Complete
+- [x] Complete
 
 **Goal:** Explore who a player scores against most often.
 
@@ -182,7 +181,7 @@ coverage is not shown as a confirmed zero.
 
 ### 10. Weekly movers
 
-- [ ] Complete
+- [x] Complete
 
 **Goal:** Give returning visitors a quick answer to "What changed?"
 
@@ -378,3 +377,22 @@ and publication.
 - Items 5/6 remain unchecked and unimplemented under the approved available
   2021/22–2026/27 scope. Publication and its live-site verification remain the
   last gate before checking off the eight integrated items.
+
+### 2026-10-31 — Publication verified
+
+- Release payload `da4d1e3` fast-forwarded to `main` and pushed non-force only
+  after all local gates passed; remote main was still the original `c353bdb`.
+  GitHub Pages run **41191328739** completed successfully for that exact payload:
+  <https://github.com/thefossedogg/vardy/actions/runs/41191328739>.
+- Public <https://vardywatch.com/> checks passed: seven JS/CSS assets match the
+  release; homepage/scorers/club directory at 1280/390/320px have no overflow;
+  real mover modal, Escape and club-directory keyboard navigation work; observed
+  club-record coverage/as-of and reliance leader names are correct.
+- Live combined selectors, scorer-modal-to-player link, pace checkboxes,
+  fingerprint fixture focus and opponent filters passed with no page errors.
+  All 25 opponent goal/meeting totals for the live leading scorer reconciled
+  with the six-season fixture export.
+- Items **1/2/3/4/7/8/9/10** are now checked off after integrated validation and
+  verified publication. Items **5/6** remain pending, available 2021/22–2026/27
+  only, without career/all-time claims. This checkbox-only follow-up must also
+  complete its Pages deployment; it does not change the validated site payload.
