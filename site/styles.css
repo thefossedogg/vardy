@@ -1153,6 +1153,259 @@ button.pyr-vardy { padding: 0; border: 0; background: none; color: inherit; font
     font-size: 13px;
   }
 }
+
+.scorers-dashboard {
+  min-height: 65vh;
+  padding: 38px 0 68px;
+}
+
+.scorers-dashboard .section-heading {
+  align-items: end;
+}
+
+.scorers-dashboard h1 {
+  margin-bottom: 0;
+  font-size: clamp(36px, 6vw, 56px);
+}
+
+.scorers-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.scorers-controls select {
+  min-height: 44px;
+  max-width: 100%;
+  padding: 8px 36px 8px 12px;
+  border: 3px solid var(--ink);
+  border-radius: 0;
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+}
+
+.scorers-controls select:focus-visible,
+.scorer-player:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 3px;
+}
+
+.season-status {
+  display: inline-flex;
+  min-height: 32px;
+  align-items: center;
+  padding: 4px 10px;
+  border: 2px solid var(--ink);
+  background: #e5e7eb;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.season-status.in_progress {
+  background: var(--green);
+}
+
+#scorers-status,
+#player-status {
+  margin: 10px 0;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.scorer-list {
+  display: grid;
+  gap: 8px;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.scorer-row {
+  display: grid;
+  grid-template-columns: 44px minmax(150px, 1fr) 76px minmax(120px, 1.15fr);
+  grid-template-areas: "rank identity goals bar";
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+  padding: 10px 12px;
+  border: 2px solid var(--ink);
+  background: #fffdf4;
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+.scorer-rank {
+  grid-area: rank;
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border: 2px solid var(--ink);
+  background: var(--yellow);
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.scorer-identity {
+  grid-area: identity;
+  min-width: 0;
+}
+
+.scorer-player {
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 800;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+.scorer-clubs {
+  display: block;
+  margin-top: 3px;
+  color: #4b5563;
+  font-size: 11px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.scorer-goals {
+  grid-area: goals;
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 700;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.scorer-bar-track {
+  grid-area: bar;
+  display: block;
+  height: 22px;
+  overflow: hidden;
+  border: 2px solid var(--ink);
+  background:
+    repeating-linear-gradient(90deg, transparent 0, transparent calc(25% - 1px), rgb(17 17 17 / 15%) calc(25% - 1px), rgb(17 17 17 / 15%) 25%),
+    #fff;
+}
+
+.scorer-bar {
+  display: flex;
+  height: 100%;
+  min-width: 2px;
+}
+
+.scorer-segment {
+  display: block;
+  height: 100%;
+  min-width: 1px;
+}
+
+.player-summary {
+  margin: 18px 0 30px;
+  padding: 16px;
+  border: 3px solid var(--ink);
+  background: var(--yellow);
+  box-shadow: 4px 4px 0 var(--ink);
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.player-data-note {
+  color: #4b5563;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.player-fixtures-title {
+  margin: 28px 0 12px;
+  font-size: 28px;
+}
+
+.player-fixtures {
+  margin: 0;
+  padding: 0;
+  border: 3px solid var(--ink);
+  background: #fff;
+  list-style: none;
+}
+
+.player-fixture {
+  display: grid;
+  grid-template-columns: minmax(125px, 0.3fr) minmax(0, 1fr);
+  gap: 12px;
+  padding: 12px 14px;
+  border-bottom: 2px solid var(--ink);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.player-fixture:last-child {
+  border-bottom: 0;
+}
+
+.player-fixture time {
+  font-family: var(--mono);
+  font-weight: 700;
+}
+
+.player-fixture-completed {
+  background: #fff;
+}
+
+.player-fixture-live {
+  background: #fef3c7;
+}
+
+.player-fixture-scheduled,
+.player-fixture-postponed,
+.player-fixture-cancelled {
+  background: #f3f4f6;
+}
+
+@media (max-width: 620px) {
+  .scorers-dashboard {
+    padding-top: 28px;
+  }
+
+  .scorer-row {
+    grid-template-columns: 36px minmax(0, 1fr) auto;
+    grid-template-areas:
+      "rank identity goals"
+      ". bar bar";
+    gap: 8px 10px;
+    padding: 10px;
+  }
+
+  .scorer-rank {
+    width: 30px;
+    height: 30px;
+  }
+
+  .scorer-player {
+    font-size: 12px;
+  }
+
+  .scorer-goals {
+    font-size: 12px;
+  }
+
+  .scorer-bar-track {
+    height: 18px;
+  }
+
+  .player-fixture {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}
 .methodology {
   margin-bottom: 48px;
   padding: 24px;

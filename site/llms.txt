@@ -9,6 +9,7 @@ Index updates do not establish source-data freshness. Early blog articles may us
 ## Pages
 
 - [Vardy Watch](https://vardywatch.com/index.md): Dashboard overview and published data link.
+- [Premier League top scorers](https://vardywatch.com/scorers/): Current and previous five seasons of scorer totals, with player-season fixture details.
 - [Club scorers and streaks](https://vardywatch.com/clubs/index.md): Current-season leaderboard rules, active runs and full-season fixture views.
 - [Blog](https://vardywatch.com/blog/index.md): Latest published article, or an empty state before publication.
 - [Blog archive](https://vardywatch.com/blog/archive.md): All published articles.

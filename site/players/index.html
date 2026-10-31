@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.google-analytics.com; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com; object-src 'none'; base-uri 'self'; form-action 'self'">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#11251e">
+    <meta name="description" content="Premier League player scoring details by season.">
+    <title>Player season scoring | Vardy Watch</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script src="/analytics.js" defer></script>
+    <script src="player.js" defer></script>
+  </head>
+  <body>
+    <header class="masthead" aria-label="Vardy Watch">
+      <a class="wordmark" href="../">Vardy Watch</a>
+    </header>
+    <main>
+      <nav class="primary-nav" aria-label="Primary">
+        <a href="../">Homepage</a>
+        <a href="../scorers/">Scorers</a>
+      </nav>
+      <section class="scorers-dashboard player-dashboard" aria-labelledby="player-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow" id="player-season-label">PLAYER SEASON</p>
+            <h1 id="player-title">Player details</h1>
+          </div>
+          <time class="updated" id="player-updated">Loading latest data…</time>
+        </div>
+        <p id="player-status" role="status" aria-live="polite">Loading player details…</p>
+        <p id="player-summary" class="player-summary"></p>
+        <p class="player-data-note">The archive does not include player appearances. Fixtures with no credited goals do not show whether the player played.</p>
+        <h2 class="player-fixtures-title">Season fixtures</h2>
+        <ol id="player-fixtures" class="player-fixtures"></ol>
+        <noscript>Enable JavaScript to view player scoring details.</noscript>
+      </section>
+    </main>
+    <footer><span>VARDY WATCH</span></footer>
+  </body>
+</html>
