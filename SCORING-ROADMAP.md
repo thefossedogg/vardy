@@ -206,3 +206,12 @@ changes, and quiet periods have an honest empty state.
 ## Delivery notes
 
 Add dated implementation notes and any remaining limitations here as items ship.
+
+- 2026-10-31 — Item 1 implementation: six-season ranked scorer chart with tie-safe
+  top-50 cutoffs, transfer club segments, season status labels and keyboard-
+  accessible player scoring details. Scorer totals reconcile with the archived
+  fixture scorer records. The archive does not record appearances, so a fixture
+  with no credited goals is not evidence that a player appeared. Publication is
+  pending: the required full test suite repeatedly times out in the unrelated
+  `test_club_menu_stars_toggle_without_navigation_on_both_pages` favourite-menu
+  test because its `team-alpha` control never appears.

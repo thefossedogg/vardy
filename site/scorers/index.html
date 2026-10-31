@@ -41,6 +41,22 @@
         <noscript>Enable JavaScript to view the scorer chart.</noscript>
       </section>
     </main>
+    <dialog id="scorer-player-dialog" aria-labelledby="scorer-player-title">
+      <div class="scorer-dialog-header">
+        <div>
+          <p id="scorer-player-season" class="eyebrow"></p>
+          <h2 id="scorer-player-title"></h2>
+        </div>
+        <form method="dialog">
+          <button class="scorer-dialog-close" aria-label="Close player scoring details">Close</button>
+        </form>
+      </div>
+      <p id="scorer-player-summary" class="player-summary"></p>
+      <p class="player-data-note">The archive does not include player appearances. Fixtures with no credited goals do not show whether the player played.</p>
+      <div class="scorer-dialog-games" tabindex="0" role="region" aria-label="Player season fixtures">
+        <ol id="scorer-player-fixtures" class="player-fixtures"></ol>
+      </div>
+    </dialog>
     <footer><span>VARDY WATCH</span></footer>
   </body>
 </html>
