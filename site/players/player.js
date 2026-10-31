@@ -50,6 +50,143 @@ function renderFixture(fixture, player, clubName) {
   return item;
 }
 
+function completedFixtures(data) {
+  return data.seasons.flatMap((season) =>
+    season.fixtures
+      .filter((fixture) => fixture.status === "completed")
+      .map((fixture) => ({
+        ...fixture,
+        season: season.season,
+        seasonLabel: season.seasonLabel,
+        fixtureKey: `${season.season}|${fixture.date}|${fixture.teams.join("|")}`,
+      })),
+  );
+}
+
+function renderFavouriteOpponents(data, player) {
+  const fixtures = completedFixtures(data);
+  const coverage = document.querySelector("#opponents-coverage");
+  const status = document.querySelector("#opponents-status");
+  const body = document.querySelector("#opponents-list");
+  const start = document.querySelector("#opponents-start");
+  const end = document.querySelector("#opponents-end");
+  const mode = document.querySelector("#opponents-mode");
+  const venue = document.querySelector("#opponents-venue");
+  const heading = document.querySelector("#opponents-value-heading");
+  const caption = document.querySelector("#opponents-caption");
+  if (!fixtures.length) {
+    coverage.textContent = "No completed fixture coverage is available in these exports.";
+    status.textContent = "Opponent totals are unavailable, not confirmed zeros.";
+    return;
+  }
+
+  const dates = fixtures.map((fixture) => fixture.date.slice(0, 10)).sort();
+  start.min = dates[0];
+  start.max = dates.at(-1);
+  start.value = dates[0];
+  end.min = dates[0];
+  end.max = dates.at(-1);
+  end.value = dates.at(-1);
+  const seasons = [...new Set(fixtures.map((fixture) => fixture.seasonLabel))];
+  coverage.textContent = `Export coverage: ${formatFixtureDate(dates[0])}–${formatFixtureDate(dates.at(-1))}; ` +
+    `${seasons.join(", ")} · ${fixtures.length.toLocaleString("en-GB")} completed fixtures. ` +
+    "This is the available six-season scorer export, not full Premier League history; " +
+    "dates or opponents outside its fixture coverage are not zeros.";
+
+  const clubsBySeason = new Map();
+  for (const fixture of fixtures) {
+    for (const scorer of fixture.scorers) {
+      if (scorer.playerKey !== player.playerKey) continue;
+      if (!clubsBySeason.has(fixture.season)) clubsBySeason.set(fixture.season, new Set());
+      clubsBySeason.get(fixture.season).add(scorer.clubName);
+    }
+  }
+
+  function render() {
+    body.replaceChildren();
+    const from = start.value;
+    const to = end.value;
+    const metric = mode.value;
+    heading.textContent = metric === "goals" ? "Goals" : "Scoring matches";
+    caption.textContent = `${player.playerName} · ${metric === "goals" ? "goals" : "matches with a credited goal"} ` +
+      `against each opponent, with meetings for context.`;
+    if (from && to && from > to) {
+      status.textContent = "Choose a start date on or before the end date.";
+      return;
+    }
+
+    const totals = new Map();
+    let coveredMeetings = 0;
+    for (const fixture of fixtures) {
+      const date = fixture.date.slice(0, 10);
+      if (date < from || date > to) continue;
+      const clubs = clubsBySeason.get(fixture.season);
+      if (!clubs) continue;
+      const playerClubSides = fixture.teams
+        .map((club, index) => clubs.has(club) ? index : -1)
+        .filter((index) => index >= 0);
+      if (!playerClubSides.length) continue;
+      const clubSide = playerClubSides[0];
+      if (venue.value !== "all" &&
+        ((venue.value === "home" && clubSide !== 0) ||
+          (venue.value === "away" && clubSide !== 1))) continue;
+      const opponent = fixture.teams[1 - clubSide];
+      if (!opponent) continue;
+      const entry = totals.get(opponent) || { goals: 0, matches: new Set(), meetings: 0 };
+      entry.meetings += 1;
+      coveredMeetings += 1;
+      for (const scorer of fixture.scorers) {
+        if (scorer.playerKey === player.playerKey && scorer.clubName === fixture.teams[clubSide]) {
+          entry.goals += scorer.goals;
+          entry.matches.add(fixture.fixtureKey);
+        }
+      }
+      totals.set(opponent, entry);
+    }
+
+    if (!coveredMeetings) {
+      status.textContent = "No completed opponent fixtures for this player’s recorded scoring clubs in this range and venue. This is unavailable coverage, not a confirmed zero.";
+      return;
+    }
+    status.textContent = `${coveredMeetings.toLocaleString("en-GB")} completed club meetings in this filtered range. ` +
+      "Meeting counts describe fixtures involving clubs this player scored for, not player appearances.";
+    const rows = [...totals].sort(([nameA, a], [nameB, b]) =>
+      (metric === "goals" ? b.goals - a.goals : b.matches.size - a.matches.size) ||
+      nameA.localeCompare(nameB, "en"),
+    );
+    const maximum = Math.max(1, ...rows.map(([, entry]) =>
+      metric === "goals" ? entry.goals : entry.matches.size,
+    ));
+    for (const [opponent, entry] of rows) {
+      const value = metric === "goals" ? entry.goals : entry.matches.size;
+      const row = document.createElement("tr");
+      const name = document.createElement("th");
+      name.scope = "row";
+      name.textContent = opponent;
+      const result = document.createElement("td");
+      result.className = "opponents-heat";
+      result.style.setProperty("--heat", String(value / maximum));
+      const primary = document.createElement("strong");
+      primary.textContent = `${value} ${metric === "goals" ?
+        (value === 1 ? "goal" : "goals") :
+        (value === 1 ? "scoring match" : "scoring matches")}`;
+      const secondary = document.createElement("span");
+      secondary.textContent = metric === "goals"
+        ? `${entry.matches.size} ${entry.matches.size === 1 ? "scoring match" : "scoring matches"}`
+        : `${entry.goals} ${entry.goals === 1 ? "goal" : "goals"}`;
+      result.append(primary, secondary);
+      const meetings = document.createElement("td");
+      meetings.textContent = String(entry.meetings);
+      row.append(name, result, meetings);
+      body.append(row);
+    }
+  }
+
+  document.querySelector("#opponents-filters").addEventListener("input", render);
+  document.querySelector("#opponents-filters").addEventListener("change", render);
+  render();
+}
+
 async function loadPlayerSeason() {
   if (!playerKey || !Number.isInteger(seasonYear)) {
     throw new Error("A player key and season are required in the URL.");
@@ -81,6 +218,7 @@ async function loadPlayerSeason() {
   );
   document.querySelector("#player-summary").textContent =
     `${player.goals} ${player.goals === 1 ? "goal" : "goals"} · ${clubs.join("; ")}`;
+  renderFavouriteOpponents(data, player);
 
   const clubNames = new Set(player.clubs.map((club) => club.clubName));
   const fixtures = season.fixtures.flatMap((fixture) =>

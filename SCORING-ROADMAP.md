@@ -314,3 +314,14 @@ record-chase branch is required or included in this branch.
   individual goal count, not the combined count. Clubs with no completed goals
   show no percentage. The affected-page Edge test passes; keep the checkbox
   pending the documented full suite and integration/publication checks.
+- 2026-10-31 — Item 9 is implemented on an isolated local branch, with goals
+  and the full available six-season export as the defaults. The completion
+  checkbox remains unchecked pending a passing full regression suite and
+  integration. The required full-suite run did not pass: it hit the known
+  unrelated Favourites club-navigation timeout because `team-alpha` is absent
+  from that test fixture. Two scorer-test assertions also failed in that first
+  run after the feature fixture changed; the affected Edge test file now passes
+  3/3 after correction, and the full suite was not rerun. Opponent coverage is
+  limited to completed fixtures in `scoring-seasons.json`, and meeting context
+  counts fixtures involving clubs for which the player has credited goals, not
+  player appearances.

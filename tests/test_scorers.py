@@ -22,7 +22,7 @@ def scorer(player_key, name, goals, clubs):
     }
 
 
-def fixture(date, home, away, player_key, club_name):
+def fixture(date, home, away, player_key, club_name, goals=1):
     return {
         "date": f"{date}T15:00:00Z",
         "status": "completed",
@@ -31,15 +31,15 @@ def fixture(date, home, away, player_key, club_name):
             "playerKey": player_key,
             "playerName": "Aaron Transfer",
             "clubName": club_name,
-            "goals": 1,
+            "goals": goals,
         }],
     }
 
 
 def make_data():
     current_scorers = [
-        scorer("urn:test:transfer", "Aaron Transfer", 4,
-               [("Alpha United", 2), ("Beta City", 2)])
+        scorer("urn:test:transfer", "Aaron Transfer", 5,
+               [("Alpha United", 3), ("Beta City", 2)])
     ]
     current_scorers.extend(
         scorer(f"urn:test:player-{index:02}", f"Player {index:02}", 2,
@@ -58,13 +58,25 @@ def make_data():
         "scorers": current_scorers,
         "fixtures": [
             fixture("2026-08-01", "Alpha United", "Other Club",
-                    "urn:test:transfer", "Alpha United"),
+                    "urn:test:transfer", "Alpha United", goals=2),
             fixture("2026-08-08", "Other Club", "Alpha United",
                     "urn:test:transfer", "Alpha United"),
             fixture("2026-08-15", "Beta City", "Other Club",
                     "urn:test:transfer", "Beta City"),
             fixture("2026-08-22", "Other Club", "Beta City",
                     "urn:test:transfer", "Beta City"),
+            {
+                "date": "2026-08-29T15:00:00Z",
+                "status": "completed",
+                "teams": ["Alpha United", "Quiet FC"],
+                "scorers": [],
+            },
+            {
+                "date": "2026-08-30T15:00:00Z",
+                "status": "completed",
+                "teams": ["Quiet FC", "Alpha United"],
+                "scorers": [],
+            },
         ],
     }]
     seasons.extend({
@@ -165,9 +177,9 @@ class ScorerPageTests(unittest.TestCase):
 
         first = self.page.locator("#scorer-list > li").first
         expect(first.locator(".scorer-clubs")).to_have_text(
-            "Alpha United (2), Beta City (2)"
+            "Alpha United (3), Beta City (2)"
         )
-        expect(first.locator(".scorer-bar")).to_have_attribute("style", "width: 50%;")
+        expect(first.locator(".scorer-bar")).to_have_attribute("style", "width: 62.5%;")
         expect(first.locator(".scorer-segment")).to_have_count(2)
         self.page.set_viewport_size({"width": 390, "height": 844})
         self.assertLessEqual(
@@ -182,12 +194,12 @@ class ScorerPageTests(unittest.TestCase):
             "2026/27 · In progress"
         )
         expect(self.page.locator("#scorer-player-summary")).to_have_text(
-            "4 goals · Alpha United · 2 goals; Beta City · 2 goals"
+            "5 goals · Alpha United · 3 goals; Beta City · 2 goals"
         )
         expect(self.page.locator("#scorer-player-dialog .player-data-note")).to_contain_text(
             "does not include player appearances"
         )
-        expect(self.page.locator("#scorer-player-fixtures > li")).to_have_count(4)
+        expect(self.page.locator("#scorer-player-fixtures > li")).to_have_count(6)
         expect(self.page.locator("#scorer-player-fixtures")).to_contain_text("Beta City")
         player_button = first.locator(".scorer-player")
         self.page.keyboard.press("Escape")
@@ -203,7 +215,76 @@ class ScorerPageTests(unittest.TestCase):
         self.page.get_by_role("button", name="Close player scoring details").click()
         expect(self.page.locator("#scorer-player-dialog")).not_to_be_visible()
 
-    def test_generated_scorer_data_opens_a_real_player_modal(self):
+    def test_favourite_opponents_transfers_filters_and_keyboard_mobile(self):
+        self.page.set_viewport_size({"width": 390, "height": 844})
+        self.page.goto(
+            self.base_url + "/players/?player=urn%3Atest%3Atransfer&season=2026"
+        )
+        expect(self.page.locator("#opponents-coverage")).to_contain_text(
+            "2026/27 · 6 completed fixtures"
+        )
+        expect(self.page.locator("#opponents-start")).to_have_value("2026-08-01")
+        expect(self.page.locator("#opponents-end")).to_have_value("2026-08-30")
+        expect(self.page.locator("#opponents-list tr")).to_have_count(2)
+        other = self.page.locator("#opponents-list tr").filter(
+            has=self.page.locator("th", has_text="Other Club")
+        )
+        quiet = self.page.locator("#opponents-list tr").filter(
+            has=self.page.locator("th", has_text="Quiet FC")
+        )
+        expect(other.locator("td").nth(0)).to_contain_text("5 goals")
+        expect(other.locator("td").nth(0)).to_contain_text("4 scoring matches")
+        expect(other.locator("td").nth(1)).to_have_text("4")
+        expect(quiet.locator("td").nth(0)).to_contain_text("0 goals")
+        expect(quiet.locator("td").nth(1)).to_have_text("2")
+
+        for _ in range(12):
+            if self.page.evaluate("document.activeElement.id") == "opponents-start":
+                break
+            self.page.keyboard.press("Tab")
+        self.assertEqual(
+            "opponents-start",
+            self.page.evaluate("document.activeElement.id"),
+        )
+        for _ in range(8):
+            if self.page.evaluate("document.activeElement.id") == "opponents-mode":
+                break
+            self.page.keyboard.press("Tab")
+        self.assertEqual(
+            "opponents-mode",
+            self.page.evaluate("document.activeElement.id"),
+        )
+        self.page.keyboard.press("ArrowDown")
+        self.page.keyboard.press("Enter")
+        expect(self.page.locator("#opponents-mode")).to_have_value("matches")
+        expect(other.locator("td").nth(0)).to_contain_text("4 scoring matches")
+
+        self.page.locator("#opponents-venue").focus()
+        self.page.keyboard.press("ArrowDown")
+        self.page.keyboard.press("Enter")
+        expect(self.page.locator("#opponents-venue")).to_have_value("home")
+        expect(other.locator("td").nth(0)).to_contain_text("2 scoring matches")
+        expect(other.locator("td").nth(1)).to_have_text("2")
+        self.assertLessEqual(
+            self.page.evaluate("document.documentElement.scrollWidth"), 390
+        )
+
+        self.page.locator("#opponents-start").fill("2026-08-08")
+        self.page.locator("#opponents-end").fill("2026-08-22")
+        expect(other.locator("td").nth(0)).to_contain_text("1 scoring match")
+        expect(other.locator("td").nth(1)).to_have_text("1")
+        self.page.locator("#opponents-start").fill("2026-08-02")
+        self.page.locator("#opponents-end").fill("2026-08-02")
+        expect(self.page.locator("#opponents-status")).to_contain_text(
+            "not a confirmed zero"
+        )
+        expect(self.page.locator("#opponents-list tr")).to_have_count(0)
+        self.page.locator("#opponents-start").fill("2026-08-23")
+        expect(self.page.locator("#opponents-status")).to_contain_text(
+            "Choose a start date"
+        )
+
+    def test_generated_scorer_data_opens_a_real_player_modal_and_season(self):
         site = Path(__file__).resolve().parents[1] / "site"
         self.data = json.loads(
             (site / "data" / "scoring-seasons.json").read_text(encoding="utf-8")
@@ -233,6 +314,15 @@ class ScorerPageTests(unittest.TestCase):
             f'{expected_player["goals"]} '
         )
         expect(self.page.locator("#scorer-player-fixtures > li").first).to_be_visible()
+        self.page.locator("#scorer-player-link").click()
+        expect(self.page.locator("#player-title")).to_have_text(
+            expected_player["playerName"]
+        )
+        expect(self.page.locator("#player-fixtures > li").first).to_be_visible()
+        expect(self.page.locator("#opponents-status")).to_contain_text(
+            "completed club meetings"
+        )
+        self.assertGreater(self.page.locator("#opponents-list tr").count(), 0)
 
     def test_fingerprint_buckets_transfers_statuses_and_mobile_keyboard(self):
         season = self.data["seasons"][0]

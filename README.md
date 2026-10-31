@@ -66,3 +66,9 @@ available. Summaries count completed club fixtures and fixtures with a goal, not
 player appearances; credited totals include live goals provisionally. Missing
 coverage is not represented by zero tiles. The historical Vardy benchmark
 remains a streak-only view because its season predates the fixture archive.
+Player season details include a favourite-opponents heatmap for the available
+six-season scorer export. It defaults to the full exported date range and goals;
+you can switch to scoring matches and filter by date and the player's scoring
+club being home or away. Meeting counts are fixtures involving clubs the player
+scored for, not appearances. Dates outside the export's fixture coverage are
+unavailable, not confirmed zeroes.
