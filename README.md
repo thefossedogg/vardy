@@ -14,6 +14,13 @@ towards the limit. Player club labels reflect their latest credited goals in
 the available exports, not verified current squad membership. If browser storage
 is blocked, a warning explains that changes may be lost.
 
+The homepage's Weekly movers compares the inclusive rolling seven days ending
+at the export's generated-at timestamp, displayed in UTC. It highlights
+available-export scoring-leader changes, 10-goal season milestones, Vardy's
+11-game scoring-streak record being overtaken, and current streak extensions.
+Cards link to player details. Missing fixture exports are not interpreted as
+no-goal results, so an empty period is limited to the data available.
+
 Run the browser regression tests with `python -m unittest discover -s tests`.
 They require Python's `playwright` package and Microsoft Edge. Set
 `BROWSER_CHANNEL` to another installed Playwright browser channel if needed.

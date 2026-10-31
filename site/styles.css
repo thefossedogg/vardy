@@ -271,6 +271,7 @@ h2 {
 }
 
 .table-panel,
+.weekly-movers,
 .what-changed,
 .season-best,
 .season-history,
@@ -567,8 +568,65 @@ button:focus-visible {
 }
 
 .what-changed,
+.weekly-movers,
 .season-best {
   margin-top: 18px;
+}
+
+.weekly-movers-note {
+  margin: 0;
+  padding: 0 23px 12px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.weekly-movers-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 0 23px 22px;
+  list-style: none;
+}
+
+.weekly-mover {
+  display: grid;
+  min-height: 132px;
+  gap: 9px;
+  align-content: start;
+  padding: 15px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #f7faf6;
+  overflow-wrap: anywhere;
+}
+
+.weekly-mover-type {
+  margin: 0;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.weekly-mover a {
+  color: var(--green-dark);
+  font-weight: 700;
+  line-height: 1.45;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.weekly-mover time {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.weekly-movers-list .empty {
+  grid-column: 1 / -1;
+  padding: 12px 0;
 }
 
 .change-name-button {
@@ -888,7 +946,7 @@ h1 span { display: inline-block; color: var(--red); transform: rotate(-1.5deg); 
 .pyr-left .pyr-chip { max-width: 100%; overflow-wrap: anywhere; }
 .pyramid { padding-bottom: 18px; }
 
-.stats, .table-panel, .what-changed, .season-best, .season-history {
+.stats, .table-panel, .weekly-movers, .what-changed, .season-best, .season-history {
   border: 3px solid var(--ink);
   border-radius: 12px;
   box-shadow: 5px 5px 0 var(--ink);
