@@ -6,8 +6,6 @@ Explore active in-season runs, each player's longest ended runs, recently ended 
 
 [Club scorers and streaks](https://vardywatch.com/clubs/index.md) covers current-season club leaderboards, including goals by departed players.
 
-[Top scorers](https://vardywatch.com/scorers/) compares the current season with the previous five seasons and links to player-season fixture details.
-
 [Football quizzes](https://vardywatch.com/quiz/index.md) offer editor-reviewed, multiple-choice questions from verified recent match data.
 
 The interactive dashboard loads current statistics with JavaScript. [Current dashboard data](https://vardywatch.com/data/current-season.json) contains the published statistics; its generation time is not proof of upstream source freshness.
