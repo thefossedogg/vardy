@@ -1,0 +1,171 @@
+{
+  "schemaVersion": 1,
+  "edition": "2026-10-25",
+  "revision": "cbe87675a74dc6bc",
+  "title": "Premier League football quiz",
+  "publishedAt": "2026-10-25T22:47:47.370982+00:00",
+  "coverageStart": "2026-10-21T00:00:00+01:00",
+  "coverageEndExclusive": "2026-10-26T00:00:00+00:00",
+  "questions": [
+    {
+      "id": "31f2af7e82b92020",
+      "type": "score",
+      "prompt": "What was the final score in Aston Villa v Manchester City on Saturday 24 October 2026 (home-away)?",
+      "options": [
+        "2-1",
+        "0-0",
+        "0-1",
+        "0-2"
+      ],
+      "answer": "2-1",
+      "explanation": "Aston Villa 2-1 Manchester City (final score).",
+      "fixtureIds": [
+        "5e4f266524fe479c"
+      ]
+    },
+    {
+      "id": "380b5ec72ed508a2",
+      "type": "score",
+      "prompt": "How did Ipswich Town v Nottingham Forest finish on Friday 23 October 2026 (home-away score)?",
+      "options": [
+        "1-1",
+        "0-0",
+        "0-1",
+        "0-2"
+      ],
+      "answer": "1-1",
+      "explanation": "Ipswich Town 1-1 Nottingham Forest (final score).",
+      "fixtureIds": [
+        "cf9a886556d24b21"
+      ]
+    },
+    {
+      "id": "4873b9967859bdc3",
+      "type": "score",
+      "prompt": "What was the final score in Coventry City v Fulham on Saturday 24 October 2026 (home-away)?",
+      "options": [
+        "0-1",
+        "0-0",
+        "0-2",
+        "0-3"
+      ],
+      "answer": "0-1",
+      "explanation": "Coventry City 0-1 Fulham (final score).",
+      "fixtureIds": [
+        "92860072c0a311e4"
+      ]
+    },
+    {
+      "id": "52ec81e1838c9893",
+      "type": "score",
+      "prompt": "How did Hull City v Brentford finish on Sunday 25 October 2026 (home-away score)?",
+      "options": [
+        "1-1",
+        "0-0",
+        "0-1",
+        "0-2"
+      ],
+      "answer": "1-1",
+      "explanation": "Hull City 1-1 Brentford (final score).",
+      "fixtureIds": [
+        "6384061334f91ef8"
+      ]
+    },
+    {
+      "id": "62aa3087038e71fa",
+      "type": "score",
+      "prompt": "What was the final score in Liverpool v Brighton & Hove Albion on Sunday 25 October 2026 (home-away)?",
+      "options": [
+        "2-0",
+        "0-0",
+        "0-1",
+        "0-2"
+      ],
+      "answer": "2-0",
+      "explanation": "Liverpool 2-0 Brighton & Hove Albion (final score).",
+      "fixtureIds": [
+        "4d730005bea77c54"
+      ]
+    },
+    {
+      "id": "860d434cb3da762a",
+      "type": "score",
+      "prompt": "How did Sunderland v Leeds United finish on Sunday 25 October 2026 (home-away score)?",
+      "options": [
+        "0-0",
+        "0-1",
+        "0-2",
+        "0-3"
+      ],
+      "answer": "0-0",
+      "explanation": "Sunderland 0-0 Leeds United (final score).",
+      "fixtureIds": [
+        "7b79d505877a0e6c"
+      ]
+    },
+    {
+      "id": "9d4006d84d880de4",
+      "type": "score",
+      "prompt": "What was the final score in Crystal Palace v Newcastle United on Sunday 25 October 2026 (home-away)?",
+      "options": [
+        "0-2",
+        "0-0",
+        "0-1",
+        "0-3"
+      ],
+      "answer": "0-2",
+      "explanation": "Crystal Palace 0-2 Newcastle United (final score).",
+      "fixtureIds": [
+        "d5c2f58e1ed3861d"
+      ]
+    },
+    {
+      "id": "cdd006b390d0b5c8",
+      "type": "score",
+      "prompt": "How did Manchester United v Bournemouth finish on Sunday 25 October 2026 (home-away score)?",
+      "options": [
+        "0-3",
+        "0-0",
+        "0-1",
+        "0-2"
+      ],
+      "answer": "0-3",
+      "explanation": "Manchester United 0-3 Bournemouth (final score).",
+      "fixtureIds": [
+        "e1d695e32206e840"
+      ]
+    },
+    {
+      "id": "dd6f3be8b59003b7",
+      "type": "score",
+      "prompt": "What was the final score in Chelsea v Tottenham Hotspur on Saturday 24 October 2026 (home-away)?",
+      "options": [
+        "0-2",
+        "0-0",
+        "0-1",
+        "0-3"
+      ],
+      "answer": "0-2",
+      "explanation": "Chelsea 0-2 Tottenham Hotspur (final score).",
+      "fixtureIds": [
+        "79225b9a29db952d"
+      ]
+    },
+    {
+      "id": "f103c5c7ce959250",
+      "type": "score",
+      "prompt": "How did Arsenal v Everton finish on Saturday 24 October 2026 (home-away score)?",
+      "options": [
+        "2-0",
+        "0-0",
+        "0-1",
+        "0-2"
+      ],
+      "answer": "2-0",
+      "explanation": "Arsenal 2-0 Everton (final score).",
+      "fixtureIds": [
+        "7753a415b8755e6c"
+      ]
+    }
+  ]
+}

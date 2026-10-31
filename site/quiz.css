@@ -1,0 +1,91 @@
+#quiz-player,
+#quiz-history {
+  margin-block: 28px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.quiz-game,
+.quiz-history-group {
+  padding: clamp(16px, 4vw, 28px);
+  border: 1px solid var(--line, #e5e9e1);
+  border-radius: 12px;
+  background: var(--white, #fff);
+}
+
+.quiz-game fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.quiz-game legend {
+  max-width: 100%;
+  margin-bottom: 20px;
+  padding: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.quiz-options {
+  display: grid;
+  gap: 12px;
+}
+
+.quiz-option,
+.quiz-action {
+  min-height: 48px;
+  padding: 12px 18px;
+  border: 2px solid var(--ink, #15221d);
+  border-radius: 8px;
+  background: var(--paper, #f5f6f0);
+  color: var(--ink, #15221d);
+  font: inherit;
+  text-align: left;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+
+.quiz-option:not(:disabled):hover,
+.quiz-action:hover {
+  background: var(--green, #b9f36b);
+}
+
+.quiz-option:disabled {
+  color: var(--ink, #15221d);
+  opacity: 0.75;
+  cursor: default;
+}
+
+.quiz-action {
+  margin-top: 12px;
+  background: var(--green, #b9f36b);
+  font-weight: 700;
+}
+
+#quiz-player :focus-visible,
+#quiz-history :focus-visible {
+  outline: 3px solid var(--ink, #15221d);
+  outline-offset: 4px;
+}
+
+.quiz-status:not(:empty),
+.quiz-error {
+  margin-block: 20px 12px;
+}
+
+.quiz-error {
+  color: #8b2020;
+  font-weight: 700;
+}
+
+.quiz-history-group {
+  margin-block: 16px;
+}
+
+#quiz-history summary {
+  min-height: 44px;
+  cursor: pointer;
+}

@@ -28,7 +28,7 @@ The archive begins in January 2020, so 2019/20 is partial and excluded from hist
 
 The interactive [dashboard](https://vardywatch.com/index.md) and club pages load [published statistics](https://vardywatch.com/data/current-season.json) using JavaScript. The data's generatedAt timestamp records calculation time, not when upstream match data was fetched. Fixture changes require refreshed exports and regenerated statistics. Markdown pages and collected LLM content explain the site; they do not embed live statistics.
 
-Weekly previews cover Thursday 09:00 through Monday end in Europe/London. Players need an active run of at least two club fixtures and a fixture in that window. No previews are scheduled in June or July.
+Blog cover Thursday 09:00 through Monday end in Europe/London. Players need an active run of at least two club fixtures and a fixture in that window. No previews are scheduled in June or July.
 
 Articles are AI-assisted and reviewed by a human editor. Drafts are scheduled for Thursday 09:00 Pacific/Auckland; the fixture coverage window remains in Europe/London. Drafting requires verified fetches no more than twelve hours old for the current Auckland month and any later preview months. Earlier current-season months retain their original fetch timestamps and are checked for integrity, not claimed to be freshly fetched. Historical corrections require a replacement source snapshot.
 
