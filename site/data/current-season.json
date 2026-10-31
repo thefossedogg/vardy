@@ -2,7 +2,7 @@
   "competition": "Premier League",
   "season": 2026,
   "seasonLabel": "2026/27",
-  "generatedAt": "2026-10-31T18:44:57.977952Z",
+  "generatedAt": "2026-10-31T19:00:12.066408Z",
   "source": "Local monthly Premier League JSON exports",
   "benchmark": {
     "playerName": "Jamie Vardy",
@@ -2757,9 +2757,9 @@
     }
   ],
   "whatChanged": {
-    "generatedAt": "2026-10-31T18:44:57.977952Z",
-    "windowStart": "2026-10-24T18:44:57.977952Z",
-    "windowEnd": "2026-10-31T18:44:57.977952Z",
+    "generatedAt": "2026-10-31T19:00:12.066408Z",
+    "windowStart": "2026-10-24T19:00:12.066408Z",
+    "windowEnd": "2026-10-31T19:00:12.066408Z",
     "endedStreaks": [
       {
         "playerName": "E. Haaland",
