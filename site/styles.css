@@ -1155,39 +1155,93 @@ button.pyr-vardy { padding: 0; border: 0; background: none; color: inherit; font
 }
 
 .scorers-dashboard {
+  position: relative;
   min-height: 65vh;
-  padding: 38px 0 68px;
+  margin: 18px 0 46px;
+  padding: 30px clamp(16px, 4vw, 42px) 42px;
+  border: 4px solid var(--ink);
+  background:
+    radial-gradient(circle, rgb(17 17 17 / 8%) 1px, transparent 1.5px) 0 0 / 12px 12px,
+    #fffdf4;
+  box-shadow: 8px 8px 0 var(--ink);
 }
 
 .scorers-dashboard .section-heading {
   align-items: end;
+  margin-bottom: 22px;
+  padding: 4px 0 16px;
+  border-bottom: 4px solid var(--ink);
 }
 
 .scorers-dashboard h1 {
   margin-bottom: 0;
-  font-size: clamp(36px, 6vw, 56px);
+  color: var(--red);
+  font-size: clamp(42px, 7vw, 72px);
+  line-height: 0.95;
+  text-shadow: 3px 3px 0 var(--ink);
+  transform: rotate(-1deg);
+}
+
+.scorers-dashboard .eyebrow {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 4px 10px;
+  background: var(--ink);
+  color: var(--yellow);
+  font-size: 13px;
+  transform: rotate(1deg);
+}
+
+.scorers-dashboard .updated {
+  padding: 7px 10px;
+  border: 2px dashed var(--ink);
+  background: #fff;
+  color: var(--ink);
+  text-align: center;
 }
 
 .scorers-controls {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 12px;
-  margin: 20px 0;
+  gap: 10px;
+  margin: 20px 0 10px;
+  padding: 12px 14px;
+  border: 3px solid var(--ink);
+  background: var(--yellow);
+  box-shadow: 3px 3px 0 var(--ink);
   font-family: var(--mono);
-  font-size: 12px;
-  font-weight: 500;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 .scorers-controls select {
   min-height: 44px;
   max-width: 100%;
-  padding: 8px 36px 8px 12px;
+  padding: 8px 34px 8px 12px;
   border: 3px solid var(--ink);
-  border-radius: 0;
+  border-radius: 4px;
   background: #fff;
   color: var(--ink);
   font: inherit;
+  text-transform: none;
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+.scorers-controls select:disabled {
+  opacity: 0.65;
+}
+
+.scorer-chart-note {
+  margin: 16px 0 8px;
+  color: #333;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-align: right;
+  text-transform: uppercase;
 }
 
 .scorers-controls select:focus-visible,
@@ -1207,23 +1261,32 @@ button.pyr-vardy { padding: 0; border: 0; background: none; color: inherit; font
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
+  box-shadow: 2px 2px 0 var(--ink);
+  transform: rotate(1deg);
 }
 
 .season-status.in_progress {
   background: var(--green);
 }
 
+.season-status.final {
+  background: #e5e7eb;
+}
+
 #scorers-status,
 #player-status {
-  margin: 10px 0;
+  margin: 0 0 14px;
+  padding: 10px 12px;
+  border-left: 5px solid var(--red);
+  background: #fff;
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .scorer-list {
   display: grid;
-  gap: 8px;
-  margin: 18px 0 0;
+  gap: 9px;
+  margin: 0;
   padding: 0;
   list-style: none;
 }
@@ -1235,23 +1298,57 @@ button.pyr-vardy { padding: 0; border: 0; background: none; color: inherit; font
   align-items: center;
   gap: 14px;
   min-width: 0;
-  padding: 10px 12px;
-  border: 2px solid var(--ink);
-  background: #fffdf4;
-  box-shadow: 2px 2px 0 var(--ink);
+  padding: 10px 14px;
+  border: 3px solid var(--ink);
+  background: #fff;
+  box-shadow: 3px 3px 0 var(--ink);
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+.scorer-row:nth-child(3n + 1) {
+  background: #fff;
+}
+
+.scorer-row:nth-child(3n + 2) {
+  background: #f0f7df;
+}
+
+.scorer-row:nth-child(3n) {
+  background: #fff4cf;
+}
+
+.scorer-row:hover,
+.scorer-row:focus-within {
+  position: relative;
+  z-index: 1;
+  transform: translate(-2px, -2px) rotate(-0.2deg);
+  box-shadow: 5px 5px 0 var(--ink);
 }
 
 .scorer-rank {
   grid-area: rank;
   display: grid;
-  width: 34px;
-  height: 34px;
+  width: 36px;
+  height: 36px;
   place-items: center;
-  border: 2px solid var(--ink);
+  border: 3px solid var(--ink);
+  border-radius: 50%;
   background: var(--yellow);
-  font-family: var(--mono);
-  font-size: 13px;
-  font-weight: 700;
+  font-family: var(--display);
+  font-size: 17px;
+  transform: rotate(-6deg);
+}
+
+.scorer-row:nth-child(1) .scorer-rank {
+  background: var(--yellow);
+}
+
+.scorer-row:nth-child(2) .scorer-rank {
+  background: #d1d5db;
+}
+
+.scorer-row:nth-child(3) .scorer-rank {
+  background: #f5a66a;
 }
 
 .scorer-identity {
@@ -1263,14 +1360,19 @@ button.pyr-vardy { padding: 0; border: 0; background: none; color: inherit; font
   color: var(--ink);
   font-size: 13px;
   font-weight: 800;
-  text-decoration-thickness: 2px;
+  text-decoration-thickness: 1px;
   text-underline-offset: 3px;
+}
+
+.scorer-player:hover {
+  color: #b91c1c;
+  text-decoration-thickness: 2px;
 }
 
 .scorer-clubs {
   display: block;
   margin-top: 3px;
-  color: #4b5563;
+  color: #343a40;
   font-size: 11px;
   line-height: 1.5;
   overflow-wrap: anywhere;
@@ -1278,6 +1380,9 @@ button.pyr-vardy { padding: 0; border: 0; background: none; color: inherit; font
 
 .scorer-goals {
   grid-area: goals;
+  padding: 4px 7px;
+  border: 2px solid var(--ink);
+  background: var(--yellow);
   font-family: var(--mono);
   font-size: 13px;
   font-weight: 700;
@@ -1288,24 +1393,28 @@ button.pyr-vardy { padding: 0; border: 0; background: none; color: inherit; font
 .scorer-bar-track {
   grid-area: bar;
   display: block;
-  height: 22px;
+  height: 24px;
   overflow: hidden;
-  border: 2px solid var(--ink);
+  border: 3px solid var(--ink);
+  background-color: #fff;
   background:
-    repeating-linear-gradient(90deg, transparent 0, transparent calc(25% - 1px), rgb(17 17 17 / 15%) calc(25% - 1px), rgb(17 17 17 / 15%) 25%),
+    repeating-linear-gradient(90deg, transparent 0, transparent calc(25% - 2px), rgb(17 17 17 / 20%) calc(25% - 2px), rgb(17 17 17 / 20%) 25%),
     #fff;
+  box-shadow: inset 0 0 0 1px rgb(17 17 17 / 10%);
 }
 
 .scorer-bar {
   display: flex;
   height: 100%;
   min-width: 2px;
+  overflow: hidden;
 }
 
 .scorer-segment {
   display: block;
   height: 100%;
   min-width: 1px;
+  border-right: 1px solid rgb(17 17 17 / 55%);
 }
 
 .player-summary {
@@ -1372,7 +1481,38 @@ button.pyr-vardy { padding: 0; border: 0; background: none; color: inherit; font
 
 @media (max-width: 620px) {
   .scorers-dashboard {
-    padding-top: 28px;
+    margin-top: 10px;
+    padding: 22px 14px 28px;
+    border-width: 3px;
+    box-shadow: 5px 5px 0 var(--ink);
+  }
+
+  .scorers-dashboard .section-heading {
+    gap: 12px;
+    padding-bottom: 12px;
+  }
+
+  .scorers-dashboard h1 {
+    font-size: clamp(40px, 12vw, 56px);
+  }
+
+  .scorers-dashboard .updated {
+    margin-top: 0;
+    font-size: 9px;
+  }
+
+  .scorers-controls {
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .scorers-controls select {
+    flex: 1 1 100%;
+    order: 2;
+  }
+
+  .scorer-chart-note {
+    text-align: left;
   }
 
   .scorer-row {
@@ -1381,12 +1521,13 @@ button.pyr-vardy { padding: 0; border: 0; background: none; color: inherit; font
       "rank identity goals"
       ". bar bar";
     gap: 8px 10px;
-    padding: 10px;
+    padding: 9px;
   }
 
   .scorer-rank {
-    width: 30px;
-    height: 30px;
+    width: 32px;
+    height: 32px;
+    font-size: 15px;
   }
 
   .scorer-player {
@@ -1398,12 +1539,18 @@ button.pyr-vardy { padding: 0; border: 0; background: none; color: inherit; font
   }
 
   .scorer-bar-track {
-    height: 18px;
+    height: 20px;
   }
 
   .player-fixture {
     grid-template-columns: 1fr;
     gap: 4px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scorer-row {
+    transition: none;
   }
 }
 .methodology {
