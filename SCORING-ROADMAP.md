@@ -10,7 +10,7 @@ feature that is implemented and validated, not just designed.
 
 ### 1. Six-season top-scorer chart
 
-- [x] Complete
+- [ ] Complete
 
 **Goal:** Explore the Golden Boot race this season and the previous five seasons.
 
@@ -90,39 +90,46 @@ ones and handle transfers explicitly.
 **Done when:** Tiles reconcile with fixture data and the legend, keyboard access
 and mobile layout make the pattern understandable.
 
-### 5. Club all-time PL scoring ladder
+### 5. Club available-season PL scoring ladder (2021/22–2026/27)
 
 - [ ] Complete
 
-**Goal:** Show a player's place among their club's Premier League scoring legends.
+**Goal:** Show a player's place among their club's scorers in the available
+2021/22–2026/27 exports.
 
 **Visual:** Ranked bars with the selected player highlighted, plus the next
 player they can overtake and the goals needed.
 
-**Scope:** Count only PL goals scored for that club, including separate spells.
-Keep this distinct from the single-season record chase.
+**Scope:** Count only exported PL goals scored for that club across available
+2021/22–2026/27 seasons, including separate spells within that coverage.
+Label the date range and provisional current-season status explicitly; these
+are not career or all-time totals. Keep this distinct from the single-season
+record chase. Approved scope change; implementation remains pending.
 
-**Data dependency:** Verified full-history player-by-club PL totals.
+**Data dependency:** Reconciled available 2021/22–2026/27 fixture scorer exports.
 
 **Done when:** Ties, multiple spells and milestones are correct, and historical
 totals are not presented as current squad membership.
 
-### 6. Premier League all-time scoring ladder
+### 6. Premier League available-season scoring ladder (2021/22–2026/27)
 
 - [ ] Complete
 
-**Goal:** Compare a player with the league's all-time scorers.
+**Goal:** Compare a player with league scorers across available 2021/22–2026/27
+seasons.
 
-**Visual:** Career-goal leaderboard with the selected player highlighted and
+**Visual:** Available-season goal leaderboard with the selected player highlighted and
 milestone markers.
 
-**Scope:** Combine PL goals across clubs. Distinguish career totals from this
-season's contribution and show the next reachable milestone.
+**Scope:** Combine exported PL goals across clubs in available 2021/22–2026/27
+seasons only. Distinguish this range's totals from this season's provisional
+contribution and show the next reachable milestone. Never claim career or
+all-time coverage. Approved scope change; implementation remains pending.
 
-**Data dependency:** Verified PL career totals covering the full competition history.
+**Data dependency:** Reconciled available 2021/22–2026/27 fixture scorer exports.
 
 **Done when:** Totals have a clear source and as-of date, ties are correct, and
-updates do not double-count goals already included in the historical baseline.
+updates do not double-count goals already included in the available-season baseline.
 
 ### 7. Goals versus consistency
 
@@ -196,8 +203,8 @@ changes, and quiet periods have an honest empty state.
   Verify coverage and reconciliation before using them for each new feature.
 - The archive starts in January 2020. Do not label archive-only totals as PL
   all-time records, and do not treat a partially covered season as complete.
-- Source full-history club records and career totals separately, recording
-  provenance, coverage and an as-of date.
+- Items 3, 5 and 6 use the explicitly available 2021/22–2026/27 export range,
+  recording provenance, coverage and an as-of date, never all-time/career claims.
 - Preserve stable player and club identity across seasons and transfers.
 - Keep live races on the homepage and deeper comparisons on club/player views.
 - Provide mobile-friendly visuals, keyboard access and readable text equivalents.
@@ -214,7 +221,10 @@ changes, and quiet periods have an honest empty state.
 
 ## Delivery notes
 
-Add dated implementation notes and any remaining limitations here as items ship.
+The notes below capture independent branch validation before integration, not
+the current release state. The final release entry supersedes their pending
+publication/blocker statements. Items 5/6 remain unimplemented and unchecked
+under the approved available 2021/22–2026/27 scope; they do not block this release.
 
 - 2026-10-31 — Item 1 implementation: six-season ranked scorer chart with tie-safe
   top-50 cutoffs, transfer club segments, season status labels and keyboard-
@@ -336,3 +346,35 @@ not treated as no-goal fixtures; the empty state is explicitly limited to
 available data. Local feature checks are recorded in the implementation
 session, but the checkbox remains open pending global validation, integration,
 and publication.
+
+### 2026-10-31 — Integrated release validation
+
+- Integrated items 1/2/3/4/7/8/9/10 in order on
+  `release/integrated-scoring-20261031`, preserving their independent branches.
+  Revised item 3 compares observed club records from five completed seasons
+  2021/22–2025/26 with provisional 2026/27 goals through the latest completed
+  fixture, 25 October 2026. No full-history record claims.
+- Fixed the original favourites timeout: the shared `.club-picker` class's first
+  element was Favourites, not Your club. The regression now selects the club
+  directory by its contained list; no timeout increases or waived assertions.
+  Its original narrowed command passed (1 test, 3.938s).
+- Preserved scorer modals and added their link to full season details, pace,
+  fingerprints and opponent filters. Repaired automatic test merging that placed
+  consistency browser tests in a non-browser class; preserved all assertions,
+  updating expected synthetic totals and precise button names for the combined UI.
+- Real-data checks found distinct export identities: weekly-mover cards now open
+  the homepage's same-export player/streak modal rather than sending hashed keys
+  to BBC-URN season pages. No name-based identity matching. Reliance leader names
+  resolve from same-export club scorer metadata because fixture rows lack names.
+  Both fixes have red-to-green regression seams.
+- Required final `python -m unittest discover -s tests`: **40 passed in 103.985s**
+  in Microsoft Edge. This includes original favourites, ties/transfers/statuses,
+  all-six-season fixture/scorer/consistency/pace reconciliation, accessible text,
+  mobile and keyboard checks, combined independent selectors, modal-to-season
+  links, pace checkboxes, fingerprint focus, opponent filters, and real mover links.
+- Additional real-data checks passed at 1280/390/320px on homepage, scorers and
+  clubs, with no page errors or document overflow. All 20 clubs' observed record
+  holders/current goals and reliance names/numerators/score denominators reconciled.
+- Items 5/6 remain unchecked and unimplemented under the approved available
+  2021/22–2026/27 scope. Publication and its live-site verification remain the
+  last gate before checking off the eight integrated items.
