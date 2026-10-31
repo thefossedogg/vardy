@@ -49,19 +49,28 @@ explained, and lines remain readable without relying on colour alone.
 
 - [ ] Complete
 
-**Goal:** Show how close a current scorer is to their club's best-ever individual
-Premier League season.
+**Goal:** Show how close a current scorer is to the best individual club season
+observed in the available scorer export.
 
 **Visual:** Progress bar or chase card showing the current total, record holder,
 record season and goals needed to equal or beat the record.
 
-**Scope:** Count only goals scored for the selected club. Label this explicitly
-as a Premier League single-season record, not an all-competitions record.
+**Scope:** Count completed-fixture goals only, separately for each player and
+club. Compare the in-progress season's provisional totals against completed
+seasons available in the scorer export. Show joint observed-range holders and
+the exact exported coverage/current as-of date. Do not describe this limited
+comparison as all-time, best-ever or a career record.
 
-**Data dependency:** Verified historical club records covering the full PL era.
+**Data dependency:** The current six-season scorer export (five completed
+seasons plus the current season); derive the observed baseline from its
+fixture-level credited goals. The export currently spans 2021/22–2026/27, not
+the full Premier League era.
 
-**Done when:** Record provenance is available, joint record holders are supported,
-and equalling or exceeding the record produces accurate wording.
+**Done when:** Export coverage and current-season as-of status are explicit,
+joint observed-range holders are supported, and equalling or exceeding the
+observed best produces accurate wording. Mobile, keyboard and readable text
+checks pass. The completion checkbox stays unchecked until the local change is
+published and integrated.
 
 ### 4. Player season scoring fingerprint
 
@@ -238,3 +247,9 @@ Add dated implementation notes and any remaining limitations here as items ship.
   (7 tests, 21.917s); `git diff --check` also passes. No baseline-item dependency:
   item 2 uses only the dataset/player views already on committed main.
   No pushes or deployment attempts while the global gate remains unresolved.
+- 2026-10-31 — Item 3 implementation is local on
+  `feat/club-season-record-chase-export` and pending publication/integration.
+  It compares each current club scorer's completed-fixture goals with the best
+  completed seasons in the available export only; the season labels and latest
+  completed-fixture date are shown. It is not a full Premier League-history
+  record. Item 3 remains unchecked until publication and integration.
