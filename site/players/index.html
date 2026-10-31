@@ -32,7 +32,7 @@
         </div>
         <p id="player-status" role="status" aria-live="polite">Loading player details…</p>
         <p id="player-summary" class="player-summary"></p>
-        <p class="player-data-note">The archive does not include player appearances. Fixtures with no credited goals do not show whether the player played.</p>
+        <p id="player-data-note" class="player-data-note">The archive does not include player appearances. Fixtures with no credited goals do not show whether the player played.</p>
         <section id="pace-panel" hidden aria-labelledby="pace-title">
           <h2 id="pace-title" class="player-fixtures-title">Golden Boot pace</h2>
           <p id="pace-status" role="status" aria-live="polite">Loading comparison…</p>
@@ -49,6 +49,46 @@
             The data-updated time above is generation time, not a fresh source fetch.</p>
         </section>
         <div id="player-fingerprints"></div>
+        <section class="opponents-panel" aria-labelledby="opponents-title">
+          <div class="table-heading">
+            <div>
+              <p class="eyebrow">GOALS BY OPPONENT</p>
+              <h2 id="opponents-title">Favourite opponents</h2>
+            </div>
+          </div>
+          <p id="opponents-coverage" class="player-data-note"></p>
+          <form id="opponents-filters" class="opponents-filters">
+            <label>From <input id="opponents-start" name="start" type="date"></label>
+            <label>To <input id="opponents-end" name="end" type="date"></label>
+            <label>Measure
+              <select id="opponents-mode" name="mode">
+                <option value="goals">Goals</option>
+                <option value="matches">Scoring matches</option>
+              </select>
+            </label>
+            <label>Player's club
+              <select id="opponents-venue" name="venue">
+                <option value="all">Home and away</option>
+                <option value="home">Home</option>
+                <option value="away">Away</option>
+              </select>
+            </label>
+          </form>
+          <p id="opponents-status" role="status" aria-live="polite"></p>
+          <div class="opponents-table-wrap">
+            <table class="opponents-table">
+              <caption id="opponents-caption"></caption>
+              <thead>
+                <tr>
+                  <th scope="col">Opponent</th>
+                  <th scope="col" id="opponents-value-heading">Goals</th>
+                  <th scope="col">Club meetings</th>
+                </tr>
+              </thead>
+              <tbody id="opponents-list"></tbody>
+            </table>
+          </div>
+        </section>
         <h2 class="player-fixtures-title">Season fixtures</h2>
         <ol id="player-fixtures" class="player-fixtures"></ol>
         <noscript>Enable JavaScript to view player scoring details.</noscript>

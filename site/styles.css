@@ -1560,6 +1560,89 @@ button.pyr-vardy { padding: 0; border: 0; background: none; color: inherit; font
   outline-offset: 2px;
 }
 
+.opponents-panel {
+  margin: 30px 0;
+  padding: 18px;
+  border: 3px solid var(--ink);
+  background: #fffdf6;
+}
+
+.opponents-panel h2 {
+  margin: 0;
+  font-size: 26px;
+}
+
+.opponents-filters {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.opponents-filters label {
+  display: grid;
+  gap: 5px;
+  font-weight: 800;
+}
+
+.opponents-filters input,
+.opponents-filters select {
+  width: 100%;
+  min-height: 42px;
+  padding: 7px;
+  border: 2px solid var(--ink);
+  border-radius: 4px;
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+}
+
+.opponents-filters :focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 3px;
+}
+
+.opponents-table-wrap {
+  overflow-x: auto;
+}
+
+.opponents-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.opponents-table caption {
+  padding: 8px 0;
+  text-align: left;
+}
+
+.opponents-table th,
+.opponents-table td {
+  padding: 10px;
+  border-bottom: 1px solid #c8c8c8;
+}
+
+.opponents-heat {
+  min-width: 180px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 183, 3, calc(0.12 + var(--heat) * 0.48)),
+    transparent
+  );
+}
+
+.opponents-heat strong,
+.opponents-heat span {
+  display: block;
+}
+
+.opponents-heat span {
+  margin-top: 3px;
+  color: #343a40;
+  font-size: 12px;
+}
+
 .player-data-note,
 .pace-data-note {
   color: #4b5563;
@@ -1764,6 +1847,18 @@ button.pyr-vardy { padding: 0; border: 0; background: none; color: inherit; font
 
   .scorer-dialog-games {
     max-height: 52vh;
+  }
+
+  .opponents-panel {
+    padding: 14px 10px;
+  }
+
+  .opponents-filters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .opponents-table {
+    min-width: 380px;
   }
 }
 
