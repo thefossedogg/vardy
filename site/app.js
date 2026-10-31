@@ -915,6 +915,7 @@ function renderClubPage(data, slug = new URL(document.baseURI).searchParams.get(
 
   detail.hidden = false;
   title.textContent = club.clubName;
+  globalThis.loadClubRecordChase?.(club.clubName);
   bindFavouriteButton(document.querySelector("#team-favourite"), {
     type: "team", key: club.clubKey, name: club.clubName,
   });
