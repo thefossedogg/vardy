@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.google-analytics.com; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com; object-src 'none'; base-uri 'self'; form-action 'self'">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#11251e">
+    <meta name="description" content="Explore Premier League top scorers across the current season and previous five seasons.">
+    <title>Premier League top scorers | Vardy Watch</title>
+    <link rel="canonical" href="https://vardywatch.com/scorers/">
+    <link rel="stylesheet" href="../styles.css">
+    <script src="/analytics.js" defer></script>
+    <script src="scorers.js" defer></script>
+  </head>
+  <body>
+    <header class="masthead" aria-label="Vardy Watch">
+      <a class="wordmark" href="../">Vardy Watch</a>
+    </header>
+    <main>
+      <nav class="primary-nav" aria-label="Primary">
+        <a href="../">Homepage</a>
+        <a href="../clubs/">Clubs</a>
+        <a href="./" aria-current="page">Scorers</a>
+      </nav>
+      <section class="scorers-dashboard" aria-labelledby="scorers-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">PREMIER LEAGUE</p>
+            <h1 id="scorers-title">Top scorers</h1>
+          </div>
+          <time class="updated" id="scorers-updated">Loading latest data…</time>
+        </div>
+        <div class="scorers-controls">
+          <label for="scorer-season">Season</label>
+          <select id="scorer-season" disabled></select>
+          <span id="scorer-season-status" class="season-status"></span>
+        </div>
+        <p id="scorers-status" role="status" aria-live="polite">Loading scorer data…</p>
+        <ol id="scorer-list" class="scorer-list" aria-label="Top scorers by goals"></ol>
+        <noscript>Enable JavaScript to view the scorer chart.</noscript>
+      </section>
+    </main>
+    <footer><span>VARDY WATCH</span></footer>
+  </body>
+</html>

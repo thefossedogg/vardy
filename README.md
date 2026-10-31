@@ -17,3 +17,8 @@ is blocked, a warning explains that changes may be lost.
 Run the browser regression tests with `python -m unittest discover -s tests`.
 They require Python's `playwright` package and Microsoft Edge. Set
 `BROWSER_CHANNEL` to another installed Playwright browser channel if needed.
+
+Regenerate the six-season scorer data from the monthly BBC exports with
+`python scripts/generate_scoring_data.py --source-dir <monthly-export-directory>`.
+The generator checks scorer totals against the published fixture data before
+writing `site/data/scoring-seasons.json`.
