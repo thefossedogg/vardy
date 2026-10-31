@@ -228,10 +228,13 @@ class FavouritesTests(unittest.TestCase):
         })
         fixture = self.data["fixtures"][0]
         fixture["score"] = [3, 1]
+        self.data["clubs"][0]["scorers"].append({
+            "playerKey": "player-zoe", "playerName": "Zoe Goal", "goals": 1,
+        })
         fixture["scorers"] = [
-            {"playerKey": "player-ada", "playerName": "Ada Goal",
+            {"playerKey": "player-ada",
              "clubKey": "team-alpha", "goals": 1},
-            {"playerKey": "player-zoe", "playerName": "Zoe Goal",
+            {"playerKey": "player-zoe",
              "clubKey": "team-alpha", "goals": 1},
         ]
         self.data["fixtures"].append({
