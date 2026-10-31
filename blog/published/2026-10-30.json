@@ -1,0 +1,1145 @@
+{
+  "schemaVersion": 1,
+  "edition": "2026-10-30",
+  "draftedAt": "2026-10-29T06:03:49.532459+00:00",
+  "evidenceFingerprint": "e7e098e8425a6f27cbbb87784ac15a0bf412cd81466c3c3e05403f7a09b22211",
+  "evidence": {
+    "edition": "2026-10-30",
+    "competition": "Premier League",
+    "season": "2026/27",
+    "coverageStart": "2026-10-30T09:00:00+00:00",
+    "coverageEndExclusive": "2026-11-04T00:00:00+00:00",
+    "timezone": "Europe/London",
+    "sourceFetchedAt": "2026-10-29T06:03:12.552997Z",
+    "voiceSha256": "56e84534ed0338008b20dcdee077a3afad5cdebc506f5416d0837576c7076de8",
+    "benchmark": {
+      "playerName": "Jamie Vardy",
+      "matches": 11,
+      "season": "2015/16"
+    },
+    "players": [
+      {
+        "playerName": "E. Haaland",
+        "clubName": "Manchester City",
+        "matches": 7,
+        "lastScoringDate": "2026-10-24T11:30:00Z",
+        "seasonGoals": 9,
+        "streakGoals": 9,
+        "seasonGames": [
+          {
+            "fixtureDate": "2026-08-23T13:00:00Z",
+            "status": "completed",
+            "opponent": {
+              "name": "Bournemouth"
+            },
+            "venue": "home",
+            "score": [
+              2,
+              1
+            ],
+            "goals": 0
+          },
+          {
+            "fixtureDate": "2026-08-28T19:00:00Z",
+            "status": "completed",
+            "opponent": {
+              "name": "Crystal Palace"
+            },
+            "venue": "away",
+            "score": [
+              1,
+              4
+            ],
+            "goals": 2
+          },
+          {
+            "fixtureDate": "2026-09-05T14:00:00Z",
+            "status": "completed",
+            "opponent": {
+              "name": "Coventry City"
+            },
+            "venue": "home",
+            "score": [
+              1,
+              0
+            ],
+            "goals": 1
+          },
+          {
+            "fixtureDate": "2026-09-13T15:30:00Z",
+            "status": "completed",
+            "opponent": {
+              "name": "Manchester United"
+            },
+            "venue": "away",
+            "score": [
+              0,
+              1
+            ],
+            "goals": 1
+          },
+          {
+            "fixtureDate": "2026-09-20T13:00:00Z",
+            "status": "completed",
+            "opponent": {
+              "name": "Sunderland"
+            },
+            "venue": "home",
+            "score": [
+              5,
+              3
+            ],
+            "goals": 1
+          },
+          {
+            "fixtureDate": "2026-10-11T15:30:00Z",
+            "status": "completed",
+            "opponent": {
+              "name": "Liverpool"
+            },
+            "venue": "away",
+            "score": [
+              0,
+              3
+            ],
+            "goals": 1
+          },
+          {
+            "fixtureDate": "2026-10-17T14:00:00Z",
+            "status": "completed",
+            "opponent": {
+              "name": "Ipswich Town"
+            },
+            "venue": "home",
+            "score": [
+              3,
+              2
+            ],
+            "goals": 2
+          },
+          {
+            "fixtureDate": "2026-10-24T11:30:00Z",
+            "status": "completed",
+            "opponent": {
+              "name": "Aston Villa"
+            },
+            "venue": "away",
+            "score": [
+              2,
+              1
+            ],
+            "goals": 1
+          }
+        ],
+        "scoringGames": [
+          {
+            "fixtureDate": "2026-08-28T19:00:00Z",
+            "status": "completed",
+            "opponent": {
+              "name": "Crystal Palace"
+            },
+            "venue": "away",
+            "score": [
+              1,
+              4
+            ],
+            "goals": 2
+          },
+          {
+            "fixtureDate": "2026-09-05T14:00:00Z",
+            "status": "completed",
+            "opponent": {
+              "name": "Coventry City"
+            },
+            "venue": "home",
+            "score": [
+              1,
+              0
+            ],
+            "goals": 1
+          },
+          {
+            "fixtureDate": "2026-09-13T15:30:00Z",
+            "status": "completed",
+            "opponent": {
+              "name": "Manchester United"
+            },
+            "venue": "away",
+            "score": [
+              0,
+              1
+            ],
+            "goals": 1
+          },
+          {
+            "fixtureDate": "2026-09-20T13:00:00Z",
+            "status": "completed",
+            "opponent": {
+              "name": "Sunderland"
+            },
+            "venue": "home",
+            "score": [
+              5,
+              3
+            ],
+            "goals": 1
+          },
+          {
+            "fixtureDate": "2026-10-11T15:30:00Z",
+            "status": "completed",
+            "opponent": {
+              "name": "Liverpool"
+            },
+            "venue": "away",
+            "score": [
+              0,
+              3
+            ],
+            "goals": 1
+          },
+          {
+            "fixtureDate": "2026-10-17T14:00:00Z",
+            "status": "completed",
+            "opponent": {
+              "name": "Ipswich Town"
+            },
+            "venue": "home",
+            "score": [
+              3,
+              2
+            ],
+            "goals": 2
+          },
+          {
+            "fixtureDate": "2026-10-24T11:30:00Z",
+            "status": "completed",
+            "opponent": {
+              "name": "Aston Villa"
+            },
+            "venue": "away",
+            "score": [
+              2,
+              1
+            ],
+            "goals": 1
+          }
+        ],
+        "fixtures": [
+          {
+            "fixtureDate": "2026-10-31T15:00:00Z",
+            "opponent": "Brighton & Hove Albion",
+            "venue": "home",
+            "conditionalMatches": 8
+          }
+        ],
+        "recordPath": {
+          "targetMatches": 12,
+          "fixturesNeeded": 5,
+          "complete": true,
+          "fixtures": [
+            {
+              "fixtureDate": "2026-10-31T15:00:00Z",
+              "opponent": "Brighton & Hove Albion",
+              "venue": "home",
+              "conditionalMatches": 8
+            },
+            {
+              "fixtureDate": "2026-11-07T17:30:00Z",
+              "opponent": "Nottingham Forest",
+              "venue": "away",
+              "conditionalMatches": 9
+            },
+            {
+              "fixtureDate": "2026-11-21T12:30:00Z",
+              "opponent": "Fulham",
+              "venue": "home",
+              "conditionalMatches": 10
+            },
+            {
+              "fixtureDate": "2026-11-29T16:30:00Z",
+              "opponent": "Arsenal",
+              "venue": "away",
+              "conditionalMatches": 11
+            },
+            {
+              "fixtureDate": "2026-12-02T19:30:00Z",
+              "opponent": "Leeds United",
+              "venue": "home",
+              "conditionalMatches": 12
+            }
+          ]
+        }
+      },
+      {
+        "playerName": "Evanilson",
+        "clubName": "Bournemouth",
+        "matches": 3,
+        "lastScoringDate": "2026-10-25T14:00:00Z",
+        "seasonGoals": 3,
+        "streakGoals": 3,
+        "seasonGames": [
+          {
+            "fixtureDate": "2026-08-23T13:00:00Z",
+            "status": "completed",
+            "opponent": {
+              "name": "Manchester City"
+            },
+            "venue": "away",
+            "score": [
+              2,
+              1
+            ],
+            "goals": 0
+          },
+          {
+            "fixtureDate": "2026-08-29T14:00:00Z",
+            "status": "completed",
+            "opponent": {
+              "name": "Everton"
+            },
+            "venue": "home",
+            "score": [
+              1,
+              1
+            ],
+            "goals": 0
+          },
+          {
+            "fixtureDate": "2026-09-05T11:30:00Z",
+            "status": "completed",
+            "opponent": {
+              "name": "Newcastle United"
+            },
+            "venue": "away",
+            "score": [
+              2,
+              2
+            ],
+            "goals": 0
+          },
+          {
+            "fixtureDate": "2026-09-12T14:00:00Z",
+            "status": "completed",
+            "opponent": {
+              "name": "Brentford"
+            },
+            "venue": "home",
+            "score": [
+              2,
+              2
+            ],
+            "goals": 0
+          },
+          {
+            "fixtureDate": "2026-09-20T13:00:00Z",
+            "status": "completed",
+            "opponent": {
+              "name": "Liverpool"
+            },
+            "venue": "home",
+            "score": [
+              0,
+              1
+            ],
+            "goals": 0
+          },
+          {
+            "fixtureDate": "2026-10-10T14:00:00Z",
+            "status": "completed",
+            "opponent": {
+              "name": "Chelsea"
+            },
+            "venue": "away",
+            "score": [
+              5,
+              1
+            ],
+            "goals": 1
+          },
+          {
+            "fixtureDate": "2026-10-18T13:00:00Z",
+            "status": "completed",
+            "opponent": {
+              "name": "Sunderland"
+            },
+            "venue": "home",
+            "score": [
+              2,
+              0
+            ],
+            "goals": 1
+          },
+          {
+            "fixtureDate": "2026-10-25T14:00:00Z",
+            "status": "completed",
+            "opponent": {
+              "name": "Manchester United"
+            },
+            "venue": "away",
+            "score": [
+              0,
+              3
+            ],
+            "goals": 1
+          }
+        ],
+        "scoringGames": [
+          {
+            "fixtureDate": "2026-10-10T14:00:00Z",
+            "status": "completed",
+            "opponent": {
+              "name": "Chelsea"
+            },
+            "venue": "away",
+            "score": [
+              5,
+              1
+            ],
+            "goals": 1
+          },
+          {
+            "fixtureDate": "2026-10-18T13:00:00Z",
+            "status": "completed",
+            "opponent": {
+              "name": "Sunderland"
+            },
+            "venue": "home",
+            "score": [
+              2,
+              0
+            ],
+            "goals": 1
+          },
+          {
+            "fixtureDate": "2026-10-25T14:00:00Z",
+            "status": "completed",
+            "opponent": {
+              "name": "Manchester United"
+            },
+            "venue": "away",
+            "score": [
+              0,
+              3
+            ],
+            "goals": 1
+          }
+        ],
+        "fixtures": [
+          {
+            "fixtureDate": "2026-10-31T15:00:00Z",
+            "opponent": "Leeds United",
+            "venue": "home",
+            "conditionalMatches": 4
+          }
+        ],
+        "recordPath": {
+          "targetMatches": 12,
+          "fixturesNeeded": 9,
+          "complete": true,
+          "fixtures": [
+            {
+              "fixtureDate": "2026-10-31T15:00:00Z",
+              "opponent": "Leeds United",
+              "venue": "home",
+              "conditionalMatches": 4
+            },
+            {
+              "fixtureDate": "2026-11-08T14:00:00Z",
+              "opponent": "Ipswich Town",
+              "venue": "away",
+              "conditionalMatches": 5
+            },
+            {
+              "fixtureDate": "2026-11-21T15:00:00Z",
+              "opponent": "Nottingham Forest",
+              "venue": "home",
+              "conditionalMatches": 6
+            },
+            {
+              "fixtureDate": "2026-11-29T14:05:00Z",
+              "opponent": "Fulham",
+              "venue": "away",
+              "conditionalMatches": 7
+            },
+            {
+              "fixtureDate": "2026-12-02T20:15:00Z",
+              "opponent": "Brighton & Hove Albion",
+              "venue": "home",
+              "conditionalMatches": 8
+            },
+            {
+              "fixtureDate": "2026-12-05T15:00:00Z",
+              "opponent": "Hull City",
+              "venue": "home",
+              "conditionalMatches": 9
+            },
+            {
+              "fixtureDate": "2026-12-13T14:00:00Z",
+              "opponent": "Arsenal",
+              "venue": "away",
+              "conditionalMatches": 10
+            },
+            {
+              "fixtureDate": "2026-12-19T15:00:00Z",
+              "opponent": "Coventry City",
+              "venue": "home",
+              "conditionalMatches": 11
+            },
+            {
+              "fixtureDate": "2026-12-26T15:00:00Z",
+              "opponent": "Tottenham Hotspur",
+              "venue": "away",
+              "conditionalMatches": 12
+            }
+          ]
+        }
+      },
+      {
+        "playerName": "A. Isak",
+        "clubName": "Liverpool",
+        "matches": 2,
+        "lastScoringDate": "2026-10-25T14:00:00Z",
+        "seasonGoals": 6,
+        "streakGoals": 2,
+        "seasonGames": [
+          {
+            "fixtureDate": "2026-08-23T15:30:00Z",
+            "status": "completed",
+            "opponent": {
+              "name": "Newcastle United"
+            },
+            "venue": "away",
+            "score": [
+              2,
+              2
+            ],
+            "goals": 0
+          },
+          {
+            "fixtureDate": "2026-08-29T11:30:00Z",
+            "status": "completed",
+            "opponent": {
+              "name": "Nottingham Forest"
+            },
+            "venue": "home",
+            "score": [
+              2,
+              2
+            ],
+            "goals": 1
+          },
+          {
+            "fixtureDate": "2026-09-04T19:00:00Z",
+            "status": "completed",
+            "opponent": {
+              "name": "Ipswich Town"
+            },
+            "venue": "away",
+            "score": [
+              0,
+              2
+            ],
+            "goals": 2
+          },
+          {
+            "fixtureDate": "2026-09-12T14:00:00Z",
+            "status": "completed",
+            "opponent": {
+              "name": "Fulham"
+            },
+            "venue": "home",
+            "score": [
+              0,
+              0
+            ],
+            "goals": 0
+          },
+          {
+            "fixtureDate": "2026-09-20T13:00:00Z",
+            "status": "completed",
+            "opponent": {
+              "name": "Bournemouth"
+            },
+            "venue": "away",
+            "score": [
+              0,
+              1
+            ],
+            "goals": 1
+          },
+          {
+            "fixtureDate": "2026-10-11T15:30:00Z",
+            "status": "completed",
+            "opponent": {
+              "name": "Manchester City"
+            },
+            "venue": "home",
+            "score": [
+              0,
+              3
+            ],
+            "goals": 0
+          },
+          {
+            "fixtureDate": "2026-10-17T14:00:00Z",
+            "status": "completed",
+            "opponent": {
+              "name": "Brentford"
+            },
+            "venue": "away",
+            "score": [
+              1,
+              2
+            ],
+            "goals": 1
+          },
+          {
+            "fixtureDate": "2026-10-25T14:00:00Z",
+            "status": "completed",
+            "opponent": {
+              "name": "Brighton & Hove Albion"
+            },
+            "venue": "home",
+            "score": [
+              2,
+              0
+            ],
+            "goals": 1
+          }
+        ],
+        "scoringGames": [
+          {
+            "fixtureDate": "2026-10-17T14:00:00Z",
+            "status": "completed",
+            "opponent": {
+              "name": "Brentford"
+            },
+            "venue": "away",
+            "score": [
+              1,
+              2
+            ],
+            "goals": 1
+          },
+          {
+            "fixtureDate": "2026-10-25T14:00:00Z",
+            "status": "completed",
+            "opponent": {
+              "name": "Brighton & Hove Albion"
+            },
+            "venue": "home",
+            "score": [
+              2,
+              0
+            ],
+            "goals": 1
+          }
+        ],
+        "fixtures": [
+          {
+            "fixtureDate": "2026-11-01T16:30:00Z",
+            "opponent": "Arsenal",
+            "venue": "home",
+            "conditionalMatches": 3
+          }
+        ],
+        "recordPath": {
+          "targetMatches": 12,
+          "fixturesNeeded": 10,
+          "complete": true,
+          "fixtures": [
+            {
+              "fixtureDate": "2026-11-01T16:30:00Z",
+              "opponent": "Arsenal",
+              "venue": "home",
+              "conditionalMatches": 3
+            },
+            {
+              "fixtureDate": "2026-11-08T14:00:00Z",
+              "opponent": "Crystal Palace",
+              "venue": "away",
+              "conditionalMatches": 4
+            },
+            {
+              "fixtureDate": "2026-11-22T16:30:00Z",
+              "opponent": "Manchester United",
+              "venue": "home",
+              "conditionalMatches": 5
+            },
+            {
+              "fixtureDate": "2026-11-29T12:00:00Z",
+              "opponent": "Everton",
+              "venue": "away",
+              "conditionalMatches": 6
+            },
+            {
+              "fixtureDate": "2026-12-02T19:30:00Z",
+              "opponent": "Sunderland",
+              "venue": "home",
+              "conditionalMatches": 7
+            },
+            {
+              "fixtureDate": "2026-12-05T12:30:00Z",
+              "opponent": "Chelsea",
+              "venue": "away",
+              "conditionalMatches": 8
+            },
+            {
+              "fixtureDate": "2026-12-12T15:00:00Z",
+              "opponent": "Leeds United",
+              "venue": "home",
+              "conditionalMatches": 9
+            },
+            {
+              "fixtureDate": "2026-12-19T17:30:00Z",
+              "opponent": "Tottenham Hotspur",
+              "venue": "home",
+              "conditionalMatches": 10
+            },
+            {
+              "fixtureDate": "2026-12-26T17:30:00Z",
+              "opponent": "Hull City",
+              "venue": "away",
+              "conditionalMatches": 11
+            },
+            {
+              "fixtureDate": "2026-12-30T20:15:00Z",
+              "opponent": "Aston Villa",
+              "venue": "away",
+              "conditionalMatches": 12
+            }
+          ]
+        }
+      },
+      {
+        "playerName": "M. Tavernier",
+        "clubName": "Bournemouth",
+        "matches": 2,
+        "lastScoringDate": "2026-10-25T14:00:00Z",
+        "seasonGoals": 5,
+        "streakGoals": 2,
+        "seasonGames": [
+          {
+            "fixtureDate": "2026-08-23T13:00:00Z",
+            "status": "completed",
+            "opponent": {
+              "name": "Manchester City"
+            },
+            "venue": "away",
+            "score": [
+              2,
+              1
+            ],
+            "goals": 1
+          },
+          {
+            "fixtureDate": "2026-08-29T14:00:00Z",
+            "status": "completed",
+            "opponent": {
+              "name": "Everton"
+            },
+            "venue": "home",
+            "score": [
+              1,
+              1
+            ],
+            "goals": 0
+          },
+          {
+            "fixtureDate": "2026-09-05T11:30:00Z",
+            "status": "completed",
+            "opponent": {
+              "name": "Newcastle United"
+            },
+            "venue": "away",
+            "score": [
+              2,
+              2
+            ],
+            "goals": 1
+          },
+          {
+            "fixtureDate": "2026-09-12T14:00:00Z",
+            "status": "completed",
+            "opponent": {
+              "name": "Brentford"
+            },
+            "venue": "home",
+            "score": [
+              2,
+              2
+            ],
+            "goals": 1
+          },
+          {
+            "fixtureDate": "2026-09-20T13:00:00Z",
+            "status": "completed",
+            "opponent": {
+              "name": "Liverpool"
+            },
+            "venue": "home",
+            "score": [
+              0,
+              1
+            ],
+            "goals": 0
+          },
+          {
+            "fixtureDate": "2026-10-10T14:00:00Z",
+            "status": "completed",
+            "opponent": {
+              "name": "Chelsea"
+            },
+            "venue": "away",
+            "score": [
+              5,
+              1
+            ],
+            "goals": 0
+          },
+          {
+            "fixtureDate": "2026-10-18T13:00:00Z",
+            "status": "completed",
+            "opponent": {
+              "name": "Sunderland"
+            },
+            "venue": "home",
+            "score": [
+              2,
+              0
+            ],
+            "goals": 1
+          },
+          {
+            "fixtureDate": "2026-10-25T14:00:00Z",
+            "status": "completed",
+            "opponent": {
+              "name": "Manchester United"
+            },
+            "venue": "away",
+            "score": [
+              0,
+              3
+            ],
+            "goals": 1
+          }
+        ],
+        "scoringGames": [
+          {
+            "fixtureDate": "2026-10-18T13:00:00Z",
+            "status": "completed",
+            "opponent": {
+              "name": "Sunderland"
+            },
+            "venue": "home",
+            "score": [
+              2,
+              0
+            ],
+            "goals": 1
+          },
+          {
+            "fixtureDate": "2026-10-25T14:00:00Z",
+            "status": "completed",
+            "opponent": {
+              "name": "Manchester United"
+            },
+            "venue": "away",
+            "score": [
+              0,
+              3
+            ],
+            "goals": 1
+          }
+        ],
+        "fixtures": [
+          {
+            "fixtureDate": "2026-10-31T15:00:00Z",
+            "opponent": "Leeds United",
+            "venue": "home",
+            "conditionalMatches": 3
+          }
+        ],
+        "recordPath": {
+          "targetMatches": 12,
+          "fixturesNeeded": 10,
+          "complete": true,
+          "fixtures": [
+            {
+              "fixtureDate": "2026-10-31T15:00:00Z",
+              "opponent": "Leeds United",
+              "venue": "home",
+              "conditionalMatches": 3
+            },
+            {
+              "fixtureDate": "2026-11-08T14:00:00Z",
+              "opponent": "Ipswich Town",
+              "venue": "away",
+              "conditionalMatches": 4
+            },
+            {
+              "fixtureDate": "2026-11-21T15:00:00Z",
+              "opponent": "Nottingham Forest",
+              "venue": "home",
+              "conditionalMatches": 5
+            },
+            {
+              "fixtureDate": "2026-11-29T14:05:00Z",
+              "opponent": "Fulham",
+              "venue": "away",
+              "conditionalMatches": 6
+            },
+            {
+              "fixtureDate": "2026-12-02T20:15:00Z",
+              "opponent": "Brighton & Hove Albion",
+              "venue": "home",
+              "conditionalMatches": 7
+            },
+            {
+              "fixtureDate": "2026-12-05T15:00:00Z",
+              "opponent": "Hull City",
+              "venue": "home",
+              "conditionalMatches": 8
+            },
+            {
+              "fixtureDate": "2026-12-13T14:00:00Z",
+              "opponent": "Arsenal",
+              "venue": "away",
+              "conditionalMatches": 9
+            },
+            {
+              "fixtureDate": "2026-12-19T15:00:00Z",
+              "opponent": "Coventry City",
+              "venue": "home",
+              "conditionalMatches": 10
+            },
+            {
+              "fixtureDate": "2026-12-26T15:00:00Z",
+              "opponent": "Tottenham Hotspur",
+              "venue": "away",
+              "conditionalMatches": 11
+            },
+            {
+              "fixtureDate": "2026-12-30T19:30:00Z",
+              "opponent": "Crystal Palace",
+              "venue": "away",
+              "conditionalMatches": 12
+            }
+          ]
+        }
+      }
+    ],
+    "historicalSources": {
+      "premier-league_2026-07-01_to_2026-07-31.json": {
+        "fetchedAt": "2026-10-24T00:06:06.530257Z",
+        "sha256": "1e87142cd3a74ea8f0e1fd2fda5a5008636dcd75e6a0a9946fa1d821116f34ea"
+      },
+      "premier-league_2026-08-01_to_2026-08-31.json": {
+        "fetchedAt": "2026-10-24T00:06:07.562608Z",
+        "sha256": "39a0dea04df6948ba3ec0167c2d583357ba8b2c06556a57614a1802cbbf35e1f"
+      },
+      "premier-league_2026-09-01_to_2026-09-30.json": {
+        "fetchedAt": "2026-10-24T00:06:08.615442Z",
+        "sha256": "dfd7d07135ccae65dd11cb8a1fb213b3380352851cb060b661114721e01dba33"
+      }
+    },
+    "freshnessPolicy": "historical-integrity-current-month-freshness",
+    "draftType": "custom",
+    "coverageDays": 5,
+    "seedSubject": "Haalands streak. Keep it brief. Bullet points the games and dates. Focus on this weekends match",
+    "analysisAsOf": "2026-10-29T06:03:49.532459+00:00",
+    "roadToRecord": true
+  },
+  "article": {
+    "title": "Haaland eyes Vardy's record as the game week begins",
+    "sections": [
+      {
+        "heading": "Can Haaland keep the run alive on Saturday?",
+        "paragraphs": [
+          "Haaland has scored in seven consecutive Manchester City fixtures, and the streak is worth nine goals. It began with two at Crystal Palace on 28 August and last extended with a goal at Aston Villa on 24 October, in a 2-1 win.",
+          "Between those games came Coventry City at home (1), Manchester United away (1), Sunderland at home (1), Liverpool away (1), Ipswich Town at home (2) and Villa away (1). The season opener against Bournemouth produced no goals, so all nine of his season goals sit inside the run.",
+          "His only in-game-week fixture is Brighton & Hove Albion at home on Saturday 31 October at 3pm. A goal there would make eight, and it would only extend the streak if he scores in that match."
+        ]
+      },
+      {
+        "heading": "What would it take to reach Vardy's mark?",
+        "paragraphs": [
+          "Vardy's benchmark is 11 matches, so equalling it needs four more scoring fixtures and beating it at twelve needs five. Each step requires a goal in every club fixture before it.",
+          "After Brighton, the schedule lists Nottingham Forest away on 7 November at 5:30pm for nine, then Fulham at home on 21 November at 12:30pm for ten. Arsenal away on 29 November at 4:30pm would bring eleven and equal the record.",
+          "Leeds United at home on 2 December at 7:30pm would be the twelfth game and the one to beat it. The supplied schedule is complete, but fixtures can change."
+        ]
+      },
+      {
+        "heading": "Who else is chasing the record?",
+        "paragraphs": [
+          "Evanilson has scored in three straight Bournemouth fixtures, one goal each, at Chelsea, at home to Sunderland and at Manchester United on 25 October. His only fixture this game week is Leeds United at home on 31 October at 3pm, which would make four if he scores.",
+          "His path continues with Ipswich Town away on 8 November at 2pm for five, Nottingham Forest at home on 21 November at 3pm for six and Fulham away on 29 November at 2:05pm for seven. Brighton & Hove Albion at home on 2 December at 8:15pm would be eight, and Hull City at home on 5 December at 3pm nine.",
+          "Arsenal away on 13 December at 2pm would be ten, and Coventry City at home on 19 December at 3pm would equal the record at eleven. Tottenham Hotspur away on 26 December at 3pm would be the record-breaking twelfth."
+        ]
+      },
+      {
+        "heading": "Isak and Tavernier trail on two",
+        "paragraphs": [
+          "Isak has scored in two straight Liverpool fixtures, one goal each at Brentford and at home to Brighton & Hove Albion. He has six goals this season, four of them before the current run. His game week fixture is Arsenal at home on Sunday 1 November at 4:30pm, which would make three.",
+          "Isak's route then runs through Crystal Palace away (8 November, 2pm) for four and Manchester United at home (22 November, 4:30pm) for five. Everton away (29 November, 12pm) would be six, Sunderland at home (2 December, 7:30pm) seven and Chelsea away (5 December, 12:30pm) eight.",
+          "Leeds United at home (12 December, 3pm) would be nine, Tottenham Hotspur at home (19 December, 5:30pm) ten and Hull City away (26 December, 5:30pm) eleven. Aston Villa away on 30 December at 8:15pm would be the twelfth game."
+        ]
+      },
+      {
+        "heading": "Tavernier's path begins at home to Leeds",
+        "paragraphs": [
+          "Tavernier has scored in two consecutive Bournemouth fixtures, one goal each against Sunderland and at Manchester United. He has five goals this season and has scored in two of the three games before that, so the current run is two matches.",
+          "Leeds United at home on 31 October at 3pm is his game week fixture and would bring three. Ipswich Town away (8 November, 2pm), Nottingham Forest at home (21 November, 3pm) and Fulham away (29 November, 2:05pm) would make four, five and six.",
+          "Brighton & Hove Albion at home (2 December, 8:15pm), Hull City at home (5 December, 3pm), Arsenal away (13 December, 2pm) and Coventry City at home (19 December, 3pm) would make seven to ten. Tottenham Hotspur away on 26 December at 3pm would equal the record at eleven, and Crystal Palace away on 30 December at 7:30pm would beat it at twelve."
+        ]
+      }
+    ]
+  },
+  "usage": {
+    "totalPremiumRequestCost": 1,
+    "totalUserRequests": 1,
+    "totalNanoAiu": 11244400000,
+    "aiCreditsStatus": "complete",
+    "tokenDetails": {
+      "input": {
+        "tokenCount": 82
+      },
+      "cache_read": {
+        "tokenCount": 0
+      },
+      "cache_write": {
+        "tokenCount": 33724
+      },
+      "output": {
+        "tokenCount": 2797
+      }
+    },
+    "totalApiDurationMs": 19737,
+    "sessionStartTime": "2026-10-29T06:03:52.750Z",
+    "codeChanges": {
+      "linesAdded": 0,
+      "linesRemoved": 0,
+      "filesModifiedCount": 0,
+      "filesModified": []
+    },
+    "modelMetrics": {
+      "claude-sonnet-5.5": {
+        "requests": {
+          "count": 1,
+          "cost": 1
+        },
+        "usage": {
+          "inputTokens": 33806,
+          "outputTokens": 2797,
+          "cacheReadTokens": 0,
+          "cacheWriteTokens": 33724,
+          "reasoningTokens": 1240
+        },
+        "cacheExpiresAt": "2026-10-29T06:08:55.821Z",
+        "totalNanoAiu": 11244400000,
+        "aiCreditsStatus": "complete",
+        "tokenDetails": {
+          "input": {
+            "tokenCount": 82
+          },
+          "cache_read": {
+            "tokenCount": 0
+          },
+          "cache_write": {
+            "tokenCount": 33724
+          },
+          "output": {
+            "tokenCount": 2797
+          }
+        }
+      }
+    },
+    "agentMetrics": {
+      "main": {
+        "totalApiDurationMs": 19737,
+        "totalNanoAiu": 11244400000,
+        "modelMetrics": {
+          "claude-sonnet-5.5": {
+            "requests": {
+              "count": 1,
+              "cost": 1
+            },
+            "usage": {
+              "inputTokens": 33806,
+              "outputTokens": 2797,
+              "cacheReadTokens": 0,
+              "cacheWriteTokens": 33724,
+              "reasoningTokens": 1240
+            },
+            "totalNanoAiu": 11244400000,
+            "tokenDetails": {
+              "input": {
+                "tokenCount": 82
+              },
+              "cache_read": {
+                "tokenCount": 0
+              },
+              "cache_write": {
+                "tokenCount": 33724
+              },
+              "output": {
+                "tokenCount": 2797
+              }
+            }
+          }
+        }
+      }
+    },
+    "providerModelMetrics": [
+      {
+        "provider": {
+          "id": "copilot",
+          "label": "GitHub Copilot",
+          "kind": "copilot"
+        },
+        "modelId": "claude-sonnet-5.5",
+        "metrics": {
+          "requests": {
+            "count": 1,
+            "cost": 1
+          },
+          "usage": {
+            "inputTokens": 33806,
+            "outputTokens": 2797,
+            "cacheReadTokens": 0,
+            "cacheWriteTokens": 33724,
+            "reasoningTokens": 1240
+          },
+          "totalNanoAiu": 11244400000,
+          "aiCreditsStatus": "complete",
+          "tokenDetails": {
+            "input": {
+              "tokenCount": 82
+            },
+            "cache_read": {
+              "tokenCount": 0
+            },
+            "cache_write": {
+              "tokenCount": 33724
+            },
+            "output": {
+              "tokenCount": 2797
+            }
+          }
+        },
+        "modelDisplayName": "Claude Sonnet 5.5"
+      }
+    ],
+    "currentModel": "claude-sonnet-5.5",
+    "lastCallInputTokens": 33806,
+    "lastCallOutputTokens": 2797
+  },
+  "publishedAt": "2026-10-29T06:05:01.355708+00:00",
+  "approval": {
+    "editor": "thefossedogg",
+    "headSha": "d61a1573e7c9a64aa8e12b48cca25720ac574f55",
+    "pullRequest": 14,
+    "mergedAt": "2026-10-29T06:04:53Z",
+    "mergeSha": "aa5c1b9809cac517ccaa76a05aafac6ce2843bd5"
+  }
+}
