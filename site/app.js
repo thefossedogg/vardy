@@ -304,6 +304,181 @@ function renderBest(runs, selector = "#season-bests") {
   }
 }
 
+function buildWeeklyMovers(data) {
+  const asOf = Date.parse(data.generatedAt);
+  if (!Number.isFinite(asOf)) return { asOf: null, windowStart: null, events: [] };
+  const windowStart = asOf - 7 * 24 * 60 * 60 * 1000;
+  const players = new Map();
+  for (const club of data.clubs || []) {
+    for (const player of club.scorers || []) players.set(player.playerKey, player.playerName);
+  }
+  for (const run of [...(data.activeInSeason || []), ...(data.seasonBestRuns || [])]) {
+    players.set(run.playerKey, run.playerName);
+  }
+  const nameFor = (key) => players.get(key) || "Player details unavailable";
+  const events = [];
+  const fixtures = (data.fixtures || [])
+    .filter((fixture) => fixture.season === data.season &&
+      fixture.status === "completed" &&
+      Number.isFinite(Date.parse(fixture.fixtureDate)) &&
+      Date.parse(fixture.fixtureDate) <= asOf)
+    .sort((a, b) => Date.parse(a.fixtureDate) - Date.parse(b.fixtureDate));
+  const totals = new Map();
+  const baseline = fixtures.filter((fixture) => Date.parse(fixture.fixtureDate) < windowStart);
+  for (const fixture of baseline) {
+    for (const scorer of fixture.scorers || []) {
+      totals.set(scorer.playerKey, (totals.get(scorer.playerKey) || 0) + scorer.goals);
+    }
+  }
+  const weeklyFixtures = fixtures.filter((fixture) => Date.parse(fixture.fixtureDate) >= windowStart);
+  for (let index = 0; index < weeklyFixtures.length;) {
+    const time = Date.parse(weeklyFixtures[index].fixtureDate);
+    let end = index + 1;
+    while (end < weeklyFixtures.length &&
+      Date.parse(weeklyFixtures[end].fixtureDate) === time) end += 1;
+    const previousLeaders = [...totals.entries()].filter(([, goals]) =>
+      goals === Math.max(0, ...totals.values())).map(([key]) => key);
+    const added = new Map();
+    for (const fixture of weeklyFixtures.slice(index, end)) {
+      for (const scorer of fixture.scorers || []) {
+        added.set(scorer.playerKey, (added.get(scorer.playerKey) || 0) + scorer.goals);
+      }
+    }
+    for (const [key, goals] of added) {
+      const before = totals.get(key) || 0;
+      const after = before + goals;
+      for (let milestone = Math.floor(before / 10) * 10 + 10;
+        milestone <= after; milestone += 10) {
+        events.push({
+          type: "milestone", priority: 2, date: weeklyFixtures[index].fixtureDate,
+          playerKey: key, playerName: nameFor(key),
+          detail: `${nameFor(key)} reached ${milestone} credited goals in ${data.seasonLabel}.`,
+        });
+      }
+      totals.set(key, after);
+    }
+    const high = Math.max(0, ...totals.values());
+    const leaders = [...totals.entries()].filter(([, goals]) => goals === high)
+      .map(([key]) => key);
+    if (leaders.length === 1 && (previousLeaders.length !== 1 ||
+      previousLeaders[0] !== leaders[0])) {
+      const key = leaders[0];
+      events.push({
+        type: "leader", priority: 1, date: weeklyFixtures[index].fixtureDate,
+        playerKey: key, playerName: nameFor(key),
+        detail: `${nameFor(key)} moved into the sole lead with ${high} credited goals in ${data.seasonLabel}.`,
+      });
+    }
+    index = end;
+  }
+  for (const run of data.activeInSeason || []) {
+    const lastScoringTime = Date.parse(run.lastScoringDate);
+    if (lastScoringTime >= windowStart && lastScoringTime <= asOf) {
+      events.push({
+        type: "streak", priority: 3, date: run.lastScoringDate,
+        playerKey: run.playerKey, playerName: run.playerName,
+        detail: `${run.playerName} extended a scoring streak to ${run.matches} consecutive club fixtures.`,
+      });
+    }
+  }
+  const recordRunDates = new Set();
+  for (const run of [
+    ...(data.activeInSeason || []),
+    ...(data.seasonBestRuns || []),
+    ...(data.whatChanged?.endedStreaks || []),
+  ]) {
+    if (run.matches > RECORD && Array.isArray(run.games) && run.games.length > RECORD) {
+      const recordGame = run.games[RECORD];
+      const recordTime = Date.parse(recordGame.fixtureDate);
+      const recordKey = `${run.playerKey}:${recordGame.fixtureDate}`;
+      if (!recordRunDates.has(recordKey) &&
+        recordTime >= windowStart && recordTime <= asOf) {
+        recordRunDates.add(recordKey);
+        events.push({
+          type: "record", priority: 0, date: recordGame.fixtureDate,
+          playerKey: run.playerKey, playerName: run.playerName,
+          detail: `${run.playerName} overtook Jamie Vardy’s ${RECORD}-game record with ${RECORD + 1} consecutive club fixtures.`,
+        });
+      }
+    }
+  }
+  const priority = { record: 0, leader: 1, milestone: 2, streak: 3 };
+  events.sort((a, b) => priority[a.type] - priority[b.type] ||
+    Date.parse(b.date) - Date.parse(a.date) ||
+    a.playerName.localeCompare(b.playerName, "en"));
+  return { asOf, windowStart, events };
+}
+
+function renderWeeklyMovers(data) {
+  const list = document.querySelector("#weekly-movers");
+  const windowLabel = document.querySelector("#weekly-movers-window");
+  const coverage = document.querySelector("#weekly-movers-coverage");
+  const result = buildWeeklyMovers(data);
+  coverage.textContent =
+    `Coverage: credited goals in completed fixtures present in these exports only; ` +
+    `the archive begins ${formatDate(data.archiveStartsAt)}. Missing exports or fixtures ` +
+    "are not treated as no-goal results and may hide changes.";
+  if (result.asOf === null) {
+    windowLabel.textContent = "Comparison window unavailable: this export has no valid as-of timestamp.";
+    list.replaceChildren();
+    const empty = document.createElement("li");
+    empty.className = "empty";
+    empty.textContent = "Weekly movers cannot be calculated from this export.";
+    list.append(empty);
+    return;
+  }
+  const timestamp = (value) => `${new Intl.DateTimeFormat("en-GB", {
+    day: "numeric", month: "short", year: "numeric", hour: "2-digit",
+    minute: "2-digit", timeZone: "UTC",
+  }).format(new Date(value))} UTC`;
+  windowLabel.textContent =
+    `As of export generated at ${timestamp(result.asOf)} · Rolling seven days (inclusive): ` +
+    `${timestamp(result.windowStart)} to ${timestamp(result.asOf)}. ` +
+    "Priority: record overtaken, new scoring leader, milestone, streak extended.";
+  list.replaceChildren();
+  if (result.events.length === 0) {
+    const empty = document.createElement("li");
+    empty.className = "empty";
+    empty.textContent =
+      "No weekly movers found in the available completed-fixture data for this window. " +
+      "Missing exports may hide changes.";
+    list.append(empty);
+    return;
+  }
+  const visibleEvents = result.events.slice(0, 8);
+  for (const event of visibleEvents) {
+    const item = document.createElement("li");
+    const card = document.createElement("article");
+    card.className = `weekly-mover weekly-mover-${event.type}`;
+    const label = document.createElement("p");
+    label.className = "weekly-mover-type";
+    label.textContent = {
+      record: "Record overtaken",
+      leader: "New scoring leader",
+      milestone: "Season milestone",
+      streak: "Streak extended",
+    }[event.type];
+    const link = document.createElement("a");
+    const url = new URL("players/", document.baseURI);
+    url.searchParams.set("player", event.playerKey);
+    url.searchParams.set("season", String(data.season));
+    link.href = url.href;
+    link.textContent = event.detail;
+    const date = document.createElement("time");
+    date.dateTime = event.date;
+    date.textContent = formatDate(event.date);
+    card.append(label, link, date);
+    item.append(card);
+    list.append(item);
+  }
+  if (result.events.length > visibleEvents.length) {
+    const more = document.createElement("li");
+    more.className = "weekly-movers-note";
+    more.textContent = `Showing the ${visibleEvents.length} highest-priority changes of ${result.events.length}.`;
+    list.append(more);
+  }
+}
+
 function renderWhatChanged(changes) {
   const entries = changes.endedStreaks;
   const list = document.querySelector("#recent-changes");
@@ -1147,6 +1322,7 @@ async function loadData() {
     `Archived fixtures start ${formatDate(data.archiveStartsAt)}. Player appearances are not present in the source exports.` +
     (data.liveFixtures ? " Live scores, goal totals and streaks are provisional and may change." : "");
   renderActive(active);
+  renderWeeklyMovers(data);
   renderWhatChanged(data.whatChanged);
   renderBest(data.seasonBestRuns);
   renderSeasonLeaders(data.seasonLeaders);

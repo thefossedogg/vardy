@@ -60,6 +60,7 @@
     <main>
       <nav class="primary-nav" aria-label="Primary">
         <a href="#streaks-title">Current Streaks</a>
+        <a href="#weekly-movers-title">Weekly movers</a>
         <a href="quiz/">Quiz</a>
         <a href="scorers/">Top scorers</a>
         <a href="blog/">Blog</a>
@@ -154,6 +155,19 @@
           </div>
           <p class="table-note" id="table-note"></p>
         </div>
+
+        <section class="weekly-movers" aria-labelledby="weekly-movers-title">
+          <div class="table-heading">
+            <div>
+              <h3 id="weekly-movers-title">Weekly movers</h3>
+              <p id="weekly-movers-window" class="weekly-movers-note">Preparing the comparison window…</p>
+            </div>
+          </div>
+          <p id="weekly-movers-coverage" class="weekly-movers-note"></p>
+          <ul id="weekly-movers" class="weekly-movers-list" aria-live="polite">
+            <li class="empty">Loading weekly movers…</li>
+          </ul>
+        </section>
 
         <section class="what-changed" aria-labelledby="what-changed-title">
           <div class="table-heading">

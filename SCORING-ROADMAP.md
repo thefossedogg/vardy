@@ -325,3 +325,14 @@ record-chase branch is required or included in this branch.
   limited to completed fixtures in `scoring-seasons.json`, and meeting context
   counts fixtures involving clubs for which the player has credited goals, not
   player appearances.
+2026-10-31 — Item 10 implementation added on an independent local branch.
+Defaults: an inclusive rolling seven-day window ending at the export's
+`generatedAt` timestamp, shown in UTC; card priority is record overtaken, new
+scoring leader, milestone, then streak extended. Leader and season-goal
+milestones use credited goals in available current-season completed-fixture
+exports; milestones are 10, 20, 30, and so on. The record card means passing
+Jamie Vardy's documented 11-consecutive-game benchmark. Missing exports are
+not treated as no-goal fixtures; the empty state is explicitly limited to
+available data. Local feature checks are recorded in the implementation
+session, but the checkbox remains open pending global validation, integration,
+and publication.
