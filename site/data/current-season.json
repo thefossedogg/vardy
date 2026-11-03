@@ -2,7 +2,7 @@
   "competition": "Premier League",
   "season": 2026,
   "seasonLabel": "2026/27",
-  "generatedAt": "2026-11-02T19:00:16.790481Z",
+  "generatedAt": "2026-11-03T07:00:17.436184Z",
   "source": "Local monthly Premier League JSON exports",
   "benchmark": {
     "playerName": "Jamie Vardy",
@@ -12,9 +12,9 @@
   "archiveStartsAt": "2020-01-01",
   "archiveEndsAt": "2027-11-30",
   "sourceFiles": 95,
-  "completedFixtures": 2550,
+  "completedFixtures": 2551,
   "liveFixtures": 0,
-  "scheduledFixtures": 291,
+  "scheduledFixtures": 290,
   "completeSeasons": [
     2020,
     2021,
@@ -2792,9 +2792,9 @@
     }
   ],
   "whatChanged": {
-    "generatedAt": "2026-11-02T19:00:16.790481Z",
-    "windowStart": "2026-10-26T19:00:16.790481Z",
-    "windowEnd": "2026-11-02T19:00:16.790481Z",
+    "generatedAt": "2026-11-03T07:00:17.436184Z",
+    "windowStart": "2026-10-27T07:00:17.436184Z",
+    "windowEnd": "2026-11-03T07:00:17.436184Z",
     "endedStreaks": [
       {
         "playerName": "E. Haaland",
@@ -3597,13 +3597,13 @@
     {
       "clubName": "Everton",
       "clubKey": "5f6166bfca6f58ed",
-      "completedFixtures": 8,
+      "completedFixtures": 9,
       "liveFixtures": 0,
       "scorers": [
         {
           "playerName": "T. Barry",
           "playerKey": "f8542664f1640801",
-          "goals": 3,
+          "goals": 4,
           "rank": 1
         },
         {
@@ -4195,7 +4195,7 @@
     {
       "clubName": "Newcastle United",
       "clubKey": "7d1f31c0c7afec70",
-      "completedFixtures": 8,
+      "completedFixtures": 9,
       "liveFixtures": 0,
       "scorers": [
         {
@@ -89468,7 +89468,7 @@
     {
       "season": 2026,
       "fixtureDate": "2026-11-02T20:00:00Z",
-      "status": "scheduled",
+      "status": "completed",
       "teams": [
         {
           "clubKey": "7d1f31c0c7afec70",
@@ -89479,8 +89479,17 @@
           "name": "Everton"
         }
       ],
-      "score": null,
-      "scorers": []
+      "score": [
+        0,
+        1
+      ],
+      "scorers": [
+        {
+          "playerKey": "f8542664f1640801",
+          "clubKey": "5f6166bfca6f58ed",
+          "goals": 1
+        }
+      ]
     },
     {
       "season": 2026,
