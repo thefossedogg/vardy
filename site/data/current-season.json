@@ -2,7 +2,7 @@
   "competition": "Premier League",
   "season": 2026,
   "seasonLabel": "2026/27",
-  "generatedAt": "2026-11-04T07:00:18.249708Z",
+  "generatedAt": "2026-11-04T19:00:17.986271Z",
   "source": "Local monthly Premier League JSON exports",
   "benchmark": {
     "playerName": "Jamie Vardy",
@@ -2792,9 +2792,9 @@
     }
   ],
   "whatChanged": {
-    "generatedAt": "2026-11-04T07:00:18.249708Z",
-    "windowStart": "2026-10-28T07:00:18.249708Z",
-    "windowEnd": "2026-11-04T07:00:18.249708Z",
+    "generatedAt": "2026-11-04T19:00:17.986271Z",
+    "windowStart": "2026-10-28T19:00:17.986271Z",
+    "windowEnd": "2026-11-04T19:00:17.986271Z",
     "endedStreaks": [
       {
         "playerName": "E. Haaland",
@@ -90581,23 +90581,6 @@
     },
     {
       "season": 2026,
-      "fixtureDate": "2026-12-19T15:00:00Z",
-      "status": "scheduled",
-      "teams": [
-        {
-          "clubKey": "f80c12296b86623b",
-          "name": "Nottingham Forest"
-        },
-        {
-          "clubKey": "5f6166bfca6f58ed",
-          "name": "Everton"
-        }
-      ],
-      "score": null,
-      "scorers": []
-    },
-    {
-      "season": 2026,
       "fixtureDate": "2026-12-19T17:30:00Z",
       "status": "scheduled",
       "teams": [
@@ -90625,6 +90608,23 @@
         {
           "clubKey": "87e337fb055d5c47",
           "name": "Ipswich Town"
+        }
+      ],
+      "score": null,
+      "scorers": []
+    },
+    {
+      "season": 2026,
+      "fixtureDate": "2026-12-20T14:00:00Z",
+      "status": "scheduled",
+      "teams": [
+        {
+          "clubKey": "f80c12296b86623b",
+          "name": "Nottingham Forest"
+        },
+        {
+          "clubKey": "5f6166bfca6f58ed",
+          "name": "Everton"
         }
       ],
       "score": null,
