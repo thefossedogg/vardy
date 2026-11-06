@@ -45,11 +45,9 @@ first credited goal are unknown and omitted. A return to a club starts another
 spell. No-goal fixtures do not establish appearances.
 
 Pace data reuses the existing six-season SportsApi fixture export; no new paid source
-or credentials are needed. The local acquisition script uses the public
-`SportsApi`
-endpoint with `selectedStartDate`, `selectedEndDate`, `todayDate` and the SportsApi
-football tournament-collection URN. Public source view:
-SportsApi Premier League fixtures.
+or credentials are needed. The local acquisition script queries the SportsApi
+football fixture endpoint with `selectedStartDate`, `selectedEndDate`,
+`todayDate` and the football tournament-collection URN.
 The published snapshot was generated at `2026-10-31T07:36:31.832404Z`;
 generation time is not a verified upstream retrieval time. It covers 2021/22
 through 2025/26 completely (380 completed fixtures and 38 per club each), plus
