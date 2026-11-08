@@ -2,7 +2,7 @@
   "competition": "Premier League",
   "season": 2026,
   "seasonLabel": "2026/27",
-  "generatedAt": "2026-11-08T02:02:39.841883Z",
+  "generatedAt": "2026-11-08T02:04:38.756812Z",
   "source": "Local monthly Premier League JSON exports",
   "benchmark": {
     "playerName": "Jamie Vardy",
@@ -2864,9 +2864,9 @@
     }
   ],
   "whatChanged": {
-    "generatedAt": "2026-11-08T02:02:39.841883Z",
-    "windowStart": "2026-11-01T02:02:39.841883Z",
-    "windowEnd": "2026-11-08T02:02:39.841883Z",
+    "generatedAt": "2026-11-08T02:04:38.756812Z",
+    "windowStart": "2026-11-01T02:04:38.756812Z",
+    "windowEnd": "2026-11-08T02:04:38.756812Z",
     "endedStreaks": [
       {
         "playerName": "A. Isak",
