@@ -564,6 +564,7 @@ const FIRST_STEP = 3;
 const PLAYER_PORTRAITS = {
   "E. Haaland": "images/haaland.png",
   "Evanilson": "images/evanilson.png",
+  "N. Jackson": "images/jackson.jpg",
 };
 
 function buildPyramid() {
