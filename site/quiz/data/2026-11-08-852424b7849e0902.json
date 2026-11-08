@@ -1,0 +1,171 @@
+{
+  "schemaVersion": 1,
+  "edition": "2026-11-08",
+  "revision": "852424b7849e0902",
+  "title": "Premier League football quiz",
+  "publishedAt": "2026-11-08T21:03:54.158981+00:00",
+  "coverageStart": "2026-11-06T00:00:00+00:00",
+  "coverageEndExclusive": "2026-11-09T00:00:00+00:00",
+  "questions": [
+    {
+      "id": "5a3b942aa23ac089",
+      "type": "brace",
+      "prompt": "When Everton played Coventry City on Fri 06 November 2026, who scored exactly 2 goals for Everton?",
+      "options": [
+        "T. Barry",
+        "A. Maitland-Niles",
+        "Beto",
+        "I. Ndiaye"
+      ],
+      "answer": "T. Barry",
+      "explanation": "T. Barry scored 2 credited goals in Everton v Coventry City.",
+      "fixtureIds": [
+        "a44a3266ebf611cf"
+      ]
+    },
+    {
+      "id": "857a97c45b9630ba",
+      "type": "brace",
+      "prompt": "Who scored exactly 2 goals for Nottingham Forest against Manchester City on Sat 07 November 2026?",
+      "options": [
+        "L. Delap",
+        "C. Wood",
+        "D. Ndoye",
+        "E. Anderson"
+      ],
+      "answer": "L. Delap",
+      "explanation": "L. Delap scored 2 credited goals in Nottingham Forest v Manchester City.",
+      "fixtureIds": [
+        "62d0e7cca50d3c0c"
+      ]
+    },
+    {
+      "id": "0b80f09fbcb60efd",
+      "type": "earliest-goal-match",
+      "prompt": "Which of these matches saw the earliest goal?",
+      "options": [
+        "Everton v Coventry City (Friday 06 November 2026)",
+        "Arsenal v Hull City (Saturday 07 November 2026)",
+        "Brighton & Hove Albion v Brentford (Sunday 08 November 2026)",
+        "Crystal Palace v Liverpool (Sunday 08 November 2026)"
+      ],
+      "answer": "Everton v Coventry City (Friday 06 November 2026)",
+      "explanation": "The earliest goal was scored at 52' in Everton v Coventry City on Friday 06 November 2026.",
+      "fixtureIds": [
+        "a44a3266ebf611cf"
+      ]
+    },
+    {
+      "id": "0a8262bd7dffe5d8",
+      "type": "latest-goal-match",
+      "prompt": "Which of these matches had the latest goal?",
+      "options": [
+        "Manchester United v Aston Villa (Sunday 08 November 2026)",
+        "Arsenal v Hull City (Saturday 07 November 2026)",
+        "Brighton & Hove Albion v Brentford (Sunday 08 November 2026)",
+        "Crystal Palace v Liverpool (Sunday 08 November 2026)"
+      ],
+      "answer": "Manchester United v Aston Villa (Sunday 08 November 2026)",
+      "explanation": "The latest goal was scored at 90+6' in Manchester United v Aston Villa on Sunday 08 November 2026.",
+      "fixtureIds": [
+        "a612fcdf6928cf53"
+      ]
+    },
+    {
+      "id": "0639de0415bb730b",
+      "type": "goal-half",
+      "prompt": "Which statement best describes when Evanilson scored for Bournemouth against Ipswich Town on Sunday 08 November 2026?",
+      "options": [
+        "First half only",
+        "Both halves",
+        "Did not score",
+        "Second half only"
+      ],
+      "answer": "First half only",
+      "explanation": "Evanilson scored in first half only for Bournemouth against Ipswich Town.",
+      "fixtureIds": [
+        "44cdee7097611d1a"
+      ]
+    },
+    {
+      "id": "26d16e5f2a2e74a6",
+      "type": "goal-half",
+      "prompt": "When Sunderland played Chelsea on Sunday 08 November 2026, which statement best describes E. Le Fée's goal timing?",
+      "options": [
+        "First half only",
+        "Both halves",
+        "Did not score",
+        "Second half only"
+      ],
+      "answer": "First half only",
+      "explanation": "E. Le Fée scored in first half only for Sunderland against Chelsea.",
+      "fixtureIds": [
+        "c7ca09cf05818756"
+      ]
+    },
+    {
+      "id": "9926fc15e2ee4228",
+      "type": "opening-scorer",
+      "prompt": "Who scored the opening goal for Arsenal when they hosted Hull City on Saturday 07 November 2026?",
+      "options": [
+        "M. Ødegaard",
+        "B. Saka",
+        "Bruno Guimarães",
+        "E. Eze"
+      ],
+      "answer": "M. Ødegaard",
+      "explanation": "M. Ødegaard scored the opening goal for Arsenal in Arsenal v Hull City.",
+      "fixtureIds": [
+        "e2434e9e2541e85c"
+      ]
+    },
+    {
+      "id": "1cbdecb8820be0a5",
+      "type": "opening-scorer",
+      "prompt": "Who scored the first goal for Newcastle United when they visited Fulham on Saturday 07 November 2026?",
+      "options": [
+        "J. Murphy",
+        "A. Elanga",
+        "A. Gordon",
+        "B. Touré"
+      ],
+      "answer": "J. Murphy",
+      "explanation": "J. Murphy scored the opening goal for Newcastle United in Fulham v Newcastle United.",
+      "fixtureIds": [
+        "3e0d5cd22eb54b49"
+      ]
+    },
+    {
+      "id": "efe88f97a86ea62a",
+      "type": "opening-scorer",
+      "prompt": "Who scored the opening goal for Liverpool at Crystal Palace on Sunday 08 November 2026?",
+      "options": [
+        "A. Mac Allister",
+        "A. Isak",
+        "A. Robertson",
+        "C. Gakpo"
+      ],
+      "answer": "A. Mac Allister",
+      "explanation": "A. Mac Allister scored the opening goal for Liverpool in Crystal Palace v Liverpool.",
+      "fixtureIds": [
+        "42e408a17f4aa200"
+      ]
+    },
+    {
+      "id": "5f22d38d1bf11b08",
+      "type": "score",
+      "prompt": "What was the final score when Tottenham Hotspur visited Leeds United on Saturday 07 November 2026?",
+      "options": [
+        "1-0",
+        "1-1",
+        "1-2",
+        "1-3"
+      ],
+      "answer": "1-0",
+      "explanation": "Leeds United 1-0 Tottenham Hotspur (final score).",
+      "fixtureIds": [
+        "cbdf9294438ce320"
+      ]
+    }
+  ]
+}
