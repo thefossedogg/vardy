@@ -30,7 +30,7 @@
 
 .quiz-scoreboard {
   margin-bottom: 20px;
-  overflow-x: auto;
+  container-type: inline-size;
 }
 
 .quiz-scoreboard p {
@@ -39,10 +39,12 @@
 }
 
 .quiz-score-markers {
-  --quiz-score-size: clamp(16px, 4vw, 26px);
+  --quiz-score-gap: clamp(2px, 1cqi, 8px);
+  /* Ten 2.3em columns plus 1em of horizontal padding. */
+  --quiz-score-size: min(clamp(16px, 4vw, 26px), calc((100cqi - 9 * var(--quiz-score-gap)) / 24));
   display: grid;
   grid-template-columns: repeat(10, minmax(calc(var(--quiz-score-size) * 2.3), 1fr));
-  gap: clamp(4px, 1vw, 8px);
+  gap: var(--quiz-score-gap);
   max-width: 760px;
   margin: 0;
   padding: calc(var(--quiz-score-size) * 0.5);
