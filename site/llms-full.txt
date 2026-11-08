@@ -84,22 +84,6 @@ The editor's merge authorizes publication of the captured Thursday evidence, eve
 
 ---
 
-Source: https://vardywatch.com/quiz/2026-11-07-ab21839fe0a5a8fe.md
-
-# Premier League football quiz
-
-10 questions, four choices each. Credited goals include penalties, not own goals. Answers are checked against the site's completed-match data.
-
-Loading quiz...
-
-Enable JavaScript to play. The quiz overview and archive remain available.
-
-[Quiz archive and scores on this device](https://vardywatch.com/quiz/archive.md)
-
-Coverage: 2026-11-03 to 2026-11-07 inclusive (Europe/London). Published 2026-11-08T02:10:38.185085+00:00. Revision ab21839fe0a5a8fe.
-
----
-
 Source: https://vardywatch.com/quiz/2026-10-25-cbe87675a74dc6bc.md
 
 # Premier League football quiz
@@ -112,7 +96,7 @@ Enable JavaScript to play. The quiz overview and archive remain available.
 
 [Quiz archive and scores on this device](https://vardywatch.com/quiz/archive.md)
 
-Coverage: 2026-10-21 to 2026-10-25 inclusive (Europe/London). Published 2026-10-25T22:47:47.370982+00:00. Revision cbe87675a74dc6bc.
+Coverage: 2026-10-21 to 2026-10-25 inclusive (Europe/London). Only selected completed matches are included. Published 2026-10-25T22:47:47.370982+00:00. Revision cbe87675a74dc6bc.
 
 ---
 
@@ -122,11 +106,11 @@ Source: https://vardywatch.com/quiz/index.md
 
 Play the latest [published quiz](https://vardywatch.com/quiz/) or browse the [quiz archive](https://vardywatch.com/quiz/archive.md).
 
-Each quiz has 5-10 multiple-choice questions with four options, one question at a time, immediate factual feedback and a final score. JavaScript is required to play. There is no timer, account or leaderboard. Completed attempts and best/latest scores are stored only in this browser, separated by quiz revision; the archive offers a clear-history control. Storage is not cross-device sync.
+Each quiz has 5-10 multiple-choice questions with four options, one question at a time and a final score. After answering, a solid green border marks the correct choice and a red border marks a selected wrong choice. Gameplay shows no explanation or repeated answer text; accessible choice labels identify the result. JavaScript is required to play. There is no timer, account or leaderboard. Completed attempts and best/latest scores are stored only in this browser, separated by quiz revision; the archive offers a clear-history control. Storage is not cross-device sync.
 
-Questions use a five-day window of verified completed Premier League fixtures: the selected UK date and its previous four calendar days. The exact coverage dates appear at the bottom of each published quiz. Credited goals include penalties and exclude own goals. Player alternatives are verified scorers for the relevant clubs within the same window; score alternatives are actual recorded scorelines within that window, not predictions. A non-scorer is not proof of non-appearance.
+Questions use verified completed Premier League fixtures in the selected date range. Manual quizzes use inclusive UTC dates and exclude unfinished matches; scheduled quizzes retain their five-day London-time window. The exact coverage dates and timezone appear at the bottom of each published quiz. Credited goals include penalties and exclude own goals. In new match-scorer questions, wrong choices are verified scorers for that same club in its previous 20 completed Premier League matches, excluding the question's match and allowing cross-season history. The correct scorer is always included. Insufficient history or alternatives omits the question. Other player comparisons use scorers from the selected range; score alternatives are actual recorded scorelines within that window, not predictions. A non-scorer is not proof of non-appearance.
 
-Code establishes facts and answer options; AI selects questions and approved wording. An editor reviews the exact revision before publication. Unsupported questions are omitted; fewer than five supported questions prevents publication. Opening-scorer and gameweek claims require verified source evidence and are not inferred from unordered goals or calendar dates. Published revisions stay playable; corrections require a newly reviewed revision.
+Code establishes facts and answer options; AI selects questions and approved wording. An editor reviews the exact revision before publication. Unsupported questions are omitted; fewer than five supported questions prevents publication. New quizzes include at most two goal-timing statement questions. Opening-scorer and gameweek claims require verified source evidence and are not inferred from unordered goals or calendar dates. Corrections require a newly reviewed revision. An editor can remove an entire published edition; other editions and scores already stored in players' browsers remain untouched.
 
 ---
 
@@ -134,7 +118,6 @@ Source: https://vardywatch.com/quiz/archive.md
 
 # Football quiz archive
 
-- [Quiz ending 2026-11-07](https://vardywatch.com/quiz/2026-11-07-ab21839fe0a5a8fe.md) (10 questions, revision ab21839fe0a5a8fe)
 - [Quiz ending 2026-10-25](https://vardywatch.com/quiz/2026-10-25-cbe87675a74dc6bc.md) (10 questions, revision cbe87675a74dc6bc)
 
 ## Scores on this device
