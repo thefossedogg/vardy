@@ -243,10 +243,10 @@
         marker.setAttribute("aria-label", index < attempt.quiz.questions.length
           ? `Question ${index + 1}: ${answered ? state : "unanswered"}`
           : `Slot ${index + 1}: not used in this quiz`);
-        if (correct) {
-          const ball = node("span", "\u26bd");
-          ball.setAttribute("aria-hidden", "true");
-          marker.append(ball);
+        if (answered) {
+          const icon = node("span", correct ? "\u26bd" : "\u2715");
+          icon.setAttribute("aria-hidden", "true");
+          marker.append(icon);
         }
         markers.append(marker);
       }
