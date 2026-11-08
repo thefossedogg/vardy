@@ -2,7 +2,7 @@
   "competition": "Premier League",
   "season": 2026,
   "seasonLabel": "2026/27",
-  "generatedAt": "2026-11-08T19:23:03.583304Z",
+  "generatedAt": "2026-11-08T19:52:24.537285Z",
   "source": "Local monthly Premier League JSON exports",
   "benchmark": {
     "playerName": "Jamie Vardy",
@@ -12,8 +12,8 @@
   "archiveStartsAt": "2020-01-01",
   "archiveEndsAt": "2027-11-30",
   "sourceFiles": 95,
-  "completedFixtures": 2560,
-  "liveFixtures": 1,
+  "completedFixtures": 2561,
+  "liveFixtures": 0,
   "scheduledFixtures": 280,
   "completeSeasons": [
     2020,
@@ -2936,9 +2936,9 @@
     }
   ],
   "whatChanged": {
-    "generatedAt": "2026-11-08T19:23:03.583304Z",
-    "windowStart": "2026-11-01T19:23:03.583304Z",
-    "windowEnd": "2026-11-08T19:23:03.583304Z",
+    "generatedAt": "2026-11-08T19:52:24.537285Z",
+    "windowStart": "2026-11-01T19:52:24.537285Z",
+    "windowEnd": "2026-11-08T19:52:24.537285Z",
     "endedStreaks": [
       {
         "playerName": "J. Enciso",
@@ -3072,8 +3072,8 @@
     {
       "clubName": "Aston Villa",
       "clubKey": "87aed6ef21cd6d0d",
-      "completedFixtures": 9,
-      "liveFixtures": 1,
+      "completedFixtures": 10,
+      "liveFixtures": 0,
       "scorers": [
         {
           "playerName": "N. Jackson",
@@ -4163,8 +4163,8 @@
     {
       "clubName": "Manchester United",
       "clubKey": "c711c6955bb33643",
-      "completedFixtures": 9,
-      "liveFixtures": 1,
+      "completedFixtures": 10,
+      "liveFixtures": 0,
       "scorers": [
         {
           "playerName": "B. Mbeumo",
@@ -4185,8 +4185,20 @@
           "rank": 3
         },
         {
+          "playerName": "J. Zirkzee",
+          "playerKey": "c229ac59baa94e32",
+          "goals": 1,
+          "rank": 3
+        },
+        {
           "playerName": "Matheus Cunha",
           "playerKey": "e61ac6074f412cca",
+          "goals": 1,
+          "rank": 3
+        },
+        {
+          "playerName": "P. Dorgu",
+          "playerKey": "06a4ff67f4b68aa1",
           "goals": 1,
           "rank": 3
         },
@@ -109679,7 +109691,7 @@
     {
       "season": 2026,
       "fixtureDate": "2026-11-08T16:30:00Z",
-      "status": "live",
+      "status": "completed",
       "teams": [
         {
           "clubKey": "c711c6955bb33643",
@@ -109691,7 +109703,7 @@
         }
       ],
       "score": [
-        2,
+        4,
         4
       ],
       "scorers": [
@@ -109733,6 +109745,22 @@
           "goals": 1,
           "goalTimes": [
             16
+          ]
+        },
+        {
+          "playerKey": "c229ac59baa94e32",
+          "clubKey": "c711c6955bb33643",
+          "goals": 1,
+          "goalTimes": [
+            "90+2"
+          ]
+        },
+        {
+          "playerKey": "06a4ff67f4b68aa1",
+          "clubKey": "c711c6955bb33643",
+          "goals": 1,
+          "goalTimes": [
+            "90+6"
           ]
         },
         {
