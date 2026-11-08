@@ -53,10 +53,24 @@
   background: var(--green, #b9f36b);
 }
 
+.quiz-option {
+  border-width: 3px;
+}
+
 .quiz-option:disabled {
   color: var(--ink, #15221d);
   opacity: 0.75;
   cursor: default;
+}
+
+.quiz-option.quiz-option-correct {
+  border-color: #00a83b;
+  opacity: 1;
+}
+
+.quiz-option.quiz-option-incorrect {
+  border-color: #e53935;
+  opacity: 1;
 }
 
 .quiz-action {

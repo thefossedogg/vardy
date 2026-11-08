@@ -238,36 +238,39 @@
       const fieldset = node("fieldset");
       fieldset.append(node("legend", question.prompt));
       const options = node("div", undefined, "quiz-options");
-      const feedback = status("");
-      feedback.setAttribute("aria-live", "polite");
-      feedback.setAttribute("aria-atomic", "true");
-      feedback.tabIndex = -1;
       const controls = node("div", undefined, "quiz-controls");
       for (const option of attempt.options[attempt.index]) {
         const choice = button(option, () => {
           const result = answerQuestion(attempt, option);
-          for (const child of options.children) child.disabled = true;
-          choice.textContent = `${option} — your answer`;
-          feedback.textContent = `${result.correct ? "Correct." : "Not quite."} Correct answer: ${result.answer}. ${result.explanation}`;
+          for (const child of options.children) {
+            child.disabled = true;
+            if (child.textContent === result.answer) {
+              child.className += " quiz-option-correct";
+              child.setAttribute("aria-label", `${child.textContent}, correct answer`);
+            }
+          }
+          choice.setAttribute("aria-label", `${option}, your answer, ${result.correct ? "correct" : "incorrect"}`);
+          if (!result.correct) choice.className += " quiz-option-incorrect";
           if (attempt.completed) {
             saveResult = saveCompletedAttempt(getStorage, attempt);
             controls.append(status(saveResult.saved
               ? "Completed attempt saved on this device." : saveResult.error, !saveResult.saved));
             renderHistory();
           }
-          controls.append(button(attempt.completed ? "See final score" : "Next question", () => {
+          const next = button(attempt.completed ? "See final score" : "Next question", () => {
             if (attempt.completed) renderScore();
             else {
               nextQuestion(attempt);
               renderQuestion();
             }
-          }, "quiz-action"));
-          feedback.focus();
+          }, "quiz-action");
+          controls.append(next);
+          next.focus();
         }, "quiz-option");
         options.append(choice);
       }
       fieldset.append(options);
-      game.append(progress, fieldset, feedback, controls);
+      game.append(progress, fieldset, controls);
       if (focus) progress.focus();
     }
 

@@ -1,0 +1,171 @@
+{
+  "schemaVersion": 1,
+  "edition": "2026-11-08",
+  "revision": "aea0af3a95ac3fdf",
+  "title": "Premier League football quiz",
+  "publishedAt": "2026-11-08T03:09:52.516057+00:00",
+  "coverageStart": "2026-11-06T00:00:00+00:00",
+  "coverageEndExclusive": "2026-11-09T00:00:00+00:00",
+  "questions": [
+    {
+      "id": "5a3b942aa23ac089",
+      "type": "brace",
+      "prompt": "Which of these players scored exactly 2 credited goals for Everton against Coventry City on Friday 06 November 2026?",
+      "options": [
+        "T. Barry",
+        "A. Maitland-Niles",
+        "Beto",
+        "I. Ndiaye"
+      ],
+      "answer": "T. Barry",
+      "explanation": "T. Barry scored 2 credited goals in Everton v Coventry City.",
+      "fixtureIds": [
+        "a44a3266ebf611cf"
+      ]
+    },
+    {
+      "id": "857a97c45b9630ba",
+      "type": "brace",
+      "prompt": "When Nottingham Forest played Manchester City on Saturday 07 November 2026, which listed player scored exactly 2 credited goals for Nottingham Forest?",
+      "options": [
+        "L. Delap",
+        "C. Wood",
+        "D. Ndoye",
+        "E. Anderson"
+      ],
+      "answer": "L. Delap",
+      "explanation": "L. Delap scored 2 credited goals in Nottingham Forest v Manchester City.",
+      "fixtureIds": [
+        "62d0e7cca50d3c0c"
+      ]
+    },
+    {
+      "id": "0b80f09fbcb60efd",
+      "type": "earliest-goal-match",
+      "prompt": "Which of these matches saw the earliest goal?",
+      "options": [
+        "Everton v Coventry City (Friday 06 November 2026)",
+        "Arsenal v Hull City (Saturday 07 November 2026)",
+        "Fulham v Newcastle United (Saturday 07 November 2026)",
+        "Leeds United v Tottenham Hotspur (Saturday 07 November 2026)"
+      ],
+      "answer": "Everton v Coventry City (Friday 06 November 2026)",
+      "explanation": "The earliest goal was scored at 52' in Everton v Coventry City on Friday 06 November 2026.",
+      "fixtureIds": [
+        "a44a3266ebf611cf"
+      ]
+    },
+    {
+      "id": "4805efe395bd2d73",
+      "type": "latest-goal-match",
+      "prompt": "Which of these matches had the latest goal?",
+      "options": [
+        "Nottingham Forest v Manchester City (Saturday 07 November 2026)",
+        "Arsenal v Hull City (Saturday 07 November 2026)",
+        "Everton v Coventry City (Friday 06 November 2026)",
+        "Fulham v Newcastle United (Saturday 07 November 2026)"
+      ],
+      "answer": "Nottingham Forest v Manchester City (Saturday 07 November 2026)",
+      "explanation": "The latest goal was scored at 73' in Nottingham Forest v Manchester City on Saturday 07 November 2026.",
+      "fixtureIds": [
+        "62d0e7cca50d3c0c"
+      ]
+    },
+    {
+      "id": "1cbdecb8820be0a5",
+      "type": "opening-scorer",
+      "prompt": "Who scored the opening goal for Newcastle United at Fulham on Saturday 07 November 2026?",
+      "options": [
+        "J. Murphy",
+        "A. Elanga",
+        "A. Gordon",
+        "B. Touré"
+      ],
+      "answer": "J. Murphy",
+      "explanation": "J. Murphy scored the opening goal for Newcastle United in Fulham v Newcastle United.",
+      "fixtureIds": [
+        "3e0d5cd22eb54b49"
+      ]
+    },
+    {
+      "id": "9926fc15e2ee4228",
+      "type": "opening-scorer",
+      "prompt": "Who scored the first goal for Arsenal against Hull City on Saturday 07 November 2026?",
+      "options": [
+        "M. Ødegaard",
+        "B. Saka",
+        "Bruno Guimarães",
+        "E. Eze"
+      ],
+      "answer": "M. Ødegaard",
+      "explanation": "M. Ødegaard scored the opening goal for Arsenal in Arsenal v Hull City.",
+      "fixtureIds": [
+        "e2434e9e2541e85c"
+      ]
+    },
+    {
+      "id": "bf8659e046faa6d4",
+      "type": "opening-scorer",
+      "prompt": "Who scored the opening goal for Leeds United when they hosted Tottenham Hotspur on Saturday 07 November 2026?",
+      "options": [
+        "N. Okafor",
+        "A. Stach",
+        "D. Calvert-Lewin",
+        "J. Bogle"
+      ],
+      "answer": "N. Okafor",
+      "explanation": "N. Okafor scored the opening goal for Leeds United in Leeds United v Tottenham Hotspur.",
+      "fixtureIds": [
+        "cbdf9294438ce320"
+      ]
+    },
+    {
+      "id": "924a833c787df1cd",
+      "type": "goal-half",
+      "prompt": "Which statement best describes when L. Delap scored for Nottingham Forest against Manchester City on Saturday 07 November 2026?",
+      "options": [
+        "Both halves",
+        "Did not score",
+        "First half only",
+        "Second half only"
+      ],
+      "answer": "Both halves",
+      "explanation": "L. Delap scored in both halves for Nottingham Forest against Manchester City.",
+      "fixtureIds": [
+        "62d0e7cca50d3c0c"
+      ]
+    },
+    {
+      "id": "a8fa0cbdef9eba31",
+      "type": "goal-half",
+      "prompt": "When Arsenal played Hull City on Saturday 07 November 2026, which statement best describes M. Ødegaard's goal timing?",
+      "options": [
+        "Second half only",
+        "Both halves",
+        "Did not score",
+        "First half only"
+      ],
+      "answer": "Second half only",
+      "explanation": "M. Ødegaard scored in second half only for Arsenal against Hull City.",
+      "fixtureIds": [
+        "e2434e9e2541e85c"
+      ]
+    },
+    {
+      "id": "d83e549ba31cce31",
+      "type": "scorer",
+      "prompt": "Which of these players scored a credited goal for Fulham against Newcastle United on Saturday 07 November 2026?",
+      "options": [
+        "Rodrigo Muniz",
+        "A. Iwobi",
+        "A. Robinson",
+        "César Palacios"
+      ],
+      "answer": "Rodrigo Muniz",
+      "explanation": "Rodrigo Muniz scored 1 credited goal in Fulham v Newcastle United.",
+      "fixtureIds": [
+        "3e0d5cd22eb54b49"
+      ]
+    }
+  ]
+}
