@@ -119,7 +119,7 @@
 }
 
 .quiz-option:not(:disabled):hover,
-.quiz-action:hover {
+.quiz-action:not(:disabled):hover {
   background: var(--green, #b9f36b);
 }
 
@@ -127,7 +127,13 @@
   border-width: 3px;
 }
 
-.quiz-option:disabled {
+.quiz-option[aria-pressed="true"]:not(:disabled) {
+  background: var(--green, #b9f36b);
+  box-shadow: inset 0 0 0 2px var(--ink, #15221d);
+}
+
+.quiz-option:disabled,
+.quiz-action:disabled {
   color: var(--ink, #15221d);
   opacity: 0.75;
   cursor: default;

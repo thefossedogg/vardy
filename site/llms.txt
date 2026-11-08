@@ -14,7 +14,7 @@ Index updates do not establish source-data freshness. Early previews may use unv
 - [Preview archive](https://vardywatch.com/blog/archive.md): All published editions.
 - [Scoring-streak methodology](https://vardywatch.com/blog/methodology.md): Definitions and publication approach.
 - [Football quiz](https://vardywatch.com/quiz/index.md): Verified multiple-choice quizzes, coverage and answer rules.
-- [Quiz archive](https://vardywatch.com/quiz/archive.md): Published revisions and browser-local score history.
+- [Quiz archive](https://vardywatch.com/quiz/archive.md): Published revisions, resumable attempts and browser-local scores.
 
 ## Articles
 

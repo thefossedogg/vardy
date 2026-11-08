@@ -4,4 +4,6 @@
 
 ## Scores on this device
 
-Completed attempts stay in this browser only. Corrections have separate revisions. No account or cross-device sync is used.
+One resumable attempt per edition is saved in this browser, including progress and score. Corrections have separate revisions but do not grant another attempt. Return to a quiz to continue at the first unanswered question or review its completed result. Older saved scores count as completed, but their answers are unavailable for review.
+
+No account or cross-device sync is used. Clearing site data, switching browsers or private browsing can reset eligibility. Storage must be available to play.

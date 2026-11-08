@@ -2,6 +2,7 @@
   "use strict";
 
   const HISTORY_PREFIX = "vardywatch.quiz.v1:";
+  const ATTEMPT_PREFIX = "vardywatch.quiz.v2:";
   const editionPattern = /^\d{4}-\d{2}-\d{2}$/;
   const revisionPattern = /^[a-f0-9]+$/i;
   const nonempty = (value) => typeof value === "string" && value.trim().length > 0;
@@ -49,7 +50,7 @@
   function createAttempt(quiz, random = Math.random) {
     validateQuiz(quiz);
     return {
-      quiz, index: 0, score: 0, answers: [], completed: false,
+      quiz: JSON.parse(JSON.stringify(quiz)), index: 0, score: 0, answers: [], completed: false,
       options: quiz.questions.map((question) => shuffle(question.options, random)),
     };
   }
@@ -93,24 +94,54 @@
     return history;
   }
 
-  function saveCompletedAttempt(getStorage, attempt, now = () => new Date()) {
-    if (!attempt.completed) throw new Error("Only completed attempts can be saved.");
-    try {
-      const storage = getStorage();
-      const { edition, revision } = attempt.quiz;
-      const key = historyKey(edition, revision);
-      const raw = storage.getItem(key);
-      const history = raw === null ? { edition, revision, attempts: [] } : parseHistory(raw, key);
-      const total = attempt.quiz.questions.length;
-      if (history.attempts.some((record) => record.total !== total)) {
-        throw new Error("Question count differs for this immutable revision.");
-      }
-      history.attempts.push({ completedAt: now().toISOString(), score: attempt.score, total });
-      storage.setItem(key, JSON.stringify(history));
-      return { saved: true };
-    } catch (error) {
-      return { saved: false, error: `Score was not saved on this device: ${error.message}` };
+  function attemptKey(edition) {
+    return `${ATTEMPT_PREFIX}${edition}`;
+  }
+
+  function parseAttempt(raw, key) {
+    const record = JSON.parse(raw);
+    if (!record || record.schemaVersion !== 2) throw new Error("Malformed saved quiz attempt.");
+    validateQuiz(record.quiz);
+    const { quiz, options, answers } = record;
+    if (attemptKey(quiz.edition) !== key || !validTimestamp(record.startedAt)
+      || !Array.isArray(options) || options.length !== quiz.questions.length
+      || !options.every((order, index) => Array.isArray(order) && order.length === 4
+        && new Set(order).size === 4 && order.every((option) => quiz.questions[index].options.includes(option)))
+      || !Array.isArray(answers) || answers.length > quiz.questions.length
+      || !answers.every((answer, index) => quiz.questions[index].options.includes(answer))
+      || !Number.isInteger(record.score)
+      || record.score !== answers.reduce((score, answer, index) => score + (answer === quiz.questions[index].answer ? 1 : 0), 0)
+      || typeof record.completed !== "boolean" || record.completed !== (answers.length === quiz.questions.length)
+      || (record.completed ? !validTimestamp(record.completedAt)
+        || Date.parse(record.completedAt) < Date.parse(record.startedAt) : record.completedAt !== null)) {
+      throw new Error("Malformed saved quiz attempt.");
     }
+    return { ...record, index: Math.min(answers.length, quiz.questions.length - 1) };
+  }
+
+  function serializeAttempt(attempt) {
+    const { index, ...record } = attempt;
+    return JSON.stringify(record);
+  }
+
+  function editionState(storage, edition) {
+    const key = attemptKey(edition);
+    const raw = storage.getItem(key);
+    const attempt = raw === null ? null : parseAttempt(raw, key);
+    const completions = [];
+    for (let index = 0; index < storage.length; index += 1) {
+      const legacyKey = storage.key(index);
+      if (!legacyKey || !legacyKey.startsWith(`${HISTORY_PREFIX}${edition}:`)) continue;
+      const group = parseHistory(storage.getItem(legacyKey), legacyKey);
+      completions.push(...group.attempts);
+    }
+    if (attempt?.completed) completions.push({
+      score: attempt.score, total: attempt.quiz.questions.length,
+      completedAt: attempt.completedAt, attempt,
+    });
+    const latest = completions.reduce((best, record) => !best
+      || Date.parse(record.completedAt) >= Date.parse(best.completedAt) ? record : best, null);
+    return { raw, attempt, latest };
   }
 
   function readHistory(getStorage) {
@@ -120,9 +151,16 @@
       const storage = getStorage();
       for (let index = 0; index < storage.length; index += 1) {
         const key = storage.key(index);
-        if (!key || !key.startsWith(HISTORY_PREFIX)) continue;
+        if (!key || (!key.startsWith(HISTORY_PREFIX) && !key.startsWith(ATTEMPT_PREFIX))) continue;
         try {
-          groups.push(parseHistory(storage.getItem(key), key));
+          if (key.startsWith(HISTORY_PREFIX)) groups.push(parseHistory(storage.getItem(key), key));
+          else {
+            const attempt = parseAttempt(storage.getItem(key), key);
+            if (attempt.completed) groups.push({
+              edition: attempt.quiz.edition, revision: attempt.quiz.revision,
+              attempts: [{ completedAt: attempt.completedAt, score: attempt.score, total: attempt.quiz.questions.length }],
+            });
+          }
         } catch (error) {
           errors.push(`Could not read quiz history (${key}): ${error.message}`);
         }
@@ -134,22 +172,7 @@
     return { groups, errors };
   }
 
-  function clearHistory(getStorage) {
-    try {
-      const storage = getStorage();
-      const keys = [];
-      for (let index = 0; index < storage.length; index += 1) {
-        const key = storage.key(index);
-        if (key && key.startsWith(HISTORY_PREFIX)) keys.push(key);
-      }
-      for (const key of keys) storage.removeItem(key);
-      return { cleared: true };
-    } catch (error) {
-      return { cleared: false, error: `Quiz history could not be fully cleared: ${error.message}` };
-    }
-  }
-
-  function mount(document, fetchQuiz, getStorage) {
+  function mount(document, fetchQuiz, getStorage, eventTarget = document.defaultView) {
     const player = document.querySelector("#quiz-player");
     let history = document.querySelector("#quiz-history");
     if (!player && !history) return;
@@ -189,7 +212,7 @@
     function renderHistory(message) {
       const { groups, errors } = readHistory(getStorage);
       history.replaceChildren(node("h2", "Scores on this device"));
-      history.append(node("p", "Completed attempts only, stored in this browser. Editions and revisions have separate scores."));
+      history.append(node("p", "Completed attempts only, stored in this browser. One attempt per edition; older scores are retained."));
       if (message) history.append(status(message.text, message.error));
       for (const error of errors) history.append(status(error, true));
       if (!groups.length && !errors.length) history.append(node("p", "No completed attempts saved on this device."));
@@ -215,21 +238,99 @@
         section.append(details);
         history.append(section);
       }
-      const clear = button("Clear quiz history on this device", () => {
-        const result = clearHistory(getStorage);
-        renderHistory(result.cleared
-          ? { text: "Quiz history cleared on this device." }
-          : { text: result.error, error: true });
-        history.querySelector("button").focus();
-      }, "quiz-action");
-      history.append(clear);
     }
 
     renderHistory();
+    let attempt;
+    let token = null;
+    let edition;
+    let loadedQuiz;
+    let selected;
+    let blocked = false;
+    let completionToken = null;
+
+    function completionIdentity(record) {
+      return record ? JSON.stringify([record.completedAt, record.score, record.total, Boolean(record.attempt)]) : null;
+    }
+
+    function fail(error) {
+      blocked = true;
+      game.replaceChildren(status(`Unable to use this quiz. ${error.message} Saved data has not been reset. Please reload to try again.`, true));
+    }
+
+    function synchronize(preserveUnchanged = false) {
+      renderHistory();
+      if (!player || !edition || blocked) return;
+      try {
+        const state = editionState(getStorage(), edition);
+        if (token !== null && state.raw === null) throw new Error("The saved attempt was removed in another tab. This tab cannot restore it.");
+        const latestToken = completionIdentity(state.latest);
+        if (preserveUnchanged && state.raw === token && latestToken === completionToken) return;
+        token = state.raw;
+        completionToken = latestToken;
+        selected = undefined;
+        if (state.latest) {
+          attempt = state.latest.attempt;
+          renderScore(state.latest);
+        } else if (state.attempt) {
+          attempt = state.attempt;
+          renderQuestion(false);
+        } else if (loadedQuiz) renderStart();
+      } catch (error) { fail(error); }
+    }
+
+    eventTarget?.addEventListener("storage", (event) => {
+      if (event.key !== null && !event.key?.startsWith(HISTORY_PREFIX) && !event.key?.startsWith(ATTEMPT_PREFIX)) return;
+      if (player && edition && (event.key === null || event.key === attemptKey(edition)
+        || event.key?.startsWith(`${HISTORY_PREFIX}${edition}:`))) synchronize(true);
+      else renderHistory();
+    });
     if (!player) return;
 
-    let attempt;
-    let saveResult;
+    function commit(candidate) {
+      const storage = getStorage();
+      let state;
+      try { state = editionState(storage, edition); }
+      catch (error) {
+        fail(error);
+        return false;
+      }
+      if (state.raw !== token || state.latest) {
+        synchronize();
+        game.append(status("This attempt changed in another tab. Your answer was not saved.", true));
+        return false;
+      }
+      const raw = serializeAttempt(candidate);
+      parseAttempt(raw, attemptKey(edition));
+      storage.setItem(attemptKey(edition), raw);
+      token = raw;
+      attempt = candidate;
+      completionToken = candidate.completed ? completionIdentity({
+        completedAt: candidate.completedAt, score: candidate.score,
+        total: candidate.quiz.questions.length, attempt: candidate,
+      }) : null;
+      return true;
+    }
+
+    function renderStart(message) {
+      game.replaceChildren(node("h2", loadedQuiz.title),
+        node("p", "One resumable attempt per edition, saved only in this browser. Submitted answers are locked; completed quizzes cannot be replayed."));
+      if (message) game.append(status(message, true));
+      game.append(button("Start quiz", () => {
+        if (blocked) return;
+        const candidate = {
+          ...createAttempt(loadedQuiz), schemaVersion: 2,
+          startedAt: new Date().toISOString(), completedAt: null,
+        };
+        try {
+          if (!commit(candidate)) return;
+          selected = undefined;
+          renderQuestion();
+        } catch (error) {
+          if (!blocked && token === null) renderStart(`Quiz could not be started: ${error.message}`);
+        }
+      }, "quiz-action"));
+    }
     function renderRunningScore(scoreboard) {
       const score = node("p", `Score: ${attempt.score}/${attempt.quiz.questions.length}`);
       score.setAttribute("role", "status");
@@ -253,8 +354,10 @@
       scoreboard.replaceChildren(score, markers);
     }
 
-    function renderQuestion(focus = true) {
+    function renderQuestion(focus = true, message) {
       const question = attempt.quiz.questions[attempt.index];
+      const submitted = attempt.answers.length > attempt.index;
+      const answer = submitted ? attempt.answers[attempt.index] : selected;
       game.replaceChildren();
       const scoreboard = node("div", undefined, "quiz-scoreboard");
       renderRunningScore(scoreboard);
@@ -264,68 +367,109 @@
       fieldset.append(node("legend", question.prompt));
       const options = node("div", undefined, "quiz-options");
       const controls = node("div", undefined, "quiz-controls");
+      let selectedChoice;
       for (const option of attempt.options[attempt.index]) {
         const choice = button(option, () => {
-          const result = answerQuestion(attempt, option);
-          renderRunningScore(scoreboard);
-          for (const child of options.children) {
-            child.disabled = true;
-            if (child.textContent === result.answer) {
-              child.className += " quiz-option-correct";
-              child.setAttribute("aria-label", `${child.textContent}, correct answer`);
-            }
-          }
-          choice.setAttribute("aria-label", `${option}, your answer, ${result.correct ? "correct" : "incorrect"}`);
-          if (!result.correct) choice.className += " quiz-option-incorrect";
-          if (attempt.completed) {
-            saveResult = saveCompletedAttempt(getStorage, attempt);
-            controls.append(status(saveResult.saved
-              ? "Completed attempt saved on this device." : saveResult.error, !saveResult.saved));
-            renderHistory();
-          }
-          const next = button(attempt.completed ? "See final score" : "Next question", () => {
-            if (attempt.completed) renderScore();
-            else {
-              nextQuestion(attempt);
-              renderQuestion();
-            }
-          }, "quiz-action");
-          controls.append(next);
-          next.focus();
+          selected = option;
+          renderQuestion(false)?.focus();
         }, "quiz-option");
+        choice.setAttribute("aria-pressed", String(option === answer));
+        if (option === answer) choice.className += " quiz-option-selected";
+        if (option === answer) selectedChoice = choice;
+        if (submitted) {
+          choice.disabled = true;
+          if (option === question.answer) {
+            choice.className += " quiz-option-correct";
+            choice.setAttribute("aria-label", `${option}, correct answer`);
+          }
+          if (option === answer) {
+            choice.setAttribute("aria-label", `${option}, your answer, ${answer === question.answer ? "correct" : "incorrect"}`);
+            if (answer !== question.answer) choice.className += " quiz-option-incorrect";
+          }
+        }
         options.append(choice);
+      }
+      if (message) controls.append(status(message, true));
+      if (submitted) {
+        if (attempt.completed) controls.append(status("Completed attempt saved on this device."));
+        controls.append(button(attempt.completed ? "See final score" : "Next question", () => {
+          selected = undefined;
+          if (attempt.completed) renderScore();
+          else {
+            nextQuestion(attempt);
+            renderQuestion();
+          }
+        }, "quiz-action"));
+      } else {
+        const submit = button(message ? "Retry saving answer" : "Submit answer", () => {
+          if (blocked || selected === undefined) return;
+          const candidate = JSON.parse(JSON.stringify(attempt));
+          answerQuestion(candidate, selected);
+          if (candidate.completed) candidate.completedAt = new Date().toISOString();
+          try {
+            if (!commit(candidate)) return;
+            renderQuestion(false)?.focus();
+            renderHistory();
+          } catch (error) {
+            renderQuestion(false, `Answer was not saved: ${error.message}. Retry saving your selected answer.`);
+          }
+        }, "quiz-action");
+        submit.disabled = selected === undefined;
+        controls.append(submit);
       }
       fieldset.append(options);
       game.append(scoreboard, progress, fieldset, controls);
       if (focus) progress.focus();
+      return submitted ? controls.children[controls.children.length - 1] : selectedChoice;
     }
 
-    function renderScore() {
-      const scoreboard = node("div", undefined, "quiz-scoreboard");
-      renderRunningScore(scoreboard);
-      const heading = node("h2", `Final score: ${attempt.score}/${attempt.quiz.questions.length}`);
+    function renderScore(record) {
+      const score = record?.score ?? attempt.score;
+      const total = record?.total ?? attempt.quiz.questions.length;
+      const heading = node("h2", `Final score: ${score}/${total}`);
       heading.tabIndex = -1;
-      game.replaceChildren(scoreboard, heading, status(saveResult.saved
-        ? "Completed attempt saved on this device." : saveResult.error, !saveResult.saved));
-      game.append(button("Play again", () => {
-        attempt = createAttempt(attempt.quiz);
-        saveResult = undefined;
-        renderQuestion();
-      }, "quiz-action"));
+      game.replaceChildren();
+      if (attempt) {
+        const scoreboard = node("div", undefined, "quiz-scoreboard");
+        renderRunningScore(scoreboard);
+        game.append(scoreboard);
+      }
+      game.append(heading, status("Completed attempt saved on this device. This edition cannot be replayed."));
+      if (attempt) {
+        const review = node("ol", undefined, "quiz-review");
+        attempt.quiz.questions.forEach((question, index) => {
+          const item = node("li");
+          item.append(node("h3", question.prompt),
+            node("p", `Your answer: ${attempt.answers[index]}`),
+            node("p", `Correct answer: ${question.answer}`),
+            node("p", question.explanation));
+          review.append(item);
+        });
+        game.append(review);
+      } else game.append(node("p", "Answer review is unavailable for this older saved score."));
       heading.focus();
     }
 
     return (async () => {
       try {
+        const source = new URL(player.dataset.quizSrc, document.baseURI);
+        const match = /^\/quiz\/data\/(\d{4}-\d{2}-\d{2})-([a-f0-9]+)\.json$/i.exec(source.pathname);
+        if (!match || !validDay(match[1])) throw new Error("Invalid quiz page identity.");
+        edition = match[1];
+        const state = editionState(getStorage(), edition);
+        token = state.raw;
+        if (state.latest || state.attempt) {
+          synchronize();
+          return;
+        }
         const response = await fetchQuiz(player.dataset.quizSrc);
         if (!response.ok) throw new Error(`Quiz request failed (HTTP ${response.status}).`);
         const quiz = validateQuiz(await response.json());
-        const source = new URL(player.dataset.quizSrc, document.baseURI);
         if (source.pathname !== `/quiz/data/${quiz.edition}-${quiz.revision}.json`) {
           throw new Error("Quiz edition or revision does not match this page.");
         }
-        attempt = createAttempt(quiz);
-        renderQuestion(false);
+        loadedQuiz = quiz;
+        synchronize();
       } catch (error) {
         game.replaceChildren(status(`Unable to load this quiz. ${error.message} Please reload to try again.`, true));
       }
@@ -335,7 +479,7 @@
   if (typeof module !== "undefined" && module.exports) {
     module.exports = {
       validateQuiz, createAttempt, answerQuestion, nextQuestion, historyKey,
-      saveCompletedAttempt, readHistory, clearHistory, mount,
+      attemptKey, parseAttempt, readHistory, mount,
     };
   }
   if (typeof document !== "undefined") {
