@@ -1,43 +1,61 @@
-# Haaland eyes Vardy's record as the game week begins
+# Evanilson leads the chase as Vardy's record stays distant
 
 2026/27 WEEKLY PREVIEW
 
-## Can Haaland keep the run alive on Saturday?
+## Who is still running in the game week?
 
-Haaland has scored in seven consecutive Manchester City fixtures, and the streak is worth nine goals. It began with two at Crystal Palace on 28 August and last extended with a goal at Aston Villa on 24 October, in a 2-1 win.
+Four players hold active scoring streaks, but none has a fixture left in the game week, which runs from 6 to 10 November. Nothing in the evidence puts a goal or a result on any of those runs before the next scheduled club fixture.
 
-Between those games came Coventry City at home (1), Manchester United away (1), Sunderland at home (1), Liverpool away (1), Ipswich Town at home (2) and Villa away (1). The season opener against Bournemouth produced no goals, so all nine of his season goals sit inside the run.
+Vardy's record of 11 games, set in 2015/16, is the benchmark. Eleven would equal it and twelve would beat it. Each run counts consecutive club fixtures, not consecutive appearances, so a goalless fixture ends it.
 
-His only in-game-week fixture is Brighton & Hove Albion at home on Saturday 31 October at 3pm. A goal there would make eight, and it would only extend the streak if he scores in that match.
+## Can Evanilson close the gap?
 
-## What would it take to reach Vardy's mark?
+Evanilson is the longest active run at five club fixtures, with five goals in those games. Bournemouth's streak began at Chelsea on 10 October and continued against Sunderland, Manchester United, Leeds United and Ipswich Town on 8 November.
 
-Vardy's benchmark is 11 matches, so equalling it needs four more scoring fixtures and beating it at twelve needs five. Each step requires a goal in every club fixture before it.
+Evanilson went scoreless in his first five fixtures of the season, so all five of his season goals came in this run. Ipswich won 2-1 on the latest of those dates.
 
-After Brighton, the schedule lists Nottingham Forest away on 7 November at 5:30pm for nine, then Fulham at home on 21 November at 12:30pm for ten. Arsenal away on 29 November at 4:30pm would bring eleven and equal the record.
+## What would Evanilson need to reach eleven?
 
-Leeds United at home on 2 December at 7:30pm would be the twelfth game and the one to beat it. The supplied schedule is complete, but fixtures can change.
+Evanilson needs six more scoring fixtures to equal Vardy and seven to beat him. That means a goal in every fixture from Nottingham Forest at home on 21 November (3pm) through Fulham away on 29 November (2:05pm).
 
-## Who else is chasing the record?
+The run would then need goals against Brighton & Hove Albion at home on 2 December (8:15pm), Hull City at home on 5 December (3pm) and Arsenal away on 13 December (2pm). Coventry City at home on 19 December (3pm) would be the eleventh game, and Tottenham Hotspur away on 26 December (3pm) the twelfth.
 
-Evanilson has scored in three straight Bournemouth fixtures, one goal each, at Chelsea, at home to Sunderland and at Manchester United on 25 October. His only fixture this game week is Leeds United at home on 31 October at 3pm, which would make four if he scores.
+## Is Le Fée's streak the longest road?
 
-His path continues with Ipswich Town away on 8 November at 2pm for five, Nottingham Forest at home on 21 November at 3pm for six and Fulham away on 29 November at 2:05pm for seven. Brighton & Hove Albion at home on 2 December at 8:15pm would be eight, and Hull City at home on 5 December at 3pm nine.
+Le Fée has scored in two straight club fixtures, away to Coventry City on 31 October and at home to Chelsea on 8 November, with one goal in each. Sunderland won both games, 3-1 and 1-0, and the run follows an earlier goal at Brentford, which took his season total to three.
 
-Arsenal away on 13 December at 2pm would be ten, and Coventry City at home on 19 December at 3pm would equal the record at eleven. Tottenham Hotspur away on 26 December at 3pm would be the record-breaking twelfth.
+Sunderland's schedule lists ten fixtures to reach a twelfth scoring game, so nine more would equal the record. The run would need goals at Aston Villa on 21 November (3pm), against Tottenham Hotspur at home on 29 November (2:05pm) and at Liverpool on 2 December (7:30pm).
 
-## Isak and Tavernier trail on two
+## Where would Le Fée's run reach eleven and twelve?
 
-Isak has scored in two straight Liverpool fixtures, one goal each at Brentford and at home to Brighton & Hove Albion. He has six goals this season, four of them before the current run. His game week fixture is Arsenal at home on Sunday 1 November at 4:30pm, which would make three.
+The path continues at Newcastle United on 6 December (2pm), Nottingham Forest at home on 13 December (2pm) and Crystal Palace at home on 20 December (2pm). It then goes to Everton on 26 December (3pm) and Manchester United on 30 December (7:30pm).
 
-Isak's route then runs through Crystal Palace away (8 November, 2pm) for four and Manchester United at home (22 November, 4:30pm) for five. Everton away (29 November, 12pm) would be six, Sunderland at home (2 December, 7:30pm) seven and Chelsea away (5 December, 12:30pm) eight.
+Hull City at home on 2 January (3pm) would be the eleventh game. Liverpool at home on 5 January (8:15pm) would be the twelfth, and a goal would be needed in every fixture before it.
 
-Leeds United at home (12 December, 3pm) would be nine, Tottenham Hotspur at home (19 December, 5:30pm) ten and Hull City away (26 December, 5:30pm) eleven. Aston Villa away on 30 December at 8:15pm would be the twelfth game.
+## Can Jackson turn three goals into a record run?
 
-## Tavernier's path begins at home to Leeds
+Jackson has scored in two straight club fixtures, with two goals against Manchester City on 24 October and one against Fulham on 31 October. That gives him three streak goals from two scoring games, and five for the season.
 
-Tavernier has scored in two consecutive Bournemouth fixtures, one goal each against Sunderland and at Manchester United. He has five goals this season and has scored in two of the three games before that, so the current run is two matches.
+Aston Villa have ten fixtures listed to reach twelve. The run would need goals against Sunderland at home on 21 November (3pm), at Ipswich Town on 28 November (5:30pm) and against Everton at home on 2 December (8:15pm).
 
-Leeds United at home on 31 October at 3pm is his game week fixture and would bring three. Ipswich Town away (8 November, 2pm), Nottingham Forest at home (21 November, 3pm) and Fulham away (29 November, 2:05pm) would make four, five and six.
+## What stands between Jackson and Vardy?
 
-Brighton & Hove Albion at home (2 December, 8:15pm), Hull City at home (5 December, 3pm), Arsenal away (13 December, 2pm) and Coventry City at home (19 December, 3pm) would make seven to ten. Tottenham Hotspur away on 26 December at 3pm would equal the record at eleven, and Crystal Palace away on 30 December at 7:30pm would beat it at twelve.
+Crystal Palace at home on 5 December (3pm), Coventry City away on 13 December (4:30pm) and Chelsea away on 21 December (8pm) come next. Leeds United at home on 26 December (12:30pm) and Liverpool at home on 30 December (8:15pm) follow.
+
+Bournemouth away on 2 January (5:30pm) would be the eleventh game. Everton away on 5 January (7:30pm) would be the twelfth.
+
+## Does Barry's fresh double keep him alive?
+
+Barry is the most recent scorer of the group. He scored once at Newcastle United on 2 November and twice against Coventry City on 6 November, giving him three streak goals from two scoring fixtures and six for the season.
+
+Everton need ten more fixtures to reach a twelfth scoring game. The path begins at Brentford on 23 November (8pm), then Liverpool at home on 29 November (12pm) and Aston Villa away on 2 December (8:15pm).
+
+## How far does Barry's path run?
+
+Fulham at home on 6 December (2pm), Brighton & Hove Albion away on 13 December (2pm) and Nottingham Forest away on 20 December (2pm) follow. Sunderland at home on 26 December (3pm) and Manchester City at home on 29 December (8:15pm) come after that.
+
+Leeds United away on 1 January (8pm) would be the eleventh game. Aston Villa at home on 5 January (7:30pm) would be the twelfth, and every earlier fixture would need a goal.
+
+## What can change?
+
+Every step on these paths depends on a goal in each preceding club fixture. These are scheduled fixtures, not results, and dates and kickoff times can change.
