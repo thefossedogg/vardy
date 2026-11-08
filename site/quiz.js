@@ -230,9 +230,34 @@
 
     let attempt;
     let saveResult;
+    function renderRunningScore(scoreboard) {
+      const score = node("p", `Score: ${attempt.score}/${attempt.quiz.questions.length}`);
+      score.setAttribute("role", "status");
+      const markers = node("ol", undefined, "quiz-score-markers");
+      markers.setAttribute("aria-label", "Quiz shootout");
+      for (let index = 0; index < 10; index += 1) {
+        const answered = index < attempt.answers.length;
+        const correct = answered && attempt.answers[index] === attempt.quiz.questions[index].answer;
+        const state = answered ? (correct ? "correct" : "incorrect") : "pending";
+        const marker = node("li", undefined, `quiz-score-marker quiz-score-${state}`);
+        marker.setAttribute("aria-label", index < attempt.quiz.questions.length
+          ? `Question ${index + 1}: ${answered ? state : "unanswered"}`
+          : `Slot ${index + 1}: not used in this quiz`);
+        if (correct) {
+          const ball = node("span", "\u26bd");
+          ball.setAttribute("aria-hidden", "true");
+          marker.append(ball);
+        }
+        markers.append(marker);
+      }
+      scoreboard.replaceChildren(score, markers);
+    }
+
     function renderQuestion(focus = true) {
       const question = attempt.quiz.questions[attempt.index];
       game.replaceChildren();
+      const scoreboard = node("div", undefined, "quiz-scoreboard");
+      renderRunningScore(scoreboard);
       const progress = node("h2", `Question ${attempt.index + 1} of ${attempt.quiz.questions.length}`);
       progress.tabIndex = -1;
       const fieldset = node("fieldset");
@@ -242,6 +267,7 @@
       for (const option of attempt.options[attempt.index]) {
         const choice = button(option, () => {
           const result = answerQuestion(attempt, option);
+          renderRunningScore(scoreboard);
           for (const child of options.children) {
             child.disabled = true;
             if (child.textContent === result.answer) {
@@ -270,14 +296,16 @@
         options.append(choice);
       }
       fieldset.append(options);
-      game.append(progress, fieldset, controls);
+      game.append(scoreboard, progress, fieldset, controls);
       if (focus) progress.focus();
     }
 
     function renderScore() {
+      const scoreboard = node("div", undefined, "quiz-scoreboard");
+      renderRunningScore(scoreboard);
       const heading = node("h2", `Final score: ${attempt.score}/${attempt.quiz.questions.length}`);
       heading.tabIndex = -1;
-      game.replaceChildren(heading, status(saveResult.saved
+      game.replaceChildren(scoreboard, heading, status(saveResult.saved
         ? "Completed attempt saved on this device." : saveResult.error, !saveResult.saved));
       game.append(button("Play again", () => {
         attempt = createAttempt(attempt.quiz);
