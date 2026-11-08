@@ -1,6 +1,6 @@
 # Football quiz archive
 
-- [Quiz ending 2026-10-25](https://vardywatch.com/quiz/2026-10-25-cbe87675a74dc6bc.md) (10 questions, revision cbe87675a74dc6bc)
+No quizzes have been published yet.
 
 ## Scores on this device
 
