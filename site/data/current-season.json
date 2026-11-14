@@ -2,7 +2,7 @@
   "competition": "Premier League",
   "season": 2026,
   "seasonLabel": "2026/27",
-  "generatedAt": "2026-11-14T12:00:21.100812Z",
+  "generatedAt": "2026-11-14T18:00:17.520826Z",
   "source": "Local monthly Premier League JSON exports",
   "benchmark": {
     "playerName": "Jamie Vardy",
@@ -2936,9 +2936,9 @@
     }
   ],
   "whatChanged": {
-    "generatedAt": "2026-11-14T12:00:21.100812Z",
-    "windowStart": "2026-11-07T12:00:21.100812Z",
-    "windowEnd": "2026-11-14T12:00:21.100812Z",
+    "generatedAt": "2026-11-14T18:00:17.520826Z",
+    "windowStart": "2026-11-07T18:00:17.520826Z",
+    "windowEnd": "2026-11-14T18:00:17.520826Z",
     "endedStreaks": [
       {
         "playerName": "J. Enciso",
@@ -2972,40 +2972,6 @@
             "name": "Bournemouth"
           },
           "venue": "home"
-        }
-      },
-      {
-        "playerName": "O. McBurnie",
-        "playerKey": "21e2f4bc74578d5a",
-        "clubKey": "44174d40933a23bd",
-        "clubName": "Hull City",
-        "season": 2026,
-        "startSeason": 2026,
-        "startDate": "2026-10-25T14:00:00Z",
-        "lastScoringDate": "2026-10-31T15:00:00Z",
-        "matches": 2,
-        "games": [
-          {
-            "fixtureDate": "2026-10-25T14:00:00Z",
-            "opponent": {
-              "name": "Brentford"
-            },
-            "venue": "home"
-          },
-          {
-            "fixtureDate": "2026-10-31T15:00:00Z",
-            "opponent": {
-              "name": "Ipswich Town"
-            },
-            "venue": "home"
-          }
-        ],
-        "failedGame": {
-          "fixtureDate": "2026-11-07T15:00:00Z",
-          "opponent": {
-            "name": "Arsenal"
-          },
-          "venue": "away"
         }
       }
     ]
