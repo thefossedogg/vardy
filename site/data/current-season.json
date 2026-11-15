@@ -2,7 +2,7 @@
   "competition": "Premier League",
   "season": 2026,
   "seasonLabel": "2026/27",
-  "generatedAt": "2026-11-15T12:00:20.156709Z",
+  "generatedAt": "2026-11-15T18:00:17.143903Z",
   "source": "Local monthly Premier League JSON exports",
   "benchmark": {
     "playerName": "Jamie Vardy",
@@ -2936,45 +2936,10 @@
     }
   ],
   "whatChanged": {
-    "generatedAt": "2026-11-15T12:00:20.156709Z",
-    "windowStart": "2026-11-08T12:00:20.156709Z",
-    "windowEnd": "2026-11-15T12:00:20.156709Z",
-    "endedStreaks": [
-      {
-        "playerName": "J. Enciso",
-        "playerKey": "64f80bb7ce8ec044",
-        "clubKey": "87e337fb055d5c47",
-        "clubName": "Ipswich Town",
-        "season": 2026,
-        "startSeason": 2026,
-        "startDate": "2026-10-23T19:00:00Z",
-        "lastScoringDate": "2026-10-31T15:00:00Z",
-        "matches": 2,
-        "games": [
-          {
-            "fixtureDate": "2026-10-23T19:00:00Z",
-            "opponent": {
-              "name": "Nottingham Forest"
-            },
-            "venue": "home"
-          },
-          {
-            "fixtureDate": "2026-10-31T15:00:00Z",
-            "opponent": {
-              "name": "Hull City"
-            },
-            "venue": "away"
-          }
-        ],
-        "failedGame": {
-          "fixtureDate": "2026-11-08T14:00:00Z",
-          "opponent": {
-            "name": "Bournemouth"
-          },
-          "venue": "home"
-        }
-      }
-    ]
+    "generatedAt": "2026-11-15T18:00:17.143903Z",
+    "windowStart": "2026-11-08T18:00:17.143903Z",
+    "windowEnd": "2026-11-15T18:00:17.143903Z",
+    "endedStreaks": []
   },
   "clubs": [
     {
