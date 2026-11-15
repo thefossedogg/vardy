@@ -2,7 +2,7 @@
   "competition": "Premier League",
   "season": 2026,
   "seasonLabel": "2026/27",
-  "generatedAt": "2026-11-14T18:00:17.520826Z",
+  "generatedAt": "2026-11-15T00:00:17.099648Z",
   "source": "Local monthly Premier League JSON exports",
   "benchmark": {
     "playerName": "Jamie Vardy",
@@ -2936,9 +2936,9 @@
     }
   ],
   "whatChanged": {
-    "generatedAt": "2026-11-14T18:00:17.520826Z",
-    "windowStart": "2026-11-07T18:00:17.520826Z",
-    "windowEnd": "2026-11-14T18:00:17.520826Z",
+    "generatedAt": "2026-11-15T00:00:17.099648Z",
+    "windowStart": "2026-11-08T00:00:17.099648Z",
+    "windowEnd": "2026-11-15T00:00:17.099648Z",
     "endedStreaks": [
       {
         "playerName": "J. Enciso",
