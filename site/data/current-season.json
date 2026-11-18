@@ -2,7 +2,7 @@
   "competition": "Premier League",
   "season": 2026,
   "seasonLabel": "2026/27",
-  "generatedAt": "2026-11-18T07:00:20.256401Z",
+  "generatedAt": "2026-11-18T19:00:17.108934Z",
   "source": "Local monthly Premier League JSON exports",
   "benchmark": {
     "playerName": "Jamie Vardy",
@@ -2936,9 +2936,9 @@
     }
   ],
   "whatChanged": {
-    "generatedAt": "2026-11-18T07:00:20.256401Z",
-    "windowStart": "2026-11-11T07:00:20.256401Z",
-    "windowEnd": "2026-11-18T07:00:20.256401Z",
+    "generatedAt": "2026-11-18T19:00:17.108934Z",
+    "windowStart": "2026-11-11T19:00:17.108934Z",
+    "windowEnd": "2026-11-18T19:00:17.108934Z",
     "endedStreaks": []
   },
   "clubs": [
