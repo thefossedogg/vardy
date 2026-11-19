@@ -2,7 +2,7 @@
   "competition": "Premier League",
   "season": 2026,
   "seasonLabel": "2026/27",
-  "generatedAt": "2026-11-19T07:00:18.219332Z",
+  "generatedAt": "2026-11-19T19:00:16.959173Z",
   "source": "Local monthly Premier League JSON exports",
   "benchmark": {
     "playerName": "Jamie Vardy",
@@ -2936,9 +2936,9 @@
     }
   ],
   "whatChanged": {
-    "generatedAt": "2026-11-19T07:00:18.219332Z",
-    "windowStart": "2026-11-12T07:00:18.219332Z",
-    "windowEnd": "2026-11-19T07:00:18.219332Z",
+    "generatedAt": "2026-11-19T19:00:16.959173Z",
+    "windowStart": "2026-11-12T19:00:16.959173Z",
+    "windowEnd": "2026-11-19T19:00:16.959173Z",
     "endedStreaks": []
   },
   "clubs": [
@@ -111406,50 +111406,16 @@
     },
     {
       "season": 2026,
-      "fixtureDate": "2027-01-16T15:00:00Z",
+      "fixtureDate": "2027-01-16T12:30:00Z",
       "status": "scheduled",
       "teams": [
         {
-          "clubKey": "84472110f075fb38",
-          "name": "Bournemouth"
+          "clubKey": "d7386639e488aa64",
+          "name": "Coventry City"
         },
         {
-          "clubKey": "87e337fb055d5c47",
-          "name": "Ipswich Town"
-        }
-      ],
-      "score": null,
-      "scorers": []
-    },
-    {
-      "season": 2026,
-      "fixtureDate": "2027-01-16T15:00:00Z",
-      "status": "scheduled",
-      "teams": [
-        {
-          "clubKey": "87aed6ef21cd6d0d",
-          "name": "Aston Villa"
-        },
-        {
-          "clubKey": "c711c6955bb33643",
-          "name": "Manchester United"
-        }
-      ],
-      "score": null,
-      "scorers": []
-    },
-    {
-      "season": 2026,
-      "fixtureDate": "2027-01-16T15:00:00Z",
-      "status": "scheduled",
-      "teams": [
-        {
-          "clubKey": "b53546bad5bd6bb9",
-          "name": "Brentford"
-        },
-        {
-          "clubKey": "95d1ff5557ab7610",
-          "name": "Brighton & Hove Albion"
+          "clubKey": "5f6166bfca6f58ed",
+          "name": "Everton"
         }
       ],
       "score": null,
@@ -111467,23 +111433,6 @@
         {
           "clubKey": "bb9f0501ff85f961",
           "name": "Sunderland"
-        }
-      ],
-      "score": null,
-      "scorers": []
-    },
-    {
-      "season": 2026,
-      "fixtureDate": "2027-01-16T15:00:00Z",
-      "status": "scheduled",
-      "teams": [
-        {
-          "clubKey": "d7386639e488aa64",
-          "name": "Coventry City"
-        },
-        {
-          "clubKey": "5f6166bfca6f58ed",
-          "name": "Everton"
         }
       ],
       "score": null,
@@ -111559,7 +111508,41 @@
     },
     {
       "season": 2026,
-      "fixtureDate": "2027-01-16T15:00:00Z",
+      "fixtureDate": "2027-01-16T17:30:00Z",
+      "status": "scheduled",
+      "teams": [
+        {
+          "clubKey": "87aed6ef21cd6d0d",
+          "name": "Aston Villa"
+        },
+        {
+          "clubKey": "c711c6955bb33643",
+          "name": "Manchester United"
+        }
+      ],
+      "score": null,
+      "scorers": []
+    },
+    {
+      "season": 2026,
+      "fixtureDate": "2027-01-17T14:00:00Z",
+      "status": "scheduled",
+      "teams": [
+        {
+          "clubKey": "84472110f075fb38",
+          "name": "Bournemouth"
+        },
+        {
+          "clubKey": "87e337fb055d5c47",
+          "name": "Ipswich Town"
+        }
+      ],
+      "score": null,
+      "scorers": []
+    },
+    {
+      "season": 2026,
+      "fixtureDate": "2027-01-17T16:30:00Z",
       "status": "scheduled",
       "teams": [
         {
@@ -111576,67 +111559,16 @@
     },
     {
       "season": 2026,
-      "fixtureDate": "2027-01-23T15:00:00Z",
+      "fixtureDate": "2027-01-18T20:00:00Z",
       "status": "scheduled",
       "teams": [
-        {
-          "clubKey": "0464077581c64f23",
-          "name": "Arsenal"
-        },
-        {
-          "clubKey": "7d1f31c0c7afec70",
-          "name": "Newcastle United"
-        }
-      ],
-      "score": null,
-      "scorers": []
-    },
-    {
-      "season": 2026,
-      "fixtureDate": "2027-01-23T15:00:00Z",
-      "status": "scheduled",
-      "teams": [
-        {
-          "clubKey": "95d1ff5557ab7610",
-          "name": "Brighton & Hove Albion"
-        },
-        {
-          "clubKey": "697671fe64f74db3",
-          "name": "Manchester City"
-        }
-      ],
-      "score": null,
-      "scorers": []
-    },
-    {
-      "season": 2026,
-      "fixtureDate": "2027-01-23T15:00:00Z",
-      "status": "scheduled",
-      "teams": [
-        {
-          "clubKey": "41a32b0ccb25fb05",
-          "name": "Crystal Palace"
-        },
-        {
-          "clubKey": "14f6c7f55a9d91b9",
-          "name": "Tottenham Hotspur"
-        }
-      ],
-      "score": null,
-      "scorers": []
-    },
-    {
-      "season": 2026,
-      "fixtureDate": "2027-01-23T15:00:00Z",
-      "status": "scheduled",
-      "teams": [
-        {
-          "clubKey": "5f6166bfca6f58ed",
-          "name": "Everton"
-        },
         {
           "clubKey": "b53546bad5bd6bb9",
           "name": "Brentford"
+        },
+        {
+          "clubKey": "95d1ff5557ab7610",
+          "name": "Brighton & Hove Albion"
         }
       ],
       "score": null,
@@ -111678,16 +111610,16 @@
     },
     {
       "season": 2026,
-      "fixtureDate": "2027-01-23T15:00:00Z",
+      "fixtureDate": "2027-01-23T17:30:00Z",
       "status": "scheduled",
       "teams": [
         {
-          "clubKey": "5e9487d1f1dedeb7",
-          "name": "Leeds United"
+          "clubKey": "0464077581c64f23",
+          "name": "Arsenal"
         },
         {
-          "clubKey": "98f3cf6e19df28f0",
-          "name": "Chelsea"
+          "clubKey": "7d1f31c0c7afec70",
+          "name": "Newcastle United"
         }
       ],
       "score": null,
@@ -111695,16 +111627,16 @@
     },
     {
       "season": 2026,
-      "fixtureDate": "2027-01-23T15:00:00Z",
+      "fixtureDate": "2027-01-23T20:00:00Z",
       "status": "scheduled",
       "teams": [
         {
-          "clubKey": "c711c6955bb33643",
-          "name": "Manchester United"
+          "clubKey": "95d1ff5557ab7610",
+          "name": "Brighton & Hove Albion"
         },
         {
-          "clubKey": "8e4a74df4af9d043",
-          "name": "Liverpool"
+          "clubKey": "697671fe64f74db3",
+          "name": "Manchester City"
         }
       ],
       "score": null,
@@ -111712,7 +111644,41 @@
     },
     {
       "season": 2026,
-      "fixtureDate": "2027-01-23T15:00:00Z",
+      "fixtureDate": "2027-01-24T14:00:00Z",
+      "status": "scheduled",
+      "teams": [
+        {
+          "clubKey": "41a32b0ccb25fb05",
+          "name": "Crystal Palace"
+        },
+        {
+          "clubKey": "14f6c7f55a9d91b9",
+          "name": "Tottenham Hotspur"
+        }
+      ],
+      "score": null,
+      "scorers": []
+    },
+    {
+      "season": 2026,
+      "fixtureDate": "2027-01-24T14:00:00Z",
+      "status": "scheduled",
+      "teams": [
+        {
+          "clubKey": "5f6166bfca6f58ed",
+          "name": "Everton"
+        },
+        {
+          "clubKey": "b53546bad5bd6bb9",
+          "name": "Brentford"
+        }
+      ],
+      "score": null,
+      "scorers": []
+    },
+    {
+      "season": 2026,
+      "fixtureDate": "2027-01-24T14:00:00Z",
       "status": "scheduled",
       "teams": [
         {
@@ -111729,7 +111695,7 @@
     },
     {
       "season": 2026,
-      "fixtureDate": "2027-01-23T15:00:00Z",
+      "fixtureDate": "2027-01-24T14:00:00Z",
       "status": "scheduled",
       "teams": [
         {
@@ -111746,16 +111712,50 @@
     },
     {
       "season": 2026,
-      "fixtureDate": "2027-01-30T15:00:00Z",
+      "fixtureDate": "2027-01-24T16:30:00Z",
       "status": "scheduled",
       "teams": [
         {
-          "clubKey": "84472110f075fb38",
-          "name": "Bournemouth"
+          "clubKey": "c711c6955bb33643",
+          "name": "Manchester United"
         },
         {
-          "clubKey": "244456e2211c5156",
-          "name": "Fulham"
+          "clubKey": "8e4a74df4af9d043",
+          "name": "Liverpool"
+        }
+      ],
+      "score": null,
+      "scorers": []
+    },
+    {
+      "season": 2026,
+      "fixtureDate": "2027-01-25T20:00:00Z",
+      "status": "scheduled",
+      "teams": [
+        {
+          "clubKey": "5e9487d1f1dedeb7",
+          "name": "Leeds United"
+        },
+        {
+          "clubKey": "98f3cf6e19df28f0",
+          "name": "Chelsea"
+        }
+      ],
+      "score": null,
+      "scorers": []
+    },
+    {
+      "season": 2026,
+      "fixtureDate": "2027-01-30T12:30:00Z",
+      "status": "scheduled",
+      "teams": [
+        {
+          "clubKey": "8e4a74df4af9d043",
+          "name": "Liverpool"
+        },
+        {
+          "clubKey": "5f6166bfca6f58ed",
+          "name": "Everton"
         }
       ],
       "score": null,
@@ -111784,12 +111784,12 @@
       "status": "scheduled",
       "teams": [
         {
-          "clubKey": "b53546bad5bd6bb9",
-          "name": "Brentford"
+          "clubKey": "7d1f31c0c7afec70",
+          "name": "Newcastle United"
         },
         {
-          "clubKey": "c711c6955bb33643",
-          "name": "Manchester United"
+          "clubKey": "95d1ff5557ab7610",
+          "name": "Brighton & Hove Albion"
         }
       ],
       "score": null,
@@ -111797,7 +111797,7 @@
     },
     {
       "season": 2026,
-      "fixtureDate": "2027-01-30T15:00:00Z",
+      "fixtureDate": "2027-01-30T17:30:00Z",
       "status": "scheduled",
       "teams": [
         {
@@ -111814,7 +111814,24 @@
     },
     {
       "season": 2026,
-      "fixtureDate": "2027-01-30T15:00:00Z",
+      "fixtureDate": "2027-01-31T14:00:00Z",
+      "status": "scheduled",
+      "teams": [
+        {
+          "clubKey": "84472110f075fb38",
+          "name": "Bournemouth"
+        },
+        {
+          "clubKey": "244456e2211c5156",
+          "name": "Fulham"
+        }
+      ],
+      "score": null,
+      "scorers": []
+    },
+    {
+      "season": 2026,
+      "fixtureDate": "2027-01-31T14:00:00Z",
       "status": "scheduled",
       "teams": [
         {
@@ -111831,7 +111848,7 @@
     },
     {
       "season": 2026,
-      "fixtureDate": "2027-01-30T15:00:00Z",
+      "fixtureDate": "2027-01-31T14:00:00Z",
       "status": "scheduled",
       "teams": [
         {
@@ -111848,16 +111865,16 @@
     },
     {
       "season": 2026,
-      "fixtureDate": "2027-01-30T15:00:00Z",
+      "fixtureDate": "2027-01-31T14:00:00Z",
       "status": "scheduled",
       "teams": [
         {
-          "clubKey": "8e4a74df4af9d043",
-          "name": "Liverpool"
+          "clubKey": "14f6c7f55a9d91b9",
+          "name": "Tottenham Hotspur"
         },
         {
-          "clubKey": "5f6166bfca6f58ed",
-          "name": "Everton"
+          "clubKey": "bb9f0501ff85f961",
+          "name": "Sunderland"
         }
       ],
       "score": null,
@@ -111865,7 +111882,7 @@
     },
     {
       "season": 2026,
-      "fixtureDate": "2027-01-30T15:00:00Z",
+      "fixtureDate": "2027-01-31T16:30:00Z",
       "status": "scheduled",
       "teams": [
         {
@@ -111882,33 +111899,16 @@
     },
     {
       "season": 2026,
-      "fixtureDate": "2027-01-30T15:00:00Z",
+      "fixtureDate": "2027-02-01T20:00:00Z",
       "status": "scheduled",
       "teams": [
         {
-          "clubKey": "7d1f31c0c7afec70",
-          "name": "Newcastle United"
+          "clubKey": "b53546bad5bd6bb9",
+          "name": "Brentford"
         },
         {
-          "clubKey": "95d1ff5557ab7610",
-          "name": "Brighton & Hove Albion"
-        }
-      ],
-      "score": null,
-      "scorers": []
-    },
-    {
-      "season": 2026,
-      "fixtureDate": "2027-01-30T15:00:00Z",
-      "status": "scheduled",
-      "teams": [
-        {
-          "clubKey": "14f6c7f55a9d91b9",
-          "name": "Tottenham Hotspur"
-        },
-        {
-          "clubKey": "bb9f0501ff85f961",
-          "name": "Sunderland"
+          "clubKey": "c711c6955bb33643",
+          "name": "Manchester United"
         }
       ],
       "score": null,
