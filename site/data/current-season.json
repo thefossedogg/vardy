@@ -2,7 +2,7 @@
   "competition": "Premier League",
   "season": 2026,
   "seasonLabel": "2026/27",
-  "generatedAt": "2026-11-21T12:00:17.683155Z",
+  "generatedAt": "2026-11-21T18:00:17.563616Z",
   "source": "Local monthly Premier League JSON exports",
   "benchmark": {
     "playerName": "Jamie Vardy",
@@ -12,9 +12,9 @@
   "archiveStartsAt": "2020-01-01",
   "archiveEndsAt": "2027-11-30",
   "sourceFiles": 95,
-  "completedFixtures": 2561,
-  "liveFixtures": 0,
-  "scheduledFixtures": 280,
+  "completedFixtures": 2567,
+  "liveFixtures": 1,
+  "scheduledFixtures": 273,
   "completeSeasons": [
     2020,
     2021,
@@ -29,9 +29,9 @@
       "playerKey": "1417947190dfc327",
       "clubKey": "84472110f075fb38",
       "clubName": "Bournemouth",
-      "matches": 5,
+      "matches": 6,
       "startDate": "2026-10-10T14:00:00Z",
-      "lastScoringDate": "2026-11-08T14:00:00Z",
+      "lastScoringDate": "2026-11-21T15:00:00Z",
       "startSeason": 2026,
       "season": 2026,
       "isActive": true,
@@ -70,24 +70,24 @@
             "name": "Ipswich Town"
           },
           "venue": "away"
-        }
-      ],
-      "nextGame": {
-        "fixtureDate": "2026-11-21T15:00:00Z",
-        "opponent": {
-          "name": "Nottingham Forest"
         },
-        "venue": "home"
-      },
-      "targetMatches": 12,
-      "upcomingGames": [
         {
           "fixtureDate": "2026-11-21T15:00:00Z",
           "opponent": {
             "name": "Nottingham Forest"
           },
           "venue": "home"
+        }
+      ],
+      "nextGame": {
+        "fixtureDate": "2026-11-29T14:05:00Z",
+        "opponent": {
+          "name": "Fulham"
         },
+        "venue": "away"
+      },
+      "targetMatches": 12,
+      "upcomingGames": [
         {
           "fixtureDate": "2026-11-29T14:05:00Z",
           "opponent": {
@@ -133,218 +133,218 @@
       ]
     },
     {
-      "playerName": "N. Jackson",
-      "playerKey": "891d0c0027737bfb",
-      "clubKey": "87aed6ef21cd6d0d",
-      "clubName": "Aston Villa",
-      "matches": 3,
-      "startDate": "2026-10-24T11:30:00Z",
-      "lastScoringDate": "2026-11-08T16:30:00Z",
-      "startSeason": 2026,
-      "season": 2026,
-      "isActive": true,
-      "games": [
-        {
-          "fixtureDate": "2026-10-24T11:30:00Z",
-          "opponent": {
-            "name": "Manchester City"
-          },
-          "venue": "home"
-        },
-        {
-          "fixtureDate": "2026-10-31T20:00:00Z",
-          "opponent": {
-            "name": "Fulham"
-          },
-          "venue": "home"
-        },
-        {
-          "fixtureDate": "2026-11-08T16:30:00Z",
-          "opponent": {
-            "name": "Manchester United"
-          },
-          "venue": "away"
-        }
-      ],
-      "nextGame": {
-        "fixtureDate": "2026-11-21T15:00:00Z",
-        "opponent": {
-          "name": "Sunderland"
-        },
-        "venue": "home"
-      },
-      "targetMatches": 12,
-      "upcomingGames": [
-        {
-          "fixtureDate": "2026-11-21T15:00:00Z",
-          "opponent": {
-            "name": "Sunderland"
-          },
-          "venue": "home"
-        },
-        {
-          "fixtureDate": "2026-11-28T17:30:00Z",
-          "opponent": {
-            "name": "Ipswich Town"
-          },
-          "venue": "away"
-        },
-        {
-          "fixtureDate": "2026-12-02T20:15:00Z",
-          "opponent": {
-            "name": "Everton"
-          },
-          "venue": "home"
-        },
-        {
-          "fixtureDate": "2026-12-05T15:00:00Z",
-          "opponent": {
-            "name": "Crystal Palace"
-          },
-          "venue": "home"
-        },
-        {
-          "fixtureDate": "2026-12-13T16:30:00Z",
-          "opponent": {
-            "name": "Coventry City"
-          },
-          "venue": "away"
-        },
-        {
-          "fixtureDate": "2026-12-21T20:00:00Z",
-          "opponent": {
-            "name": "Chelsea"
-          },
-          "venue": "away"
-        },
-        {
-          "fixtureDate": "2026-12-26T12:30:00Z",
-          "opponent": {
-            "name": "Leeds United"
-          },
-          "venue": "home"
-        },
-        {
-          "fixtureDate": "2026-12-30T20:15:00Z",
-          "opponent": {
-            "name": "Liverpool"
-          },
-          "venue": "home"
-        },
-        {
-          "fixtureDate": "2027-01-02T17:30:00Z",
-          "opponent": {
-            "name": "Bournemouth"
-          },
-          "venue": "away"
-        }
-      ]
-    },
-    {
-      "playerName": "E. Le Fée",
-      "playerKey": "4b55080f55b8212a",
-      "clubKey": "bb9f0501ff85f961",
-      "clubName": "Sunderland",
+      "playerName": "N. Okafor",
+      "playerKey": "82df2faae0b60ca0",
+      "clubKey": "5e9487d1f1dedeb7",
+      "clubName": "Leeds United",
       "matches": 2,
-      "startDate": "2026-10-31T15:00:00Z",
-      "lastScoringDate": "2026-11-08T14:00:00Z",
+      "startDate": "2026-11-07T12:30:00Z",
+      "lastScoringDate": "2026-11-21T15:00:00Z",
       "startSeason": 2026,
       "season": 2026,
       "isActive": true,
       "games": [
         {
-          "fixtureDate": "2026-10-31T15:00:00Z",
-          "opponent": {
-            "name": "Coventry City"
-          },
-          "venue": "away"
-        },
-        {
-          "fixtureDate": "2026-11-08T14:00:00Z",
-          "opponent": {
-            "name": "Chelsea"
-          },
-          "venue": "home"
-        }
-      ],
-      "nextGame": {
-        "fixtureDate": "2026-11-21T15:00:00Z",
-        "opponent": {
-          "name": "Aston Villa"
-        },
-        "venue": "away"
-      },
-      "targetMatches": 12,
-      "upcomingGames": [
-        {
-          "fixtureDate": "2026-11-21T15:00:00Z",
-          "opponent": {
-            "name": "Aston Villa"
-          },
-          "venue": "away"
-        },
-        {
-          "fixtureDate": "2026-11-29T14:05:00Z",
+          "fixtureDate": "2026-11-07T12:30:00Z",
           "opponent": {
             "name": "Tottenham Hotspur"
           },
           "venue": "home"
         },
         {
+          "fixtureDate": "2026-11-21T15:00:00Z",
+          "opponent": {
+            "name": "Chelsea"
+          },
+          "venue": "away"
+        }
+      ],
+      "nextGame": {
+        "fixtureDate": "2026-11-28T15:00:00Z",
+        "opponent": {
+          "name": "Coventry City"
+        },
+        "venue": "home"
+      },
+      "targetMatches": 12,
+      "upcomingGames": [
+        {
+          "fixtureDate": "2026-11-28T15:00:00Z",
+          "opponent": {
+            "name": "Coventry City"
+          },
+          "venue": "home"
+        },
+        {
           "fixtureDate": "2026-12-02T19:30:00Z",
           "opponent": {
+            "name": "Manchester City"
+          },
+          "venue": "away"
+        },
+        {
+          "fixtureDate": "2026-12-05T15:00:00Z",
+          "opponent": {
+            "name": "Ipswich Town"
+          },
+          "venue": "home"
+        },
+        {
+          "fixtureDate": "2026-12-12T15:00:00Z",
+          "opponent": {
             "name": "Liverpool"
+          },
+          "venue": "away"
+        },
+        {
+          "fixtureDate": "2026-12-19T15:00:00Z",
+          "opponent": {
+            "name": "Fulham"
+          },
+          "venue": "home"
+        },
+        {
+          "fixtureDate": "2026-12-26T12:30:00Z",
+          "opponent": {
+            "name": "Aston Villa"
+          },
+          "venue": "away"
+        },
+        {
+          "fixtureDate": "2026-12-29T19:30:00Z",
+          "opponent": {
+            "name": "Hull City"
+          },
+          "venue": "away"
+        },
+        {
+          "fixtureDate": "2027-01-01T20:00:00Z",
+          "opponent": {
+            "name": "Everton"
+          },
+          "venue": "home"
+        },
+        {
+          "fixtureDate": "2027-01-06T20:15:00Z",
+          "opponent": {
+            "name": "Manchester City"
+          },
+          "venue": "home"
+        },
+        {
+          "fixtureDate": "2027-01-17T16:30:00Z",
+          "opponent": {
+            "name": "Tottenham Hotspur"
+          },
+          "venue": "away"
+        }
+      ]
+    },
+    {
+      "playerName": "Rodrigo Muniz",
+      "playerKey": "0d9f09a1580233ca",
+      "clubKey": "244456e2211c5156",
+      "clubName": "Fulham",
+      "matches": 2,
+      "startDate": "2026-11-07T15:00:00Z",
+      "lastScoringDate": "2026-11-21T12:30:00Z",
+      "startSeason": 2026,
+      "season": 2026,
+      "isActive": true,
+      "games": [
+        {
+          "fixtureDate": "2026-11-07T15:00:00Z",
+          "opponent": {
+            "name": "Newcastle United"
+          },
+          "venue": "home"
+        },
+        {
+          "fixtureDate": "2026-11-21T12:30:00Z",
+          "opponent": {
+            "name": "Manchester City"
+          },
+          "venue": "away"
+        }
+      ],
+      "nextGame": {
+        "fixtureDate": "2026-11-29T14:05:00Z",
+        "opponent": {
+          "name": "Bournemouth"
+        },
+        "venue": "home"
+      },
+      "targetMatches": 12,
+      "upcomingGames": [
+        {
+          "fixtureDate": "2026-11-29T14:05:00Z",
+          "opponent": {
+            "name": "Bournemouth"
+          },
+          "venue": "home"
+        },
+        {
+          "fixtureDate": "2026-12-03T20:00:00Z",
+          "opponent": {
+            "name": "Tottenham Hotspur"
           },
           "venue": "away"
         },
         {
           "fixtureDate": "2026-12-06T14:00:00Z",
           "opponent": {
-            "name": "Newcastle United"
-          },
-          "venue": "away"
-        },
-        {
-          "fixtureDate": "2026-12-13T14:00:00Z",
-          "opponent": {
-            "name": "Nottingham Forest"
-          },
-          "venue": "home"
-        },
-        {
-          "fixtureDate": "2026-12-20T14:00:00Z",
-          "opponent": {
-            "name": "Crystal Palace"
-          },
-          "venue": "home"
-        },
-        {
-          "fixtureDate": "2026-12-26T15:00:00Z",
-          "opponent": {
             "name": "Everton"
           },
           "venue": "away"
         },
         {
-          "fixtureDate": "2026-12-30T19:30:00Z",
+          "fixtureDate": "2026-12-12T15:00:00Z",
           "opponent": {
-            "name": "Manchester United"
+            "name": "Brentford"
+          },
+          "venue": "home"
+        },
+        {
+          "fixtureDate": "2026-12-19T15:00:00Z",
+          "opponent": {
+            "name": "Leeds United"
           },
           "venue": "away"
         },
         {
-          "fixtureDate": "2027-01-02T15:00:00Z",
+          "fixtureDate": "2026-12-26T15:00:00Z",
           "opponent": {
-            "name": "Hull City"
+            "name": "Brighton & Hove Albion"
           },
           "venue": "home"
         },
         {
-          "fixtureDate": "2027-01-05T20:15:00Z",
+          "fixtureDate": "2026-12-30T19:30:00Z",
           "opponent": {
-            "name": "Liverpool"
+            "name": "Arsenal"
           },
           "venue": "home"
+        },
+        {
+          "fixtureDate": "2027-01-02T15:00:00Z",
+          "opponent": {
+            "name": "Nottingham Forest"
+          },
+          "venue": "away"
+        },
+        {
+          "fixtureDate": "2027-01-06T19:30:00Z",
+          "opponent": {
+            "name": "Tottenham Hotspur"
+          },
+          "venue": "home"
+        },
+        {
+          "fixtureDate": "2027-01-16T15:00:00Z",
+          "opponent": {
+            "name": "Newcastle United"
+          },
+          "venue": "away"
         }
       ]
     },
@@ -594,6 +594,92 @@
             "fixtureDate": "2026-10-31T15:00:00Z",
             "opponent": {
               "name": "Brighton & Hove Albion"
+            },
+            "venue": "home"
+          }
+        }
+      ]
+    },
+    {
+      "playerName": "N. Jackson",
+      "playerKey": "891d0c0027737bfb",
+      "clubKey": "87aed6ef21cd6d0d",
+      "clubName": "Aston Villa",
+      "matches": 3,
+      "startDate": "2026-10-24T11:30:00Z",
+      "lastScoringDate": "2026-11-08T16:30:00Z",
+      "startSeason": 2026,
+      "season": 2026,
+      "isActive": false,
+      "games": [
+        {
+          "fixtureDate": "2026-10-24T11:30:00Z",
+          "opponent": {
+            "name": "Manchester City"
+          },
+          "venue": "home"
+        },
+        {
+          "fixtureDate": "2026-10-31T20:00:00Z",
+          "opponent": {
+            "name": "Fulham"
+          },
+          "venue": "home"
+        },
+        {
+          "fixtureDate": "2026-11-08T16:30:00Z",
+          "opponent": {
+            "name": "Manchester United"
+          },
+          "venue": "away"
+        }
+      ],
+      "failedGame": {
+        "fixtureDate": "2026-11-21T15:00:00Z",
+        "opponent": {
+          "name": "Sunderland"
+        },
+        "venue": "home"
+      },
+      "bestRuns": [
+        {
+          "playerName": "N. Jackson",
+          "playerKey": "891d0c0027737bfb",
+          "clubKey": "87aed6ef21cd6d0d",
+          "clubName": "Aston Villa",
+          "matches": 3,
+          "startDate": "2026-10-24T11:30:00Z",
+          "lastScoringDate": "2026-11-08T16:30:00Z",
+          "startSeason": 2026,
+          "season": 2026,
+          "isActive": false,
+          "games": [
+            {
+              "fixtureDate": "2026-10-24T11:30:00Z",
+              "opponent": {
+                "name": "Manchester City"
+              },
+              "venue": "home"
+            },
+            {
+              "fixtureDate": "2026-10-31T20:00:00Z",
+              "opponent": {
+                "name": "Fulham"
+              },
+              "venue": "home"
+            },
+            {
+              "fixtureDate": "2026-11-08T16:30:00Z",
+              "opponent": {
+                "name": "Manchester United"
+              },
+              "venue": "away"
+            }
+          ],
+          "failedGame": {
+            "fixtureDate": "2026-11-21T15:00:00Z",
+            "opponent": {
+              "name": "Sunderland"
             },
             "venue": "home"
           }
@@ -1103,6 +1189,78 @@
       ]
     },
     {
+      "playerName": "E. Le Fée",
+      "playerKey": "4b55080f55b8212a",
+      "clubKey": "bb9f0501ff85f961",
+      "clubName": "Sunderland",
+      "matches": 2,
+      "startDate": "2026-10-31T15:00:00Z",
+      "lastScoringDate": "2026-11-08T14:00:00Z",
+      "startSeason": 2026,
+      "season": 2026,
+      "isActive": false,
+      "games": [
+        {
+          "fixtureDate": "2026-10-31T15:00:00Z",
+          "opponent": {
+            "name": "Coventry City"
+          },
+          "venue": "away"
+        },
+        {
+          "fixtureDate": "2026-11-08T14:00:00Z",
+          "opponent": {
+            "name": "Chelsea"
+          },
+          "venue": "home"
+        }
+      ],
+      "failedGame": {
+        "fixtureDate": "2026-11-21T15:00:00Z",
+        "opponent": {
+          "name": "Aston Villa"
+        },
+        "venue": "away"
+      },
+      "bestRuns": [
+        {
+          "playerName": "E. Le Fée",
+          "playerKey": "4b55080f55b8212a",
+          "clubKey": "bb9f0501ff85f961",
+          "clubName": "Sunderland",
+          "matches": 2,
+          "startDate": "2026-10-31T15:00:00Z",
+          "lastScoringDate": "2026-11-08T14:00:00Z",
+          "startSeason": 2026,
+          "season": 2026,
+          "isActive": false,
+          "games": [
+            {
+              "fixtureDate": "2026-10-31T15:00:00Z",
+              "opponent": {
+                "name": "Coventry City"
+              },
+              "venue": "away"
+            },
+            {
+              "fixtureDate": "2026-11-08T14:00:00Z",
+              "opponent": {
+                "name": "Chelsea"
+              },
+              "venue": "home"
+            }
+          ],
+          "failedGame": {
+            "fixtureDate": "2026-11-21T15:00:00Z",
+            "opponent": {
+              "name": "Aston Villa"
+            },
+            "venue": "away"
+          }
+        }
+      ]
+    },
+    {
       "playerName": "J. Enciso",
       "playerKey": "64f80bb7ce8ec044",
       "clubKey": "87e337fb055d5c47",
@@ -1493,78 +1651,6 @@
               "name": "Liverpool"
             },
             "venue": "home"
-          }
-        }
-      ]
-    },
-    {
-      "playerName": "N. Jackson",
-      "playerKey": "891d0c0027737bfb",
-      "clubKey": "87aed6ef21cd6d0d",
-      "clubName": "Aston Villa",
-      "matches": 2,
-      "startDate": "2026-09-19T11:30:00Z",
-      "lastScoringDate": "2026-10-10T14:00:00Z",
-      "startSeason": 2026,
-      "season": 2026,
-      "isActive": false,
-      "games": [
-        {
-          "fixtureDate": "2026-09-19T11:30:00Z",
-          "opponent": {
-            "name": "Tottenham Hotspur"
-          },
-          "venue": "away"
-        },
-        {
-          "fixtureDate": "2026-10-10T14:00:00Z",
-          "opponent": {
-            "name": "Brentford"
-          },
-          "venue": "home"
-        }
-      ],
-      "failedGame": {
-        "fixtureDate": "2026-10-17T16:30:00Z",
-        "opponent": {
-          "name": "Newcastle United"
-        },
-        "venue": "away"
-      },
-      "bestRuns": [
-        {
-          "playerName": "N. Jackson",
-          "playerKey": "891d0c0027737bfb",
-          "clubKey": "87aed6ef21cd6d0d",
-          "clubName": "Aston Villa",
-          "matches": 2,
-          "startDate": "2026-09-19T11:30:00Z",
-          "lastScoringDate": "2026-10-10T14:00:00Z",
-          "startSeason": 2026,
-          "season": 2026,
-          "isActive": false,
-          "games": [
-            {
-              "fixtureDate": "2026-09-19T11:30:00Z",
-              "opponent": {
-                "name": "Tottenham Hotspur"
-              },
-              "venue": "away"
-            },
-            {
-              "fixtureDate": "2026-10-10T14:00:00Z",
-              "opponent": {
-                "name": "Brentford"
-              },
-              "venue": "home"
-            }
-          ],
-          "failedGame": {
-            "fixtureDate": "2026-10-17T16:30:00Z",
-            "opponent": {
-              "name": "Newcastle United"
-            },
-            "venue": "away"
           }
         }
       ]
@@ -2936,17 +3022,93 @@
     }
   ],
   "whatChanged": {
-    "generatedAt": "2026-11-21T12:00:17.683155Z",
-    "windowStart": "2026-11-14T12:00:17.683155Z",
-    "windowEnd": "2026-11-21T12:00:17.683155Z",
-    "endedStreaks": []
+    "generatedAt": "2026-11-21T18:00:17.563616Z",
+    "windowStart": "2026-11-14T18:00:17.563616Z",
+    "windowEnd": "2026-11-21T18:00:17.563616Z",
+    "endedStreaks": [
+      {
+        "playerName": "N. Jackson",
+        "playerKey": "891d0c0027737bfb",
+        "clubKey": "87aed6ef21cd6d0d",
+        "clubName": "Aston Villa",
+        "season": 2026,
+        "startSeason": 2026,
+        "startDate": "2026-10-24T11:30:00Z",
+        "lastScoringDate": "2026-11-08T16:30:00Z",
+        "matches": 3,
+        "games": [
+          {
+            "fixtureDate": "2026-10-24T11:30:00Z",
+            "opponent": {
+              "name": "Manchester City"
+            },
+            "venue": "home"
+          },
+          {
+            "fixtureDate": "2026-10-31T20:00:00Z",
+            "opponent": {
+              "name": "Fulham"
+            },
+            "venue": "home"
+          },
+          {
+            "fixtureDate": "2026-11-08T16:30:00Z",
+            "opponent": {
+              "name": "Manchester United"
+            },
+            "venue": "away"
+          }
+        ],
+        "failedGame": {
+          "fixtureDate": "2026-11-21T15:00:00Z",
+          "opponent": {
+            "name": "Sunderland"
+          },
+          "venue": "home"
+        }
+      },
+      {
+        "playerName": "E. Le Fée",
+        "playerKey": "4b55080f55b8212a",
+        "clubKey": "bb9f0501ff85f961",
+        "clubName": "Sunderland",
+        "season": 2026,
+        "startSeason": 2026,
+        "startDate": "2026-10-31T15:00:00Z",
+        "lastScoringDate": "2026-11-08T14:00:00Z",
+        "matches": 2,
+        "games": [
+          {
+            "fixtureDate": "2026-10-31T15:00:00Z",
+            "opponent": {
+              "name": "Coventry City"
+            },
+            "venue": "away"
+          },
+          {
+            "fixtureDate": "2026-11-08T14:00:00Z",
+            "opponent": {
+              "name": "Chelsea"
+            },
+            "venue": "home"
+          }
+        ],
+        "failedGame": {
+          "fixtureDate": "2026-11-21T15:00:00Z",
+          "opponent": {
+            "name": "Aston Villa"
+          },
+          "venue": "away"
+        }
+      }
+    ]
   },
   "clubs": [
     {
       "clubName": "Arsenal",
       "clubKey": "0464077581c64f23",
       "completedFixtures": 10,
-      "liveFixtures": 0,
+      "liveFixtures": 1,
       "scorers": [
         {
           "playerName": "B. Saka",
@@ -3003,7 +3165,7 @@
     {
       "clubName": "Aston Villa",
       "clubKey": "87aed6ef21cd6d0d",
-      "completedFixtures": 10,
+      "completedFixtures": 11,
       "liveFixtures": 0,
       "scorers": [
         {
@@ -3043,159 +3205,50 @@
           "rank": 5
         }
       ],
-      "activeInSeason": [
-        {
-          "playerName": "N. Jackson",
-          "playerKey": "891d0c0027737bfb",
-          "clubKey": "87aed6ef21cd6d0d",
-          "clubName": "Aston Villa",
-          "matches": 3,
-          "startDate": "2026-10-24T11:30:00Z",
-          "lastScoringDate": "2026-11-08T16:30:00Z",
-          "startSeason": 2026,
-          "season": 2026,
-          "isActive": true,
-          "games": [
-            {
-              "fixtureDate": "2026-10-24T11:30:00Z",
-              "opponent": {
-                "name": "Manchester City"
-              },
-              "venue": "home"
-            },
-            {
-              "fixtureDate": "2026-10-31T20:00:00Z",
-              "opponent": {
-                "name": "Fulham"
-              },
-              "venue": "home"
-            },
-            {
-              "fixtureDate": "2026-11-08T16:30:00Z",
-              "opponent": {
-                "name": "Manchester United"
-              },
-              "venue": "away"
-            }
-          ],
-          "nextGame": {
-            "fixtureDate": "2026-11-21T15:00:00Z",
-            "opponent": {
-              "name": "Sunderland"
-            },
-            "venue": "home"
-          },
-          "targetMatches": 12,
-          "upcomingGames": [
-            {
-              "fixtureDate": "2026-11-21T15:00:00Z",
-              "opponent": {
-                "name": "Sunderland"
-              },
-              "venue": "home"
-            },
-            {
-              "fixtureDate": "2026-11-28T17:30:00Z",
-              "opponent": {
-                "name": "Ipswich Town"
-              },
-              "venue": "away"
-            },
-            {
-              "fixtureDate": "2026-12-02T20:15:00Z",
-              "opponent": {
-                "name": "Everton"
-              },
-              "venue": "home"
-            },
-            {
-              "fixtureDate": "2026-12-05T15:00:00Z",
-              "opponent": {
-                "name": "Crystal Palace"
-              },
-              "venue": "home"
-            },
-            {
-              "fixtureDate": "2026-12-13T16:30:00Z",
-              "opponent": {
-                "name": "Coventry City"
-              },
-              "venue": "away"
-            },
-            {
-              "fixtureDate": "2026-12-21T20:00:00Z",
-              "opponent": {
-                "name": "Chelsea"
-              },
-              "venue": "away"
-            },
-            {
-              "fixtureDate": "2026-12-26T12:30:00Z",
-              "opponent": {
-                "name": "Leeds United"
-              },
-              "venue": "home"
-            },
-            {
-              "fixtureDate": "2026-12-30T20:15:00Z",
-              "opponent": {
-                "name": "Liverpool"
-              },
-              "venue": "home"
-            },
-            {
-              "fixtureDate": "2027-01-02T17:30:00Z",
-              "opponent": {
-                "name": "Bournemouth"
-              },
-              "venue": "away"
-            }
-          ]
-        }
-      ],
+      "activeInSeason": [],
       "slug": "aston-villa"
     },
     {
       "clubName": "Bournemouth",
       "clubKey": "84472110f075fb38",
-      "completedFixtures": 10,
+      "completedFixtures": 11,
       "liveFixtures": 0,
       "scorers": [
         {
           "playerName": "Evanilson",
           "playerKey": "1417947190dfc327",
-          "goals": 5,
+          "goals": 6,
           "rank": 1
         },
         {
           "playerName": "M. Tavernier",
           "playerKey": "902480cde1c4e442",
           "goals": 5,
-          "rank": 1
+          "rank": 2
+        },
+        {
+          "playerName": "J. Kluivert",
+          "playerKey": "22d53189f43fd9f6",
+          "goals": 2,
+          "rank": 3
         },
         {
           "playerName": "A. Adli",
           "playerKey": "76c77765bf91bc5a",
           "goals": 1,
-          "rank": 3
+          "rank": 4
         },
         {
           "playerName": "A. Scott",
           "playerKey": "22d4de12a403dadb",
           "goals": 1,
-          "rank": 3
-        },
-        {
-          "playerName": "J. Kluivert",
-          "playerKey": "22d53189f43fd9f6",
-          "goals": 1,
-          "rank": 3
+          "rank": 4
         },
         {
           "playerName": "Rayan",
           "playerKey": "4968246f2b56d2ba",
           "goals": 1,
-          "rank": 3
+          "rank": 4
         }
       ],
       "activeInSeason": [
@@ -3204,9 +3257,9 @@
           "playerKey": "1417947190dfc327",
           "clubKey": "84472110f075fb38",
           "clubName": "Bournemouth",
-          "matches": 5,
+          "matches": 6,
           "startDate": "2026-10-10T14:00:00Z",
-          "lastScoringDate": "2026-11-08T14:00:00Z",
+          "lastScoringDate": "2026-11-21T15:00:00Z",
           "startSeason": 2026,
           "season": 2026,
           "isActive": true,
@@ -3245,24 +3298,24 @@
                 "name": "Ipswich Town"
               },
               "venue": "away"
-            }
-          ],
-          "nextGame": {
-            "fixtureDate": "2026-11-21T15:00:00Z",
-            "opponent": {
-              "name": "Nottingham Forest"
             },
-            "venue": "home"
-          },
-          "targetMatches": 12,
-          "upcomingGames": [
             {
               "fixtureDate": "2026-11-21T15:00:00Z",
               "opponent": {
                 "name": "Nottingham Forest"
               },
               "venue": "home"
+            }
+          ],
+          "nextGame": {
+            "fixtureDate": "2026-11-29T14:05:00Z",
+            "opponent": {
+              "name": "Fulham"
             },
+            "venue": "away"
+          },
+          "targetMatches": 12,
+          "upcomingGames": [
             {
               "fixtureDate": "2026-11-29T14:05:00Z",
               "opponent": {
@@ -3459,7 +3512,7 @@
     {
       "clubName": "Chelsea",
       "clubKey": "98f3cf6e19df28f0",
-      "completedFixtures": 10,
+      "completedFixtures": 11,
       "liveFixtures": 0,
       "scorers": [
         {
@@ -3493,6 +3546,12 @@
           "rank": 5
         },
         {
+          "playerName": "E. Emegha",
+          "playerKey": "54688dd21da301f5",
+          "goals": 1,
+          "rank": 6
+        },
+        {
           "playerName": "R. Lavia",
           "playerKey": "6b377bd86e475841",
           "goals": 1,
@@ -3505,7 +3564,7 @@
     {
       "clubName": "Coventry City",
       "clubKey": "d7386639e488aa64",
-      "completedFixtures": 10,
+      "completedFixtures": 11,
       "liveFixtures": 0,
       "scorers": [
         {
@@ -3515,46 +3574,46 @@
           "rank": 1
         },
         {
-          "playerName": "E. Simms",
-          "playerKey": "199d7c86be36467f",
-          "goals": 1,
-          "rank": 2
-        },
-        {
-          "playerName": "J. Dasilva",
-          "playerKey": "144e99af28f1448f",
-          "goals": 1,
-          "rank": 2
-        },
-        {
-          "playerName": "S. Cherif",
-          "playerKey": "0de4ec64b9a88026",
-          "goals": 1,
-          "rank": 2
-        },
-        {
-          "playerName": "S. Mfuni",
-          "playerKey": "9e5b3222b894bed7",
-          "goals": 1,
-          "rank": 2
-        },
-        {
           "playerName": "T. Awoniyi",
           "playerKey": "90ab0d598d48af67",
-          "goals": 1,
+          "goals": 2,
           "rank": 2
         },
         {
           "playerName": "T. Sakamoto",
           "playerKey": "e53cd8c1299bb0ff",
-          "goals": 1,
+          "goals": 2,
           "rank": 2
+        },
+        {
+          "playerName": "E. Simms",
+          "playerKey": "199d7c86be36467f",
+          "goals": 1,
+          "rank": 4
+        },
+        {
+          "playerName": "J. Dasilva",
+          "playerKey": "144e99af28f1448f",
+          "goals": 1,
+          "rank": 4
+        },
+        {
+          "playerName": "S. Cherif",
+          "playerKey": "0de4ec64b9a88026",
+          "goals": 1,
+          "rank": 4
+        },
+        {
+          "playerName": "S. Mfuni",
+          "playerKey": "9e5b3222b894bed7",
+          "goals": 1,
+          "rank": 4
         },
         {
           "playerName": "Y. Gboho",
           "playerKey": "0ad103d5f25c4d67",
           "goals": 1,
-          "rank": 2
+          "rank": 4
         }
       ],
       "activeInSeason": [],
@@ -3563,9 +3622,15 @@
     {
       "clubName": "Crystal Palace",
       "clubKey": "41a32b0ccb25fb05",
-      "completedFixtures": 10,
+      "completedFixtures": 11,
       "liveFixtures": 0,
       "scorers": [
+        {
+          "playerName": "J. Strand Larsen",
+          "playerKey": "9583e779483e4af1",
+          "goals": 2,
+          "rank": 1
+        },
         {
           "playerName": "T. Mitchell",
           "playerKey": "4ce11e3620e894e9",
@@ -3573,46 +3638,40 @@
           "rank": 1
         },
         {
+          "playerName": "Yéremy Pino",
+          "playerKey": "10c64d90fd5683ae",
+          "goals": 2,
+          "rank": 1
+        },
+        {
           "playerName": "A. Khalaili",
           "playerKey": "920a425e41afcd90",
           "goals": 1,
-          "rank": 2
+          "rank": 4
         },
         {
           "playerName": "B. Chilwell",
           "playerKey": "97df9f4451c53c85",
           "goals": 1,
-          "rank": 2
+          "rank": 4
         },
         {
           "playerName": "D. Kamada",
           "playerKey": "ec847f12b3eb595a",
           "goals": 1,
-          "rank": 2
+          "rank": 4
         },
         {
           "playerName": "E. Nketiah",
           "playerKey": "8556a559d332d856",
           "goals": 1,
-          "rank": 2
+          "rank": 4
         },
         {
           "playerName": "J. Lerma",
           "playerKey": "ee7669544b3c06be",
           "goals": 1,
-          "rank": 2
-        },
-        {
-          "playerName": "J. Strand Larsen",
-          "playerKey": "9583e779483e4af1",
-          "goals": 1,
-          "rank": 2
-        },
-        {
-          "playerName": "Yéremy Pino",
-          "playerKey": "10c64d90fd5683ae",
-          "goals": 1,
-          "rank": 2
+          "rank": 4
         }
       ],
       "activeInSeason": [],
@@ -3770,7 +3829,7 @@
     {
       "clubName": "Fulham",
       "clubKey": "244456e2211c5156",
-      "completedFixtures": 10,
+      "completedFixtures": 11,
       "liveFixtures": 0,
       "scorers": [
         {
@@ -3780,43 +3839,152 @@
           "rank": 1
         },
         {
+          "playerName": "Rodrigo Muniz",
+          "playerKey": "0d9f09a1580233ca",
+          "goals": 2,
+          "rank": 1
+        },
+        {
           "playerName": "A. Iwobi",
           "playerKey": "e3f1d40f8ee96547",
           "goals": 1,
-          "rank": 2
+          "rank": 3
         },
         {
           "playerName": "César Palacios",
           "playerKey": "b52a815a0af940ae",
           "goals": 1,
-          "rank": 2
+          "rank": 3
         },
         {
           "playerName": "Gonzalo García",
           "playerKey": "b155a0a5fa7425ee",
           "goals": 1,
-          "rank": 2
+          "rank": 3
         },
         {
           "playerName": "O. Bobb",
           "playerKey": "f1c318ba6f09d4f5",
           "goals": 1,
-          "rank": 2
+          "rank": 3
         },
         {
           "playerName": "R. Sessegnon",
           "playerKey": "ce684a452b70312c",
           "goals": 1,
-          "rank": 2
-        },
+          "rank": 3
+        }
+      ],
+      "activeInSeason": [
         {
           "playerName": "Rodrigo Muniz",
           "playerKey": "0d9f09a1580233ca",
-          "goals": 1,
-          "rank": 2
+          "clubKey": "244456e2211c5156",
+          "clubName": "Fulham",
+          "matches": 2,
+          "startDate": "2026-11-07T15:00:00Z",
+          "lastScoringDate": "2026-11-21T12:30:00Z",
+          "startSeason": 2026,
+          "season": 2026,
+          "isActive": true,
+          "games": [
+            {
+              "fixtureDate": "2026-11-07T15:00:00Z",
+              "opponent": {
+                "name": "Newcastle United"
+              },
+              "venue": "home"
+            },
+            {
+              "fixtureDate": "2026-11-21T12:30:00Z",
+              "opponent": {
+                "name": "Manchester City"
+              },
+              "venue": "away"
+            }
+          ],
+          "nextGame": {
+            "fixtureDate": "2026-11-29T14:05:00Z",
+            "opponent": {
+              "name": "Bournemouth"
+            },
+            "venue": "home"
+          },
+          "targetMatches": 12,
+          "upcomingGames": [
+            {
+              "fixtureDate": "2026-11-29T14:05:00Z",
+              "opponent": {
+                "name": "Bournemouth"
+              },
+              "venue": "home"
+            },
+            {
+              "fixtureDate": "2026-12-03T20:00:00Z",
+              "opponent": {
+                "name": "Tottenham Hotspur"
+              },
+              "venue": "away"
+            },
+            {
+              "fixtureDate": "2026-12-06T14:00:00Z",
+              "opponent": {
+                "name": "Everton"
+              },
+              "venue": "away"
+            },
+            {
+              "fixtureDate": "2026-12-12T15:00:00Z",
+              "opponent": {
+                "name": "Brentford"
+              },
+              "venue": "home"
+            },
+            {
+              "fixtureDate": "2026-12-19T15:00:00Z",
+              "opponent": {
+                "name": "Leeds United"
+              },
+              "venue": "away"
+            },
+            {
+              "fixtureDate": "2026-12-26T15:00:00Z",
+              "opponent": {
+                "name": "Brighton & Hove Albion"
+              },
+              "venue": "home"
+            },
+            {
+              "fixtureDate": "2026-12-30T19:30:00Z",
+              "opponent": {
+                "name": "Arsenal"
+              },
+              "venue": "home"
+            },
+            {
+              "fixtureDate": "2027-01-02T15:00:00Z",
+              "opponent": {
+                "name": "Nottingham Forest"
+              },
+              "venue": "away"
+            },
+            {
+              "fixtureDate": "2027-01-06T19:30:00Z",
+              "opponent": {
+                "name": "Tottenham Hotspur"
+              },
+              "venue": "home"
+            },
+            {
+              "fixtureDate": "2027-01-16T15:00:00Z",
+              "opponent": {
+                "name": "Newcastle United"
+              },
+              "venue": "away"
+            }
+          ]
         }
       ],
-      "activeInSeason": [],
       "slug": "fulham"
     },
     {
@@ -3880,7 +4048,7 @@
     {
       "clubName": "Ipswich Town",
       "clubKey": "87e337fb055d5c47",
-      "completedFixtures": 10,
+      "completedFixtures": 11,
       "liveFixtures": 0,
       "scorers": [
         {
@@ -3950,24 +4118,30 @@
     {
       "clubName": "Leeds United",
       "clubKey": "5e9487d1f1dedeb7",
-      "completedFixtures": 10,
+      "completedFixtures": 11,
       "liveFixtures": 0,
       "scorers": [
         {
           "playerName": "D. Calvert-Lewin",
           "playerKey": "7a1a35a7203d0d34",
-          "goals": 4,
+          "goals": 5,
           "rank": 1
         },
         {
           "playerName": "N. Okafor",
           "playerKey": "82df2faae0b60ca0",
-          "goals": 2,
+          "goals": 4,
           "rank": 2
         },
         {
           "playerName": "A. Stach",
           "playerKey": "ab31d2d00e460e9e",
+          "goals": 1,
+          "rank": 3
+        },
+        {
+          "playerName": "B. Aaronson",
+          "playerKey": "41991040b4c93a22",
           "goals": 1,
           "rank": 3
         },
@@ -3984,7 +4158,116 @@
           "rank": 3
         }
       ],
-      "activeInSeason": [],
+      "activeInSeason": [
+        {
+          "playerName": "N. Okafor",
+          "playerKey": "82df2faae0b60ca0",
+          "clubKey": "5e9487d1f1dedeb7",
+          "clubName": "Leeds United",
+          "matches": 2,
+          "startDate": "2026-11-07T12:30:00Z",
+          "lastScoringDate": "2026-11-21T15:00:00Z",
+          "startSeason": 2026,
+          "season": 2026,
+          "isActive": true,
+          "games": [
+            {
+              "fixtureDate": "2026-11-07T12:30:00Z",
+              "opponent": {
+                "name": "Tottenham Hotspur"
+              },
+              "venue": "home"
+            },
+            {
+              "fixtureDate": "2026-11-21T15:00:00Z",
+              "opponent": {
+                "name": "Chelsea"
+              },
+              "venue": "away"
+            }
+          ],
+          "nextGame": {
+            "fixtureDate": "2026-11-28T15:00:00Z",
+            "opponent": {
+              "name": "Coventry City"
+            },
+            "venue": "home"
+          },
+          "targetMatches": 12,
+          "upcomingGames": [
+            {
+              "fixtureDate": "2026-11-28T15:00:00Z",
+              "opponent": {
+                "name": "Coventry City"
+              },
+              "venue": "home"
+            },
+            {
+              "fixtureDate": "2026-12-02T19:30:00Z",
+              "opponent": {
+                "name": "Manchester City"
+              },
+              "venue": "away"
+            },
+            {
+              "fixtureDate": "2026-12-05T15:00:00Z",
+              "opponent": {
+                "name": "Ipswich Town"
+              },
+              "venue": "home"
+            },
+            {
+              "fixtureDate": "2026-12-12T15:00:00Z",
+              "opponent": {
+                "name": "Liverpool"
+              },
+              "venue": "away"
+            },
+            {
+              "fixtureDate": "2026-12-19T15:00:00Z",
+              "opponent": {
+                "name": "Fulham"
+              },
+              "venue": "home"
+            },
+            {
+              "fixtureDate": "2026-12-26T12:30:00Z",
+              "opponent": {
+                "name": "Aston Villa"
+              },
+              "venue": "away"
+            },
+            {
+              "fixtureDate": "2026-12-29T19:30:00Z",
+              "opponent": {
+                "name": "Hull City"
+              },
+              "venue": "away"
+            },
+            {
+              "fixtureDate": "2027-01-01T20:00:00Z",
+              "opponent": {
+                "name": "Everton"
+              },
+              "venue": "home"
+            },
+            {
+              "fixtureDate": "2027-01-06T20:15:00Z",
+              "opponent": {
+                "name": "Manchester City"
+              },
+              "venue": "home"
+            },
+            {
+              "fixtureDate": "2027-01-17T16:30:00Z",
+              "opponent": {
+                "name": "Tottenham Hotspur"
+              },
+              "venue": "away"
+            }
+          ]
+        }
+      ],
       "slug": "leeds-united"
     },
     {
@@ -4036,7 +4319,7 @@
     {
       "clubName": "Manchester City",
       "clubKey": "697671fe64f74db3",
-      "completedFixtures": 10,
+      "completedFixtures": 11,
       "liveFixtures": 0,
       "scorers": [
         {
@@ -4056,6 +4339,12 @@
           "playerKey": "17ce0a3b788c801b",
           "goals": 2,
           "rank": 3
+        },
+        {
+          "playerName": "E. Anderson",
+          "playerKey": "f5be4ea68232d58e",
+          "goals": 1,
+          "rank": 4
         },
         {
           "playerName": "E. Fernández",
@@ -4147,7 +4436,7 @@
       "clubName": "Newcastle United",
       "clubKey": "7d1f31c0c7afec70",
       "completedFixtures": 10,
-      "liveFixtures": 0,
+      "liveFixtures": 1,
       "scorers": [
         {
           "playerName": "A. Elanga",
@@ -4216,7 +4505,7 @@
     {
       "clubName": "Nottingham Forest",
       "clubKey": "f80c12296b86623b",
-      "completedFixtures": 10,
+      "completedFixtures": 11,
       "liveFixtures": 0,
       "scorers": [
         {
@@ -4262,7 +4551,7 @@
     {
       "clubName": "Sunderland",
       "clubKey": "bb9f0501ff85f961",
-      "completedFixtures": 10,
+      "completedFixtures": 11,
       "liveFixtures": 0,
       "scorers": [
         {
@@ -4290,124 +4579,21 @@
           "rank": 3
         }
       ],
-      "activeInSeason": [
-        {
-          "playerName": "E. Le Fée",
-          "playerKey": "4b55080f55b8212a",
-          "clubKey": "bb9f0501ff85f961",
-          "clubName": "Sunderland",
-          "matches": 2,
-          "startDate": "2026-10-31T15:00:00Z",
-          "lastScoringDate": "2026-11-08T14:00:00Z",
-          "startSeason": 2026,
-          "season": 2026,
-          "isActive": true,
-          "games": [
-            {
-              "fixtureDate": "2026-10-31T15:00:00Z",
-              "opponent": {
-                "name": "Coventry City"
-              },
-              "venue": "away"
-            },
-            {
-              "fixtureDate": "2026-11-08T14:00:00Z",
-              "opponent": {
-                "name": "Chelsea"
-              },
-              "venue": "home"
-            }
-          ],
-          "nextGame": {
-            "fixtureDate": "2026-11-21T15:00:00Z",
-            "opponent": {
-              "name": "Aston Villa"
-            },
-            "venue": "away"
-          },
-          "targetMatches": 12,
-          "upcomingGames": [
-            {
-              "fixtureDate": "2026-11-21T15:00:00Z",
-              "opponent": {
-                "name": "Aston Villa"
-              },
-              "venue": "away"
-            },
-            {
-              "fixtureDate": "2026-11-29T14:05:00Z",
-              "opponent": {
-                "name": "Tottenham Hotspur"
-              },
-              "venue": "home"
-            },
-            {
-              "fixtureDate": "2026-12-02T19:30:00Z",
-              "opponent": {
-                "name": "Liverpool"
-              },
-              "venue": "away"
-            },
-            {
-              "fixtureDate": "2026-12-06T14:00:00Z",
-              "opponent": {
-                "name": "Newcastle United"
-              },
-              "venue": "away"
-            },
-            {
-              "fixtureDate": "2026-12-13T14:00:00Z",
-              "opponent": {
-                "name": "Nottingham Forest"
-              },
-              "venue": "home"
-            },
-            {
-              "fixtureDate": "2026-12-20T14:00:00Z",
-              "opponent": {
-                "name": "Crystal Palace"
-              },
-              "venue": "home"
-            },
-            {
-              "fixtureDate": "2026-12-26T15:00:00Z",
-              "opponent": {
-                "name": "Everton"
-              },
-              "venue": "away"
-            },
-            {
-              "fixtureDate": "2026-12-30T19:30:00Z",
-              "opponent": {
-                "name": "Manchester United"
-              },
-              "venue": "away"
-            },
-            {
-              "fixtureDate": "2027-01-02T15:00:00Z",
-              "opponent": {
-                "name": "Hull City"
-              },
-              "venue": "home"
-            },
-            {
-              "fixtureDate": "2027-01-05T20:15:00Z",
-              "opponent": {
-                "name": "Liverpool"
-              },
-              "venue": "home"
-            }
-          ]
-        }
-      ],
+      "activeInSeason": [],
       "slug": "sunderland"
     },
     {
       "clubName": "Tottenham Hotspur",
       "clubKey": "14f6c7f55a9d91b9",
-      "completedFixtures": 10,
+      "completedFixtures": 11,
       "liveFixtures": 0,
       "scorers": [
+        {
+          "playerName": "D. Solanke",
+          "playerKey": "5a17d6013dcbff3f",
+          "goals": 2,
+          "rank": 1
+        },
         {
           "playerName": "J. van Hecke",
           "playerKey": "64be1fbcbd7de62d",
@@ -4418,43 +4604,43 @@
           "playerName": "A. Gray",
           "playerKey": "d08d1e3ac7de0324",
           "goals": 1,
-          "rank": 2
+          "rank": 3
         },
         {
           "playerName": "B. Davies",
           "playerKey": "b1b6ea6572716458",
           "goals": 1,
-          "rank": 2
+          "rank": 3
         },
         {
           "playerName": "C. Gallagher",
           "playerKey": "c90b03ebcb2170b2",
           "goals": 1,
-          "rank": 2
-        },
-        {
-          "playerName": "D. Solanke",
-          "playerKey": "5a17d6013dcbff3f",
-          "goals": 1,
-          "rank": 2
+          "rank": 3
         },
         {
           "playerName": "J. Maddison",
           "playerKey": "aafbe88f4614461a",
           "goals": 1,
-          "rank": 2
+          "rank": 3
+        },
+        {
+          "playerName": "L. Williams-Barnett",
+          "playerKey": "5011ca8322d89bb0",
+          "goals": 1,
+          "rank": 3
         },
         {
           "playerName": "M. Tel",
           "playerKey": "de2b4e74c425656a",
           "goals": 1,
-          "rank": 2
+          "rank": 3
         },
         {
           "playerName": "Omar Marmoush",
           "playerKey": "530e0e16cbad8edc",
           "goals": 1,
-          "rank": 2
+          "rank": 3
         }
       ],
       "activeInSeason": [],
@@ -109707,7 +109893,7 @@
     {
       "season": 2026,
       "fixtureDate": "2026-11-21T12:30:00Z",
-      "status": "scheduled",
+      "status": "completed",
       "teams": [
         {
           "clubKey": "697671fe64f74db3",
@@ -109718,13 +109904,33 @@
           "name": "Fulham"
         }
       ],
-      "score": null,
-      "scorers": []
+      "score": [
+        1,
+        1
+      ],
+      "scorers": [
+        {
+          "playerKey": "0d9f09a1580233ca",
+          "clubKey": "244456e2211c5156",
+          "goals": 1,
+          "goalTimes": [
+            16
+          ]
+        },
+        {
+          "playerKey": "f5be4ea68232d58e",
+          "clubKey": "697671fe64f74db3",
+          "goals": 1,
+          "goalTimes": [
+            57
+          ]
+        }
+      ]
     },
     {
       "season": 2026,
       "fixtureDate": "2026-11-21T15:00:00Z",
-      "status": "scheduled",
+      "status": "completed",
       "teams": [
         {
           "clubKey": "84472110f075fb38",
@@ -109735,13 +109941,33 @@
           "name": "Nottingham Forest"
         }
       ],
-      "score": null,
-      "scorers": []
+      "score": [
+        2,
+        0
+      ],
+      "scorers": [
+        {
+          "playerKey": "1417947190dfc327",
+          "clubKey": "84472110f075fb38",
+          "goals": 1,
+          "goalTimes": [
+            19
+          ]
+        },
+        {
+          "playerKey": "22d53189f43fd9f6",
+          "clubKey": "84472110f075fb38",
+          "goals": 1,
+          "goalTimes": [
+            "45+3"
+          ]
+        }
+      ]
     },
     {
       "season": 2026,
       "fixtureDate": "2026-11-21T15:00:00Z",
-      "status": "scheduled",
+      "status": "completed",
       "teams": [
         {
           "clubKey": "87aed6ef21cd6d0d",
@@ -109752,13 +109978,16 @@
           "name": "Sunderland"
         }
       ],
-      "score": null,
+      "score": [
+        0,
+        0
+      ],
       "scorers": []
     },
     {
       "season": 2026,
       "fixtureDate": "2026-11-21T15:00:00Z",
-      "status": "scheduled",
+      "status": "completed",
       "teams": [
         {
           "clubKey": "98f3cf6e19df28f0",
@@ -109769,13 +109998,50 @@
           "name": "Leeds United"
         }
       ],
-      "score": null,
-      "scorers": []
+      "score": [
+        1,
+        4
+      ],
+      "scorers": [
+        {
+          "playerKey": "54688dd21da301f5",
+          "clubKey": "98f3cf6e19df28f0",
+          "goals": 1,
+          "goalTimes": [
+            25
+          ]
+        },
+        {
+          "playerKey": "41991040b4c93a22",
+          "clubKey": "5e9487d1f1dedeb7",
+          "goals": 1,
+          "goalTimes": [
+            "90+1"
+          ]
+        },
+        {
+          "playerKey": "7a1a35a7203d0d34",
+          "clubKey": "5e9487d1f1dedeb7",
+          "goals": 1,
+          "goalTimes": [
+            53
+          ]
+        },
+        {
+          "playerKey": "82df2faae0b60ca0",
+          "clubKey": "5e9487d1f1dedeb7",
+          "goals": 2,
+          "goalTimes": [
+            28,
+            58
+          ]
+        }
+      ]
     },
     {
       "season": 2026,
       "fixtureDate": "2026-11-21T15:00:00Z",
-      "status": "scheduled",
+      "status": "completed",
       "teams": [
         {
           "clubKey": "d7386639e488aa64",
@@ -109786,13 +110052,49 @@
           "name": "Crystal Palace"
         }
       ],
-      "score": null,
-      "scorers": []
+      "score": [
+        3,
+        2
+      ],
+      "scorers": [
+        {
+          "playerKey": "90ab0d598d48af67",
+          "clubKey": "d7386639e488aa64",
+          "goals": 1,
+          "goalTimes": [
+            5
+          ]
+        },
+        {
+          "playerKey": "e53cd8c1299bb0ff",
+          "clubKey": "d7386639e488aa64",
+          "goals": 1,
+          "goalTimes": [
+            30
+          ]
+        },
+        {
+          "playerKey": "9583e779483e4af1",
+          "clubKey": "41a32b0ccb25fb05",
+          "goals": 1,
+          "goalTimes": [
+            "45+1"
+          ]
+        },
+        {
+          "playerKey": "10c64d90fd5683ae",
+          "clubKey": "41a32b0ccb25fb05",
+          "goals": 1,
+          "goalTimes": [
+            13
+          ]
+        }
+      ]
     },
     {
       "season": 2026,
       "fixtureDate": "2026-11-21T15:00:00Z",
-      "status": "scheduled",
+      "status": "completed",
       "teams": [
         {
           "clubKey": "14f6c7f55a9d91b9",
@@ -109803,13 +110105,33 @@
           "name": "Ipswich Town"
         }
       ],
-      "score": null,
-      "scorers": []
+      "score": [
+        2,
+        0
+      ],
+      "scorers": [
+        {
+          "playerKey": "5a17d6013dcbff3f",
+          "clubKey": "14f6c7f55a9d91b9",
+          "goals": 1,
+          "goalTimes": [
+            51
+          ]
+        },
+        {
+          "playerKey": "5011ca8322d89bb0",
+          "clubKey": "14f6c7f55a9d91b9",
+          "goals": 1,
+          "goalTimes": [
+            15
+          ]
+        }
+      ]
     },
     {
       "season": 2026,
       "fixtureDate": "2026-11-21T17:30:00Z",
-      "status": "scheduled",
+      "status": "live",
       "teams": [
         {
           "clubKey": "7d1f31c0c7afec70",
@@ -109820,7 +110142,10 @@
           "name": "Arsenal"
         }
       ],
-      "score": null,
+      "score": [
+        0,
+        0
+      ],
       "scorers": []
     },
     {
