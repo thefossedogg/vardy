@@ -2,7 +2,7 @@
   "competition": "Premier League",
   "season": 2026,
   "seasonLabel": "2026/27",
-  "generatedAt": "2026-11-21T18:00:17.563616Z",
+  "generatedAt": "2026-11-22T00:00:18.012549Z",
   "source": "Local monthly Premier League JSON exports",
   "benchmark": {
     "playerName": "Jamie Vardy",
@@ -12,8 +12,8 @@
   "archiveStartsAt": "2020-01-01",
   "archiveEndsAt": "2027-11-30",
   "sourceFiles": 95,
-  "completedFixtures": 2567,
-  "liveFixtures": 1,
+  "completedFixtures": 2568,
+  "liveFixtures": 0,
   "scheduledFixtures": 273,
   "completeSeasons": [
     2020,
@@ -3022,9 +3022,9 @@
     }
   ],
   "whatChanged": {
-    "generatedAt": "2026-11-21T18:00:17.563616Z",
-    "windowStart": "2026-11-14T18:00:17.563616Z",
-    "windowEnd": "2026-11-21T18:00:17.563616Z",
+    "generatedAt": "2026-11-22T00:00:18.012549Z",
+    "windowStart": "2026-11-15T00:00:18.012549Z",
+    "windowEnd": "2026-11-22T00:00:18.012549Z",
     "endedStreaks": [
       {
         "playerName": "N. Jackson",
@@ -3107,8 +3107,8 @@
     {
       "clubName": "Arsenal",
       "clubKey": "0464077581c64f23",
-      "completedFixtures": 10,
-      "liveFixtures": 1,
+      "completedFixtures": 11,
+      "liveFixtures": 0,
       "scorers": [
         {
           "playerName": "B. Saka",
@@ -3135,28 +3135,34 @@
           "rank": 4
         },
         {
+          "playerName": "N. Madueke",
+          "playerKey": "dbdd21b8a1115e14",
+          "goals": 2,
+          "rank": 4
+        },
+        {
+          "playerName": "E. Eze",
+          "playerKey": "88d80f7859846322",
+          "goals": 1,
+          "rank": 6
+        },
+        {
           "playerName": "E. Konsa",
           "playerKey": "cc3eaed9f1acbaea",
           "goals": 1,
-          "rank": 5
+          "rank": 6
         },
         {
           "playerName": "Gabriel Magalhães",
           "playerKey": "28727a651bc2d3cf",
           "goals": 1,
-          "rank": 5
-        },
-        {
-          "playerName": "N. Madueke",
-          "playerKey": "dbdd21b8a1115e14",
-          "goals": 1,
-          "rank": 5
+          "rank": 6
         },
         {
           "playerName": "R. Calafiori",
           "playerKey": "81588529642e0683",
           "goals": 1,
-          "rank": 5
+          "rank": 6
         }
       ],
       "activeInSeason": [],
@@ -4435,26 +4441,26 @@
     {
       "clubName": "Newcastle United",
       "clubKey": "7d1f31c0c7afec70",
-      "completedFixtures": 10,
-      "liveFixtures": 1,
+      "completedFixtures": 11,
+      "liveFixtures": 0,
       "scorers": [
+        {
+          "playerName": "H. Barnes",
+          "playerKey": "07e9dfaf747fe8cb",
+          "goals": 3,
+          "rank": 1
+        },
         {
           "playerName": "A. Elanga",
           "playerKey": "5654bbb6776e7c90",
           "goals": 2,
-          "rank": 1
-        },
-        {
-          "playerName": "H. Barnes",
-          "playerKey": "07e9dfaf747fe8cb",
-          "goals": 2,
-          "rank": 1
+          "rank": 2
         },
         {
           "playerName": "J. Willock",
           "playerKey": "69e85144c685839a",
           "goals": 2,
-          "rank": 1
+          "rank": 2
         },
         {
           "playerName": "B. Touré",
@@ -4477,6 +4483,12 @@
         {
           "playerName": "L. Hall",
           "playerKey": "4a4ae5c9a92c114c",
+          "goals": 1,
+          "rank": 4
+        },
+        {
+          "playerName": "M. Thiaw",
+          "playerKey": "9368ce8b3583721a",
           "goals": 1,
           "rank": 4
         },
@@ -110131,7 +110143,7 @@
     {
       "season": 2026,
       "fixtureDate": "2026-11-21T17:30:00Z",
-      "status": "live",
+      "status": "completed",
       "teams": [
         {
           "clubKey": "7d1f31c0c7afec70",
@@ -110143,10 +110155,43 @@
         }
       ],
       "score": [
-        0,
-        0
+        2,
+        2
       ],
-      "scorers": []
+      "scorers": [
+        {
+          "playerKey": "88d80f7859846322",
+          "clubKey": "0464077581c64f23",
+          "goals": 1,
+          "goalTimes": [
+            33
+          ]
+        },
+        {
+          "playerKey": "dbdd21b8a1115e14",
+          "clubKey": "0464077581c64f23",
+          "goals": 1,
+          "goalTimes": [
+            78
+          ]
+        },
+        {
+          "playerKey": "07e9dfaf747fe8cb",
+          "clubKey": "7d1f31c0c7afec70",
+          "goals": 1,
+          "goalTimes": [
+            49
+          ]
+        },
+        {
+          "playerKey": "9368ce8b3583721a",
+          "clubKey": "7d1f31c0c7afec70",
+          "goals": 1,
+          "goalTimes": [
+            62
+          ]
+        }
+      ]
     },
     {
       "season": 2026,
