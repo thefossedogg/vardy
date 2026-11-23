@@ -2,7 +2,7 @@
   "competition": "Premier League",
   "season": 2026,
   "seasonLabel": "2026/27",
-  "generatedAt": "2026-11-22T18:00:16.582566Z",
+  "generatedAt": "2026-11-23T00:00:18.303170Z",
   "source": "Local monthly Premier League JSON exports",
   "benchmark": {
     "playerName": "Jamie Vardy",
@@ -12,8 +12,8 @@
   "archiveStartsAt": "2020-01-01",
   "archiveEndsAt": "2027-11-30",
   "sourceFiles": 95,
-  "completedFixtures": 2569,
-  "liveFixtures": 1,
+  "completedFixtures": 2570,
+  "liveFixtures": 0,
   "scheduledFixtures": 271,
   "completeSeasons": [
     2020,
@@ -3130,9 +3130,9 @@
     }
   ],
   "whatChanged": {
-    "generatedAt": "2026-11-22T18:00:16.582566Z",
-    "windowStart": "2026-11-15T18:00:16.582566Z",
-    "windowEnd": "2026-11-22T18:00:16.582566Z",
+    "generatedAt": "2026-11-23T00:00:18.303170Z",
+    "windowStart": "2026-11-16T00:00:18.303170Z",
+    "windowEnd": "2026-11-23T00:00:18.303170Z",
     "endedStreaks": [
       {
         "playerName": "N. Jackson",
@@ -4387,8 +4387,8 @@
     {
       "clubName": "Liverpool",
       "clubKey": "8e4a74df4af9d043",
-      "completedFixtures": 10,
-      "liveFixtures": 1,
+      "completedFixtures": 11,
+      "liveFixtures": 0,
       "scorers": [
         {
           "playerName": "A. Isak",
@@ -4397,22 +4397,22 @@
           "rank": 1
         },
         {
+          "playerName": "Víctor Muñoz",
+          "playerKey": "a39696804eeedec6",
+          "goals": 3,
+          "rank": 2
+        },
+        {
           "playerName": "D. Szoboszlai",
           "playerKey": "6f6335cf41fb3610",
           "goals": 2,
-          "rank": 2
+          "rank": 3
         },
         {
           "playerName": "F. Wirtz",
           "playerKey": "721fd4d5902bed09",
           "goals": 2,
-          "rank": 2
-        },
-        {
-          "playerName": "Víctor Muñoz",
-          "playerKey": "a39696804eeedec6",
-          "goals": 2,
-          "rank": 2
+          "rank": 3
         },
         {
           "playerName": "A. Mac Allister",
@@ -4612,8 +4612,8 @@
     {
       "clubName": "Manchester United",
       "clubKey": "c711c6955bb33643",
-      "completedFixtures": 10,
-      "liveFixtures": 1,
+      "completedFixtures": 11,
+      "liveFixtures": 0,
       "scorers": [
         {
           "playerName": "B. Mbeumo",
@@ -110449,7 +110449,7 @@
     {
       "season": 2026,
       "fixtureDate": "2026-11-22T16:30:00Z",
-      "status": "live",
+      "status": "completed",
       "teams": [
         {
           "clubKey": "8e4a74df4af9d043",
@@ -110461,7 +110461,7 @@
         }
       ],
       "score": [
-        3,
+        4,
         0
       ],
       "scorers": [
@@ -110487,6 +110487,14 @@
           "goals": 1,
           "goalTimes": [
             66
+          ]
+        },
+        {
+          "playerKey": "a39696804eeedec6",
+          "clubKey": "8e4a74df4af9d043",
+          "goals": 1,
+          "goalTimes": [
+            82
           ]
         }
       ]
