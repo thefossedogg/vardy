@@ -2,7 +2,7 @@
   "competition": "Premier League",
   "season": 2026,
   "seasonLabel": "2026/27",
-  "generatedAt": "2026-11-23T18:00:18.058726Z",
+  "generatedAt": "2026-11-24T07:00:17.603358Z",
   "source": "Local monthly Premier League JSON exports",
   "benchmark": {
     "playerName": "Jamie Vardy",
@@ -12,9 +12,9 @@
   "archiveStartsAt": "2020-01-01",
   "archiveEndsAt": "2027-11-30",
   "sourceFiles": 95,
-  "completedFixtures": 2570,
+  "completedFixtures": 2571,
   "liveFixtures": 0,
-  "scheduledFixtures": 271,
+  "scheduledFixtures": 270,
   "completeSeasons": [
     2020,
     2021,
@@ -453,114 +453,6 @@
             "name": "Newcastle United"
           },
           "venue": "away"
-        }
-      ]
-    },
-    {
-      "playerName": "T. Barry",
-      "playerKey": "f8542664f1640801",
-      "clubKey": "5f6166bfca6f58ed",
-      "clubName": "Everton",
-      "matches": 2,
-      "startDate": "2026-11-02T20:00:00Z",
-      "lastScoringDate": "2026-11-06T20:00:00Z",
-      "startSeason": 2026,
-      "season": 2026,
-      "isActive": true,
-      "games": [
-        {
-          "fixtureDate": "2026-11-02T20:00:00Z",
-          "opponent": {
-            "name": "Newcastle United"
-          },
-          "venue": "away"
-        },
-        {
-          "fixtureDate": "2026-11-06T20:00:00Z",
-          "opponent": {
-            "name": "Coventry City"
-          },
-          "venue": "home"
-        }
-      ],
-      "nextGame": {
-        "fixtureDate": "2026-11-23T20:00:00Z",
-        "opponent": {
-          "name": "Brentford"
-        },
-        "venue": "away"
-      },
-      "targetMatches": 12,
-      "upcomingGames": [
-        {
-          "fixtureDate": "2026-11-23T20:00:00Z",
-          "opponent": {
-            "name": "Brentford"
-          },
-          "venue": "away"
-        },
-        {
-          "fixtureDate": "2026-11-29T12:00:00Z",
-          "opponent": {
-            "name": "Liverpool"
-          },
-          "venue": "home"
-        },
-        {
-          "fixtureDate": "2026-12-02T20:15:00Z",
-          "opponent": {
-            "name": "Aston Villa"
-          },
-          "venue": "away"
-        },
-        {
-          "fixtureDate": "2026-12-06T14:00:00Z",
-          "opponent": {
-            "name": "Fulham"
-          },
-          "venue": "home"
-        },
-        {
-          "fixtureDate": "2026-12-13T14:00:00Z",
-          "opponent": {
-            "name": "Brighton & Hove Albion"
-          },
-          "venue": "away"
-        },
-        {
-          "fixtureDate": "2026-12-20T14:00:00Z",
-          "opponent": {
-            "name": "Nottingham Forest"
-          },
-          "venue": "away"
-        },
-        {
-          "fixtureDate": "2026-12-26T15:00:00Z",
-          "opponent": {
-            "name": "Sunderland"
-          },
-          "venue": "home"
-        },
-        {
-          "fixtureDate": "2026-12-29T20:15:00Z",
-          "opponent": {
-            "name": "Manchester City"
-          },
-          "venue": "home"
-        },
-        {
-          "fixtureDate": "2027-01-01T20:00:00Z",
-          "opponent": {
-            "name": "Leeds United"
-          },
-          "venue": "away"
-        },
-        {
-          "fixtureDate": "2027-01-05T19:30:00Z",
-          "opponent": {
-            "name": "Aston Villa"
-          },
-          "venue": "home"
         }
       ]
     }
@@ -1985,35 +1877,70 @@
       "clubKey": "5f6166bfca6f58ed",
       "clubName": "Everton",
       "matches": 2,
-      "startDate": "2026-09-19T14:00:00Z",
-      "lastScoringDate": "2026-10-11T13:00:00Z",
+      "startDate": "2026-11-02T20:00:00Z",
+      "lastScoringDate": "2026-11-06T20:00:00Z",
       "startSeason": 2026,
       "season": 2026,
       "isActive": false,
       "games": [
         {
-          "fixtureDate": "2026-09-19T14:00:00Z",
+          "fixtureDate": "2026-11-02T20:00:00Z",
           "opponent": {
-            "name": "Ipswich Town"
-          },
-          "venue": "home"
-        },
-        {
-          "fixtureDate": "2026-10-11T13:00:00Z",
-          "opponent": {
-            "name": "Hull City"
+            "name": "Newcastle United"
           },
           "venue": "away"
+        },
+        {
+          "fixtureDate": "2026-11-06T20:00:00Z",
+          "opponent": {
+            "name": "Coventry City"
+          },
+          "venue": "home"
         }
       ],
       "failedGame": {
-        "fixtureDate": "2026-10-17T11:30:00Z",
+        "fixtureDate": "2026-11-23T20:00:00Z",
         "opponent": {
-          "name": "Chelsea"
+          "name": "Brentford"
         },
-        "venue": "home"
+        "venue": "away"
       },
       "bestRuns": [
+        {
+          "playerName": "T. Barry",
+          "playerKey": "f8542664f1640801",
+          "clubKey": "5f6166bfca6f58ed",
+          "clubName": "Everton",
+          "matches": 2,
+          "startDate": "2026-11-02T20:00:00Z",
+          "lastScoringDate": "2026-11-06T20:00:00Z",
+          "startSeason": 2026,
+          "season": 2026,
+          "isActive": false,
+          "games": [
+            {
+              "fixtureDate": "2026-11-02T20:00:00Z",
+              "opponent": {
+                "name": "Newcastle United"
+              },
+              "venue": "away"
+            },
+            {
+              "fixtureDate": "2026-11-06T20:00:00Z",
+              "opponent": {
+                "name": "Coventry City"
+              },
+              "venue": "home"
+            }
+          ],
+          "failedGame": {
+            "fixtureDate": "2026-11-23T20:00:00Z",
+            "opponent": {
+              "name": "Brentford"
+            },
+            "venue": "away"
+          }
+        },
         {
           "playerName": "T. Barry",
           "playerKey": "f8542664f1640801",
@@ -3130,9 +3057,9 @@
     }
   ],
   "whatChanged": {
-    "generatedAt": "2026-11-23T18:00:18.058726Z",
-    "windowStart": "2026-11-16T18:00:18.058726Z",
-    "windowEnd": "2026-11-23T18:00:18.058726Z",
+    "generatedAt": "2026-11-24T07:00:17.603358Z",
+    "windowStart": "2026-11-17T07:00:17.603358Z",
+    "windowEnd": "2026-11-24T07:00:17.603358Z",
     "endedStreaks": [
       {
         "playerName": "N. Jackson",
@@ -3205,6 +3132,40 @@
           "fixtureDate": "2026-11-21T15:00:00Z",
           "opponent": {
             "name": "Aston Villa"
+          },
+          "venue": "away"
+        }
+      },
+      {
+        "playerName": "T. Barry",
+        "playerKey": "f8542664f1640801",
+        "clubKey": "5f6166bfca6f58ed",
+        "clubName": "Everton",
+        "season": 2026,
+        "startSeason": 2026,
+        "startDate": "2026-11-02T20:00:00Z",
+        "lastScoringDate": "2026-11-06T20:00:00Z",
+        "matches": 2,
+        "games": [
+          {
+            "fixtureDate": "2026-11-02T20:00:00Z",
+            "opponent": {
+              "name": "Newcastle United"
+            },
+            "venue": "away"
+          },
+          {
+            "fixtureDate": "2026-11-06T20:00:00Z",
+            "opponent": {
+              "name": "Coventry City"
+            },
+            "venue": "home"
+          }
+        ],
+        "failedGame": {
+          "fixtureDate": "2026-11-23T20:00:00Z",
+          "opponent": {
+            "name": "Brentford"
           },
           "venue": "away"
         }
@@ -3480,68 +3441,68 @@
     {
       "clubName": "Brentford",
       "clubKey": "b53546bad5bd6bb9",
-      "completedFixtures": 10,
+      "completedFixtures": 11,
       "liveFixtures": 0,
       "scorers": [
+        {
+          "playerName": "K. Lewis-Potter",
+          "playerKey": "211634d16dab44a0",
+          "goals": 4,
+          "rank": 1
+        },
         {
           "playerName": "K. Schade",
           "playerKey": "b4216ab0fb33e82d",
           "goals": 3,
-          "rank": 1
-        },
-        {
-          "playerName": "Igor Thiago",
-          "playerKey": "26d66faa87a5b3ef",
-          "goals": 2,
-          "rank": 2
-        },
-        {
-          "playerName": "K. Lewis-Potter",
-          "playerKey": "211634d16dab44a0",
-          "goals": 2,
           "rank": 2
         },
         {
           "playerName": "V. Janelt",
           "playerKey": "f65eae511d04440c",
-          "goals": 2,
+          "goals": 3,
           "rank": 2
+        },
+        {
+          "playerName": "Fábio Carvalho",
+          "playerKey": "4e1ea6f9a3e59e38",
+          "goals": 2,
+          "rank": 4
+        },
+        {
+          "playerName": "Igor Thiago",
+          "playerKey": "26d66faa87a5b3ef",
+          "goals": 2,
+          "rank": 4
         },
         {
           "playerName": "D. Ouattara",
           "playerKey": "87654f972175f9ed",
           "goals": 1,
-          "rank": 5
-        },
-        {
-          "playerName": "Fábio Carvalho",
-          "playerKey": "4e1ea6f9a3e59e38",
-          "goals": 1,
-          "rank": 5
+          "rank": 6
         },
         {
           "playerName": "J. Anthony",
           "playerKey": "d2b2feaeeee50982",
           "goals": 1,
-          "rank": 5
+          "rank": 6
         },
         {
           "playerName": "K. Ajer",
           "playerKey": "20cdaef2acda0708",
           "goals": 1,
-          "rank": 5
+          "rank": 6
         },
         {
           "playerName": "M. Kayode",
           "playerKey": "19cdb6ac05eb94b1",
           "goals": 1,
-          "rank": 5
+          "rank": 6
         },
         {
           "playerName": "Y. Yarmoliuk",
           "playerKey": "4d608d1ad9f384c1",
           "goals": 1,
-          "rank": 5
+          "rank": 6
         }
       ],
       "activeInSeason": [],
@@ -3794,7 +3755,7 @@
     {
       "clubName": "Everton",
       "clubKey": "5f6166bfca6f58ed",
-      "completedFixtures": 10,
+      "completedFixtures": 11,
       "liveFixtures": 0,
       "scorers": [
         {
@@ -3828,116 +3789,7 @@
           "rank": 3
         }
       ],
-      "activeInSeason": [
-        {
-          "playerName": "T. Barry",
-          "playerKey": "f8542664f1640801",
-          "clubKey": "5f6166bfca6f58ed",
-          "clubName": "Everton",
-          "matches": 2,
-          "startDate": "2026-11-02T20:00:00Z",
-          "lastScoringDate": "2026-11-06T20:00:00Z",
-          "startSeason": 2026,
-          "season": 2026,
-          "isActive": true,
-          "games": [
-            {
-              "fixtureDate": "2026-11-02T20:00:00Z",
-              "opponent": {
-                "name": "Newcastle United"
-              },
-              "venue": "away"
-            },
-            {
-              "fixtureDate": "2026-11-06T20:00:00Z",
-              "opponent": {
-                "name": "Coventry City"
-              },
-              "venue": "home"
-            }
-          ],
-          "nextGame": {
-            "fixtureDate": "2026-11-23T20:00:00Z",
-            "opponent": {
-              "name": "Brentford"
-            },
-            "venue": "away"
-          },
-          "targetMatches": 12,
-          "upcomingGames": [
-            {
-              "fixtureDate": "2026-11-23T20:00:00Z",
-              "opponent": {
-                "name": "Brentford"
-              },
-              "venue": "away"
-            },
-            {
-              "fixtureDate": "2026-11-29T12:00:00Z",
-              "opponent": {
-                "name": "Liverpool"
-              },
-              "venue": "home"
-            },
-            {
-              "fixtureDate": "2026-12-02T20:15:00Z",
-              "opponent": {
-                "name": "Aston Villa"
-              },
-              "venue": "away"
-            },
-            {
-              "fixtureDate": "2026-12-06T14:00:00Z",
-              "opponent": {
-                "name": "Fulham"
-              },
-              "venue": "home"
-            },
-            {
-              "fixtureDate": "2026-12-13T14:00:00Z",
-              "opponent": {
-                "name": "Brighton & Hove Albion"
-              },
-              "venue": "away"
-            },
-            {
-              "fixtureDate": "2026-12-20T14:00:00Z",
-              "opponent": {
-                "name": "Nottingham Forest"
-              },
-              "venue": "away"
-            },
-            {
-              "fixtureDate": "2026-12-26T15:00:00Z",
-              "opponent": {
-                "name": "Sunderland"
-              },
-              "venue": "home"
-            },
-            {
-              "fixtureDate": "2026-12-29T20:15:00Z",
-              "opponent": {
-                "name": "Manchester City"
-              },
-              "venue": "home"
-            },
-            {
-              "fixtureDate": "2027-01-01T20:00:00Z",
-              "opponent": {
-                "name": "Leeds United"
-              },
-              "venue": "away"
-            },
-            {
-              "fixtureDate": "2027-01-05T19:30:00Z",
-              "opponent": {
-                "name": "Aston Villa"
-              },
-              "venue": "home"
-            }
-          ]
-        }
-      ],
+      "activeInSeason": [],
       "slug": "everton"
     },
     {
@@ -110502,7 +110354,7 @@
     {
       "season": 2026,
       "fixtureDate": "2026-11-23T20:00:00Z",
-      "status": "scheduled",
+      "status": "completed",
       "teams": [
         {
           "clubKey": "b53546bad5bd6bb9",
@@ -110513,8 +110365,37 @@
           "name": "Everton"
         }
       ],
-      "score": null,
-      "scorers": []
+      "score": [
+        4,
+        0
+      ],
+      "scorers": [
+        {
+          "playerKey": "4e1ea6f9a3e59e38",
+          "clubKey": "b53546bad5bd6bb9",
+          "goals": 1,
+          "goalTimes": [
+            90
+          ]
+        },
+        {
+          "playerKey": "211634d16dab44a0",
+          "clubKey": "b53546bad5bd6bb9",
+          "goals": 2,
+          "goalTimes": [
+            23,
+            25
+          ]
+        },
+        {
+          "playerKey": "f65eae511d04440c",
+          "clubKey": "b53546bad5bd6bb9",
+          "goals": 1,
+          "goalTimes": [
+            67
+          ]
+        }
+      ]
     },
     {
       "season": 2026,
